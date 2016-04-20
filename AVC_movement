@@ -1,0 +1,18 @@
+#include  <stdio.h>
+#include  <time.h>
+
+extern "C" int  InitHardware();
+extern "C" int  Sleep(int sec, int  usec);
+extern "C" int  SetMotor(int motor ,int dir, int speed);
+
+int  main(){
+InitHardware();
+
+SetMotor(1, 1, 127); //sets motors on pin one and 2 to 50% spped for 5 seconds
+SetMotor(2, 1, 127);
+Sleep(5,0);
+
+SetMotor(1, 1, 0);
+SetMotor(2, 1, 0);
+
+return  0;}
