@@ -9,9 +9,9 @@
 
 Controller Controller::instance;
 
-Controller Controller::getInstance(){
+Controller* Controller::getInstance(){
 	if (!instance){makeInstance();}
-	return instance;
+	return *instance;
 }
 int Controller::makeInstance(){
 	if (!instance){

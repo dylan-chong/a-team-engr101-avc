@@ -14,7 +14,7 @@ class Controller {
 private:
 	static Controller instance;
 public:
-	static Controller getInstance();
+	static Controller* getInstance();
 	virtual static int makeInstance();
 	Controller();
 	virtual ~Controller();
