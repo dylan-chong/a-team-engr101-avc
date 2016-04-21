@@ -15,12 +15,14 @@ class NetworkController : public Controller{
 private:
 	const char IP_address[15];
 	const int port;
-	void connect();
+
 
 public:
 	NetworkController(char IP_address[15], int port);
 	virtual ~NetworkController();
-	void sendMessage(char message[]);
+
+	int connect();
+	int sendMessage(char message[]);
 	char recieveMessage(char message[]);
 	int openGate();
 };
