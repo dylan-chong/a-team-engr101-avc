@@ -7,7 +7,7 @@ extern "C" int  Sleep(int sec, int  usec);
 
 int main(){
 	InitHardware();
-	NetworkController network_controller = NetworkController::getInstance();
+	NetworkController *network_controller = NetworkController::getInstance();
 	printf("it worked");
 	return  0;
 }

@@ -11,9 +11,8 @@
 #ifndef NETWORKCONTROLLER_H_
 #define NETWORKCONTROLLER_H_
 
-class NetworkController {
+class NetworkController : public Controller{
 private:
-	static NetworkController instance;
 	const char IP_address[15];
 	const int port;
 	void connect();
@@ -21,9 +20,9 @@ private:
 public:
 	NetworkController(char IP_address[15], int port);
 	virtual ~NetworkController();
-	static NetworkController getInstance();
 	void sendMessage(char message[]);
 	char recieveMessage(char message[]);
+	int openGate();
 };
 
 #endif /* NETWORKCONTROLLER_H_ */
