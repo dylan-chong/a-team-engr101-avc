@@ -16,14 +16,13 @@ private:
 	const char IP_address[15];
 	const int port;
 
-
-public:
 	NetworkController(char IP_address[15], int port);
-	virtual ~NetworkController();
-
 	int connect();
 	int sendMessage(char message[]);
 	char recieveMessage(char message[]);
+public:
+	virtual ~NetworkController();
+
 	int openGate();
 };
 
