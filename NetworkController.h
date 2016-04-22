@@ -11,7 +11,9 @@
 #ifndef NETWORKCONTROLLER_H_
 #define NETWORKCONTROLLER_H_
 
-class NetworkController : public Controller{
+#include "Controller.h"
+
+class NetworkController: public Controller{
 private:
 	const char IP_address[15];
 	const int port;
