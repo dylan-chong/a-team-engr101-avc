@@ -1,0 +1,10 @@
+# Eclipse project
+.cproject
+.project
+.settings/
+
+# Code Blocks project
+bin
+obj
+*.cbp
+*.layout
