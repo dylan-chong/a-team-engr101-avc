@@ -18,10 +18,11 @@ Repository for Autonomous Vehicle Challenge - Group: A-Team - for ENGR101 at Vic
 
 
 
-<h3>Week 8 (Wed 20 - Sun 24 April)</h3>
+<h3>Week 8 asdasd(Wed 20 - Sun 24 April)</h3>
 
-<h4>Milestone Checklist</h4>
+<h4>Milestone Checklist</h4> 
 (based off milestones from project plan)
+
 - [x] All: Produce AVC Plan
 - [x] Ahmed, Daniel: Get robot to move
 - [x] Dylan: Sort out a GitHub repository
@@ -35,8 +36,6 @@ Repository for Autonomous Vehicle Challenge - Group: A-Team - for ENGR101 at Vic
 - [x] Daniel: Begin making robot move in straight line
 - [x] Dylan: Organise team meetings
 - [x] Jonah: Start looking up how to convert IR sensor readings into distance
-
-/// TODO NOW create week 1 checklist based off of milestone chart and completed items in log
 
 (with assigned tasks, including small ones, and their progress)
 /// TODO move log from Team Notes doc to here and convert to md using http://markitdown.medusis.com
