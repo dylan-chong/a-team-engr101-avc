@@ -4,7 +4,7 @@ as part of ENGR101 at Victoria University of Wellington
 
 <h2>Members and Roles</h2>
 
-- Ahmed Mohammed 
+- Ahmed Mohamed 
     - Hardware (Designing shape of robot and 3D printing, working with others in their hardware-related jobs) 
 - Andrew McGhie 
     - Networking (Communicating with starting gate) 
