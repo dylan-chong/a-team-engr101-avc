@@ -37,8 +37,10 @@ as part of ENGR101 at Victoria University of Wellington
 <h2>Progress and Milestones</h2>
 [//]: **********************************************************************
 
-
 <h3>Week 8 (Wed 20 - Sun 24 April) - First Week</h3>
+
+
+
 
 <h4>Milestone Checklist</h4> 
 (based off milestones from project plan)
@@ -146,9 +148,9 @@ Andrew
 ---
 [//]: **********************************************************************
 
-
-
 <h3>Week 9 (Mon 25 - Sun 1 May) - Mid-Trimester Break</h3>
+
+
 
 <h4>Milestone Checklist</h4>
 - [x] Dylan: Move logs to GitHub readme and have it be up to date
@@ -162,6 +164,7 @@ None
 - Dylan
 	- Moved logs from AVC Team Notes (Google Doc) to GitHub readme
 	- Added checklists from Team Notes doc and added tasks for next week
+    - Removed all the movement branches from GitHub to prevent anyone from committing to them (I had to merge the movement-straight-line branch and then delete the AVC_movement file to do so).
 
 <h4>Review</h4>
 None
@@ -172,9 +175,9 @@ None
 ---
 [//]: **********************************************************************
 
-
-
 <h3>Week 10 (Mon 2 - Sun 8 May)</h3>
+
+
 
 <h4>Milestone Checklist</h4>
 - [ ] Everyone: Complete Skeleton robot design (functional parts and structure only)
@@ -199,9 +202,9 @@ None
 ---
 [//]: **********************************************************************
 
-
-
 <h3>Week 11 (Mon 9 - Sun 15 May)</h3>
+
+
 
 <h4>Milestone Checklist</h4>
 - [ ] Ahmed: Produce body prototype
@@ -222,9 +225,9 @@ None
 ---
 [//]: **********************************************************************
 
-
-
 <h3>Week 12 (Mon 16 - Sun 22 May)</h3>
+
+
 
 <h4>Milestone Checklist</h4>
 - [ ] Everyone: Robot is complete
