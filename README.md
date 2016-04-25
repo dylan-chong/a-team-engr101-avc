@@ -22,7 +22,7 @@ as part of ENGR101 at Victoria University of Wellington
     - Navigation (Algorithms to navigate through the paths)
 
 
-<h2>Related Documents</h2>
+<h2>Relevant Documents</h2>
 - [AVC Project Plan (Read Only)](https://docs.google.com/document/d/1PGjWPlpUhXjcqqKfF3nAxugpQDZaEifs_aqTZwUoJcg/pub)
 - [Team Notes (Private Access Only)](https://docs.google.com/document/d/1385G8qHiNDcL0iQiOU0o_waaYvI3Ny60LDWCXVkwYT4/edit?usp=sharing)
 
@@ -34,19 +34,19 @@ as part of ENGR101 at Victoria University of Wellington
 
 
 [//]: **********************************************************************
-<h2>Progress Log</h2>
+<h2>Progress and Milestones</h2>
 [//]: **********************************************************************
 
 
-<h3>Week 8 (Wed 20 - Sun 24 April)</h3>
+<h3>Week 8 (Wed 20 - Sun 24 April) - First Week</h3>
 
 <h4>Milestone Checklist</h4> 
 (based off milestones from project plan)
 
-- [x] All: Produce AVC Plan
+- [x] Everyone: Produce AVC Plan
 - [x] Ahmed, Daniel: Get robot to move
 - [x] Dylan: Sort out a GitHub repository
-- [x] Dylan (+All): Distribute roles
+- [x] Dylan (+Everyone): Distribute roles
 
 <h4>Minor Task Checklist</h4>
 (includes assigned tasks, including small ones, and their progress)
@@ -70,7 +70,7 @@ as part of ENGR101 at Victoria University of Wellington
         - Wrote code (done) 
 - Ben 
     - Found out how to SSH into the pi 
-    - Reading through avc plan doc and creating todo list 
+    - Skimmed through avc plan doc and creating todo list for the Project Plan
 - Daniel 
     - Movement in straight line 
         - Wrote C++ code (but not tested) 
@@ -148,13 +148,13 @@ Andrew
 
 
 
-<h3>Week 9 (Mon 25 - Sun 1 May)</h3>
-Mid-Trimester Break
+<h3>Week 9 (Mon 25 - Sun 1 May) - Mid-Trimester Break</h3>
 
 <h4>Milestone Checklist</h4>
-- [x] Dylan Move logs to GitHub readme and have it be up to date
+- [x] Dylan: Move logs to GitHub readme and have it be up to date
 
 <h4>Minor Task Checklist</h4>
+None
 
 <h4>Daily Log</h4>
 <h5>Monday 25/04/16</h5>
@@ -164,6 +164,7 @@ Mid-Trimester Break
 	- Added checklists from Team Notes doc and added tasks for next week
 
 <h4>Review</h4>
+None
 
 
 
@@ -176,20 +177,64 @@ Mid-Trimester Break
 <h3>Week 10 (Mon 2 - Sun 8 May)</h3>
 
 <h4>Milestone Checklist</h4>
-- [ ] All: Complete Skeleton robot design (functional parts and structure only)
-
-<!-- /// TODO add checklists for every week using milestone chart in AVC Team Notes doc -->
+- [ ] Everyone: Complete Skeleton robot design (functional parts and structure only)
+- [ ] Ahmed, Daniel: Have AVC follow straight lines
+- [ ] Ahmed: Create ball bearing for robot
+- [ ] Andrew, Dylan: Plan modules and methods
+- [ ] Andrew, Dylan: Add method stubs to files
+- [ ] Ben: Be able to receive data from camera
+- [ ] Jonah: Be able to sense distance from IR sensor
 
 <h4>Minor Task Checklist</h4>
-- [ ] 
-- [ ] 
-- [ ]
-- [ ]
 - [ ] Dylan: Record cost of parts so far
-- [ ] 
 
-<!-- /// TODO add minor tasks for next week -->
 
 <h4>Daily Log</h4>
 
 <h4>Review</h4>
+
+
+
+[//]: **********************************************************************
+---
+[//]: **********************************************************************
+
+
+
+<h3>Week 11 (Mon 9 - Sun 15 May)</h3>
+
+<h4>Milestone Checklist</h4>
+- [ ] Ahmed: Produce body prototype
+- [ ] Andrew: Robot can successfully talk to gate
+- [ ] Ben: Data from camera is processed to give information on the line
+- [ ] Daniel: Robot can follow curved lines
+- [ ] Dylan: Robot can be in different states
+
+<h4>Minor Task Checklist</h4>
+
+<h4>Daily Log</h4>
+
+<h4>Review</h4>
+
+
+
+[//]: **********************************************************************
+---
+[//]: **********************************************************************
+
+
+
+<h3>Week 12 (Mon 16 - Sun 22 May)</h3>
+
+<h4>Milestone Checklist</h4>
+- [ ] Everyone: Robot is complete
+- [ ] Ahmed: 3D Print body design and add it to the robot
+- [ ] Dylan: Robot is tested
+
+
+<h4>Minor Task Checklist</h4>
+
+<h4>Daily Log</h4>
+
+<h4>Review</h4>
+
