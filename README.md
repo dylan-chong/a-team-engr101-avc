@@ -1,7 +1,8 @@
 # ENGR101 AVC - A Team
 Repository for Autonomous Vehicle Challenge - Group: A-Team - for ENGR101 at Victoria University of Wellington
 
-[View the Project Plan here](https://docs.google.com/document/d/1PGjWPlpUhXjcqqKfF3nAxugpQDZaEifs_aqTZwUoJcg/pub)
+<h2>Related Documents</h2>
+- [AVC Project Plan](https://docs.google.com/document/d/1PGjWPlpUhXjcqqKfF3nAxugpQDZaEifs_aqTZwUoJcg/pub)
 
 
 
@@ -17,8 +18,7 @@ Repository for Autonomous Vehicle Challenge - Group: A-Team - for ENGR101 at Vic
 [//]: **********************************************************************
 
 
-
-<h3>Week 8 asdasd(Wed 20 - Sun 24 April)</h3>
+<h3>Week 8 (Wed 20 - Sun 24 April)</h3>
 
 <h4>Milestone Checklist</h4> 
 (based off milestones from project plan)
@@ -29,6 +29,8 @@ Repository for Autonomous Vehicle Challenge - Group: A-Team - for ENGR101 at Vic
 - [x] Dylan (+All): Distribute roles
 
 <h4>Minor Task Checklist</h4>
+(includes assigned tasks, including small ones, and their progress)
+
 - [x] Andrew: Start writing Networking code
 - [x] Ahmed: Begin planning ideas for model
 - [x] Ahmed, Daniel: Get motors working
@@ -37,7 +39,7 @@ Repository for Autonomous Vehicle Challenge - Group: A-Team - for ENGR101 at Vic
 - [x] Dylan: Organise team meetings
 - [x] Jonah: Start looking up how to convert IR sensor readings into distance
 
-(with assigned tasks, including small ones, and their progress)
+
 /// TODO move log from Team Notes doc to here and convert to md using http://markitdown.medusis.com
 /// convert (done) to tickboxes
 
