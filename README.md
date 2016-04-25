@@ -4,20 +4,20 @@ as part of ENGR101 at Victoria University of Wellington
 
 <h2>Members and Roles</h2>
 
-- Ahmed Mohamed 
+- Ahmed Mohamed (Ahmedmohame1)
     - Hardware (Designing shape of robot and 3D printing, working with others in their hardware-related jobs) 
-- Andrew McGhie 
+- Andrew McGhie (mgoo)
     - Networking (Communicating with starting gate) 
     - Module Planning (Planning how the different modules will fit together) 
-- Benjamin Percy 
+- Benjamin Percy (Radroaches)
     - Tracking (Making robot react to processed information from sensors) 
     - Sensors (Making use of camera sensor information) 
-- Daniel Bakes 
+- Daniel Bakes (CenturionBakes)
     - Motors (Making the robot move and coding movement functions) 
-- Dylan Chong 
+- Dylan Chong (dylan-chong)
     - Project Management (Distributing tasks, Git management, overseeing project) 
     - Testing (Making sure each module works, as units and integrated into the project) 
-- Jonah Ease
+- Jonah Ease (dayyad)
     - Sensors (Making use of IR sensor information)
     - Navigation (Algorithms to navigate through the paths)
 
