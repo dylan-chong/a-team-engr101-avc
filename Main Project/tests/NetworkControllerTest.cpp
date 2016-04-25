@@ -1,6 +1,6 @@
 #include  <stdio.h>
 #include  <assert.h>
-#include  "NetworkController.h"
+#include  "../src/NetworkController.h"
 
 class NetworkControllerTest : public NetworkController{
 public:
