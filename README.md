@@ -1,12 +1,3 @@
-<button onclick="toggleText()">Test</button>
-
-
-
-
-
-
-
-
 # Autonomous Vehicle Challenge - A Team
 Repository for Autonomous Vehicle Challenge (AVC) by A-Team,
 as part of ENGR101 at Victoria University of Wellington
