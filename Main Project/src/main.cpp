@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <time.h>
+
+#include "CameraController.h"
 #include "NetworkController.h"
 #include "MotorController.h"
 #include "IRController.h"
-#include "CameraController.h"
 
 extern "C" int  InitHardware();
 extern "C" int  Sleep(int sec, int  usec);
