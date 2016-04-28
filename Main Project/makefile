@@ -1,6 +1,5 @@
-mainTest.exe : tests/mainTest.cpp
-	gcc -Wall -L lib -o mainTest.exe tests/mainTest.cpp -l libE101.so
+mainTest : tests/mainTest.cpp
+	$(CC) -o mainTest tests/mainTest.cpp $(CFLAGS)
 
-main.exe:src/main.cpp
-	gcc -Wall -L lib -o main.exe src/main.cpp -l libE101.so
-	
+main:src/main.cpp
+	$(CC) -o main src/main.cpp $(CFLAGS)
