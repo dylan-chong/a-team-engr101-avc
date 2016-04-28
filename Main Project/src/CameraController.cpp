@@ -7,7 +7,7 @@
  *
  */
 
-#include "CameraContoller.h"
+#include "CameraController.h"
 
 // returns 0 if made a new Camera controller retruns 1 if the controller already exists
 int Controller::makeInstance(){
