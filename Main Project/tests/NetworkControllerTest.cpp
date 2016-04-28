@@ -1,35 +1,28 @@
+/*
+ * NetworkControllerTest.cpp
+ *
+ *  Created on: 28/04/2016
+ *      Author: mgoo
+ */
 #include  <stdio.h>
 #include  <assert.h>
 #include  "../src/NetworkController.h"
 
-class NetworkControllerTest : public NetworkController{
-public:
-	NetworkControllerTest();
-	~NetworkControllerTest();
-	void makeInstanceTest();
-	void connectionTest(NetworkController*);
-	void messageTest(NetworkController*);
-	void runTests();
-};
+#include "NetworkControllerTest.h"
 
-int main(){
-	NetworkControllerTest nct = new NetworkControllerTest();
-	nct.runTests();
-	return  0;
+NetworkControllerTest::NetworkControllerTest() {
+	// TODO Auto-generated constructor stub
+
 }
 
-NetworkControllerTest::NetworkControllerTest(){
-	//does nothing
-}
-
-NetworkControllerTest::~NetworkControllerTest(){
-	//also does nothing
+NetworkControllerTest::~NetworkControllerTest() {
+	// TODO Auto-generated destructor stub
 }
 
 //runs the tests
 void NetworkControllerTest::runTests(){
 	printf("Test Running");
-	NetworkController *network_controller = NetworkController::getInstance();
+	NetworkController *network_controller =(NetworkController*)NetworkController::getInstance();
 	connectionTest(network_controller);
 	messageTest(network_controller);
 	makeInstanceTest();
@@ -37,7 +30,8 @@ void NetworkControllerTest::runTests(){
 
 //test the conntection by see what connect returns
 void NetworkControllerTest::connectionTest(NetworkController *network_controller){
-	assert(network_controller->connect == 0);
+	//connect is a private method
+	assert(network_controller->connect() == 0);
 	printf("the IP address exists");
 	printf("The network controller connected");
 
@@ -45,6 +39,7 @@ void NetworkControllerTest::connectionTest(NetworkController *network_controller
 
 //test the sending message by what sendMessage returns
 void NetworkControllerTest::messageTest(NetworkController *network_controller){
+	//send message is a private method
 	assert(network_controller->sendMessage("msg") == 0);
 	printf("Message sent successfully");
 }
@@ -56,6 +51,7 @@ void NetworkControllerTest::makeInstanceTest(){
 	assert(NetworkController::makeInstance() == 1);
 	printf("making two instances successfully failed");
 }
+
 
 
 
