@@ -12,9 +12,11 @@
 #include "Controller.h"
 
 class CameraController: public Controller{
+friend class CameraControllerTest;
 private:
-	CameraController();
+
 public:
 	virtual ~CameraController();
+	CameraController();
 };
 #endif /* CAMERACONTROLLER_H_ */

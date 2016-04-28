@@ -14,16 +14,18 @@
 #include "Controller.h"
 
 class NetworkController: public Controller{
+	friend class NetworkControllerTest;
 private:
 	const char IP_address[15];
 	const int port;
 
-	NetworkController(char IP_address[15], int port);
+
 	int connect();
 	int sendMessage(char message[]);
 	char recieveMessage(char message[]);
 public:
 	virtual ~NetworkController();
+	NetworkController(char IP_address[15], int port);
 
 	int openGate();
 };

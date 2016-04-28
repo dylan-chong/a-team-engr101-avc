@@ -12,10 +12,12 @@
 #include "Controller.h"
 
 class MotorController: public Controller{
+	friend class MotorControllerTest;
 private:
-	MotorController();
+
 public:
 	virtual ~MotorController();
+	MotorController();
 };
 
 #endif /* MOTORCONTROLLER_H_ */

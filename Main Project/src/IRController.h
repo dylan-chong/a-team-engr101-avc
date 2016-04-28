@@ -12,10 +12,12 @@
 #include "Controller.h"
 
 class IRController: public Controller{
+friend class IRControllerTest;
 private:
-	IRController();
+
 public:
 	virtual ~IRController();
+	IRController();
 };
 
 #endif /* IRCONTROLLER_H_ */
