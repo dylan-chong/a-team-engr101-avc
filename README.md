@@ -16,7 +16,7 @@ as part of ENGR101 at Victoria University of Wellington
     - Motors (Making the robot move and coding movement functions) 
 - Dylan Chong (dylan-chong)
     - Project Management (Distributing tasks, Git management, overseeing project) 
-    - Testing (Making sure each module works, as units and integrated into the project) - <mark>Maybe we shouldn't spend time on unit tests and just test everything manually?</mark>
+    - Testing (Making sure each module works, as units and integrated into the project) - Maybe we shouldn't spend time on unit tests and just test everything manually?
 - Jonah Ease (dayyad)
     - Sensors (Making use of IR sensor information)
     - Navigation (Algorithms to navigate through the paths)
@@ -98,7 +98,7 @@ as part of ENGR101 at Victoria University of Wellington
 
 <h6>Afternoon (extra work)</h6>
 - Andrew
-	- <mark>??? What did you do Thurs afternoon?</mark>
+	- ??? What did you do Thurs afternoon?
 
 <h6>Working on Project Plan at 730pm</h6>
 Andrew 
@@ -111,14 +111,14 @@ Andrew
 <h6>Extra Lab</h6>
 - Ahmed
     - Figuring out how to use FreeCAD
-    - <mark>???    What progress did you make on this?</mark> 
+    - ???    What progress did you make on this? 
 - Daniel 
     - Got motors working
 - Dylan 
     - Got git repository working on the pi
     - Added CodeBlocks files to .gitignore file 
 - Jonah 
-    - <mark>??? What did you do during the lab on Friday</mark>
+    - ??? What did you do during the lab on Friday
 
 <h6>Extra work)</h6>
 - Dylan
