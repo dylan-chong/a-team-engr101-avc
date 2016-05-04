@@ -197,7 +197,7 @@ None
 
 <h4>Daily Log</h4>
 
-<h5>Wednesday 24/04/16</h5>
+<h5>Wednesday 4/05/16</h5>
 - Dylan
     - [x] Got the camera temporary code working (copied from the Kaiwhata wiki) and can remotely compile and run it
     - [x] Made a template for the IR sensor (individual project) for Jonah
