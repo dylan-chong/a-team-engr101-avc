@@ -8,3 +8,7 @@ bin
 obj
 *.cbp
 *.layout
+
+# CLion project
+CMAKELists.txt
+.idea
