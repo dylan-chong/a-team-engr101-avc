@@ -49,7 +49,7 @@ char * run() {
 	{
 		char error[] = runFinished();
 		if (error) {
-			return "Finish State Error: " + error;
+			return "Error during Finished State: " + error;
 		}
 	}
 
