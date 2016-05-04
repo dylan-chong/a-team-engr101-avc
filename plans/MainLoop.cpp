@@ -1,13 +1,58 @@
 #include <stdio.h>
 
-// NOTE: This is only pseudo code for 
-// jotting down the jist of things. Syntax is very 
-// very un-C.
+// TODO DISCUSS 5 May Dylan/Andrew - things marked TODO DISCUSS
+// TODO DISCUSS 5 May Dylan/Andrew - things marked TODO DISCUSS
+// TODO DISCUSS 5 May Dylan/Andrew - things marked TODO DISCUSS
+// TODO DISCUSS 5 May Dylan/Andrew - things marked TODO DISCUSS
+
+// NOTE: This file is only pseudo code for 
+// jotting down the jist of things. Syntax is a bit un-C.
 
 
-// NOTE: the funny syntax means put this method inside the NetworkControler clas
+char * run() {
+	{
+		char error[] = NetworkController.getInstance().run();
+		if (error) {
+			return "Network State: " + error;
+		}
+	}
+	{
+		char error[] = LineController.getInstance().run();
+		if (error) {
+			return "Line State: " + error;
+		}
+	}
+	{
+		char error[] = MazeController.getInstance().run();
+		if (error) {
+			return "Maze State: " + error;
+		}
+	}
+	{
+		// spin around in circles, 
+		// after passing the finish line
+		// or don't get too cocky and just stay still
+	}
+
+	return NULL;
+}
+
+int main() {
+
+	char error[] = run();
+	if (error != NULL) {
+		printf("\n\nError during %s\n\n", error);
+	}
+
+	printf("%s\n", "Done");
+
+	return 0;
+}
+
+// NOTE: the funny syntax means put this method inside the NetworkControler class
+// 		 the same applies to all the other class below
 class NetworkController {
-	char * run(MovementController *movement) {
+	char * run(MotorController *motorController) {
 		// do network stuff and 
 		// return error msg or NULL
 		return NULL;
@@ -15,7 +60,7 @@ class NetworkController {
 };
 
 class LineController {
-	char * run(MovementController *movement) {
+	char * run(MotorController *motorController) {
 
 		/* 
 
@@ -41,7 +86,7 @@ class LineController {
 };
 
 class MazeController {
-	char * run(MovementController *movement) {
+	char * run(MotorController *motorController) {
 
 		while (true) {
 			float leftDistance = IR.getLeftDistance(); // use real class name instead of IR
@@ -49,15 +94,24 @@ class MazeController {
 			float rightDistance = IR.getRightDistance();
 
 			MazeAction action = 
-				getAction(leftDistance, middleDistance, rightDistance);
+				getNextAction(leftDistance, middleDistance, rightDistance);
+				// getNextAction is part of MazeController
+
+			// TODO DISCUSS should we allow this to be 
 
 			switch (action) { // tell movement to do stuff
 				case GO_STRAIGHT:
+					motorController.moveForward(0.1) // 10 cm // TODO DISCUSS m or cm?
 					break;
 				case TURN_LEFT:
+					motorController.turnLeft(90); // degrees
 					break;
 				case TURN_RIGHT:
+					motorController.turnLeft(90); // degrees
 					break;
+				default:
+					motorController.ensureStop();
+					return "No valid action";
 			}
 		}
 		/*
@@ -77,45 +131,3 @@ class MazeController {
 		return NULL;
 	}
 };
-
-char * run() {
-	{
-		// TODO NEXT get netowkr instance	
-		char error[] = NetworkController.getInstance().run();
-		if (error) {
-			return "Network State: " + error;
-		}
-	}
-	{
-		char error[] = LineController.getInstance().run();
-		if (error) {
-			return "Line State: " + error;
-		}
-	}
-	{
-		char error[] = MazeController.getInstance().run();
-		if (error) {
-			return "Maze State: " + error;
-		}
-	}
-	{
-		// spin around in circles, 
-		// after passing the finish line
-
-		// or don't get too cocky and just stay still
-	}
-
-	return NULL;
-}
-
-int main() {
-
-	char error[] = run();
-	if (error != NULL) {
-		printf("\n\nError during %s\n\n", error);
-	}
-
-	printf("%s\n", "Done");
-
-	return 0;
-}
