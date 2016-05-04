@@ -17,7 +17,7 @@ int Controller::makeInstance(){
 	} else {
 		return 1;
 	}
-}
+}//test comment please ignore
 
 //This is the constructor
 IRController::IRController() {
