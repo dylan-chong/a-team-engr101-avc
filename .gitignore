@@ -12,3 +12,10 @@ obj
 # CLion project
 CMAKELists.txt
 .idea
+
+# object files ie build files
+
+
+
+"Main Project"/build/*.o
+

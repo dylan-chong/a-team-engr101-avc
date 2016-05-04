@@ -12,13 +12,9 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 
 // returns 0 if made a new Network controller retruns 1 if the controller already exists
-int Controller::makeInstance(){
-	if (!instance){
-		instance = new NetworkController("192.168.1.2",22);
-		return 0;
-	} else {
-		return 1;
-	}
+NetworkController* Controller::makeInstance(char[] ip, int port){
+	instance = &(new NetworkController(ip, port));
+	return instance
 }
 
 //This is the constructor it sets the IP_address and port variables then calls the connect function

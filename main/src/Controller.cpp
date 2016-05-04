@@ -8,7 +8,7 @@
 #include "Controller.h"
 
 Controller * Controller::getInstance(){
-	return &instance;
+	return instance;
 }
 
 Controller::Controller() {

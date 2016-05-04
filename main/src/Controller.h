@@ -12,7 +12,7 @@
 
 class Controller {
 private:
-	static Controller instance = new Controller();
+	static Controller* instance;
 public:
 	static Controller* getInstance();
 	Controller();

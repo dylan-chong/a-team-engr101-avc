@@ -7,18 +7,14 @@
  *
  */
 
-#include "NetworkController.h"
+#include "MotorController.h"
 
 
 
 // returns 0 if made a new Motor controller retruns 1 if the controller already exists
-int Controller::makeInstance(){
-	if (!instance){
-		instance = new MotorController();
-		return 0;
-	} else {
-		return 1;
-	}
+MotorController* Controller::makeInstance(){
+		instance = &(new MotorController());
+		return instance;
 }
 
 //This is the constructor
