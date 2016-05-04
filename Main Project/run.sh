@@ -1,3 +1,3 @@
-make CFLAGS="-Wall -L lib -l libE101.so" CC="gcc"
+make CFLAGS="-Wall -Llib -lE101 -Wl,-rpath,./lib" CC="gcc"
 ./mainTest
 ./main
