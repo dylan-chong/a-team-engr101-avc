@@ -27,6 +27,7 @@ as part of ENGR101 at Victoria University of Wellington
 <h2>Relevant Documents</h2>
 - [AVC Project Plan (Read Only)](https://docs.google.com/document/d/1PGjWPlpUhXjcqqKfF3nAxugpQDZaEifs_aqTZwUoJcg/pub)
 - [Team Notes (Private Access Only)](https://docs.google.com/document/d/1385G8qHiNDcL0iQiOU0o_waaYvI3Ny60LDWCXVkwYT4/edit?usp=sharing)
+- [Elf's Wiki](https://github.com/kaiwhata/ENGR101-2016/wiki)
 
 [//]: **********************************************************************
 [//]: **********************************************************************
