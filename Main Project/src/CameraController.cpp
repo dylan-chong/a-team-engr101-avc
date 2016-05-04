@@ -9,15 +9,7 @@
 
 #include "CameraController.h"
 
-// returns 0 if made a new Camera controller retruns 1 if the controller already exists
-int Controller::makeInstance(){
-	if (!instance){
-		instance = new CameraController();
-		return 0;
-	} else {
-		return 1;
-	}
-}
+Controller CameraController::instance = new CameraController();
 
 //This is the constructor
 CameraController::CameraController() {

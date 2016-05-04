@@ -12,10 +12,9 @@
 
 class Controller {
 private:
-	static Controller instance;
+	static Controller instance = new Controller();
 public:
 	static Controller* getInstance();
-	static int makeInstance();
 	Controller();
 	virtual ~Controller();
 };
