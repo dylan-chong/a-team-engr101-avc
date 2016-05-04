@@ -10,14 +10,10 @@
 #include "IRController.h"
 
 // returns 0 if made a new IR controller retruns 1 if the controller already exists
-int Controller::makeInstance(){
-	if (!instance){
-		instance = new IRController();
-		return 0;
-	} else {
-		return 1;
-	}
-}//test comment please ignore
+IRController* Controller::makeInstance(){
+		instance = &(new IRController());
+		return instance;
+}
 
 //This is the constructor
 IRController::IRController() {

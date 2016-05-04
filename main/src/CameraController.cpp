@@ -9,7 +9,7 @@
 
 #include "CameraController.h"
 
-Controller CameraController::instance = new CameraController();
+Controller* CameraController::instance = &(new CameraController());
 
 //This is the constructor
 CameraController::CameraController() {
@@ -18,6 +18,11 @@ CameraController::CameraController() {
 //this is the destructor
 CameraController::~CameraController() {
 
+}
+
+CameraController* CameraController::makeInstance(){
+	instance = &(new CameraController());
+	return instance
 }
 
 

@@ -24,6 +24,7 @@ private:
 	int sendMessage(char message[]);
 	char recieveMessage(char message[]);
 public:
+	NetworkController* makeInstance();
 	virtual ~NetworkController();
 	NetworkController(char IP_address[15], int port);
 
