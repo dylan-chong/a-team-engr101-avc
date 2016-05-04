@@ -7,8 +7,6 @@
 
 #include "Controller.h"
 
-Controller Controller::instance =&(new Controller());
-
 Controller * Controller::getInstance(){
 	return &instance;
 }
