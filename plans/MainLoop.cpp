@@ -44,7 +44,7 @@ char * MazeController.run(MovementController *movement) {
 		float rightDistance = IR.getRightDistance();
 
 		MazeAction action = 
-			controller.getAction(leftDistance, middleDistance, rightDistance);
+			getAction(leftDistance, middleDistance, rightDistance);
 
 		switch (action) { // tell movement to do stuff
 			case GO_STRAIGHT:
