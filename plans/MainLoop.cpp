@@ -72,7 +72,7 @@ char * MazeController.run(MovementController *movement) {
 	return NULL;
 }
 
-char * runFinished() {
+char * FinishedController.run() {
 	// spin around in circles, 
 	// after passing the finish line
 
@@ -82,7 +82,7 @@ char * runFinished() {
 
 char * run() {
 	{
-		
+		// TODO NEXT get netowkr instance	
 		char error[] = runNetwork();
 		if (error) {
 			return "Network State: " + error;
