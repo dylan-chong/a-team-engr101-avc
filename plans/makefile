@@ -1,2 +1,2 @@
 MainLoop : MainLoop.cpp
-	sudo gcc -L/usr/lib -o MainLoop MainLoop.cpp
+	sudo gcc -o MainLoop MainLoop.cpp
