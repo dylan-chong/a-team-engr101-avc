@@ -7,19 +7,10 @@
 
 #include "Controller.h"
 
-Controller Controller::instance;
+Controller Controller::instance = new Controller();
 
 Controller * Controller::getInstance(){
-	if (!instance){makeInstance();}
 	return &instance;
-}
-int Controller::makeInstance(){
-	if (!instance){
-		instance = new Controller();
-		return 0;
-	} else {
-		return 1;
-	}
 }
 
 Controller::Controller() {

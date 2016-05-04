@@ -15,7 +15,6 @@ private:
 	static Controller instance;
 public:
 	static Controller* getInstance();
-	static int makeInstance();
 	Controller();
 	virtual ~Controller();
 };
