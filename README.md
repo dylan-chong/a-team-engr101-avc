@@ -8,7 +8,8 @@ as part of ENGR101 at Victoria University of Wellington
     - Hardware (Designing shape of robot and 3D printing, working with others in their hardware-related jobs) 
 - Andrew McGhie (mgoo)
     - Networking (Communicating with starting gate) 
-    - Module Planning (Planning how the different modules will fit together) 
+    - Module Planning (Planning how the different modules will fit together)
+    - Code Integration (Merging all of our code together)
 - Benjamin Percy (Radroaches)
     - Tracking (Making robot react to processed information from sensors) 
     - Sensors (Making use of camera sensor information) 
@@ -17,6 +18,7 @@ as part of ENGR101 at Victoria University of Wellington
 - Dylan Chong (dylan-chong)
     - Project Management (Distributing tasks, Git management, overseeing project) 
     - Testing (Making sure each module works, as units and integrated into the project) - Maybe we shouldn't spend time on unit tests and just test everything manually?
+    - Devops (Setting things up and making sure everyone can get started coding)
 - Jonah Ease (dayyad)
     - Sensors (Making use of IR sensor information)
     - Navigation (Algorithms to navigate through the paths)
@@ -197,6 +199,7 @@ None
 <h5>Wednesday 24/04/16</h5>
 - Dylan
     - [x] Got the camera temporary code working (copied from the Kaiwhata wiki) and can remotely compile and run it
+    - [x] Made a template for the IR sensor (individual project) for Jonah
 
 <h4>Review</h4>
 
