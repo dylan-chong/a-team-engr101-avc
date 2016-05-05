@@ -1,10 +1,5 @@
 #include <stdio.h>
 
-// TODO DISCUSS 5 May Dylan/Andrew - things marked TODO DISCUSS
-// TODO DISCUSS 5 May Dylan/Andrew - things marked TODO DISCUSS
-// TODO DISCUSS 5 May Dylan/Andrew - things marked TODO DISCUSS
-// TODO DISCUSS 5 May Dylan/Andrew - things marked TODO DISCUSS
-
 // NOTE: This file is only pseudo code for 
 // jotting down the jist of things. Syntax is a bit un-C.
 
@@ -12,7 +7,48 @@
 
 char * run() {
 
-	// Andrew figure this crap out
+	// do network stuff
+
+	// Andrew figure out if we should return errors in the run methods or not
+
+	runLine();
+	runMaze();
+	runFinish();
+}
+
+private runLine() {
+	// When the lineValue (in run()) is greater than PERPENDICULAR_THRESHOLD
+	// there will be a perpendicular turn on the line. 
+	const long PERPENDICULAR_THRESHOLD = 12345l; // Ben calibrate this
+
+	// How fast the robot should arc to get back onto the line
+	const float TURNING_SENSITIVITY = 0.123; // Unassigned
+
+	while (true) {
+		long lineValue = CameraController.getLineValue();
+
+		// if the line ends it is a dead end
+		// but if there are walls on either side of the robot
+		//	then it is the end of the maze
+
+		// NOTE: make it easy to change between the follow left or right algorithm
+	}
+}
+
+private runMaze() {
+	MazeController *mazeController = ...;
+	while (true) {
+		float leftDistance = IR.getLeftDistance();
+		float middleDistance = IR.getMiddleDistance();
+		float rightDistance = IR.getRightDistance();
+
+		MazeAction action = 
+			mazeController.getNextAction(leftDistance, middleDistance, rightDistance);
+	}
+}
+
+private runFinish() {
+	// spin on the spot - "woo sounds!!"
 }
 
 int main() {
@@ -79,35 +115,7 @@ class NetworkController {
 	}
 };
 
-class LineController {
-
-	// TODO DISCUSS how will we distinguish between there being no line in sight
-	// of the camera and the line being exactly in the centre
-
-	// When the lineValue (in run()) is greater than PERPENDICULAR_THRESHOLD
-	// there will be a perpendicular turn on the line. 
-	const long PERPENDICULAR_THRESHOLD = 12345l; // Ben calibrate this
-
-	// How fast the robot should arc to get back onto the line
-	const float TURNING_SENSITIVITY = 0.123; // Unassigned
-
-	public char * run(MotorController *motorController) {
-
-		while (true) {
-			long lineValue = Camera.getLineValue(); 
-
-			// if the line ends it is a dead end
-			// but if there are walls on either side of the robot
-			//	then it is the end of the maze
-
-			// NOTE: make it easy to change between the follow left or right algorithm
-		}
-
-		return "An impossible error occurred";
-	}
-};
-
-class Camera {
+class CameraController {
 
 	// run the algorithm on the left half of the image
 	public long getLineValue() {
@@ -122,7 +130,7 @@ class Camera {
 
 class MazeController {
 
-	typedef enum {
+	public typedef enum {
 		GO_STRAIGHT,
 		TURN_LEFT,
 		TURN_RIGHT,
@@ -131,34 +139,8 @@ class MazeController {
 
 	public char * run(MotorController *motorController) {
 		while (true) {
-			float leftDistance = IR.getLeftDistance();
-			float middleDistance = IR.getMiddleDistance();
-			float rightDistance = IR.getRightDistance();
+			
 
-			MazeAction action = 
-				getNextAction(leftDistance, middleDistance, rightDistance);
-				// getNextAction is part of MazeController
-
-			// NOTE: make it easy to change between the follow left or right wall algorithm
-
-			switch (action) { // tell movement to do stuff
-				case GO_STRAIGHT:
-					motorController.moveForward() // 10 cm // TODO DISCUSS m or cm?
-					sleep();
-					break;
-				case TURN_LEFT:
-					motorController.rotateLeft90(90); // degrees
-					break;
-				case TURN_RIGHT:
-					motorController.rotateLeft90(90); // degrees
-					break;
-				case FINISH;
-					motorController.stop();
-					return NULL;
-				default:
-					motorController.ensureStop();
-					return "No valid action";
-			}
 		}
 
 		return "An impossible error occurred";
@@ -170,9 +152,7 @@ class MazeController {
 	}
 };
 
-class IR {
-
-	// TODO DISCUSS in m or cm?
+class IRController {
 
 	public float getLeftDistance() {
 		return getDistanceFromSensor(0); // use actual pin number later
@@ -191,6 +171,3 @@ class IR {
 		return 12.345;
 	}
 };
-
-// TODO DISCUSS Andrew's job can be to turn this pseudo code into actual c++ syntax
-// in the main project. Dylan's job will be to move these methods into the module projects
