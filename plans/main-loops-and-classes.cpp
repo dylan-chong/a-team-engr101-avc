@@ -182,4 +182,7 @@ class IR {
 		// Jonah does the calculation here
 		return 12.345;
 	}
-}
+};
+
+// TODO DISCUSS Andrew's job can be to turn this pseudo code into actual c++ syntax
+// in the main project. Dylan's job will be to move these methods into the module projects
