@@ -9,12 +9,10 @@
 
 #include "MotorController.h"
 
-
-
-// returns 0 if made a new Motor controller retruns 1 if the controller already exists
+//Makes a new Motor Controller and returns a pointer to it
 MotorController* Controller::makeInstance(){
-		instance = &(new MotorController());
-		return instance;
+		instance = new MotorController();
+		return (MotorController*)instance;
 }
 
 //This is the constructor

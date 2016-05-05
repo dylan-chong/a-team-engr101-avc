@@ -16,7 +16,7 @@ friend class CameraControllerTest;
 private:
 
 public:
-	CameraController* makeInstance();
+	static CameraController* makeInstance();
 	virtual ~CameraController();
 	CameraController();
 };

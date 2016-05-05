@@ -7,6 +7,8 @@
 
 #include "Controller.h"
 
+Controller * Controller::instance;
+
 Controller * Controller::getInstance(){
 	return instance;
 }
@@ -19,3 +21,6 @@ Controller::~Controller() {
 
 }
 
+/*int main(){
+	return 0;
+}*/

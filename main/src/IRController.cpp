@@ -9,10 +9,10 @@
 
 #include "IRController.h"
 
-// returns 0 if made a new IR controller retruns 1 if the controller already exists
+//Makes a new IR Controller and returns a pointer to it
 IRController* Controller::makeInstance(){
 		instance = &(new IRController());
-		return instance;
+		return (IRController*)instance;
 }
 
 //This is the constructor

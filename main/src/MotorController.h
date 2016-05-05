@@ -16,7 +16,7 @@ class MotorController: public Controller{
 private:
 
 public:
-	MotorController* makeInstance();
+	static MotorController* makeInstance();
 	virtual ~MotorController();
 	MotorController();
 };

@@ -11,10 +11,10 @@ extern "C" int connect_to_server( char server_addr[15],int port);
 extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 
-// returns 0 if made a new Network controller retruns 1 if the controller already exists
-NetworkController* Controller::makeInstance(char[] ip, int port){
-	instance = &(new NetworkController(ip, port));
-	return instance
+//makes a new Network controller and retruns a pointer to it
+NetworkController* NetworkController::makeInstance(char ip[15], int port){
+	instance = new NetworkController(ip, port);
+	return (NetworkController*)instance;
 }
 
 //This is the constructor it sets the IP_address and port variables then calls the connect function
@@ -30,22 +30,22 @@ NetworkController::~NetworkController() {
 
 //connects to the gate
 int NetworkController::connect(){
-	return connect_to_server("" + IP_address,port);
+	return 0;//connect_to_server("" + IP_address,port);
 }
 
 //sends a message to the gate
 int NetworkController::sendMessage(char message[]){
-	return send_to_server(message);
+	return 0;//send_to_server(message);
 }
 
 //recieves a message from the gate
 char NetworkController::recieveMessage(char message[]){
-	return receive_from_server(message);
+	return 0;//receive_from_server(message);
 }
 
 //opens the gate returns 0 if worked correctly
 int NetworkController::openGate(){
-	sendMessage("" + recieveMessage("Please"));
+	//sendMessage("" + recieveMessage("Please"));
 	return 0;
 }
 

@@ -16,7 +16,7 @@ friend class IRControllerTest;
 private:
 
 public:
-	IRController* makeInstance();
+	static IRController* makeInstance();
 	virtual ~IRController();
 	IRController();
 };
