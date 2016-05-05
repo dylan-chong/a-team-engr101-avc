@@ -70,8 +70,9 @@ class LineController {
 
 	// TODO DISCUSS how will we distinguish between there being no line in sight
 	// of the camera and the line being exactly in the centre
+	// TODO DISCUSS finish this class plan - do we even need the enum
 
-	// typedef enum { // TODO DISCUSS how do you make the enum public 
+	// typedef enum {
 	// 	SLIGHTLY_TO_LEFT,
 	// 	SLIGHTLY_TO_RIGHT,
 	// 	EXTENDS_LEFT,
@@ -115,7 +116,7 @@ class Camera {
 
 class MazeController {
 
-	typedef enum {
+	typedef enum { // TODO DISCUSS how do you make the enum public 
 		GO_STRAIGHT,
 		TURN_LEFT,
 		TURN_RIGHT,
