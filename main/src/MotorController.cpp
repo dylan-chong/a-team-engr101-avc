@@ -10,7 +10,7 @@
 #include "MotorController.h"
 
 //Makes a new Motor Controller and returns a pointer to it
-MotorController* Controller::makeInstance(){
+MotorController* MotorController::makeInstance(){
 		instance = new MotorController();
 		return (MotorController*)instance;
 }
