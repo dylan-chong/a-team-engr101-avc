@@ -8,6 +8,7 @@
 // NOTE: This file is only pseudo code for 
 // jotting down the jist of things. Syntax is a bit un-C.
 
+// ****************************** Main Class ************************************
 
 char * run() {
 	{
@@ -57,6 +58,8 @@ int main() {
 	return 0;
 }
 
+// ****************************** Other Classes ******************************
+
 // NOTE: the funny syntax means put this method inside the NetworkControler class
 // 		 the same applies to all the other class below
 class NetworkController {
@@ -69,7 +72,7 @@ class NetworkController {
 
 class LineController {
 
-	typedef enum {
+	typedef enum { // TODO DISCUSS how do you make the enum public 
 		SLIGHTLY_TO_LEFT,
 		SLIGHTLY_TO_RIGHT,
 		EXTENDS_LEFT,
@@ -85,7 +88,7 @@ class LineController {
 
 		while (true) {
 			LineState lineValue = Camera.getLineState(); 
-				// calls get the line value and then 
+			
 		}
 
 		return NULL;
@@ -94,7 +97,7 @@ class LineController {
 
 class Camera {
 	public getLineState() {
-
+		// 
 	}
 };
 
@@ -142,7 +145,7 @@ class MazeController {
 
 	private MazeAction getNextAction(float leftDistance, 
 		float middleDistance, float rightDistance) {
-		// TODO PLAN
+		// whoever is on tracking can fill in this method
 	}
 };
 
