@@ -204,11 +204,11 @@ None
     - Began planning how the main loop will work
 
 <h5>Thursday 05/05/16</h5>
+- Andrew
+    - Worked with Dylan on Plan (see Dylan's entry)
 - Dylan
     - Planned a lot more of the main loop, this time planning out how it will fit with different classes
-    - ???
-- Andrew
-    - ???
+    - Worked with Andrew on the main loop plans/how everything fits together (plan completed for now)
 
 <h4>Review</h4>
 
