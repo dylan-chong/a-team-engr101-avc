@@ -11,21 +11,23 @@
 // ****************************** Main Class ************************************
 
 char * run() {
+
+	MotorController *motorController; = ... ;
 	{
 		printf("\n\nStarting NetworkController\n");
-		char error[] = NetworkController.getInstance().run();
+		char error[] = NetworkController.getInstance().run(motorController);
 		if (error) return "Network State: " + error;
 		printf("NetworkController Succeeded\n");
 	}
 	{	
 		printf("\n\nStarting LineController\n");
-		char error[] = LineController.getInstance().run();
+		char error[] = LineController.getInstance().run(motorController);
 		if (error) return "Line State: " + error;
 		printf("LineController Succeeded\n");
 	}
 	{
 		printf("\n\nStarting MazeController\n");
-		char error[] = MazeController.getInstance().run();
+		char error[] = MazeController.getInstance().run(motorController);
 		if (error) return "Maze State: " + error;
 		printf("MazeController Succeeded\n");
 	}
@@ -58,6 +60,44 @@ int main() {
 
 // NOTE: the funny syntax means put this method inside the NetworkControler class
 // 		 the same applies to all the other class below
+
+class MotorController {
+	// Daniel implements
+
+	// The controller using a MotorController will access
+	// this variable. The MotorController itself doesn't use it
+	float PERPENDICULAR_TURN_TIME = 1.2345; // Daniel calibrate this
+
+	// dont put any sleeps in any of these methods
+
+	// just set the motors to full forward
+	public void moveForward() {
+
+	}
+
+	// turn left on the spot
+	public void rotateLeft90() {
+
+	}
+
+	// turn right on the spot
+	public void rotateRight90() {
+
+	}
+
+	// when percent is 0 don't actually turn
+	// when percent is 1 turn left as fast as possible
+	public void arcLeft(double percent) {
+		right = full speed
+		left = full speed * percent
+	}
+
+	public void arcRight(double percent) {
+		// similar thing as arcLeft
+	}
+ 
+ };
+
 class NetworkController {
 	public char * run(MotorController *motorController) {
 		// do network stuff and 
@@ -72,43 +112,21 @@ class LineController {
 	// of the camera and the line being exactly in the centre
 	// TODO DISCUSS finish this class plan - do we even need the enum
 
-	// typedef enum {
-	// 	SLIGHTLY_TO_LEFT,
-	// 	SLIGHTLY_TO_RIGHT,
-	// 	EXTENDS_LEFT,
-	// 	EXTENDS_RIGHT,
-	// 	EXTENDS_LEFT_AND_RIGHT,
-	// 	NO_LINE // maze completed ? // TODO DISCUSS check what is at the end of the maze
-	// } LineState;
-
 	// When the lineValue (in run()) is > than SLIGHT_THRESHOLD, then 
 	const long SLIGHT_THRESHOLD = 12345l;
 
 	public char * run(MotorController *motorController) {
 
 		while (true) {
-			LineState lineState = Camera.getLineState(); 
-			
-			if (lineState == NO_LINE) return NULL;
-			performNextAction(lineState);
-
+			long lineState = Camera.getLineValue(); 
 		}
 
 		return "An impossible error occurred";
 	}
-
-	private void performNextAction(LineState lineState) {
-		
-	}
 };
 
 class Camera {
-	public LineState getLineState() {
-		// Ben does this
-		return something;
-	}
-
-	private float getCameraValue() {
+	private long getCameraValue() {
 		// Ben does this
 		return 12345;
 	}
@@ -116,7 +134,7 @@ class Camera {
 
 class MazeController {
 
-	typedef enum { // TODO DISCUSS how do you make the enum public 
+	typedef enum {
 		GO_STRAIGHT,
 		TURN_LEFT,
 		TURN_RIGHT,
@@ -137,20 +155,23 @@ class MazeController {
 			// the motors stop after each action
 			switch (action) { // tell movement to do stuff
 				case GO_STRAIGHT:
-					motorController.moveForward(0.1) // 10 cm // TODO DISCUSS m or cm?
+					motorController.moveForward() // 10 cm // TODO DISCUSS m or cm?
 					break;
 				case TURN_LEFT:
-					motorController.turnLeft(90); // degrees
+					motorController.rotateLeft90(90); // degrees
 					break;
 				case TURN_RIGHT:
-					motorController.turnLeft(90); // degrees
+					motorController.rotateLeft90(90); // degrees
 					break;
 				case FINISH;
+					motorController.stop();
 					return NULL;
 				default:
 					motorController.ensureStop();
 					return "No valid action";
 			}
+
+			sleep();
 		}
 
 		return "An impossible error occurred";
