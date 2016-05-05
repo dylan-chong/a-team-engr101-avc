@@ -10,8 +10,8 @@
 #include "IRController.h"
 
 //Makes a new IR Controller and returns a pointer to it
-IRController* Controller::makeInstance(){
-		instance = &(new IRController());
+IRController* IRController::makeInstance(){
+		instance = new IRController();
 		return (IRController*)instance;
 }
 
