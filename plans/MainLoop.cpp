@@ -60,7 +60,7 @@ int main() {
 // NOTE: the funny syntax means put this method inside the NetworkControler class
 // 		 the same applies to all the other class below
 class NetworkController {
-	char * run(MotorController *motorController) {
+	public char * run(MotorController *motorController) {
 		// do network stuff and 
 		// return error msg or NULL
 		return NULL;
@@ -69,22 +69,32 @@ class NetworkController {
 
 class LineController {
 
-	typedef enum { // line is...
+	typedef enum {
 		SLIGHTLY_TO_LEFT,
 		SLIGHTLY_TO_RIGHT,
-		FAR_TO_LEFT,
-		FAR_TO_RIGHT,
-		FAR_TO_LEFT_AND_RIGHT,
-		NO_LINE
+		EXTENDS_LEFT,
+		EXTENDS_RIGHT,
+		EXTENDS_LEFT_AND_RIGHT,
+		NO_LINE // maze completed ? // TODO DISCUSS check what is at the end of the maze
 	} LineState;
 
-	char * run(MotorController *motorController) {
+	// When the lineValue (in run()) is > than SLIGHT_THRESHOLD, then 
+	const long SLIGHT_THRESHOLD = 12345l;
+
+	public char * run(MotorController *motorController) {
 
 		while (true) {
-
+			LineState lineValue = Camera.getLineState(); 
+				// calls get the line value and then 
 		}
 
 		return NULL;
+	}
+};
+
+class Camera {
+	public getLineState() {
+
 	}
 };
 
@@ -97,9 +107,9 @@ class MazeController {
 		FINISH
 	} MazeAction;
 
-	char * run(MotorController *motorController) {
+	public char * run(MotorController *motorController) {
 		while (true) {
-			float leftDistance = IR.getLeftDistance(); // use real class name instead of IR
+			float leftDistance = IR.getLeftDistance();
 			float middleDistance = IR.getMiddleDistance();
 			float rightDistance = IR.getRightDistance();
 
@@ -130,7 +140,30 @@ class MazeController {
 		return "An impossible error occurred";
 	}
 
-	MazeAction getNextAction() {
+	private MazeAction getNextAction(float leftDistance, 
+		float middleDistance, float rightDistance) {
 		// TODO PLAN
 	}
 };
+
+class IR {
+
+	// TODO DISCUSS in m or cm?
+
+	public float getLeftDistance() {
+		return getDistanceFromSensor(0); // use actual pin number later
+	}
+
+	public float getMiddleDistance() {
+		return getDistanceFromSensor(1); // use actual pin number later
+	}
+
+	public float getRightDistance() {
+		return getDistanceFromSensor(2); // use actual pin number later
+	}
+
+	private float getDistanceFromSensor(int sensorPin) {
+		// Jonah does the calculation here
+		return 12.345;
+	}
+}
