@@ -14,25 +14,19 @@ char * run() {
 	{
 		printf("\n\nStarting NetworkController\n");
 		char error[] = NetworkController.getInstance().run();
-		if (error) {
-			return "Network State: " + error;
-		}
+		if (error) return "Network State: " + error;
 		printf("NetworkController Succeeded\n");
 	}
 	{	
 		printf("\n\nStarting LineController\n");
 		char error[] = LineController.getInstance().run();
-		if (error) {
-			return "Line State: " + error;
-		}
+		if (error) return "Line State: " + error;
 		printf("LineController Succeeded\n");
 	}
 	{
 		printf("\n\nStarting MazeController\n");
 		char error[] = MazeController.getInstance().run();
-		if (error) {
-			return "Maze State: " + error;
-		}
+		if (error) return "Maze State: " + error;
 		printf("MazeController Succeeded\n");
 	}
 	{
@@ -48,12 +42,14 @@ char * run() {
 
 int main() {
 
+	printf("\n\nRunning\n\n");
+
 	char error[] = run();
 	if (error) {
 		printf("\n\nError during %s\n\n", error);
 	}
 
-	printf("%s\n", "Done");
+	printf("\n\nFinished\n\n")
 
 	return 0;
 }
@@ -72,14 +68,17 @@ class NetworkController {
 
 class LineController {
 
-	typedef enum { // TODO DISCUSS how do you make the enum public 
-		SLIGHTLY_TO_LEFT,
-		SLIGHTLY_TO_RIGHT,
-		EXTENDS_LEFT,
-		EXTENDS_RIGHT,
-		EXTENDS_LEFT_AND_RIGHT,
-		NO_LINE // maze completed ? // TODO DISCUSS check what is at the end of the maze
-	} LineState;
+	// TODO DISCUSS how will we distinguish between there being no line in sight
+	// of the camera and the line being exactly in the centre
+
+	// typedef enum { // TODO DISCUSS how do you make the enum public 
+	// 	SLIGHTLY_TO_LEFT,
+	// 	SLIGHTLY_TO_RIGHT,
+	// 	EXTENDS_LEFT,
+	// 	EXTENDS_RIGHT,
+	// 	EXTENDS_LEFT_AND_RIGHT,
+	// 	NO_LINE // maze completed ? // TODO DISCUSS check what is at the end of the maze
+	// } LineState;
 
 	// When the lineValue (in run()) is > than SLIGHT_THRESHOLD, then 
 	const long SLIGHT_THRESHOLD = 12345l;
@@ -97,14 +96,8 @@ class LineController {
 		return "An impossible error occurred";
 	}
 
-	private performNextAction(LineState lineState) {
-		// Ben or whoever can finish this
-		switch(lineState) {
-			case SLIGHTLY_TO_LEFT:
-				// ...
-				break;
-			// etc
-		}
+	private void performNextAction(LineState lineState) {
+		
 	}
 };
 
