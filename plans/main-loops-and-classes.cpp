@@ -12,34 +12,7 @@
 
 char * run() {
 
-	MotorController *motorController; = ... ;
-	{
-		printf("\n\nStarting NetworkController\n");
-		char error[] = NetworkController.getInstance().run(motorController);
-		if (error) return "Network State: " + error;
-		printf("NetworkController Succeeded\n");
-	}
-	{	
-		printf("\n\nStarting LineController\n");
-		char error[] = LineController.getInstance().run(motorController);
-		if (error) return "Line State: " + error;
-		printf("LineController Succeeded\n");
-	}
-	{
-		printf("\n\nStarting MazeController\n");
-		char error[] = MazeController.getInstance().run(motorController);
-		if (error) return "Maze State: " + error;
-		printf("MazeController Succeeded\n");
-	}
-	{
-		printf("Starting Finished Part\n");
-		// spin around in circles, 
-		// after passing the finish line
-		// or don't get too cocky and just stay still
-		printf("Finished Part Succeeded\n");
-	}
-
-	return NULL;
+	// Andrew figure this crap out
 }
 
 int main() {
@@ -85,11 +58,11 @@ class MotorController {
 
 	}
 
-	// when percent is 0 don't actually turn
-	// when percent is 1 turn left as fast as possible
+	// when percent is 1 don't actually turn
+	// when percent is -1 turn left on the spot
 	public void arcLeft(double percent) {
-		right = full speed
-		left = full speed * percent
+		right = full speed;
+		left = full speed * percent;
 	}
 
 	public void arcRight(double percent) {
@@ -110,15 +83,24 @@ class LineController {
 
 	// TODO DISCUSS how will we distinguish between there being no line in sight
 	// of the camera and the line being exactly in the centre
-	// TODO DISCUSS finish this class plan - do we even need the enum
 
-	// When the lineValue (in run()) is > than SLIGHT_THRESHOLD, then 
-	const long SLIGHT_THRESHOLD = 12345l;
+	// When the lineValue (in run()) is greater than PERPENDICULAR_THRESHOLD
+	// there will be a perpendicular turn on the line. 
+	const long PERPENDICULAR_THRESHOLD = 12345l; // Ben calibrate this
+
+	// How fast the robot should arc to get back onto the line
+	const float TURNING_SENSITIVITY = 0.123; // Unassigned
 
 	public char * run(MotorController *motorController) {
 
 		while (true) {
-			long lineState = Camera.getLineValue(); 
+			long lineValue = Camera.getLineValue(); 
+
+			// if the line ends it is a dead end
+			// but if there are walls on either side of the robot
+			//	then it is the end of the maze
+
+			// NOTE: make it easy to change between the follow left or right algorithm
 		}
 
 		return "An impossible error occurred";
@@ -126,10 +108,16 @@ class LineController {
 };
 
 class Camera {
-	private long getCameraValue() {
-		// Ben does this
-		return 12345;
+
+	// run the algorithm on the left half of the image
+	public long getLineValue() {
+		// Ben does this with Elf's algorithm or whatever it is
 	}
+
+	// NOTE Ignore the possibility of having light on the edges of the picture
+	// we can give the camera a shadow to work within or hope we don't have the problem
+	// in the first place.
+
 };
 
 class MazeController {
@@ -151,11 +139,12 @@ class MazeController {
 				getNextAction(leftDistance, middleDistance, rightDistance);
 				// getNextAction is part of MazeController
 
-			// TODO DISCUSS should we allow motors to be async or just make 
-			// the motors stop after each action
+			// NOTE: make it easy to change between the follow left or right wall algorithm
+
 			switch (action) { // tell movement to do stuff
 				case GO_STRAIGHT:
 					motorController.moveForward() // 10 cm // TODO DISCUSS m or cm?
+					sleep();
 					break;
 				case TURN_LEFT:
 					motorController.rotateLeft90(90); // degrees
@@ -170,8 +159,6 @@ class MazeController {
 					motorController.ensureStop();
 					return "No valid action";
 			}
-
-			sleep();
 		}
 
 		return "An impossible error occurred";
