@@ -87,17 +87,36 @@ class LineController {
 	public char * run(MotorController *motorController) {
 
 		while (true) {
-			LineState lineValue = Camera.getLineState(); 
+			LineState lineState = Camera.getLineState(); 
 			
+			if (lineState == NO_LINE) return NULL;
+			performNextAction(lineState);
+
 		}
 
-		return NULL;
+		return "An impossible error occurred";
+	}
+
+	private performNextAction(LineState lineState) {
+		// Ben or whoever can finish this
+		switch(lineState) {
+			case SLIGHTLY_TO_LEFT:
+				// ...
+				break;
+			// etc
+		}
 	}
 };
 
 class Camera {
-	public getLineState() {
-		// 
+	public LineState getLineState() {
+		// Ben does this
+		return something;
+	}
+
+	private float getCameraValue() {
+		// Ben does this
+		return 12345;
 	}
 };
 
@@ -145,7 +164,7 @@ class MazeController {
 
 	private MazeAction getNextAction(float leftDistance, 
 		float middleDistance, float rightDistance) {
-		// whoever is on tracking can fill in this method
+		// whoever is on tracking can fill in this method for maze logic
 	}
 };
 
