@@ -11,27 +11,35 @@
 
 char * run() {
 	{
+		printf("\n\nStarting NetworkController\n");
 		char error[] = NetworkController.getInstance().run();
 		if (error) {
 			return "Network State: " + error;
 		}
+		printf("NetworkController Succeeded\n");
 	}
-	{
+	{	
+		printf("\n\nStarting LineController\n");
 		char error[] = LineController.getInstance().run();
 		if (error) {
 			return "Line State: " + error;
 		}
+		printf("LineController Succeeded\n");
 	}
 	{
+		printf("\n\nStarting MazeController\n");
 		char error[] = MazeController.getInstance().run();
 		if (error) {
 			return "Maze State: " + error;
 		}
+		printf("MazeController Succeeded\n");
 	}
 	{
+		printf("Starting Finished Part\n");
 		// spin around in circles, 
 		// after passing the finish line
 		// or don't get too cocky and just stay still
+		printf("Finished Part Succeeded\n");
 	}
 
 	return NULL;
@@ -40,7 +48,7 @@ char * run() {
 int main() {
 
 	char error[] = run();
-	if (error != NULL) {
+	if (error) {
 		printf("\n\nError during %s\n\n", error);
 	}
 
