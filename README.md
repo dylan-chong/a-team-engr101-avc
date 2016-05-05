@@ -18,6 +18,7 @@ as part of ENGR101 at Victoria University of Wellington
 - Dylan Chong (dylan-chong)
     - Project Management (Distributing tasks, overseeing project) 
     - Devops (Git management, setting things up and making sure everyone can get started coding)
+    - Testing (Making sure each module works before sending to Andrew for integration into project)
 - Jonah Ease (dayyad)
     - Sensors (Making use of IR sensor information)
     - Navigation (Algorithms to navigate through the paths)
