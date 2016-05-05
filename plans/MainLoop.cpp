@@ -60,34 +60,36 @@ class NetworkController {
 };
 
 class LineController {
+
+	typedef enum { // line is...
+		SLIGHTLY_TO_LEFT,
+		SLIGHTLY_TO_RIGHT,
+		FAR_TO_LEFT,
+		FAR_TO_RIGHT,
+		FAR_TO_LEFT_AND_RIGHT,
+		NO_LINE
+	} LineState;
+
 	char * run(MotorController *motorController) {
 
-		/* 
+		while (true) {
 
-		maybe just return an enum
-			typedef enum { // line is...
-				SLIGHTLY_TO_LEFT,
-				SLIGHTLY_TO_RIGHT,
-				FAR_TO_LEFT,
-				FAR_TO_RIGHT,
-				FAR_TO_LEFT_AND_RIGHT,
-				NO_LINE
-			} CameraResult;
-		and have a camera.update method
+		}
 
-		need camera processed value?
-		or just ask camera class for 
-			- isLineSlightlyToLeft() or right
-			- doesLineHaveSharpLeft() and right
-
-		*/
 		return NULL;
 	}
 };
 
 class MazeController {
-	char * run(MotorController *motorController) {
 
+	typedef enum {
+		GO_STRAIGHT,
+		TURN_LEFT,
+		TURN_RIGHT,
+		FINISH
+	} MazeAction;
+
+	char * run(MotorController *motorController) {
 		while (true) {
 			float leftDistance = IR.getLeftDistance(); // use real class name instead of IR
 			float middleDistance = IR.getMiddleDistance();
@@ -97,8 +99,8 @@ class MazeController {
 				getNextAction(leftDistance, middleDistance, rightDistance);
 				// getNextAction is part of MazeController
 
-			// TODO DISCUSS should we allow this to be 
-
+			// TODO DISCUSS should we allow motors to be async or just make 
+			// the motors stop after each action
 			switch (action) { // tell movement to do stuff
 				case GO_STRAIGHT:
 					motorController.moveForward(0.1) // 10 cm // TODO DISCUSS m or cm?
@@ -109,25 +111,18 @@ class MazeController {
 				case TURN_RIGHT:
 					motorController.turnLeft(90); // degrees
 					break;
+				case FINISH;
+					return NULL;
 				default:
 					motorController.ensureStop();
 					return "No valid action";
 			}
 		}
-		/*
-		
 
-		typedef enum {
-			GO_STRAIGHT,
-			TURN_LEFT,
-			TURN_RIGHT,
-			//REGRESS?
-		} MazeAction;
+		return "An impossible error occurred";
+	}
 
-
-
-		*/
-
-		return NULL;
+	MazeAction getNextAction() {
+		// TODO PLAN
 	}
 };
