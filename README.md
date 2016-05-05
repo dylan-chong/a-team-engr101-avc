@@ -196,10 +196,18 @@ None
 
 <h4>Daily Log</h4>
 
-<h5>Wednesday 4/05/16</h5>
+<h5>Wednesday 04/05/16</h5>
 - Dylan
-    - [x] Got the camera temporary code working (copied from the Kaiwhata wiki) and can remotely compile and run it
-    - [x] Made a template for the IR sensor (individual project) for Jonah
+    - Got the camera temporary code working (copied from the Kaiwhata wiki) and can remotely compile and run it
+    - Made a template for the IR sensor (individual project) for Jonah
+    - Began planning how the main loop will work
+
+<h5>Thursday 05/05/16</h5>
+- Dylan
+    - Planned a lot more of the main loop, this time planning out how it will fit with different classes
+    - ???
+- Andrew
+    - ???
 
 <h4>Review</h4>
 
