@@ -19,7 +19,8 @@ NetworkController* NetworkController::makeInstance(char ip[15], int port){
 
 //This is the constructor it sets the IP_address and port variables then calls the connect function
 NetworkController::NetworkController(char IP_address[15], int port)
-:IP_address(IP_address),port(port) {
+//:IP_address((const char[15])(*IP_address)),port(port)
+{
 	connect();
 }
 
