@@ -6,6 +6,30 @@ extern "C" int take_picture();
 extern "C" char get_pixel(int row,int col,int colour);
 extern "C" int Sleep(int sec, int usec);
 
+long getLineValue() {
+    long value = 0;
+
+    // Ben do your calculation stuff here
+
+    return value;
+}
+
+// This method is just for testing your getLineValue() method.
+// Not for use in main project
+int main() {
+
+    // Ben, make a printf statement that will print out the result
+    // of the getLineValue() method so that you can test if it's working
+
+    return 0;
+}
+
+
+// ************  Old ************
+
+/*
+// Code copied from the Kaiwhata wiki that we used to test the camera
+// (it worked!)
 int main(){
     //This sets up the RPi hardware and ensures
     //everything is working correctly
@@ -24,3 +48,4 @@ int main(){
     printf("Done");
     return 0;
 }
+ */

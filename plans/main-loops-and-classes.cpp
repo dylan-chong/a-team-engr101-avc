@@ -85,17 +85,20 @@ class MotorController {
 	}
 
 	// turn left on the spot
-	public void rotateLeft90() {
+	public void rotateLeft() {
 
 	}
 
 	// turn right on the spot
-	public void rotateRight90() {
+	public void rotateRight() {
 
 	}
 
-	// when percent is 1 don't actually turn
-	// when percent is -1 turn left on the spot
+	// when percent is 1.0 don't actually turn
+	// when percent is -1.0 turn left on the spot
+	// DANIEL maybe instead make 0 move straight
+	// and 1.0 turn on the spot - take your pick
+	// then edit this description
 	public void arcLeft(double percent) {
 		right = full speed;
 		left = full speed * percent;
@@ -117,7 +120,8 @@ class NetworkController {
 
 class CameraController {
 
-	// run the algorithm on the left half of the image
+	// run the algorithm on the left half of the image later?
+
 	public long getLineValue() {
 		// Ben does this with Elf's algorithm or whatever it is
 	}

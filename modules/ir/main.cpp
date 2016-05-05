@@ -5,19 +5,30 @@ extern "C" int init_hardware();
 extern "C" int read_analog(int ch_adc);
 extern "C" int sleep(int sec, int  usec);
 
-int main(){
+// Return the distance in centimetres
+float getDistanceFromSensor(int sensorPin) {
 
+    // Jonah do your calculation here then
 
-    // TODO get some readings from the IR sensors to make sure its working
-
-    printf("Done");
-    return 0;
+    return 12.345;
 }
 
-int getDistance() {
-    int distance = 0;
+float getLeftDistance() {
+    return getDistanceFromSensor(0); // use actual pin number later
+}
 
-    // TODO
+float getMiddleDistance() {
+    return getDistanceFromSensor(1); // use actual pin number later
+}
 
-    return distance;
+float getRightDistance() {
+    return getDistanceFromSensor(2); // use actual pin number later
+}
+
+// This method is just for testing. Not for use in main project
+int main(){
+
+    // Jonah write code here so you can test it
+
+    return 0;
 }
