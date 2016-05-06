@@ -32,8 +32,32 @@ private runLine() {
 		//	then it is the end of the maze
 
 		// NOTE: make it easy to change between the follow left or right algorithm
+
+		// DYLAN PLANS for tracking the line
+		long lineVA = CameraController.getLineValueForRow(120-20);
+		long lineVB = CameraController.getLineValueForRow(120+20);
+		if (lineVA < PERPENDICULAR_THRESHOLD) continue; // just ignoring perpendicular turns
+		if (lineVB < PERPENDICULAR_THRESHOLD) continue;
+		
+		if (lineVA < 0 && line VB < 0) {
+			// robot to the right of line
+
+		} else if (lineVA > 0 && line VB > 0) {
+			// robot to the left of line
+
+
+		} else if (lineVA < 0 && line VB > 0) {
+			// robot should turn left
+
+		} else if (lineVA > 0 && line VB < 0) {
+			// robot should turn left
+
+		}
+
+		// TODO LATER
 	}
 }
+
 
 private runMaze() {
 	MazeController *mazeController = ...;
