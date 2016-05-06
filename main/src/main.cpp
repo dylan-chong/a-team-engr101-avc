@@ -6,11 +6,11 @@
 #include "MotorController.h"
 #include "IRController.h"
 
-extern "C" int  InitHardware();
-extern "C" int  Sleep(int sec, int  usec);
+extern "C" int  init_hardware();
+extern "C" int  sleep(int sec, int  usec);
 
 int main(){
-	InitHardware();
+	init_hardware();
 	NetworkController *network_controller = NetworkController::makeInstance("192.168.1.2",22);
 	MotorController *motor_controller = MotorController::makeInstance();
 	IRController *IR_controller = IRController::makeInstance();
