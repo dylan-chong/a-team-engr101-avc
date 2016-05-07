@@ -12,8 +12,10 @@
 
 //runs the tests
 void CameraControllerTest::runTests(){
-	printf("Camera Test Running");
+	printf("Camera Test Running...............\n");
 	CameraController *camera_controller =(CameraController*)CameraController::getInstance();
+
+	printf("Network Tests finished\n");
 
 }
 

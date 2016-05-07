@@ -20,6 +20,8 @@ MotorControllerTest::~MotorControllerTest() {
 
 //runs the tests
 void MotorControllerTest::runTests(){
-	printf("Test Running");
+	printf("Motor Test Running...............\n");
 	MotorController *motor_controller = (MotorController*)MotorController::getInstance();
+
+	printf("Network Tests finished\n");
 }
