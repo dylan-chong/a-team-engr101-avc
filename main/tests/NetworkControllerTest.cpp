@@ -21,19 +21,20 @@ NetworkControllerTest::~NetworkControllerTest() {
 
 //runs the tests
 void NetworkControllerTest::runTests(){
-	printf("Test Running");
+	printf("Network Test Running...............\n");
 	NetworkController *network_controller =(NetworkController*)NetworkController::makeInstance("192.168.1.2",22);
 	connectionTest(network_controller);
 	messageTest(network_controller);
 	makeInstanceTest();
+	printf("Network Tests finished\n");
 }
 
 //test the conntection by see what connect returns
 void NetworkControllerTest::connectionTest(NetworkController *network_controller){
 	//connect is a private method
-	assert(network_controller->connect() == 0);
-	printf("the IP address exists");
-	printf("The network controller connected");
+	assert(network_controller->connect("192.168.1.2",22) == 0);
+	printf("the IP address exists\n");
+	printf("The network controller connected\n");
 
 }
 
@@ -41,15 +42,15 @@ void NetworkControllerTest::connectionTest(NetworkController *network_controller
 void NetworkControllerTest::messageTest(NetworkController *network_controller){
 	//send message is a private method
 	assert(network_controller->sendMessage("msg") == 0);
-	printf("Message sent successfully");
+	printf("Message sent successfully\n");
 }
 
 //checks that you can only make one NetworkController
 void NetworkControllerTest::makeInstanceTest(){
 	//assert(NetworkController::makeInstance() == 0);
-	printf("Instance made");
+	printf("Instance made\n");
 	//assert(NetworkController::makeInstance() == 1);
-	printf("making two instances successfully failed");
+	printf("making two instances successfully failed\n");
 }
 
 

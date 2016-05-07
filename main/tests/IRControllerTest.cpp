@@ -12,8 +12,10 @@
 
 //runs the tests
 void IRControllerTest::runTests(){
-	printf("IR Test Running");
+	printf("IR Test Running...............\n");
 	IRController *IR_controller = (IRController*)IRController::getInstance();
+
+	printf("Network Tests finished\n");
 }
 
 IRControllerTest::IRControllerTest() {
