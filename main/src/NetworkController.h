@@ -16,11 +16,8 @@
 class NetworkController: public Controller{
 	friend class NetworkControllerTest;
 private:
-	/*const char IP_address[15];
-	const int port;*/
 
-
-	int connect();
+	int connect(char IP_address[15], int port);
 	int sendMessage(char message[]);
 	char recieveMessage(char message[]);
 public:
