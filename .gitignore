@@ -14,5 +14,5 @@ CMAKELists.txt
 .idea
 
 # Object files ie build files
-main/build/*.o
+main/build
 test-modules/*/main
