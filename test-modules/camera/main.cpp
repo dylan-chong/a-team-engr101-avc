@@ -49,65 +49,67 @@ int main(){
     // possibly not the best place to put this loop (while true cause why not),
     //im going to change how its laid out just try test with this
     while(true){
-    //the first array getting the camera input
-    int whiteness[320];
-    //whether the number is white enough
-    int white_thr = 140;
-    // the second array to compare to (- on left, + on the right)
-    int white_compare[320];
-    // what should be the multiplied version of the two above arrays
-    int white_final[320];
-    //the sum of all the white final numbers added 
-    int sum = 0;
-    // a count of how many white spots have been counted( to check if we can still see the line)
-    int n_whites = 0;
-    // left motor vroom vroom
-    int leftMotor = 0;
-    // right motor also vroom vroom
-    int rightMotor = 0;
-    
-    for(int i=0; i < 320; i++) {
-       //Take picture with camera
-       take_picture();
-       //get pixel "whiteness" from centre of image 
-       c = get_pixel(160,120,3);
-       //Prints read pixel value 
-       if(c > white_thr)
-       {
-           // if its greater than the threshold, the number is a one, and therefore white, so count increases
-           whiteness[i] = 1;
-           n_whites++;
-       }
-       else
-       {
-           whiteness[i] = 0;
-       }
-       white_compare[i] = i-160;
-       white_final[i] = whiteness[i] * white_compare[i];
-       } 
+		//the first array getting the camera input
+		int whiteness[320];
+		//whether the number is white enough
+		int white_thr = 140;
+		// the second array to compare to (- on left, + on the right)
+		int white_compare[320];
+		// what should be the multiplied version of the two above arrays
+		int white_final[320];
+		//the sum of all the white final numbers added 
+		int sum = 0;
+		// a count of how many white spots have been counted( to check if we can still see the line)
+		int n_whites = 0;
+		// left motor vroom vroom
+		int leftMotor = 0;
+		// right motor also vroom vroom
+		int rightMotor = 0;
+		
+		for(int i=0; i < 320; i++) {
+		   //Take picture with camera
+		   take_picture();
+		   //get pixel "whiteness" from centre of image 
+		   c = get_pixel(160,120,3);
+		   //Prints read pixel value 
+		   if(c > white_thr)
+		   {
+			   // if its greater than the threshold, the number is a one, and therefore white, so count increases
+			   whiteness[i] = 1;
+			   n_whites++;
+		   }
+		   else
+		   {
+			   whiteness[i] = 0;
+		   }
+		   white_compare[i] = i-160;
+		   white_final[i] = whiteness[i] * white_compare[i];
+		   } 
 
-       // what should be the sum of white final working
-       for (int i=0; i<320;i++){           
-            sum = sum + white_final[i];
-       }
-       // trying to make it so if it loses the line it reverses to try make it find it again
-       if(n_whites == 0){
-           leftMotor = -35;
-           rightMotor = -35;
-           set_motor(1,rightMotor);
-           set_motor(2,leftMotor);
-       }
-       // the 0.004 is just a random small number i took, change it if you want
-       else{
-       leftMotor = 35 + -sum * 0.004; 
-       rightMotor = 35 + sum *0.004;
-       set_motor(1,rightMotor);
-       set_motor(2,leftMotor);
-       }
+		   // what should be the sum of white final working
+		   for (int i=0; i<320;i++){           
+				sum = sum + white_final[i];
+		   }
+		   // trying to make it so if it loses the line it reverses to try make it find it again
+		   if(n_whites == 0){
+			   leftMotor = -35;
+			   rightMotor = -35;
+			   set_motor(1,rightMotor);
+			   set_motor(2,leftMotor);
+		   }
+		   // the 0.004 is just a random small number i took, change it if you want
+		   else{
+			   leftMotor = 35 + -sum * 0.004; 
+			   rightMotor = 35 + sum *0.004;
+			   set_motor(1,rightMotor);
+			   set_motor(2,leftMotor);
+		  }
     }
-set_motor(1,0);
-set_motor(2,0);
-return 0;}
+	set_motor(1,0);
+	set_motor(2,0);
+	
+	return 0;
+}
 
 
 // ************  Old ************
