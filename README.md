@@ -140,12 +140,6 @@ Andrew
 - Dylan
 	- Added some of the milestone checklist to GitHub readme
 
-<h6>Extra Lab</h6>
-
-<h4>Review</h4>
-<!-- /// TODO write up quick review for week 1 -->
-
-
 
 [//]: **********************************************************************
 ---
