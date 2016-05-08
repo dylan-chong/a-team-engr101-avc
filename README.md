@@ -210,9 +210,10 @@ None
     - Planned a lot more of the main loop, this time planning out how it will fit with different classes
     - Worked with Andrew on the main loop plans/how everything fits together (plan completed for now)
 
-<h5>Thursday 05/05/16</h5>
+<h5>Friday 06/05/16</h5>
 - Dylan
 	- Moved method stubs, that I planned with Andrew yesterday, into the test modules for others to implement.
+    - Planned some basic outline code for tracking algorithm
 
 <h4>Review</h4>
 
