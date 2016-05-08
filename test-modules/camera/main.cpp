@@ -83,13 +83,13 @@ int main() {
         }
         // trying to make it so if it loses the line it reverses to try make it find it again
         if (n_whites == 0) {
-            leftMotor = -35;
-            rightMotor = -35;
+            int leftMotor = -35;
+            int rightMotor = -35;
             set_motor(1, rightMotor);
             set_motor(2, leftMotor);
         } else {
-            leftMotor = 35 + -sum * 0.004; // the 0.004 is just a random small number i took, change it if you want
-            rightMotor = 35 + sum * 0.004;
+            int leftMotor = 35 + -sum * 0.004; // the 0.004 is just a random small number i took, change it if you want
+            int rightMotor = 35 + sum * 0.004;
             set_motor(1, rightMotor);
             set_motor(2, leftMotor);
         }
