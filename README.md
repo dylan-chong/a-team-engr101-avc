@@ -183,12 +183,12 @@ None
 
 
 <h4>Milestone Checklist</h4>
-- [ ] Everyone: Complete Skeleton robot design (functional parts and structure only)
-- [ ] Ahmed, Daniel: Have AVC follow straight lines
+- [x] Everyone, Ahmed: Complete Skeleton robot design (functional parts and structure only)
+- [ ] Daniel: Have AVC follow straight lines
 - [ ] Ahmed: Create ball bearing for robot
-- [ ] Andrew, Dylan: Plan modules and methods
-- [ ] Andrew, Dylan: Add method stubs to files
-- [ ] Ben: Be able to receive data from camera
+- [x] Andrew, Dylan: Plan modules and methods
+- [x] Dylan: Add method stubs to test-module files for others to work on
+- [x] Ben: Be able to receive data from camera
 - [ ] Jonah: Be able to sense distance from IR sensor
 
 <h4>Minor Task Checklist</h4>
@@ -216,8 +216,17 @@ None
     - Planned some basic outline code for tracking algorithm
 
 <h4>Review</h4>
+- Position of sensors have been planned
+- Motor code is still in progress (motors do work, buthave been disconnected)
+- We may not need a ball bearing - we will decide later if we need it (not crucial)
+- Modules have been planned 
+- Method stubs have been added to test-module files
+- The camera works, but algorithm in progress
+- IR Sensor code is still in progress (need catch up)
 
+Extra Info
 
+- Ahmed has been able to print off some parts to attach sensors to, and get some recycled parts to hold the robot
 
 [//]: **********************************************************************
 ---
