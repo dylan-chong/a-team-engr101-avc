@@ -184,15 +184,22 @@ None
 
 <h4>Milestone Checklist</h4>
 - [x] Everyone, Ahmed: Complete Skeleton robot design (functional parts and structure only)
+	- Position of sensors have been planned
 - [ ] Daniel: Have AVC follow straight lines
+	- Motor code is still in progress (motors do work, buthave been disconnected)
 - [ ] Ahmed: Create ball bearing for robot
+	- We may not need a ball bearing - we will decide later if we need it (not crucial)
 - [x] Andrew, Dylan: Plan modules and methods
+	- Modules have been planned
 - [x] Dylan: Add method stubs to test-module files for others to work on
+	- Method stubs have been added to test-module files
 - [x] Ben: Be able to receive data from camera
+	- The camera works, but algorithm in progress
 - [ ] Jonah: Be able to sense distance from IR sensor
+	- IR Sensor code is still in progress (need catch up)
 
 <h4>Minor Task Checklist</h4>
-- [ ] Dylan: Record cost of parts so far
+- [x] Dylan: Record cost of parts so far (3D printed parts don't cost, so budget not a high priority)
 
 
 <h4>Daily Log</h4>
@@ -214,15 +221,6 @@ None
 - Dylan
 	- Moved method stubs, that I planned with Andrew yesterday, into the test modules for others to implement.
     - Planned some basic outline code for tracking algorithm
-
-<h4>Review</h4>
-- Position of sensors have been planned
-- Motor code is still in progress (motors do work, buthave been disconnected)
-- We may not need a ball bearing - we will decide later if we need it (not crucial)
-- Modules have been planned 
-- Method stubs have been added to test-module files
-- The camera works, but algorithm in progress
-- IR Sensor code is still in progress (need catch up)
 
 Extra Info
 
