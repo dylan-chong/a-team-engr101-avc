@@ -13,9 +13,6 @@ obj
 CMAKELists.txt
 .idea
 
-# object files ie build files
-
-
-
-"Main Project"/build/*.o
-
+# Object files ie build files
+main/build/*.o
+test-modules/*/main

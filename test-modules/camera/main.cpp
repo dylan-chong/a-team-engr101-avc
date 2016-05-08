@@ -16,15 +16,19 @@ long getLineValue() {
 
 // This method is just for testing your getLineValue() method.
 // Not for use in main project
+/* TODO LATER use this actual main method
 int main() {
 
     // Ben, make a printf statement that will print out the result
     // of the getLineValue() method so that you can test if it's working
 
     return 0;
-}
+}*/
+
+// ****************** STUFF BEN ADDED ******************
+
 // Update at like 1.20am on monday
-/* // i had to rewrite this at 12.30am because i wrote it online and didnt save it rip.
+// i had to rewrite this at 12.30am because i wrote it online and didnt save it rip.
 // no clue whether this will work, typing this in word now so excuse lack of brackets and stuff
 // also yeah it should be a method that returns a value and then a main one, but its kinda hard to write in word
 // if it doesnt work at all just let me know and ill do it properly 
@@ -104,7 +108,7 @@ int main(){
 set_motor(1,0);
 set_motor(2,0);
 return 0;}
-*/ 
+
 
 // ************  Old ************
 
