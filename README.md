@@ -237,6 +237,9 @@ None
 <h4>Minor Task Checklist</h4>
 
 <h4>Daily Log</h4>
+<h5>Monday 09/05/16</h5>
+- Dylan
+	- Had a look at Ben's code, tidied it up, and tested it (stuck in a loop somewhere)
 
 <h4>Review</h4>
 
