@@ -38,10 +38,18 @@ as part of ENGR101 at Victoria University of Wellington
 
 [//]: **********************************************************************
 <h2>Progress and Milestones</h2>
+Shortcuts:
+
+- [Week 8](#week-8)
+- [Week 9](#week-9)
+- [Week 10](#week-10)
+- [Week 11](#week-11)
+- [Week 12](#week-12)
+
 [//]: **********************************************************************
 
 <h3>Week 8 (Wed 20 - Sun 24 April) - First Week</h3>
-
+(#week-8)
 
 
 
@@ -152,7 +160,7 @@ Andrew
 [//]: **********************************************************************
 
 <h3>Week 9 (Mon 25 - Sun 1 May) - Mid-Trimester Break</h3>
-
+(#week-9)
 
 
 <h4>Milestone Checklist</h4>
@@ -179,7 +187,7 @@ None
 [//]: **********************************************************************
 
 <h3>Week 10 (Mon 2 - Sun 8 May)</h3>
-
+(#week-10)
 
 
 <h4>Milestone Checklist</h4>
@@ -224,7 +232,7 @@ None
 [//]: **********************************************************************
 
 <h3>Week 11 (Mon 9 - Sun 15 May)</h3>
-
+(#week-11)
 
 
 <h4>Milestone Checklist</h4>
@@ -247,7 +255,7 @@ None
 [//]: **********************************************************************
 
 <h3>Week 12 (Mon 16 - Sun 22 May)</h3>
-
+(#week-12)
 
 
 <h4>Milestone Checklist</h4>
