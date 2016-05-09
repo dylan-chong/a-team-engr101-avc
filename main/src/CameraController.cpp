@@ -14,16 +14,11 @@ extern "C" int take_picture();
 extern "C" char get_pixel(int row, int col, int colour);
 extern "C" int Sleep(int sec, int usec);
 
-//Controller* CameraController::instance;
-int CameraController::WHITE_THRESHOLD = 140;
-double CameraController::Kp=1;
-double CameraController::Kd=1;
-double CameraController::Ki=0;
-
 //This is the constructor
 CameraController::CameraController(){
 	center = 120;
-	prevousError = 0;
+	previousError = 0;
+	dir = 'l';
 }
 
 //this is the destructor
@@ -47,10 +42,10 @@ int * CameraController::getWhiteArray(){
 }
 
 //gets the total sum of the white array * the position on the white pixels from the center
-int CameraController::sum(int* white[320]){
+int CameraController::sum(int* white){
 	int total = 0;
 	for (int count = 0; count<320; count++){
-		total += (*white)[count]*(count-center);
+		total += *(white + count)*(count-center);
 	}
 	return total;
 }
