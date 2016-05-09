@@ -15,6 +15,12 @@ int main(){
 	MotorController *motor_controller = MotorController::makeInstance();
 	IRController *IR_controller = IRController::makeInstance();
 	CameraController *camera_controller = CameraController::makeInstance();
+
+	while(true){
+		double spd = camera_controller->update();
+		MotorController->arc(camera_controller->getDir, spd);
+		printf("loop\n");'
+	}
 	printf("it worked\n");
 	return  0;
 }
