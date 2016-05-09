@@ -15,14 +15,20 @@ class CameraController: public Controller{
 friend class CameraControllerTest;
 private:
 	const int WHITE_THRESHOLD;
+	const double Kp;
+	const double Kd;
+	const double Ki;
+
 	int center;
 	int previousError;
+	char dir;
 
 public:
 	static CameraController* makeInstance();
 	virtual ~CameraController();
 	CameraController();
 
+	char getDir();
 	int[] getWhiteArray();
 	int sum(int white[]);
 	int differential(int sum);

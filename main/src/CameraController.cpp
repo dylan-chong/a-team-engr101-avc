@@ -8,6 +8,7 @@
  */
 
 #include "CameraController.h"
+#include <cmath>
 
 extern "C" int take_picture();
 extern "C" char get_pixel(int row, int col, int colour);
@@ -18,6 +19,9 @@ extern "C" int Sleep(int sec, int usec);
 //This is the constructor
 CameraController::CameraController(){
 	WHITE_THRESHOLD = 140;
+	Kp=1;
+	Kd=1;
+	Ki=0;
 	center = 120;
 	currentError = 0;
 	prevousError = 0;
@@ -57,6 +61,34 @@ int CameraController::differential(int sum){
 	int temp = previousError;
 	previousError = sum;
 	return (sum-temp)/temp;
+}
+
+double CameraController::motorMovement(int sum, int differential){
+	double percent = (sum/300)*Kp+differential*Kd;
+	if (percent > 1){
+		dir = 'l';
+		return 1;
+	} else if (percent <-1){
+		dir = 'r';
+		return 1;
+	} else {
+		if (percent>0){
+			dir = 'l';
+		} else {
+			dir = 'r';
+		}
+		return std::abs(percent);
+	}
+}
+
+double CameraController::update(){
+	int sum = camera_controller->sum(camera_controller->getWhiteArray());
+	int diff = camera_controller->differential(sum);
+	return motorMovement(sum, differential);
+}
+
+char CameraController::getDir(){
+	return dir;
 }
 
 
