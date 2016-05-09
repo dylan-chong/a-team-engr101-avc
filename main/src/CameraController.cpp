@@ -45,7 +45,7 @@ int * CameraController::getWhiteArray(){
 int CameraController::sum(int* white[320]){
 	int total = 0;
 	for (int count = 0; count<320; count++){
-		total += (*white)[count]*(count-center);
+		total += *(white + count)*(count-center);
 	}
 	return total;
 }

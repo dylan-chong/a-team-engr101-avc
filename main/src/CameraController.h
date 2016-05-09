@@ -21,7 +21,7 @@ private:
 
 	int center;
 	int previousError;
-	char dir';
+	char dir;
 
 public:
 	static CameraController* makeInstance();
