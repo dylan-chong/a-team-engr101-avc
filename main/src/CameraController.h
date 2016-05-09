@@ -29,7 +29,7 @@ public:
 	CameraController();
 
 	char getDir();
-	int[] getWhiteArray();
+	int * getWhiteArray();
 	int sum(int white[]);
 	int differential(int sum);
 };

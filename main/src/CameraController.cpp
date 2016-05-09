@@ -38,20 +38,20 @@ CameraController* CameraController::makeInstance(){
 }
 
 //gets an array of 1's and 0's that indicate blank and white pixels
-int[] CameraController::getWhiteArray(){
+int * CameraController::getWhiteArray(){
 	take_picture();
 	int white[320];
 	for (int count = 0; count<320; count++){
 		white[count]=get_pixel(count,120,3) > WHITE_THRESHOLD;
 	}
-	return white;
+	return &white;
 }
 
 //gets the total sum of the white array * the position on the white pixels from the center
-int CameraController::sum(int white[320]){
+int CameraController::sum(int* white[320]){
 	int total = 0;
 	for (int count = 0; count<320; count++){
-		total += white[count]*(count-center);
+		total += (*white)[count]*(count-center);
 	}
 	return total;
 }
