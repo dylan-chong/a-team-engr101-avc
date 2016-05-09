@@ -19,9 +19,9 @@ private:
 	const static double Kd=1;
 	const static double Ki=0;
 
-	int center = 120;
-	int previousError = 0;
-	char dir = 'l';
+	int center;
+	int previousError;
+	char dir';
 
 public:
 	static CameraController* makeInstance();

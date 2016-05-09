@@ -16,7 +16,9 @@ extern "C" int Sleep(int sec, int usec);
 
 //This is the constructor
 CameraController::CameraController(){
-
+	center = 120;
+	previousError = 0;
+	dir = 'l';
 }
 
 //this is the destructor
