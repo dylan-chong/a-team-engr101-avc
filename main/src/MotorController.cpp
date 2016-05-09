@@ -21,7 +21,7 @@ MotorController* MotorController::makeInstance(){
 MotorController::MotorController() {
 	LEFT_MOTOR = 0;
 	RIGHT_MOTOR = 1;
-	MAX_SPEED = 255;
+	MAX_SPEED = 30;
 }
 
 //this is the destructor
