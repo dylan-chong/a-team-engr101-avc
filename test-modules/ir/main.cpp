@@ -9,8 +9,11 @@ extern "C" int sleep(int sec, int  usec);
 float getDistanceFromSensor(int sensorPin) {
 
     // Jonah do your calculation here then
-
-    return 12.345;
+	
+	//Formula distance = Voltage/samples http://luckylarry.co.uk/arduino-projects/arduino-using-a-sharp-ir-sensor-for-distance-calculation/
+	float volts = analogRead(IRpin)*0.0048828125; ;
+	float distance = 65*pow(volts, -1.10);
+    return distance;
 }
 
 float getLeftDistance() {
