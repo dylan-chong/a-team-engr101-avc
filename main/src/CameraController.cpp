@@ -42,7 +42,7 @@ int * CameraController::getWhiteArray(){
 }
 
 //gets the total sum of the white array * the position on the white pixels from the center
-int CameraController::sum(int* white[320]){
+int CameraController::sum(int* white){
 	int total = 0;
 	for (int count = 0; count<320; count++){
 		total += *(white + count)*(count-center);

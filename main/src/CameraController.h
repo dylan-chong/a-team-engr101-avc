@@ -28,9 +28,11 @@ public:
 	virtual ~CameraController();
 	CameraController();
 
+	double motorMovement(int sum, int differential);
 	char getDir();
 	int * getWhiteArray();
-	int sum(int white[]);
+	int sum(int * white);
 	int differential(int sum);
+	double update();
 };
 #endif /* CAMERACONTROLLER_H_ */
