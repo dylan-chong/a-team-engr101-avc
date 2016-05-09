@@ -14,16 +14,9 @@ extern "C" int take_picture();
 extern "C" char get_pixel(int row, int col, int colour);
 extern "C" int Sleep(int sec, int usec);
 
-//Controller* CameraController::instance;
-int CameraController::WHITE_THRESHOLD = 140;
-double CameraController::Kp=1;
-double CameraController::Kd=1;
-double CameraController::Ki=0;
-
 //This is the constructor
 CameraController::CameraController(){
-	center = 120;
-	prevousError = 0;
+
 }
 
 //this is the destructor

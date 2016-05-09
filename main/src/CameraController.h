@@ -14,14 +14,14 @@
 class CameraController: public Controller{
 friend class CameraControllerTest;
 private:
-	const static int WHITE_THRESHOLD;
-	const static double Kp;
-	const static double Kd;
-	const static double Ki;
+	const static int WHITE_THRESHOLD = 140;
+	const static double Kp=1;
+	const static double Kd=1;
+	const static double Ki=0;
 
-	int center;
-	int previousError;
-	char dir;
+	int center = 120;
+	int previousError = 0;
+	char dir = 'l';
 
 public:
 	static CameraController* makeInstance();
