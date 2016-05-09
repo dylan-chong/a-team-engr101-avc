@@ -14,9 +14,9 @@
 class MotorController: public Controller{
 	friend class MotorControllerTest;
 private:
-	const int LEFT_MOTOR;
-	const int RIGHT_MOTOR;
-	const int MAX_SPEED;
+	const static int LEFT_MOTOR=2;
+	const static int RIGHT_MOTOR=1;
+	const static int MAX_SPEED=30;
 
 public:
 	static MotorController* makeInstance();

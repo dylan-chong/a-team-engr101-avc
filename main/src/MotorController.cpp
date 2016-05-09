@@ -19,24 +19,12 @@ MotorController* MotorController::makeInstance(){
 
 //This is the constructor
 MotorController::MotorController() {
-	LEFT_MOTOR = 0;
-	RIGHT_MOTOR = 1;
-	MAX_SPEED = 30;
+
 }
 
 //this is the destructor
 MotorController::~MotorController() {
 
-}
-
-void MotorController::arc(char dir, double percent){
-	if (dir = 'l'){
-		arcLeft(percent);
-	} else if (dir = 'r'){
-		acrleft(percent);
-	} else {
-		setStraightLine(percent);
-	}
 }
 
 //sets both wheels to ahead
@@ -55,6 +43,17 @@ void MotorController::arcLeft(double percent){
 void MotorController::arcRight(double percent){
 	set_motor(RIGHT_MOTOR, MAX_SPEED*percent);
 	set_motor(LEFT_MOTOR, MAX_SPEED);
+}
+
+
+void MotorController::arc(char dir, double percent){
+	if (dir = 'l'){
+		arcLeft(percent);
+	} else if (dir = 'r'){
+		arcRight(percent);
+	} else {
+		setStraightLine(percent);
+	}
 }
 
 
