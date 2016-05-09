@@ -18,7 +18,7 @@ int main(){
 
 	while(true){
 		double spd = camera_controller->update();
-		motor_controller->arc(camera_controller->getDir, spd);
+		motor_controller->arc('l', spd);
 		printf("loop\n");
 	}
 	printf("it worked\n");
