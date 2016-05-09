@@ -14,17 +14,11 @@ extern "C" int take_picture();
 extern "C" char get_pixel(int row, int col, int colour);
 extern "C" int Sleep(int sec, int usec);
 
-//Controller* CameraController::instance;
-int CameraController::center = 120;
-
 //This is the constructor
 CameraController::CameraController(){
-	WHITE_THRESHOLD = 140;
-	Kp=1;
-	Kd=1;
-	Ki=0;
-
-	prevousError = 0;
+	center = 120;
+	previousError = 0;
+	dir = 'l';
 }
 
 //this is the destructor
@@ -44,14 +38,15 @@ int * CameraController::getWhiteArray(){
 	for (int count = 0; count<320; count++){
 		white[count]=get_pixel(count,120,3) > WHITE_THRESHOLD;
 	}
-	return &white;
+	int * whitePointer = white;
+	return whitePointer;
 }
 
 //gets the total sum of the white array * the position on the white pixels from the center
-int CameraController::sum(int* white[320]){
+int CameraController::getSum(int* white){
 	int total = 0;
 	for (int count = 0; count<320; count++){
-		total += (*white)[count]*(count-center);
+		total += *(white + count)*(count-center);
 	}
 	return total;
 }
@@ -82,9 +77,9 @@ double CameraController::motorMovement(int sum, int differential){
 }
 
 double CameraController::update(){
-	int sum = camera_controller->sum(camera_controller->getWhiteArray());
-	int diff = camera_controller->differential(sum);
-	return motorMovement(sum, differential);
+	int sum = getSum(getWhiteArray());
+	int diff = differential(sum);
+	return motorMovement(sum, diff);
 }
 
 char CameraController::getDir(){

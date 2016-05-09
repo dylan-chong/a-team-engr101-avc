@@ -6,13 +6,21 @@ extern "C" int read_analog(int ch_adc);
 extern "C" int sleep(int sec, int  usec);
 
 // Return the distance in centimetres
+
+
+
 float getDistanceFromSensor(int sensorPin) {
 
     // Jonah do your calculation here then
-	
+
 	//Formula distance = Voltage/samples http://luckylarry.co.uk/arduino-projects/arduino-using-a-sharp-ir-sensor-for-distance-calculation/
-	float volts = analogRead(IRpin)*0.0048828125; ;
-	float distance = 65*pow(volts, -1.10);
+
+
+	// 26 = range , 26/1024*reading
+
+
+
+	float distance = 26/1024*read_analog(sensorPin) + 4 ; //4 is the offset as readings are in the range of 4-30 cm
     return distance;
 }
 
@@ -30,7 +38,11 @@ float getRightDistance() {
 
 // This method is just for testing. Not for use in main project
 int main(){
-
+	while(true){
+		printf(getLeftDistance());
+		printf("CM\n");
+		sleep(1,0);
+	}
     // Jonah write code here so you can test it
 
     return 0;
