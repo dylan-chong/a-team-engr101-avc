@@ -43,7 +43,7 @@ int * CameraController::getWhiteArray(){
 }
 
 //gets the total sum of the white array * the position on the white pixels from the center
-int CameraController::sum(int* white){
+int CameraController::getSum(int* white){
 	int total = 0;
 	for (int count = 0; count<320; count++){
 		total += *(white + count)*(count-center);
@@ -79,7 +79,7 @@ double CameraController::motorMovement(int sum, int differential){
 double CameraController::update(){
 	int sum = sum(getWhiteArray());
 	int diff = differential(sum);
-	return motorMovement(sum, differential);
+	return motorMovement(sum, diff);
 }
 
 char CameraController::getDir(){

@@ -31,7 +31,7 @@ public:
 	double motorMovement(int sum, int differential);
 	char getDir();
 	int * getWhiteArray();
-	int sum(int * white);
+	int getSum(int * white);
 	int differential(int sum);
 	double update();
 };
