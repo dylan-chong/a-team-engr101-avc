@@ -38,7 +38,8 @@ int * CameraController::getWhiteArray(){
 	for (int count = 0; count<320; count++){
 		white[count]=get_pixel(count,120,3) > WHITE_THRESHOLD;
 	}
-	return &white;
+	int * whitePointer = white;
+	return whitePointer;
 }
 
 //gets the total sum of the white array * the position on the white pixels from the center
@@ -76,8 +77,8 @@ double CameraController::motorMovement(int sum, int differential){
 }
 
 double CameraController::update(){
-	int sum = camera_controller->sum(camera_controller->getWhiteArray());
-	int diff = camera_controller->differential(sum);
+	int sum = sum(getWhiteArray());
+	int diff = differential(sum);
 	return motorMovement(sum, differential);
 }
 
