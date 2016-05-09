@@ -15,7 +15,7 @@ extern "C" char get_pixel(int row, int col, int colour);
 extern "C" int Sleep(int sec, int usec);
 
 //Controller* CameraController::instance;
-CameraController::center = 120;
+int CameraController::center = 120;
 
 //This is the constructor
 CameraController::CameraController(){
