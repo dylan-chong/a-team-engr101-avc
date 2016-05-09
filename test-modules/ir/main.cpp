@@ -39,7 +39,7 @@ float getRightDistance() {
 // This method is just for testing. Not for use in main project
 int main(){
 	while(true){
-		printf(getLeftDistance());
+		printf("%f", getLeftDistance());
 		printf("CM\n");
 		sleep(1,0);
 	}
