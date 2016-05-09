@@ -28,7 +28,7 @@ MotorController::~MotorController() {
 }
 
 //sets both wheels to ahead
-void MotorContoller::setStraightLine(double percent){
+void MotorController::setStraightLine(double percent){
 	set_motor(LEFT_MOTOR, MAX_SPEED*percent);
 	set_motor(RIGHT_MOTOR, MAX_SPEED*percent);
 }

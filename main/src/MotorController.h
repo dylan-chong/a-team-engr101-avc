@@ -23,7 +23,7 @@ public:
 	virtual ~MotorController();
 	MotorController();
 
-	void setStraightLine();
+	void setStraightLine(double percent);
 	void arcLeft(double percent);
 	void arcRight(double percent);
 	void arc(char dir, double percent);
