@@ -6,6 +6,9 @@ extern "C" int read_analog(int ch_adc);
 extern "C" int sleep(int sec, int  usec);
 
 // Return the distance in centimetres
+
+
+
 float getDistanceFromSensor(int sensorPin) {
 
     // Jonah do your calculation here then
@@ -35,7 +38,11 @@ float getRightDistance() {
 
 // This method is just for testing. Not for use in main project
 int main(){
-
+	while(true){
+		printf(getLeftDistance());
+		printf("CM\n");
+		sleep(1,0);
+	}
     // Jonah write code here so you can test it
 
     return 0;
