@@ -81,6 +81,11 @@ int main() {
         for (int i = 0; i < 320; i++) {
             sum = sum + white_final[i];
         }
+
+        printf("sum: %d\n", sum);
+
+        // You don't need to control the motors, just deal with the camera stuffg
+        /*
         // trying to make it so if it loses the line it reverses to try make it find it again
         if (n_whites == 0) {
             int leftMotor = -35;
@@ -93,6 +98,7 @@ int main() {
             set_motor(1, rightMotor);
             set_motor(2, leftMotor);
         }
+        */
     }
 
     set_motor(1, 0);
@@ -101,6 +107,9 @@ int main() {
     return 0;
 }
 
+void printIntArray(int[] ) {
+
+}
 
 // ************  Old ************
 
