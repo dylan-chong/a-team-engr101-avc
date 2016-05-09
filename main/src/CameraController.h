@@ -14,10 +14,10 @@
 class CameraController: public Controller{
 friend class CameraControllerTest;
 private:
-	const int WHITE_THRESHOLD;
-	const double Kp;
-	const double Kd;
-	const double Ki;
+	const static int WHITE_THRESHOLD;
+	const static double Kp;
+	const static double Kd;
+	const static double Ki;
 
 	int center;
 	int previousError;
