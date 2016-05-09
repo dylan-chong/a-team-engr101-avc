@@ -14,11 +14,20 @@
 class MotorController: public Controller{
 	friend class MotorControllerTest;
 private:
+	const int LEFT_MOTOR;
+	const int RIGHT_MOTOR;
+	const int MAX_SPEED;
 
 public:
 	static MotorController* makeInstance();
 	virtual ~MotorController();
 	MotorController();
+
+	void setStraightLine();
+	void arcLeft(double percent);
+	void arcRight(double percent);
+	void arc(char dir, double percent);
+
 };
 
 #endif /* MOTORCONTROLLER_H_ */
