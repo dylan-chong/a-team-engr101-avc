@@ -95,7 +95,7 @@ int errorTest() {
 }
 
 int main() {
-    init(1);
+    init(0);
     // left motor vroom vroom
     int leftMotor = 0;
     // right motor also vroom vroom
