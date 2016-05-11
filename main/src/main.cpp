@@ -7,7 +7,7 @@
 #include "IRController.h"
 
 extern "C" int init(int d_lev);
-extern "C" int sleep(int sec, int  usec);
+extern "C" int Sleep(int sec, int  usec);
 
 int main(){
 	init(1);
