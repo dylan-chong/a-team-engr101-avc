@@ -32,23 +32,19 @@ CameraController* CameraController::makeInstance(){
 }
 
 //gets an array of 1's and 0's that indicate blank and white pixels
-int * CameraController::getWhiteArray(){
+int CameraController::getWhiteArray(){
 	take_picture();
-	int white[320];
 	for (int count = 0; count<320; count++){
-		try{
-			white[count]=get_pixel(count,120,3) > WHITE_THRESHOLD;
-		} catch(int e){}
+		white[count]=(get_pixel(count,120,3) > WHITE_THRESHOLD);
 	}
-	int * whitePointer = white;
-	return whitePointer;
+	return 0;
 }
 
 //gets the total sum of the white array * the position on the white pixels from the center
-int CameraController::getSum(int* white){
+int CameraController::getSum(){
 	int total = 0;
 	for (int count = 0; count<320; count++){
-		total += *(white + count)*(count-center);
+		total += white[count]*(count-center);
 	}
 	return total;
 }
@@ -79,7 +75,8 @@ double CameraController::motorMovement(int sum, int differential){
 }
 
 double CameraController::update(){
-	int sum = getSum(getWhiteArray());
+	getWhiteArray();
+	int sum = getSum();
 	int diff = differential(sum);
 	return motorMovement(sum, diff);
 }

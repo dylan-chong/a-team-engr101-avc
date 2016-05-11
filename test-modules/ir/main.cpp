@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 
-extern "C" int init(d_lev);
+extern "C" int init(int d_lev);
 extern "C" int read_analog(int ch_adc);
 extern "C" int sleep(int sec, int  usec);
 
@@ -18,10 +18,14 @@ float getDistanceFromSensor(int sensorPin) {
 
 	// 26 = range , 26/1024*reading
 
+	int pinReading = read_analog(sensorPin);
 
-	printf("%d",read_analog(0));
-	float distance = 26/1024*read_analog(0) + 4 ; //4 is the offset as readings are in the range of 4-30 cm
-    return distance;
+	printf("%d",pinReading);
+	printf("         ");
+
+	float distance = (float)(26/1024)*pinReading + 4 ; //4 is the offset as readings are in the range of 4-30 cm
+
+	return distance;
 }
 
 float getLeftDistance() {

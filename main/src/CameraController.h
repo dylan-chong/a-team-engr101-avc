@@ -19,6 +19,7 @@ private:
 	const static double Kd=1;
 	const static double Ki=0;
 
+	int white[];
 	int center;
 	int previousError;
 	char dir;
@@ -30,8 +31,8 @@ public:
 
 	double motorMovement(int sum, int differential);
 	char getDir();
-	int * getWhiteArray();
-	int getSum(int * white);
+	int getWhiteArray();
+	int getSum();
 	int differential(int sum);
 	double update();
 };
