@@ -16,7 +16,7 @@ class MotorController: public Controller{
 private:
 	const static int LEFT_MOTOR=2;
 	const static int RIGHT_MOTOR=1;
-	const static int MAX_SPEED=30;
+	const static int MAX_SPEED=120;
 
 public:
 	static MotorController* makeInstance();
