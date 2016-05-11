@@ -34,6 +34,7 @@ int main() {
 
 #include <stdio.h>
 #include <time.h>
+#include <limits.h>
 
 
 extern "C" int init(int d_lev);
@@ -85,7 +86,8 @@ int errorTest() {
     }
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites == 0) {
-        return 1000000;
+        printf("%d\n", INT_MAX)
+        return INT_MAX;
     }
         // the 0.004 is just a random small number i took, change it if you want
     else {
@@ -94,7 +96,7 @@ int errorTest() {
     }
 }
 
-int main() {
+/*int main() {
     init(0);
     // left motor vroom vroom
     int leftMotor = 0;
@@ -104,7 +106,7 @@ int main() {
     int sum = 1;
     while (count < 2000) {
         sum = errorTest();
-        if (sum == 1000000) {
+        if (sum == INT_MAX) {
             leftMotor = -35;
             rightMotor = -35;
             set_motor(1, rightMotor);
@@ -126,7 +128,7 @@ int main() {
     set_motor(2, 0);
     return 0;
 }
-
+*/
 
 
 
