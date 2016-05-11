@@ -16,9 +16,10 @@ int main(){
 	IRController *IR_controller = IRController::makeInstance();
 	CameraController *camera_controller = CameraController::makeInstance();
 
+
 	while(true){
-		double spd = camera_controller->update();
-		motor_controller->arc('l', spd);
+		//double spd = camera_controller->update();
+		motor_controller->arc('l', 10);
 		printf("loop\n");
 	}
 	printf("it worked\n");
