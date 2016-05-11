@@ -68,6 +68,7 @@ int errorTest() {
         //get pixel "whiteness" from centre of image
         c = get_pixel(160, 120, 3);
         //Prints read pixel value
+        printf("%d\n", c);
         if (c > white_thr) {
             // if its greater than the threshold, the number is a one, and therefore white, so count increases
             whiteness[i] = 1;
