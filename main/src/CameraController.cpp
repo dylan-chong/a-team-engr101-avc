@@ -37,7 +37,7 @@ int * CameraController::getWhiteArray(){
 	int white[320];
 	for (int count = 0; count<320; count++){
 		try{
-			white[count]=get_pixel(count,120,3) > WHITE_THRESHOLD;
+			white[count]=(get_pixel(count,120,3) > WHITE_THRESHOLD);
 		} catch(int e){}
 	}
 	int * whitePointer = white;
