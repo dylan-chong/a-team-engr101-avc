@@ -3,12 +3,15 @@
 
 extern "C" int init_hardware();
 extern "C" int sleep(int sec, int usec);
+extern "C" int Sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
 int main() {
     printf("test\n");
     sleep(1, 0);
-    printf("end\n");
+    printf("test 2\n");
+    Sleep(1, 0);
+    printf("test 3\n");
     return 0;
 }
 
