@@ -40,17 +40,21 @@ void MotorController::reverse(double percent){
 	set_motor(RIGHT_MOTOR, REVERSE*percent);
 }
 
-//tuen left at a certain percent
+//turn left at a certain percent
 void MotorController::arcLeft(double percent){
 	set_motor(LEFT_MOTOR, MAX_SPEED*percent);
 	set_motor(RIGHT_MOTOR, MAX_SPEED);
 }
 
-//true right at a certain percent
+//turn right at a certain percent
 void MotorController::arcRight(double percent){
 	set_motor(RIGHT_MOTOR, MAX_SPEED*percent);
 	set_motor(LEFT_MOTOR, MAX_SPEED);
 }
+
+//rotate 90 degrees left
+
+//rotate 90 degrees right
 
 
 void MotorController::arc(char dir, double percent){
