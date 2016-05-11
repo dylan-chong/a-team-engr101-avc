@@ -18,7 +18,7 @@ int main(){
 
 
 	while(true){
-		printf("%d\n", camera_controller->update());
+		//printf("%d\n", camera_controller->update());
 		motor_controller->arc('l', .5);
 		printf("loop\n");
 	}
