@@ -18,10 +18,12 @@ int main(){
 
 
 	while(true){
-		//double spd = camera_controller->update();
-		motor_controller->arc('l', 10);
+		double spd = camera_controller->update();
+		printf(spd+"\n");
+		motor_controller->arc('l', .5);
 		printf("loop\n");
 	}
 	printf("it worked\n");
 	return  0;
 }
+spd
