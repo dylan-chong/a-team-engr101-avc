@@ -34,6 +34,12 @@ void MotorController::setStraightLine(double percent){
 	set_motor(RIGHT_MOTOR, MAX_SPEED*percent);
 }
 
+//sets wheels to reverse
+void MotorController::reverse(double percent){
+	set_motor(LEFT_MOTOR, REVERSE*percent);
+	set_motor(RIGHT_MOTOR, REVERSE*percent);
+}
+
 //tuen left at a certain percent
 void MotorController::arcLeft(double percent){
 	set_motor(LEFT_MOTOR, MAX_SPEED*percent);
