@@ -86,6 +86,7 @@ int errorTest() {
     }
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites == 0) {
+        printf("%d\n", INT_MAX);
         return INT_MAX;
     }
         // the 0.004 is just a random small number i took, change it if you want
@@ -95,7 +96,7 @@ int errorTest() {
     }
 }
 
-/*int main() {
+int main() {
     init(0);
     // left motor vroom vroom
     int leftMotor = 0;
@@ -106,19 +107,19 @@ int errorTest() {
     while (count < 2000) {
         sum = errorTest();
         if (sum == INT_MAX) {
-            leftMotor = -35;
-            rightMotor = -35;
-            set_motor(1, rightMotor);
-            set_motor(2, leftMotor);
-            Sleep(0, 005000);
+            //leftMotor = -35;
+            //rightMotor = -35;
+            //set_motor(1, rightMotor);
+            //set_motor(2, leftMotor);
+            //Sleep(0, 005000);
             printf("%d\n", sum);
         }
 
         else {
-            leftMotor = 35 - sum * 0.004;
-            rightMotor = 35 + sum * 0.004;
-            set_motor(1, rightMotor);
-            set_motor(2, leftMotor);
+            //leftMotor = 35 - sum * 0.004;
+           // rightMotor = 35 + sum * 0.004;
+            //set_motor(1, rightMotor);
+            //set_motor(2, leftMotor);
             printf("%d\n", sum);
         }
         count++;
