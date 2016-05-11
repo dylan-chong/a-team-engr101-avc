@@ -17,7 +17,6 @@ float getDistanceFromSensor(int sensorPin) {
 
 
 	// 26 = range , 26/1024*reading
-	init(0);
 
 
 	printf("%d",read_analog(0));
@@ -39,6 +38,8 @@ float getRightDistance() {
 
 // This method is just for testing. Not for use in main project
 int main(){
+	init(0);
+
 	while(true){
 		printf("%f", getLeftDistance());
 		printf("CM\n");
