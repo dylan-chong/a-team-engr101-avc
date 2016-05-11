@@ -6,6 +6,8 @@
  *
  */
 
+//Variables for the motorController Class
+
 #ifndef MOTORCONTROLLER_H_
 #define MOTORCONTROLLER_H_
 
@@ -17,6 +19,7 @@ private:
 	const static int LEFT_MOTOR=1;
 	const static int RIGHT_MOTOR=2;
 	const static int MAX_SPEED=255;
+	const static int REVERSE=-255;
 
 public:
 	static MotorController* makeInstance();
