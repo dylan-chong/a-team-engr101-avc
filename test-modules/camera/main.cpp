@@ -95,7 +95,7 @@ int errorTest() {
     }
 }
 
-int main() {
+/*int main() {
     init(0);
     // left motor vroom vroom
     int leftMotor = 0;
@@ -127,7 +127,7 @@ int main() {
     set_motor(2, 0);
     return 0;
 }
-
+*/
 
 
 
