@@ -95,7 +95,7 @@ int errorTest() {
 }
 
 int main() {
-    init(1);
+    init(0);
     // left motor vroom vroom
     int leftMotor = 0;
     // right motor also vroom vroom
@@ -109,7 +109,7 @@ int main() {
             rightMotor = -35;
             set_motor(1, rightMotor);
             set_motor(2, leftMotor);
-            Sleep(0, 100000);
+            Sleep(0, 005000);
             printf("%d\n", sum);
         }
 
