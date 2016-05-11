@@ -19,7 +19,7 @@ int main(){
 
 	while(true){
 		double spd = camera_controller->update();
-		printf(spd+"\n");
+		printf("%d\n",spd);
 		motor_controller->arc('l', .5);
 		printf("loop\n");
 	}
