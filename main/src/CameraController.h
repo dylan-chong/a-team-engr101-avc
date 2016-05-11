@@ -32,7 +32,7 @@ public:
 	double motorMovement(int sum, int differential);
 	char getDir();
 	int getWhiteArray();
-	int getSum(int * white);
+	int getSum();
 	int differential(int sum);
 	double update();
 };
