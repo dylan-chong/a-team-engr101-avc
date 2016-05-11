@@ -15,17 +15,30 @@ const float PERPENDICULAR_TURN_TIME = 1.2345; // DANIEL calibrate this
 
 // just set the motors to full forward
 void moveForward() {
+    set_motor(2, 30); //right motor 
+    set_motor(1, 30); //left motor
+}
 
+void moveBackward() {
+    set_motor(2, -20); //made reversing slower for higher accuracy in path correction 
+    set_motor(1, -20);
+}
+
+void stopMovement() {
+    set_motor(2, 0); 
+    set_motor(1, 0);
 }
 
 // turn left on the spot
 void rotateLeft() {
-
+    set_motor(2, -30); 
+    set_motor(1, 30);
 }
 
 // turn right on the spot
 void rotateRight() {
-
+    set_motor(2, 30); 
+    set_motor(1, -30);
 }
 
 // when percent is 1.0 don't actually turn

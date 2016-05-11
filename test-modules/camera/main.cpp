@@ -30,6 +30,107 @@ int main() {
     return 0;
 }*/
 
+//******** new stuff that ben wrote*********
+
+#include <stdio.h>
+#include <time.h>
+
+
+extern "C" int init(int d_lev);
+extern "C" int take_picture();
+extern "C" char get_pixel(int row, int col, int colour);
+extern "C" int Sleep(int sec, int usec);
+extern "C" int set_motor(int motor, int speed);
+
+int errorTest() {
+    init(0);
+    char c;
+    //the first array getting the camera input
+    int whiteness[320];
+    //whether the number is white enough
+    int white_thr = 140;
+    // the second array to compare to (- on left, + on the right)
+    int white_compare[320];
+    // what should be the multiplied version of the two above arrays
+    int white_final[320];
+    //the sum of all the white final numbers added 
+    int sum = 0;
+    // a count of how many white spots have been counted( to check if we can still see the line)
+    int n_whites = 0;
+    // left motor vroom vroom
+    int leftMotor = 0;
+    // right motor also vroom vroom
+    int rightMotor = 0;
+
+    for (int i = 0; i < 320; i++) {
+        //Take picture with camera
+        take_picture();
+        //get pixel "whiteness" from centre of image
+        c = get_pixel(160, 120, 3);
+        //Prints read pixel value
+        if (c > white_thr) {
+            // if its greater than the threshold, the number is a one, and therefore white, so count increases
+            whiteness[i] = 1;
+            n_whites++;
+        }
+        else {
+            whiteness[i] = 0;
+        }
+        white_compare[i] = i - 160;
+        white_final[i] = whiteness[i] * white_compare[i];
+    }
+
+    // what should be the sum of white final working
+    for (int i = 0; i < 320; i++) {
+        sum = sum + white_final[i];
+    }
+    // trying to make it so if it loses the line it reverses to try make it find it again
+    if (n_whites == 0) {
+        return 1000000;
+    }
+        // the 0.004 is just a random small number i took, change it if you want
+    else {
+        printf("%d\n", sum);
+        return sum;
+    }
+}
+
+int main() {
+    init(1);
+    // left motor vroom vroom
+    int leftMotor = 0;
+    // right motor also vroom vroom
+    int rightMotor = 0;
+    int count = 0;
+    int sum = 1;
+    while (count < 2000) {
+        sum = errorTest();
+        if (sum = 1000000) {
+            leftMotor = -35;
+            rightMotor = -35;
+            set_motor(1, rightMotor);
+            set_motor(2, leftMotor);
+            Sleep(0, 100000);
+            printf("%d\n", sum);
+        }
+
+        else {
+            leftMotor = 35 - sum * 0.004;
+            rightMotor = 35 + sum * 0.004;
+            set_motor(1, rightMotor);
+            set_motor(2, leftMotor);
+            printf("%d\n", sum);
+        }
+        count++;
+    }
+    set_motor(1, 0);
+    set_motor(2, 0);
+    return 0;
+}
+
+
+
+
 // ****************** STUFF BEN ADDED ******************
 
 // Update at like 1.20am on monday
@@ -37,7 +138,7 @@ int main() {
 // no clue whether this will work, typing this in word now so excuse lack of brackets and stuff
 // also yeah it should be a method that returns a value and then a main one, but its kinda hard to write in word
 // if it doesnt work at all just let me know and ill do it properly 
-#include <stdio.h>
+/*#include <stdio.h>
 #include <time.h>
 
 
@@ -98,7 +199,7 @@ int main() {
             set_motor(1, rightMotor);
             set_motor(2, leftMotor);
         }
-        */
+        
     }
 
     set_motor(1, 0);
@@ -110,6 +211,7 @@ int main() {
 void printIntArray(int[] ) {
 
 }
+*/
 
 // ************  Old ************
 
