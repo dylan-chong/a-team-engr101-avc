@@ -18,11 +18,12 @@ float getDistanceFromSensor(int sensorPin) {
 
 	// 26 = range , 26/1024*reading
 
+	int pinReading = read_analog(sensorPin);
 
-	printf("%d",read_analog(sensorPin));
+	printf("%d",pinReading);
 	printf("         ");
 
-	float distance = (26/1024)*read_analog(sensorPin) + 4 ; //4 is the offset as readings are in the range of 4-30 cm
+	float distance = (float)(26/1024)*pinReading + 4 ; //4 is the offset as readings are in the range of 4-30 cm
 
 	return distance;
 }
