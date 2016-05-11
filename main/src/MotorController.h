@@ -30,6 +30,7 @@ public:
 	void arcLeft(double percent);
 	void arcRight(double percent);
 	void arc(char dir, double percent);
+	void reverse(double percent);
 
 };
 
