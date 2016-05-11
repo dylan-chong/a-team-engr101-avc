@@ -48,7 +48,7 @@ int errorTest() {
     //the first array getting the camera input
     int whiteness[320];
     //whether the number is white enough
-    int white_thr = 140;
+    int white_thr = 127;
     // the second array to compare to (- on left, + on the right)
     int white_compare[320];
     // what should be the multiplied version of the two above arrays
