@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 
-extern "C" int init(d_lev);
+extern "C" int gpioInitialise(d_lev);
 extern "C" int read_analog(int ch_adc);
 extern "C" int sleep(int sec, int  usec);
 
@@ -17,7 +17,7 @@ float getDistanceFromSensor(int sensorPin) {
 
 
 	// 26 = range , 26/1024*reading
-	init(sensorPin);
+	gpioInitialise(sensorPin);
 
 
 	printf("%d",read_analog(sensorPin));
