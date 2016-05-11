@@ -43,7 +43,6 @@ extern "C" int Sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
 int errorTest() {
-    init(0);
     char c;
     //the first array getting the camera input
     int whiteness[320];
@@ -105,7 +104,7 @@ int main() {
     int sum = 1;
     while (count < 2000) {
         sum = errorTest();
-        if (sum = 1000000) {
+        if (sum == 1000000) {
             leftMotor = -35;
             rightMotor = -35;
             set_motor(1, rightMotor);
