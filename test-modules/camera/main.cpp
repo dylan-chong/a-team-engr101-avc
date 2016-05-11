@@ -86,7 +86,7 @@ int errorTest() {
     }
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites == 0) {
-        printf("%d\n", INT_MAX)
+        printf("%d\n", INT_MAX);
         return INT_MAX;
     }
         // the 0.004 is just a random small number i took, change it if you want
