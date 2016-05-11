@@ -6,6 +6,8 @@
  *
  */
 
+//Variables for the motorController Class
+
 #ifndef MOTORCONTROLLER_H_
 #define MOTORCONTROLLER_H_
 
