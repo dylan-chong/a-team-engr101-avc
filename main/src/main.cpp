@@ -25,4 +25,3 @@ int main(){
 	printf("it worked\n");
 	return  0;
 }
-spd
