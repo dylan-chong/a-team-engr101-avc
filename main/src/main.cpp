@@ -16,12 +16,13 @@ int main(){
 	IRController *IR_controller = IRController::makeInstance();
 	CameraController *camera_controller = CameraController::makeInstance();
 
-
-	while(true){
-		//printf("%d\n", camera_controller->update());
+	for (int count = 0 ; count<1000; count++){
+		printf("%d\n", camera_controller->update());
 		motor_controller->arc('l', .5);
 		printf("loop\n");
 	}
+	motor_controller->setStraightLine(0);
 	printf("it worked\n");
+
 	return  0;
 }
