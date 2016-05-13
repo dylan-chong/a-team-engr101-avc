@@ -11,7 +11,7 @@ extern "C" char get_pixel(int row, int col, int colour);
 extern "C" int Sleep(int sec, int usec);
 */
 
-long getLineValue() {
+long getLineValue2() {
     long value = 0;
 
     // Ben do your calculation stuff here
@@ -43,7 +43,7 @@ extern "C" char get_pixel(int row, int col, int colour);
 extern "C" int sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
-int errorTest() {
+int getLineValue() {
     char c;
     //the first array getting the camera input
     int whiteness[320];
@@ -67,8 +67,7 @@ int errorTest() {
         take_picture();
         //get pixel "whiteness" from centre of image
         c = get_pixel(160, 120, 3);
-        //Prints read pixel value
-        printf("%d\n", c);
+        //printf("%d\n", c);
         if (c > white_thr) {
             // if its greater than the threshold, the number is a one, and therefore white, so count increases
             whiteness[i] = 1;
@@ -102,7 +101,7 @@ int main() {
     int count = 0;
     int sum = 1;
     while (count < 2000) {
-        sum = errorTest();
+        sum = getLineValue();
         if (sum == INT_MAX) {
             printf("%d\n", sum);
         }
