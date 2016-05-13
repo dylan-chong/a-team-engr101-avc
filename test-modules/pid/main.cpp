@@ -23,14 +23,9 @@ int proportional() {
     set_motor(1, (proportional_signal / (160 * 1 * kp)) * 255);
 }
 
-int integral() {
-
-}
-
 int derivative() {
     int current_error = 0;
     int kd = 5.0;
-
 
     for (int i = 0; i < 320; i++) {
         error = (i - 160) * get_pixel(i, 120, 3);
@@ -43,6 +38,9 @@ int derivative() {
     printf("Derivative signal is: %d", derivative_signal);
     set_motor(1, derivative_signal);
 }
+
+// Integral apparently not necessary for AVC according to wiki
+int integral() { }
 
 //
 
