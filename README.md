@@ -40,6 +40,8 @@ as part of ENGR101 at Victoria University of Wellington
 <h2>Progress and Milestones</h2>
 [//]: **********************************************************************
 
+<b>Note: This log hasn't been updated by most of us </b>
+
 <h3>Week 8 (Wed 20 - Sun 24 April) - First Week</h3>
 
 
