@@ -242,6 +242,17 @@ Extra Info
 - Dylan
 	- Had a look at Ben's code, tidied it up, and tested it (stuck in a loop somewhere)
 
+<h5>Wednesday 11/05/16</h5>
+- Dylan
+    - Started looking PID code from wiki, and trying to understand it
+    - Helping with coding problems
+    - Wrote an auto-pulling from git script for the pi
+
+<h5>Friday 13/05/16</h5>
+- Dylan
+    - Looked the PID stuff in more detail, deconstructing into different functions
+    - Went over module plan with everyone so we all know how it's going to be organised
+
 <h4>Review</h4>
 
 
