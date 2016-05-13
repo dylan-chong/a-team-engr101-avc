@@ -66,7 +66,7 @@ int getLineValue() {
         take_picture();
         //get pixel "whiteness" from centre of image
         c = get_pixel(i, 120, 3);
-        //printf("%d\n", c);
+        printf("%d\n", c);
         if (c > white_thr) {
             // if its greater than the threshold, the number is a one, and therefore white, so count increases
             whiteness[i] = 1;
