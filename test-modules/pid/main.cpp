@@ -9,7 +9,7 @@ extern "C" int set_motor(int motor, int speed);
 const float KP = 0.5; // TODO LATER adjust things
 const float KD = 5.0;
 
-int IMG_WIDTH = 320; // TODO ASK reference the camera module for constants?
+int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for constants?
 
 // Don't need this.
 //int getPixelGreyscale(int x, int y) {
@@ -46,7 +46,7 @@ int getDerivative(int row, int lineValue, int previousLineValue, float refreshPe
 }
 
 // Integral apparently not necessary for AVC according to wiki
-int getIntegral() { return 0;}
+// int getIntegral() { return 0;}
 
 // TODO use the put everything together formula
 
