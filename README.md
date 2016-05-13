@@ -202,8 +202,8 @@ None
 
 <h5>Wednesday 04/05/16</h5>
 - Dylan
-    - Got the camera temporary code working (copied from the Kaiwhata wiki) and can remotely compile and run it
-    - Made a template for the IR sensor (individual project) for Jonah
+    - Got the camera temporary code working (copied from the Kaiwhata wiki) and can remotely compile and run it (worked with Ben)
+    - Made a template for the IR sensor (test project) for Jonah
     - Began planning how the main loop will work
 
 <h5>Thursday 05/05/16</h5>
