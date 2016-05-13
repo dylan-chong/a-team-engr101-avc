@@ -27,6 +27,8 @@ int getLineValue() {
 int getProportional(int row, int lineValue) {
     int proportional_signal = lineValue * KP;
     int motorVal = proportional_signal / (IMG_WIDTH / 2) * 255;
+
+    // TODO LATER remove
     set_motor(1, motorVal);
 
     printf("Proportional signal is: %d\n", proportional_signal);
@@ -39,6 +41,7 @@ int getDerivative(int row, int lineValue, int previousLineValue, float refreshPe
 
     printf("Derivative signal is: %d\n", derivative_signal);
 
+    // TODO LATER remove
     set_motor(1, derivative_signal);
 }
 
