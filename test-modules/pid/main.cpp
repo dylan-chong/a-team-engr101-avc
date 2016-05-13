@@ -6,10 +6,10 @@ extern "C" int sleep(int sec, int usec);
 extern "C" int Sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
-const float KP = 0.5;
+const float KP = 0.5; // TODO LATER adjust things
 const float KD = 5.0;
 
-int IMG_WIDTH = 320; // TODO LATER reference the camera module for constants?
+int IMG_WIDTH = 320; // TODO ASK reference the camera module for constants?
 
 // Don't need this.
 //int getPixelGreyscale(int x, int y) {
@@ -25,8 +25,8 @@ int getLineValue() {
 // Very refactored code from wiki
 
 int getProportional(int row, int lineValue) {
-    int proportional_signal = lineValue * kp;
-    int motorVal = (proportional_signal / ((IMG_WIDTH / 2) * 1 * KP)) * 255;
+    int proportional_signal = lineValue * KP;
+    int motorVal = proportional_signal / (IMG_WIDTH / 2) * 255;
     set_motor(1, motorVal);
 
     printf("Proportional signal is: %d\n", proportional_signal);
@@ -35,7 +35,7 @@ int getProportional(int row, int lineValue) {
 // refreshPeriod is in seconds
 int getDerivative(int row, int lineValue, int previousLineValue, float refreshPeriod) {
 
-    int derivative_signal = (lineValue - previousLineValue / refreshPeriod) * KD; // add brackets around (current_error - previous_error) ?
+    int derivative_signal = (lineValue - previousLineValue / refreshPeriod) * KD; // TODO NEXT add brackets around (current_error - previous_error) ?
 
     printf("Derivative signal is: %d\n", derivative_signal);
 
