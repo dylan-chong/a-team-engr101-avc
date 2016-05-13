@@ -61,10 +61,10 @@ int getLineValue() {
     int leftMotor = 0;
     // right motor also vroom vroom
     int rightMotor = 0;
-
+    take_picture();
     for (int i = 0; i < 320; i++) {
         //Take picture with camera
-        take_picture();
+
         //get pixel "whiteness" from centre of image
         c = get_pixel(160, 120, 3);
         //printf("%d\n", c);
