@@ -6,49 +6,52 @@ extern "C" int sleep(int sec, int usec);
 extern "C" int Sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
-// Copy pasted from wiki (slightly modified for readability)
+const float KP = 0.5;
+const float KD = 5.0;
 
-int proportional() {
-    int current_error = 0;
+int IMG_WIDTH = 320;
 
-    int kp = 0.5;
+// Don't need this.
+//int getPixelGreyscale(int x, int y) {
+//    return get_pixel(x, y, 3);
+//}
 
-    for (int i = 0; i < 320; i++) {
-        error = (i - 160) * get_pixel(i, 120, 3);
-        current_error = current_error + error;
-    }
+// Use the value from the camera module, eventually
+int getLineValue() {
 
-    int proportional_signal = error * kp;
-    printf("Proportional signal is: %d", proportional_signal);
-    set_motor(1, (proportional_signal / (160 * 1 * kp)) * 255);
 }
 
-int derivative() {
-    int current_error = 0;
-    int kd = 5.0;
+// Refactored code from wiki
 
-    for (int i = 0; i < 320; i++) {
-        error = (i - 160) * get_pixel(i, 120, 3);
-        current_error = current_error + error;
-    }
+int getProportional(int row, int lineValue) {
+    int proportional_signal = lineValue * kp;
+    set_motor(1, (proportional_signal / (160 * 1 * kp)) * 255);
 
-    Sleep(0, 100000);
-    int derivative_signal = (current_error - previous_error / 0.1) * kd;
-    int previous_error = current_error;
-    printf("Derivative signal is: %d", derivative_signal);
+    printf("Proportional signal is: %d\n", proportional_signal);
+}
+
+// refreshPeriod is in seconds
+int getDerivative(int row, int lineValue, int previous_error, float refreshPeriod) {
+
+//    Sleep(0, (int) refreshPeriod * 1e6); // needs to be a sleep function in here to allow for time
+    int derivative_signal = (lineValue - previous_error / refreshPeriod) * kd; // add brackets around (current_error - previous_error) ?
+    printf("Derivative signal is: %d\n", derivative_signal);
+
     set_motor(1, derivative_signal);
 }
 
 // Integral apparently not necessary for AVC according to wiki
-int integral() { }
+int getIntegral() { return 0;}
 
 //
 
 int main() {
+    // currently just for testing the sleep functions
     printf("test\n");
     sleep(1, 0);
     printf("test 2\n");
     Sleep(1, 0);
     printf("test 3\n");
+
     return 0;
 }
