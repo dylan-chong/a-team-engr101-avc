@@ -258,6 +258,9 @@ Extra Info
     - Completely refactored PID code (from wiki) to be more useful as a module
     - Went over module plan with everyone so we all know how it's going to be organised
 
+<h5>Saturday 14/05/16</h5>
+- Dylan
+	- Merged branch develop into master
 
 
 [//]: **********************************************************************
