@@ -1,0 +1,5 @@
+The robot should have three IR sensors:
+	- one on the front pointing forwards
+	- two on either side pointing diagonally forward
+
+The camera will be facing at an angle downwards

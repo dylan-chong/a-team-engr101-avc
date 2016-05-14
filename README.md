@@ -123,7 +123,7 @@ Andrew
     - Got git repository working on the pi
     - Added CodeBlocks files to .gitignore file 
 - Jonah 
-    - ??? What did you do during the lab on Friday
+    - Learnt about connecting via ssh to the PI
 
 <h6>Extra work)</h6>
 - Dylan
@@ -205,6 +205,9 @@ None
     - Got the camera temporary code working (copied from the Kaiwhata wiki) and can remotely compile and run it (worked with Ben)
     - Made a template for the IR sensor (test project) for Jonah
     - Began planning how the main loop will work
+	
+- Jonah
+	Andrew tought me the correct method for laying out the methods and classes that i will be working with this week, also got Eclipse hooked up with git hub
 
 <h5>Thursday 05/05/16</h5>
 - Andrew
