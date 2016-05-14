@@ -255,8 +255,6 @@ Extra Info
     - Completely refactored PID code (from wiki) to be more useful as a module
     - Went over module plan with everyone so we all know how it's going to be organised
 
-<h4>Review</h4>
-
 
 
 [//]: **********************************************************************
@@ -276,6 +274,4 @@ Extra Info
 <h4>Minor Task Checklist</h4>
 
 <h4>Daily Log</h4>
-
-<h4>Review</h4>
 
