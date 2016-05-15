@@ -21,7 +21,7 @@ as part of ENGR101 at Victoria University of Wellington
     - PID (Controlling direction of the pi, reacting to camera data)
 - Jonah Ease (dayyad)
     - Sensors (Making use of IR sensor information)
-    - Navigation (Algorithms to navigate through mazes)
+    - Navigation (Algorithms to navigate through the line and wall mazes)
 
 
 <h2>Relevant Documents</h2>
