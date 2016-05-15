@@ -16,13 +16,20 @@ int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for constant
 //    return get_pixel(x, y, 3);
 //}
 
-// TODO Use the value from the camera module
+// TODO get the value from the camera module
 // For testing, inject fake values
 int getLineValue() {
-    return 1234; // TODO change
+    return 1234;
 }
 
-// Very refactored code from wiki
+
+// public method
+int getPIDValue() {
+    // Algorithm for calculating PID was taken from the
+    // Kaiwhata wiki
+    // TODO sum P and D
+}
+
 
 int getProportional(int row, int lineValue) {
     int proportional_signal = lineValue * KP;
@@ -37,7 +44,7 @@ int getProportional(int row, int lineValue) {
 // refreshPeriod is in seconds
 int getDerivative(int row, int lineValue, int previousLineValue, float refreshPeriod) {
 
-    int derivative_signal = (lineValue - previousLineValue / refreshPeriod) * KD; // TODO NEXT add brackets around (current_error - previous_error) ?
+    int derivative_signal = (lineValue - previousLineValue / refreshPeriod) * KD;
 
     printf("Derivative signal is: %d\n", derivative_signal);
 
