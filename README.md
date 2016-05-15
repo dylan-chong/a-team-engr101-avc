@@ -11,7 +11,7 @@ as part of ENGR101 at Victoria University of Wellington
     - Module Planning (Planning how the different modules will fit together)
     - Code Integration (Merging all of our code together)
 - Benjamin Percy (Radroaches)
-    - Maze Tracking (Making robot react to processed information from IR sensors) 
+    - Wall Quadrant Tracking (Making robot react to processed information from IR sensors)
     - Sensors (Making use of camera sensor information) 
 - Daniel Bakes (CenturionBakes)
     - Motors (Making the robot move and coding movement functions) 
@@ -21,7 +21,7 @@ as part of ENGR101 at Victoria University of Wellington
     - PID (Controlling direction of the pi, reacting to camera data)
 - Jonah Ease (dayyad)
     - Sensors (Making use of IR sensor information)
-    - Navigation (Algorithms to navigate through the paths)
+    - Navigation (Algorithms to navigate through mazes)
 
 
 <h2>Relevant Documents</h2>
