@@ -8,7 +8,7 @@ as part of ENGR101 at Victoria University of Wellington
     - Hardware (Designing shape of robot and 3D printing, working with others in their hardware-related jobs) 
 - Andrew McGhie (mgoo)
     - Networking (Communicating with starting gate) 
-    - Module Planning (Planning how the different modules will fit together)
+    - Class Planning (Planning how the different class will fit together)
     - Code Integration (Merging all of our code together)
 - Benjamin Percy (Radroaches)
     - Wall Quadrant Tracking (Making robot react to processed information from IR sensors)
@@ -184,8 +184,8 @@ None
 	- Motor code is still in progress (motors do work, buthave been disconnected)
 - [ ] Ahmed: Create ball bearing for robot
 	- We may not need a ball bearing - we will decide later if we need it (not crucial)
-- [x] Andrew, Dylan: Plan modules and methods
-	- Modules have been planned
+- [x] Andrew, Dylan: Plan classes and methods
+	- Classes have been planned
 - [x] Dylan: Add method stubs to test-module files for others to work on
 	- Method stubs have been added to test-module files
 - [x] Ben: Be able to receive data from camera
@@ -217,7 +217,7 @@ None
 
 <h5>Friday 06/05/16</h5>
 - Dylan
-	- Moved method stubs, that I planned with Andrew yesterday, into the test modules for others to implement.
+	- Moved method stubs, that I planned with Andrew yesterday, into the test-modules for others to implement.
     - Planned some basic outline code for tracking algorithm
 
 Extra Info
@@ -254,8 +254,8 @@ Extra Info
 
 <h5>Friday 13/05/16</h5>
 - Dylan
-    - Completely refactored PID code (from wiki) to be more useful as a module
-    - Went over module plan with everyone so we all know how it's going to be organised
+    - Completely refactored PID code (from wiki) to be more useful as its own class
+    - (with Andrew) Went over class plan with everyone so we all know how it's going to be organised
 
 <h5>Saturday 14/05/16</h5>
 - Dylan
