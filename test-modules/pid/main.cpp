@@ -22,14 +22,17 @@ long previousTime = -1;
 
     // TODO sum P and D
 
-    long currentTime = getCurrentTime();
-    long timeDiff = -1;
-
-    if (previousTime != -1)
-        timeDiff = currentTime - preivousTime;
-
     int proportional = getProportional(lineValue);
-    int derivative = getDerivative(lineValue, timeDiff, previousLineValue);
+    int derivative;
+
+    if (previousTime != -1) {
+        long currentTime = getCurrentTime();
+        long timeDiff = currentTime - preivousTime;;
+        derivative = getDerivative(lineValue, timeDiff, previousLineValue);
+    } else {
+        derivative = 0;
+    }
+
     int pid = proportional + derivative;
 
     previousTime = currentTime;
