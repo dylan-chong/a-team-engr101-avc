@@ -22,8 +22,6 @@ int getPIDValue(int lineValue) {
     // Algorithm for calculating PID was taken from the Kaiwhata wiki
     // https://github.com/kaiwhata/ENGR101-2016/wiki/PID-(Proportional-Integral-Derivative)-Control
 
-    // TODO sum P and D
-
     int proportional = getProportional(lineValue);
     int derivative;
 
@@ -45,12 +43,6 @@ int getPIDValue(int lineValue) {
 
 
 // ******************** PRIVATE ********************
-
-// TODO get the value from the camera module
-// For testing, inject fake values
-int getLineValue() {
-    return 1234;
-}
 
 long getCurrentTime() { // in seconds
     return (long) time(NULL);
