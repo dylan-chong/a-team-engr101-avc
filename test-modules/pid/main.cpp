@@ -6,17 +6,12 @@ extern "C" int sleep(int sec, int usec);
 extern "C" int Sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
-const float KP = 0;//0.5; // TODO LATER adjust things (look at my photos)
+const float KP = 0;//0.5; // TODO LATER adjust values (look at my photos)
 const float KD = 0;//5.0;
 
 const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for constants?
 
-// Don't need this.
-//int getPixelGreyscale(int x, int y) {
-//    return get_pixel(x, y, 3);
-//}
-
-
+// TODO NEXT last line value and last time
 
 // ******************** PUBLIC ********************
 
@@ -35,26 +30,24 @@ int getLineValue() {
     return 1234;
 }
 
-int getProportional(int row, int lineValue) {
+int getProportional(int lineValue) {
     int proportional_signal = lineValue * KP;
-    int motorVal = proportional_signal / (IMG_WIDTH / 2) * 255;
+    // int motorVal = proportional_signal / (IMG_WIDTH / 2) * 255; // do we even need this?
+    return proportional_signal;
 
-    printf("Proportional signal is: %d\n", proportional_signal);
 }
 
-// refreshPeriod is in seconds
-int getDerivative(int row, int lineValue, int previousLineValue, float refreshPeriod) {
-
+int getDerivative(int lineValue) {
     int derivative_signal = (lineValue - previousLineValue / refreshPeriod) * KD;
-
-
+    return derivative_signal;
 }
 
 // Integral apparently not necessary for AVC according to wiki
 // int getIntegral() { return 0;}
 
 
-// ******************** TESTING ********************
+// ******************** TESTING ONLY ********************
+//                  not for main project
 
 int main() {
 
@@ -68,6 +61,8 @@ int main() {
 
     printf("\nENDING PROGRAM\n");
     return 0;
+
+    // TODO once done testing sleep, remove wrong import at top
 
     // ------------------------
 
