@@ -16,7 +16,9 @@ long previousTime = -1;
 
 // ******************** PUBLIC ********************
 
-/* PUBLIC */ int getPIDValue(int lineValue) {
+// Constructor needs no args or implementation
+
+int getPIDValue(int lineValue) {
     // Algorithm for calculating PID was taken from the Kaiwhata wiki
     // https://github.com/kaiwhata/ENGR101-2016/wiki/PID-(Proportional-Integral-Derivative)-Control
 
