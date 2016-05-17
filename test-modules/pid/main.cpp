@@ -6,15 +6,28 @@ extern "C" int sleep(int sec, int usec);
 extern "C" int Sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
-const float KP = 0.5; // TODO LATER adjust things
-const float KD = 5.0;
+const float KP = 0;//0.5; // TODO LATER adjust things (look at my photos)
+const float KD = 0;//5.0;
 
-int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for constants?
+const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for constants?
 
 // Don't need this.
 //int getPixelGreyscale(int x, int y) {
 //    return get_pixel(x, y, 3);
 //}
+
+
+
+// ******************** PUBLIC ********************
+
+/* PUBLIC */ int getPIDValue() {
+    // Algorithm for calculating PID was taken from the Kaiwhata wiki
+    // https://github.com/kaiwhata/ENGR101-2016/wiki/PID-(Proportional-Integral-Derivative)-Control
+    // TODO sum P and D
+}
+
+
+// ******************** PRIVATE ********************
 
 // TODO get the value from the camera module
 // For testing, inject fake values
@@ -22,21 +35,9 @@ int getLineValue() {
     return 1234;
 }
 
-
-// public method
-int getPIDValue() {
-    // Algorithm for calculating PID was taken from the
-    // Kaiwhata wiki
-    // TODO sum P and D
-}
-
-
 int getProportional(int row, int lineValue) {
     int proportional_signal = lineValue * KP;
     int motorVal = proportional_signal / (IMG_WIDTH / 2) * 255;
-
-    // TODO LATER remove
-    set_motor(1, motorVal);
 
     printf("Proportional signal is: %d\n", proportional_signal);
 }
@@ -55,9 +56,8 @@ int getDerivative(int row, int lineValue, int previousLineValue, float refreshPe
 // Integral apparently not necessary for AVC according to wiki
 // int getIntegral() { return 0;}
 
-// TODO use the put everything together formula
 
-//
+// ******************** TESTING ********************
 
 int main() {
 
