@@ -47,10 +47,7 @@ int getDerivative(int row, int lineValue, int previousLineValue, float refreshPe
 
     int derivative_signal = (lineValue - previousLineValue / refreshPeriod) * KD;
 
-    printf("Derivative signal is: %d\n", derivative_signal);
 
-    // TODO LATER remove
-    set_motor(1, derivative_signal);
 }
 
 // Integral apparently not necessary for AVC according to wiki
@@ -61,21 +58,32 @@ int getDerivative(int row, int lineValue, int previousLineValue, float refreshPe
 
 int main() {
 
-    printf("\nTEST SLEEP\n\n");
+    printf("\nTEST SLEEP\n\n"); // TODO currently just for testing the sleep functions
 
-    // TODO currently just for testing the sleep functions
     printf("test\n");
     sleep(1, 0);
     printf("test 2\n");
     Sleep(1, 0);
     printf("test 3\n");
 
-    printf("\nTEST BEDMAS\n\n");
+    printf("\nENDING PROGRAM\n");
+    return 0;
 
-    // TODO test order of operations
+    // ------------------------
+
+    printf("\nTEST BEDMAS\n\n"); // TODO test order of operations
+
     float a = (4 - 2 / 3);
     float b = ((4 - 2) / 3);
     printf("\ta = %f,\n\tb = %f\n", a, b);
 
+    printf("\nENDING PROGRAM\n");
+    return 0;
+
+    // ------------------------
+
+
+
+    printf("\nENDING PROGRAM\n");
     return 0;
 }
