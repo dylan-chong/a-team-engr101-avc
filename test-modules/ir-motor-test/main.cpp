@@ -136,7 +136,7 @@ int main() {
 	init(0);
 
 	while (true) {
-		double data*;
+		double * data;
 		data= update();
 		printf("%f",data[0]);
 		printf("%f",data[1]);
