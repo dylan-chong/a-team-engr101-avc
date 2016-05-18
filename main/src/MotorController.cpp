@@ -56,12 +56,14 @@ void MotorController::arcRight(double percent){
 // so will only need one method
 
 void MotorController::arc(char dir, double percent){
-	if (dir = 'l'){
+	if (dir == 'l'){
 		arcLeft(percent);
-	} else if (dir = 'r'){
+	} else if (dir == 'r'){
 		arcRight(percent);
-	} else {
+	} else if (dir == 's'){
 		setStraightLine(percent);
+	} else {
+		setStraightLine(0);
 	}
 }
 
