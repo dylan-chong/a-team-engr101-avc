@@ -104,7 +104,7 @@ void setThreshold(float left, float right) {
 	//middleThreshold = middle;
 }
 
-double irPackage[2];
+static double irPackage[2];
 
 void update() {
 	if (!thresholdSet) {
@@ -136,8 +136,10 @@ int main() {
 
 	while (true) {
 		update();
+		printf("left");
 		printf("%f",irPackage[0] );
 		printf("\n");
+		printf("right");
 		printf("%f",irPackage[1] );
 		printf("\n");
 	}
