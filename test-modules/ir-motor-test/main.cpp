@@ -139,6 +139,7 @@ int main() {
 		double * data;
 		data= update();
 		printf("%f",data[0]);
+		printf("   ");
 		printf("%f",data[1]);
 	}
 
