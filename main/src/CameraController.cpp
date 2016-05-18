@@ -91,7 +91,7 @@ double CameraController::motorMovement(int sum, int differential){
 double CameraController::update(){
 	//getWhiteArray();
 	int sum = getSum();
-	return sum;
+	return (Double)sum;
 	//int diff = differential(sum);
 	//return motorMovement(sum, diff);
 }
