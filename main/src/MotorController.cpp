@@ -30,32 +30,30 @@ MotorController::~MotorController() {
 //sets both wheels to ahead
 //can stop motors by setting % to 0
 void MotorController::setStraightLine(double percent){
-	set_motor(LEFT_MOTOR, MAX_SPEED*percent);
-	set_motor(RIGHT_MOTOR, MAX_SPEED*percent);
+	set_motor(LEFT_MOTOR, MAX_SPEED_LEFT*percent);
+	set_motor(RIGHT_MOTOR, MAX_SPEED_RIGHT*percent);
 }
 
 //sets wheels to reverse
 void MotorController::reverse(double percent){
-	set_motor(LEFT_MOTOR, -MAX_SPEED*percent);
-	set_motor(RIGHT_MOTOR, -MAX_SPEED*percent);
+	set_motor(LEFT_MOTOR, -MAX_SPEED_LEFT*percent);
+	set_motor(RIGHT_MOTOR, -MAX_SPEED_RIGHT*percent);
 }
 
 //turn left at a certain percent
 void MotorController::arcLeft(double percent){
-	set_motor(LEFT_MOTOR, MAX_SPEED*percent);
-	set_motor(RIGHT_MOTOR, MAX_SPEED);
+	set_motor(LEFT_MOTOR, MAX_SPEED_LEFT*percent);
+	set_motor(RIGHT_MOTOR, MAX_SPEED_RIGHT);
 }
 
 //turn right at a certain percent
 void MotorController::arcRight(double percent){
-	set_motor(RIGHT_MOTOR, MAX_SPEED*percent);
-	set_motor(LEFT_MOTOR, MAX_SPEED);
+	set_motor(RIGHT_MOTOR, MAX_SPEED_RIGHT*percent);
+	set_motor(LEFT_MOTOR, MAX_SPEED_LEFT);
 }
 
-//rotate 90 degrees left
-
-//rotate 90 degrees right
-
+//rotate 90 degrees, negative for left and positive for right
+// so will only need one method
 
 void MotorController::arc(char dir, double percent){
 	if (dir = 'l'){
