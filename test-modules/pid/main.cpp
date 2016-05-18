@@ -1,8 +1,7 @@
 #include  <stdio.h>
 #include  <time.h>
 
-extern "C" int init_hardware();
-extern "C" int sleep(int sec);
+extern "C" int init(int x);
 extern "C" int Sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
@@ -69,7 +68,7 @@ int getPIDValue(int lineValue) {
 //                  not for main project
 
 int main() {
-
+    init(0);
     printf("\nTEST SLEEP\n\n"); // TODO currently just for testing the sleep functions
 
     printf("test\n");
