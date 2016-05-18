@@ -19,7 +19,7 @@ test-modules/*/main
 
 
 # Daniel's test project
-test/
+/test/
 
 # Unknown files
 .Rhistory
