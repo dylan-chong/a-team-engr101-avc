@@ -1,7 +1,7 @@
 #include  <stdio.h>
 #include  <time.h>
 
-extern "C" int init(int x)
+extern "C" int init(int x);
 extern "C" int sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
