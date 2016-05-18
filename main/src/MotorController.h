@@ -16,8 +16,10 @@
 class MotorController: public Controller{
 	friend class MotorControllerTest;
 private:
-	const static int LEFT_MOTOR=1;
-	const static int RIGHT_MOTOR=2;
+	const static int LEFT_MOTOR=2;
+	const static int RIGHT_MOTOR=1;
+	const static int LEFT_BASE_SLOW = 40;
+	const static int RIGHT_BASE_SLOW = 41;
 	/*const static int MAX_SPEED_LEFT=200; //commented out couse it goes way faster on the simulator
 	const static int MAX_SPEED_RIGHT=230;*/
 	const static int MAX_SPEED_LEFT=20;

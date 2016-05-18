@@ -19,8 +19,8 @@ const int ROTATE_SPEED = 30; // should always be positive
 // just set the motors to full forward
 void moveForward() {
     // OLD motor speeds - most updated ones in MotorController.h
-    set_motor(2, 200);//FORWARD_SPEED); //right motor
-    set_motor(1, 230);//FORWARD_SPEED); //left motor
+    set_motor(2, 200);//FORWARD_SPEED); // left motor
+    set_motor(1, 230);//FORWARD_SPEED); // right motor
 }
 
 void moveBackward() {

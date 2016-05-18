@@ -109,11 +109,11 @@ int main() {
 
     // testing base speeds
     set_motor(2, 40); // left
-    set_motor(1, 50);
+    set_motor(1, 41);
 
     sleep(3, 0);
 
-    set_motor(2, 0); // left
+    set_motor(2, 0);
     set_motor(1, 0);
 
     return 0;
