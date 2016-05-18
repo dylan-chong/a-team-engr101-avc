@@ -56,8 +56,14 @@ int CameraController::getSum(){
 	    }
 	    // trying to make it so if it loses the line it reverses to try make it find it again
 	    if (n_whites == 0) {
-	        return 99999;
+	    	dir = 's';
+	        return -1;
 	    }else {
+	    	if(sum>0){
+	    		dir = 'l';
+	    	} else {
+	    		dir = 'r';
+	    	}
 	        return sum;
 	    }
 }

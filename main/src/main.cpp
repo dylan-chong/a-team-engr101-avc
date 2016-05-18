@@ -18,8 +18,10 @@ int main(){
 
 	for (int count = 0 ; count<300; count++){
 		printf("count: %d\n", count);
-		printf("Sum: %f\n", camera_controller->update());
-		motor_controller->arc('l', .5);
+		double sumC = camera_controller->update();
+		((sumC > 1) ? sumC = 1 : ((sumC < -1) ? sumC = -1 : sumC*=1));
+		printf("Sum: %f\n", sumC);
+		motor_controller->arc(camera_controller->getDir(), sumC);
 		printf("loop\n");
 	}
 	motor_controller->setStraightLine(0);
