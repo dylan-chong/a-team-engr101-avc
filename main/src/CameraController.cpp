@@ -50,10 +50,11 @@ int CameraController::getSum(){
 	    int n_whites = 0;
 	    take_picture();
 	    for (int i = 0; i < 320; i++) {
-	        whiteness[i] = get_pixel(i, center, 3) > WHITE_THRESHOLD;
+	        whiteness[i] = (get_pixel(i, center, 3) > WHITE_THRESHOLD);
 	        n_whites += whiteness[i];
 	        sum += whiteness[i] * (i - 160);
 	    }
+	    return whiteness[center];
 	    // trying to make it so if it loses the line it reverses to try make it find it again
 	    if (n_whites == 0) {
 	        return 99999;
