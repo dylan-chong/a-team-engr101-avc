@@ -61,17 +61,17 @@ void arcRight(double percent) {
 
 int main() {
     init(0);
-    sleep(1);
+    sleep(1, 0);
 
     moveForward();
-    sleep(3);
+    sleep(3, 0);
     stopMovement();
-    sleep(1);
+    sleep(1, 0);
 
     moveBackward();
-    sleep(3);
+    sleep(3, 0);
     stopMovement();
-    sleep(1);
+    sleep(1, 0);
 
     return 0;
 }
