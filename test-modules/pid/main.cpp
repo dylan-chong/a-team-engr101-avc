@@ -70,19 +70,6 @@ int getPIDValue(int lineValue) {
 int main() {
     init(0);
 
-    // ------------------------
-
-    printf("\nTEST BEDMAS\n\n"); // TODO test order of operations
-
-    float a = (4 - 2 / 3);
-    float b = ((4 - 2) / 3);
-    printf("\ta = %f,\n\tb = %f\n", a, b);
-
-    printf("\nENDING PROGRAM\n");
-    return 0;
-
-    // ------------------------
-
     // TODO test time
 
     long time = getCurrentTime();
