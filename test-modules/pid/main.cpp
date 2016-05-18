@@ -72,7 +72,10 @@ int main() {
 
     // TODO test time
 
-    long time = getCurrentTime();
+    for (int a = 0; a < 10; a++) {
+        long time = getCurrentTime();
+        printf("Time is %ld", time);
+    }
 
     printf("\nENDING PROGRAM\n");
     return 0;
