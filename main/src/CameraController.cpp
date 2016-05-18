@@ -50,7 +50,7 @@ int CameraController::getSum(){
 	    int n_whites = 0;
 	    take_picture();
 	    for (int i = 0; i < 320; i++) {
-	        whiteness[i] = (get_pixel(i, center, 3) > WHITE_THRESHOLD);
+	        (get_pixel(i, center, 3) > WHITE_THRESHOLD) ? whiteness[i] = 1: whiteness[i] = 0;
 	        n_whites += whiteness[i];
 	        sum += whiteness[i] * (i - 160);
 	    }
