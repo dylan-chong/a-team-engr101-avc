@@ -33,20 +33,47 @@ CameraController* CameraController::makeInstance(){
 
 //gets an array of 1's and 0's that indicate blank and white pixels
 int CameraController::getWhiteArray(){
-	take_picture();
+	/*take_picture();
 	for (int count = 0; count<320; count++){
 		white[count]=(get_pixel(count,120,3) > WHITE_THRESHOLD);
 	}
-	return 0;
+	return 0;*/
 }
 
 //gets the total sum of the white array * the position on the white pixels from the center
 int CameraController::getSum(){
-	int total = 0;
-	for (int count = 0; count<320; count++){
-		total += white[count]*(count-center);
-	}
-	return total;
+	 	 char c;
+	    //the first array getting the camera input
+	    int whiteness[320];
+	    // what should be the multiplied version of the two above arrays
+	    int white_final[320];
+	    //the sum of all the white final numbers added
+	    int sum = 0;
+	    // a count of how many white spots have been counted( to check if we can still see the line)
+	    int n_whites = 0;
+	    // left motor vroom vroom
+	    int leftMotor = 0;
+	    // right motor also vroom vroom
+	    int rightMotor = 0;
+	    take_picture();
+	    for (int i = 0; i < 320; i++) {
+	        whiteness[i] = get_pixel(i, center, 3) > WHITE_THRESHOLD;
+	        n_whites += whiteness[i];
+	        white_final[i] = whiteness[i] * (i - 160);
+	    }
+
+	    // what should be the sum of white final working
+	    for (int i = 0; i < 320; i++) {
+	        sum = sum + white_final[i];
+	    }
+	    // trying to make it so if it loses the line it reverses to try make it find it again
+	    if (n_whites == 0) {
+	        printf("%d\n", INT_MAX);
+	        return INT_MAX;
+	    }else {
+	        printf("%d\n", sum);
+	        return sum;
+	    }
 }
 
 //finds the change in error and updates the previous error variable
@@ -75,10 +102,11 @@ double CameraController::motorMovement(int sum, int differential){
 }
 
 double CameraController::update(){
-	getWhiteArray();
+	//getWhiteArray();
 	int sum = getSum();
+	return sum;
 	int diff = differential(sum);
-	return motorMovement(sum, diff);
+	//return motorMovement(sum, diff);
 }
 
 char CameraController::getDir(){

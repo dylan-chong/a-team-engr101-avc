@@ -7,7 +7,7 @@
 #include "IRController.h"
 
 extern "C" int init(int d_lev);
-extern "C" int sleep(int sec, int  usec);
+extern "C" int Sleep(int sec, int  usec);
 
 int main(){
 	init(1);
@@ -19,7 +19,7 @@ int main(){
 	for (int count = 0 ; count<1000; count++){
 		printf("count: %d\n", count);
 		printf("%d\n", camera_controller->update());
-		motor_controller->arc('l', .5);
+		//motor_controller->arc('l', .5);
 		printf("loop\n");
 	}
 	motor_controller->setStraightLine(0);
