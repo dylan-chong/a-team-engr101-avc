@@ -75,7 +75,7 @@ int main() {
     printf("test\n");
     sleep(1, 0);
     printf("test 2\n");
-    Sleep(1, 0);
+    Sleep(1);
     printf("test 3\n");
 
     printf("\nENDING PROGRAM\n");
