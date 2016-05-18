@@ -238,6 +238,7 @@ Extra Info
 - [ ] Ben: Data from camera is processed to give information on the line
 - [ ] Daniel: Robot can follow curved lines
 - [ ] Dylan: Robot can be in different states
+- [x] Jonah: Get IR sensor working (Continued)
 
 <h4>Minor Task Checklist</h4>
 
@@ -253,6 +254,10 @@ Extra Info
     - Wrote an auto-pulling from git script for the pi
 
 <h5>Friday 13/05/16</h5>
+- Jonah
+    - Finally got the IR sensor working fully and tuned. It now responsed to getLeftDistance,getRightDistance and 
+    - getMiddleDistance. 	
+
 - Dylan
     - Completely refactored PID code (from wiki) to be more useful as its own class
     - (with Andrew) Went over class plan with everyone so we all know how it's going to be organised
