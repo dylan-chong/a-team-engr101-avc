@@ -75,9 +75,38 @@ double[] update() {
 // This method is just for testing. Not for use in main project
 int main() {
 	init(0);
+<<<<<<< HEAD
 
 	while (true) {
 		update();
+=======
+	while(true){
+		if(!thresholdSet){
+			setThreshold(getLeftDistance(),getRightDistance(),getMiddleDistance());	
+			thresholdSet=true;
+		} else{ //If thresholds are set return 1 if the object is further away and -1 if it is closer
+			if(getLeftDistance()>leftThreshold){
+				lastLeftDistance=-1;	
+			} else {
+				lastLeftDistance=1;
+			} if(getRightDistance()>rightThreshold){
+				lastRightDistance=-1;
+			} else{
+				lastRightDistance=1;
+			} if(getMiddleDistance()>middleThreshold){
+				lastMiddleDistance=-1;
+			} else{
+				lastMiddleDistance=1;
+			}		
+		}
+		
+		
+		printf("%f", getLeftDistance());
+		printf("CM - Left\n");
+		printf("%f", getRightDistance());
+		printf("CM - Right\n");
+		sleep(1,0);
+>>>>>>> 01d0f60b0cb29f28966648878ac35a0b734c2e61
 	}
 
 
