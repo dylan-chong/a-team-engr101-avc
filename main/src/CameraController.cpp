@@ -56,11 +56,11 @@ int CameraController::getSum(){
 	    }
 	    return whiteness[center];
 	    // trying to make it so if it loses the line it reverses to try make it find it again
-	    if (n_whites == 0) {
+	    /*if (n_whites == 0) {
 	        return 99999;
 	    }else {
 	        return sum;
-	    }
+	    }*/
 }
 
 //finds the change in error and updates the previous error variable

@@ -18,7 +18,7 @@ int main(){
 
 	for (int count = 0 ; count<300; count++){
 		printf("count: %d\n", count);
-		printf("%d\n", camera_controller->update());
+		printf("Sum: %d\n", *(camera_controller->update()));
 		//motor_controller->arc('l', .5);
 		printf("loop\n");
 	}
