@@ -73,9 +73,9 @@ int main() {
     printf("\nTEST SLEEP\n\n"); // TODO currently just for testing the sleep functions
 
     printf("test\n");
-    sleep(1, 0);
+    sleep(1);
     printf("test 2\n");
-    Sleep(1);
+    Sleep(1, 0);
     printf("test 3\n");
 
     printf("\nENDING PROGRAM\n");
