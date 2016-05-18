@@ -104,20 +104,22 @@ void setThreshold(float left, float right) {
 	//middleThreshold = middle;
 }
 
-double * update() {
+static double irPackage[2];
+
+void update() {
 	if (!thresholdSet) {
 		setThreshold(15, 15); //TEMPORARILY SETTING THRESHOLD TO 0, change this when connecting to the controller
 		thresholdSet = true;
 	} else {
 		if (getLeftDistance() > leftThreshold) {
-			lastLeftDistance = -1;
+			irPackage[0] = -1;
 		} else {
-			lastLeftDistance = 1;
+			irPackage[0]  = 1;
 		}
 		if (getRightDistance() > rightThreshold) {
-			lastRightDistance = -1;
+			irPackage[1]  = -1;
 		} else {
-			lastRightDistance = 1;
+			irPackage[1]  = 1;
 		}
 //		if (getMiddleDistance() > middleThreshold) {
 //			lastMiddleDistance = -1;
@@ -126,10 +128,6 @@ double * update() {
 //		}
 		//printf("%f",getRightDistance());
 	}
-	double returnPackage[2];
-	returnPackage[0]=lastLeftDistance;
-	returnPackage[1]=lastRightDistance;
-	return returnPackage;
 }
 
 // This method is just for testing. Not for use in main project
@@ -137,11 +135,12 @@ int main() {
 	init(0);
 
 	while (true) {
-		double * data;
-		data= update();
-		printf("%f",data[0]);
+		update();
+		printf("left");
+		printf("%f",irPackage[0] );
 		printf("\n");
-		printf("%f",data[1]);
+		printf("right");
+		printf("%f",irPackage[1] );
 		printf("\n");
 	}
 
