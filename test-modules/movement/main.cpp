@@ -1,7 +1,7 @@
 #include  <stdio.h>
 #include  <time.h>
 
-extern "C" int init_hardware();
+extern "C" int init(int x);
 extern "C" int sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
@@ -59,8 +59,22 @@ void arcRight(double percent) {
 }
 
 
+int main() {
+    init(0);
+    sleep(1, 0);
 
+    moveForward();
+    sleep(3, 0);
+    stopMovement();
+    sleep(1, 0);
 
+    moveBackward();
+    sleep(3, 0);
+    stopMovement();
+    sleep(1, 0);
+
+    return 0;
+}
 
 
 
