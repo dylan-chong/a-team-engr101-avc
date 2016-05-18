@@ -2,8 +2,8 @@
 #include  <time.h>
 
 extern "C" int init_hardware();
-extern "C" int sleep(int sec, int usec);
-extern "C" int Sleep(int sec);
+extern "C" int sleep(int sec);
+extern "C" int Sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
 const float KP = 0;//0.5; // TODO LATER adjust values (look at my photos)
