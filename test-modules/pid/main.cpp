@@ -69,18 +69,6 @@ int getPIDValue(int lineValue) {
 
 int main() {
     init(0);
-    printf("\nTEST SLEEP\n\n"); // TODO currently just for testing the sleep functions
-
-    printf("test\n");
-//    sleep(1);
-    printf("test 2\n");
-    Sleep(1, 0);
-    printf("test 3\n");
-
-    printf("\nENDING PROGRAM\n");
-    return 0;
-
-    // TODO once done testing sleep, remove wrong import at top
 
     // ------------------------
 
