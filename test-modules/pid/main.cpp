@@ -14,6 +14,29 @@ const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for co
 int previousLineValue;
 long previousTime = -1;
 
+
+// ******************** PRIVATE ********************
+
+long getCurrentTime() { // in seconds
+    return (long) time(NULL);
+}
+
+int getProportional(int lineValue) {
+    int proportional_signal = lineValue * KP;
+    // int motorVal = proportional_signal / (IMG_WIDTH / 2) * 255; // do we even need this?
+    return proportional_signal;
+
+}
+
+int getDerivative(int lineValue, long timeDiff, int prevLineValue) {
+    int derivative_signal = (lineValue - prevLineValue / (double) timeDiff) * KD;
+    return derivative_signal;
+}
+
+// Integral apparently not necessary for AVC according to wiki
+// int getIntegral() { return 0;}
+
+
 // ******************** PUBLIC ********************
 
 // Constructor needs no args or implementation
@@ -40,29 +63,6 @@ int getPIDValue(int lineValue) {
 
     return pid;
 }
-
-
-// ******************** PRIVATE ********************
-
-long getCurrentTime() { // in seconds
-    return (long) time(NULL);
-}
-
-int getProportional(int lineValue) {
-    int proportional_signal = lineValue * KP;
-    // int motorVal = proportional_signal / (IMG_WIDTH / 2) * 255; // do we even need this?
-    return proportional_signal;
-
-}
-
-int getDerivative(int lineValue, long timeDiff, int prevLineValue) {
-    int derivative_signal = (lineValue - prevLineValue / (double) timeDiff) * KD;
-    return derivative_signal;
-}
-
-// Integral apparently not necessary for AVC according to wiki
-// int getIntegral() { return 0;}
-
 
 // ******************** TESTING ONLY ********************
 //                  not for main project
