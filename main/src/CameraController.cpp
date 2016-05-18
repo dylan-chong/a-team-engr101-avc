@@ -42,36 +42,22 @@ int CameraController::getWhiteArray(){
 
 //gets the total sum of the white array * the position on the white pixels from the center
 int CameraController::getSum(){
-	 	 char c;
 	    //the first array getting the camera input
 	    int whiteness[320];
-	    // what should be the multiplied version of the two above arrays
-	    int white_final[320];
 	    //the sum of all the white final numbers added
 	    int sum = 0;
 	    // a count of how many white spots have been counted( to check if we can still see the line)
 	    int n_whites = 0;
-	    // left motor vroom vroom
-	    int leftMotor = 0;
-	    // right motor also vroom vroom
-	    int rightMotor = 0;
 	    take_picture();
 	    for (int i = 0; i < 320; i++) {
 	        whiteness[i] = get_pixel(i, center, 3) > WHITE_THRESHOLD;
 	        n_whites += whiteness[i];
-	        white_final[i] = whiteness[i] * (i - 160);
-	    }
-
-	    // what should be the sum of white final working
-	    for (int i = 0; i < 320; i++) {
-	        sum = sum + white_final[i];
+	        sum += whiteness[i] * (i - 160);
 	    }
 	    // trying to make it so if it loses the line it reverses to try make it find it again
 	    if (n_whites == 0) {
-	        printf("%d\n", INT_MAX);
-	        return INT_MAX;
+	        return 99999;
 	    }else {
-	        printf("%d\n", sum);
 	        return sum;
 	    }
 }
@@ -105,7 +91,7 @@ double CameraController::update(){
 	//getWhiteArray();
 	int sum = getSum();
 	return sum;
-	int diff = differential(sum);
+	//int diff = differential(sum);
 	//return motorMovement(sum, diff);
 }
 

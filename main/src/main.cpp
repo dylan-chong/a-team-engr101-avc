@@ -16,7 +16,7 @@ int main(){
 	IRController *IR_controller = IRController::makeInstance();
 	CameraController *camera_controller = CameraController::makeInstance();
 
-	for (int count = 0 ; count<1000; count++){
+	for (int count = 0 ; count<300; count++){
 		printf("count: %d\n", count);
 		printf("%d\n", camera_controller->update());
 		//motor_controller->arc('l', .5);
