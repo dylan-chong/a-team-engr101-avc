@@ -50,17 +50,16 @@ int CameraController::getSum(){
 	    int n_whites = 0;
 	    take_picture();
 	    for (int i = 0; i < 320; i++) {
-	        (get_pixel(i, center, 3) > WHITE_THRESHOLD) ? whiteness[i] = 1: whiteness[i] = 0;
+	    	whiteness[i] = (get_pixel(i, center, 3) > WHITE_THRESHOLD);
 	        n_whites += whiteness[i];
 	        sum += whiteness[i] * (i - 160);
 	    }
-	    return whiteness[center];
 	    // trying to make it so if it loses the line it reverses to try make it find it again
-	    /*if (n_whites == 0) {
+	    if (n_whites == 0) {
 	        return 99999;
 	    }else {
 	        return sum;
-	    }*/
+	    }
 }
 
 //finds the change in error and updates the previous error variable
@@ -91,7 +90,7 @@ double CameraController::motorMovement(int sum, int differential){
 double CameraController::update(){
 	//getWhiteArray();
 	int sum = getSum();
-	return sum;
+	return (double)sum;
 	//int diff = differential(sum);
 	//return motorMovement(sum, diff);
 }
