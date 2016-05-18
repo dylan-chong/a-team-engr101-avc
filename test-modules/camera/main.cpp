@@ -103,6 +103,8 @@ int main() {
     while (count < 2000) {
         sum = getLineValue();
         printf("%d\n", sum);
+        set_motor(1,-0.01*sum);
+        set_motor(2,0.01*sum);
         count++;
     }
     return 0;
