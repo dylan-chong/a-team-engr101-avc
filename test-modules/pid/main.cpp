@@ -47,10 +47,11 @@ int getPIDValue(int lineValue) {
 
     int proportional = getProportional(lineValue);
     int derivative;
+    long currentTime;
 
     if (previousTime != -1) {
-        long currentTime = getCurrentTime();
-        long timeDiff = currentTime - preivousTime;;
+        currentTime = getCurrentTime();
+        long timeDiff = currentTime - previousTime;
         derivative = getDerivative(lineValue, timeDiff, previousLineValue);
     } else {
         derivative = 0;
