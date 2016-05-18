@@ -199,3 +199,20 @@ class IRController {
 		return 12.345;
 	}
 };
+
+class PIDController {
+
+	public int getPIDValue() {
+		// use other get methods
+	}
+
+	private int getDerivativeValue() {
+
+	}
+
+	private int getProportionalValue() {
+
+	}
+
+	// probably don't need integral
+};

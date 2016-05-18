@@ -9,36 +9,39 @@ extern "C" int set_motor(int motor, int speed);
 // this variable. The MotorController itself doesn't use it
 const float PERPENDICULAR_TURN_TIME = 1.2345; // DANIEL calibrate this
 
+const int FORWARD_SPEED = 30;
+const int BACKWARD_SPEED = -20;
+const int ROTATE_SPEED = 30; // should always be positive
 
 // NOTE: dont put any sleeps in any of these methods
 
 
 // just set the motors to full forward
 void moveForward() {
-    set_motor(2, 30); //right motor 
-    set_motor(1, 30); //left motor
+    set_motor(2, FORWARD_SPEED); //right motor
+    set_motor(1, FORWARD_SPEED); //left motor
 }
 
 void moveBackward() {
-    set_motor(2, -20); //made reversing slower for higher accuracy in path correction 
-    set_motor(1, -20);
+    set_motor(2, BACKWARD_SPEED); //made reversing slower for higher accuracy in path correction
+    set_motor(1, BACKWARD_SPEED);
 }
 
 void stopMovement() {
-    set_motor(2, 0); 
+    set_motor(2, 0);
     set_motor(1, 0);
 }
 
 // turn left on the spot
 void rotateLeft() {
-    set_motor(2, -30); 
-    set_motor(1, 30);
+    set_motor(2, -ROTATE_SPEED);
+    set_motor(1, ROTATE_SPEED);
 }
 
 // turn right on the spot
 void rotateRight() {
-    set_motor(2, 30); 
-    set_motor(1, -30);
+    set_motor(2, ROTATE_SPEED);
+    set_motor(1, -ROTATE_SPEED);
 }
 
 // when percent is 1.0 don't actually turn
