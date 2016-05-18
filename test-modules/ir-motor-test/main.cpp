@@ -115,7 +115,7 @@ double * update() {
 			lastLeftDistance = 1;
 		}
 		if (getRightDistance() > rightThreshold) {
-			lasrRightDistance = -1;
+			lastRightDistance = -1;
 		} else {
 			lastRightDistance = 1;
 		}
@@ -125,7 +125,10 @@ double * update() {
 //			lastMiddleDistance = 1;
 //		}
 	}
-	return {lastLeftDistance,lastRightDistance};
+	double returnPackage[2];
+	returnPackage[0]=lastLeftDistance;
+	returnPackage[1]=lastRightDistance;
+	return returnPackage;
 }
 
 // This method is just for testing. Not for use in main project
