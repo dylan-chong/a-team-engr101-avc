@@ -98,8 +98,8 @@ int getLineValue() {
 
 // uses lineValue, not pid
 void setMotorsBasic(int lineValue) {
-    set_motor(1,-0.001*sum +40); // left
-    set_motor(2,0.001*sum +60); // right
+    set_motor(1,-0.001*lineValue +40); // left
+    set_motor(2,0.001*lineValue +60); // right
 }
 
 int main() {
