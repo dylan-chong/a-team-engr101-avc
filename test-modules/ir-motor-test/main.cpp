@@ -133,7 +133,7 @@ int main() {
 	init(0);
 
 	while (true) {
-		double[] data update();
+		double data[2] update();
 		printf("%f",data[0]);
 		printf("%f",data[1]);
 	}
