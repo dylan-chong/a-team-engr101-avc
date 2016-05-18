@@ -109,7 +109,7 @@ int main() {
 
     // testing base speeds
     set_motor(1, 40); // left
-    set_motor(2, 100);
+    set_motor(2, 255);
 
     while (count < 2000) {
         sum = getLineValue();
