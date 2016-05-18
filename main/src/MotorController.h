@@ -18,8 +18,10 @@ class MotorController: public Controller{
 private:
 	const static int LEFT_MOTOR=1;
 	const static int RIGHT_MOTOR=2;
-	const static int MAX_SPEED_LEFT=200;
-	const static int MAX_SPEED_RIGHT=230;
+	/*const static int MAX_SPEED_LEFT=200; //commented out couse it goes way faster on the simulator
+	const static int MAX_SPEED_RIGHT=230;*/
+	const static int MAX_SPEED_LEFT=20;
+	const static int MAX_SPEED_RIGHT=20;
 public:
 	static MotorController* makeInstance();
 	virtual ~MotorController();
