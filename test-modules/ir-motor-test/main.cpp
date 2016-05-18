@@ -104,7 +104,7 @@ void setThreshold(float left, float right) {
 	//middleThreshold = middle;
 }
 
-double[] update() {
+double * update() {
 	if (!thresholdSet) {
 		setThreshold(7, 7); //TEMPORARILY SETTING THRESHOLD TO 0, change this when connecting to the controller
 		thresholdSet = true;
