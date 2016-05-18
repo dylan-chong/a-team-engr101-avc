@@ -108,13 +108,13 @@ int main() {
     int sum = 1;
 
     // testing base speeds
-    set_motor(1, 0); // left
-    set_motor(2, 255);
+    set_motor(2, 40); // left
+    set_motor(1, 60);
 
     sleep(3, 0);
 
-    set_motor(1, 0); // left
-    set_motor(2, 0);
+    set_motor(2, 0); // left
+    set_motor(1, 0);
 
     return 0;
 
