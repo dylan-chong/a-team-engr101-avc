@@ -50,7 +50,7 @@ void setThreshold(float left,float right,float middle){
 
 double update(){
 	if(!thresholdSet){
-		setThreshold(0f,0f,0f); //TEMPORARILY SETTING THRESHOLD TO 0, change this when connecting to the controller
+		setThreshold(0,0,0); //TEMPORARILY SETTING THRESHOLD TO 0, change this when connecting to the controller
 		thresholdSet=true;
 	} else{
 					
@@ -70,7 +70,7 @@ int main(){
 			} else {
 				lastLeftDistance=1;
 			} if(getRightDistance()>rightThreshold){
-				lasrRightDistance=-1;
+				lastRightDistance=-1;
 			} else{
 				lastRightDistance=1;
 			} if(getMiddleDistance()>middleThreshold){
