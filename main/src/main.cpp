@@ -19,7 +19,7 @@ int main(){
 	for (int count = 0 ; count<300; count++){
 		printf("count: %d\n", count);
 		printf("Sum: %f\n", camera_controller->update());
-		//motor_controller->arc('l', .5);
+		motor_controller->arc('l', .5);
 		printf("loop\n");
 	}
 	motor_controller->setStraightLine(0);
