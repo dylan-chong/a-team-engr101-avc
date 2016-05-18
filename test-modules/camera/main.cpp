@@ -106,11 +106,16 @@ int main() {
     init(0);
     int count = 0;
     int sum = 1;
+
+    // testing base speeds
+    set_motor(1, 40); // left
+    set_motor(2, 100);
+
     while (count < 2000) {
         sum = getLineValue();
         printf("%d\n", sum);
 
-        setMotorsBasic(sum);
+        //setMotorsBasic(sum);
 
         count++;
     }
