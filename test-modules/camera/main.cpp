@@ -86,8 +86,8 @@ int getLineValue() {
     }
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites == 0) {
-        printf("%d\n", INT_MAX);
-        return INT_MAX;
+        printf("%d\n", sum);
+        return sum;
     }
         // the 0.004 is just a random small number i took, change it if you want
     else {
@@ -102,9 +102,7 @@ int main() {
     int sum = 1;
     while (count < 2000) {
         sum = getLineValue();
-        if (sum == INT_MAX) {
-            printf("%d\n", sum);
-        }
+        printf("%d\n", sum);
         count++;
     }
     return 0;

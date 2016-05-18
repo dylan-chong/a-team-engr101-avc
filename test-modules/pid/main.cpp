@@ -2,7 +2,7 @@
 #include  <time.h>
 
 extern "C" int init_hardware();
-extern "C" int sleep(int sec, int usec);
+extern "C" int sleep(int sec);
 extern "C" int Sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
@@ -13,33 +13,6 @@ const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for co
 
 int previousLineValue;
 long previousTime = -1;
-
-// ******************** PUBLIC ********************
-
-// Constructor needs no args or implementation
-
-int getPIDValue(int lineValue) {
-    // Algorithm for calculating PID was taken from the Kaiwhata wiki
-    // https://github.com/kaiwhata/ENGR101-2016/wiki/PID-(Proportional-Integral-Derivative)-Control
-
-    int proportional = getProportional(lineValue);
-    int derivative;
-
-    if (previousTime != -1) {
-        long currentTime = getCurrentTime();
-        long timeDiff = currentTime - preivousTime;;
-        derivative = getDerivative(lineValue, timeDiff, previousLineValue);
-    } else {
-        derivative = 0;
-    }
-
-    int pid = proportional + derivative;
-
-    previousTime = currentTime;
-    previousLineValue = lineValue;
-
-    return pid;
-}
 
 
 // ******************** PRIVATE ********************
@@ -64,6 +37,34 @@ int getDerivative(int lineValue, long timeDiff, int prevLineValue) {
 // int getIntegral() { return 0;}
 
 
+// ******************** PUBLIC ********************
+
+// Constructor needs no args or implementation
+
+int getPIDValue(int lineValue) {
+    // Algorithm for calculating PID was taken from the Kaiwhata wiki
+    // https://github.com/kaiwhata/ENGR101-2016/wiki/PID-(Proportional-Integral-Derivative)-Control
+
+    int proportional = getProportional(lineValue);
+    int derivative;
+    long currentTime;
+
+    if (previousTime != -1) {
+        currentTime = getCurrentTime();
+        long timeDiff = currentTime - previousTime;
+        derivative = getDerivative(lineValue, timeDiff, previousLineValue);
+    } else {
+        derivative = 0;
+    }
+
+    int pid = proportional + derivative;
+
+    previousTime = currentTime;
+    previousLineValue = lineValue;
+
+    return pid;
+}
+
 // ******************** TESTING ONLY ********************
 //                  not for main project
 
@@ -72,7 +73,7 @@ int main() {
     printf("\nTEST SLEEP\n\n"); // TODO currently just for testing the sleep functions
 
     printf("test\n");
-    sleep(1, 0);
+    sleep(1);
     printf("test 2\n");
     Sleep(1, 0);
     printf("test 3\n");
