@@ -74,7 +74,7 @@ int main() {
 
     for (int a = 0; a < 10; a++) {
         long time = getCurrentTime();
-        printf("Time is %ld", time);
+        printf("Time is %ld\n\n", time);
     }
 
     printf("\nENDING PROGRAM\n");
