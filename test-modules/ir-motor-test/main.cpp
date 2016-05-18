@@ -126,8 +126,8 @@ double * update() {
 //		}
 	}
 	double returnPackage[2];
-	returnPackage[0]=lastLeftDistance;
-	returnPackage[1]=lastRightDistance;
+	returnPackage[0]=getLeftDistance();
+	returnPackage[1]=getRightDistance();
 	return returnPackage;
 }
 
@@ -141,6 +141,7 @@ int main() {
 		printf("%f",data[0]);
 		printf("\n");
 		printf("%f",data[1]);
+		printf("\n");
 	}
 
 
