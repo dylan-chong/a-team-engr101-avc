@@ -106,7 +106,7 @@ void setThreshold(float left, float right) {
 
 double * update() {
 	if (!thresholdSet) {
-		setThreshold(7, 7); //TEMPORARILY SETTING THRESHOLD TO 0, change this when connecting to the controller
+		setThreshold(15, 15); //TEMPORARILY SETTING THRESHOLD TO 0, change this when connecting to the controller
 		thresholdSet = true;
 	} else {
 		if (getLeftDistance() > leftThreshold) {
