@@ -124,6 +124,7 @@ double * update() {
 //		} else {
 //			lastMiddleDistance = 1;
 //		}
+		printf("%f",getRightDistance());
 	}
 	double returnPackage[2];
 	returnPackage[0]=getLeftDistance();
