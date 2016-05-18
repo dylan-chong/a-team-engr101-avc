@@ -24,7 +24,6 @@ int getProportional(int lineValue) {
     int proportional_signal = lineValue * KP;
     // int motorVal = proportional_signal / (IMG_WIDTH / 2) * 255; // do we even need this?
     return proportional_signal;
-
 }
 
 int getDerivative(int lineValue, long timeDiff, int prevLineValue) {
@@ -69,14 +68,6 @@ int getPIDValue(int lineValue) {
 
 int main() {
     init(0);
-
-    // TODO test time
-
-    for (int a = 0; a < 10; a++) {
-        long time = getCurrentTime();
-        printf("Time is %ld\n\n", time);
-        Sleep(1, 0);
-    }
 
     printf("\nENDING PROGRAM\n");
     return 0;
