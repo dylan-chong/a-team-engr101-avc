@@ -71,7 +71,7 @@ void goLeft(int leftNess){ //Accepts a parameter telling it how much it should t
 
 void goRight(int rightNess){
 	double constant = -0.02;
-	int tweakedValue = leftNess * constant;
+	int tweakedValue = rightNess * constant;
 	set_motor(1,tweakedValue );
 }
 
