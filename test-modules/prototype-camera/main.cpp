@@ -28,7 +28,7 @@ void handle_signal(int signal) {
 	if (signal == SIGINT) {
 		set_motor(1, 0);
 		set_motor(2, 0);
-		
+
 		std::exit(0);
 	}
 }
@@ -82,7 +82,7 @@ void goRight(int rightNess){
 	int tweakedValue = rightNess*constant;
 	set_motor(1,tweakedValue );
 	printf("%f\n",tweakedValue);
-	
+
 }
 
 // uses lineValue, not pid
@@ -90,19 +90,19 @@ void setMotorsBasic() {
 	//int left = 0.01 * sum + 40;
 	//int right = -0.02 * sum + 41;
 
-	int pidValue=40; //INSERT PID VALUE HERE, not actually pid but the range above which it should try and correct
+	int pidValue=10; //INSERT PID VALUE HERE, not actually pid but the range above which it should try and correct
 
 	if(sum>pidValue){ //more whiteness on the right
 		printf("%f\n",sum);
 		goLeft(60);
-		goRight(0);
+		goRight(40);
 	} else if(sum<-pidValue){ //more whiteness on left
 		printf("%f\n",sum);
 		goRight(60);
-		goLeft(0);
+		goLeft(40);
 	} else  { //If going in straight line
-		goLeft(35);
-		goRight(35);
+		goLeft(40);
+		goRight(40);
 	}
 }
 
