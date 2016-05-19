@@ -57,17 +57,16 @@ double getLineValue() {
 
 		c = get_pixel(i, 120, 3);
 		if (c > white_thr) {
-			if(i<120){
+			if(i<160){
 				leftPixelWhiteness[i]=c;
 				sum--;
 			} else{
-				rightPixelWhiteness[i]=c;
+				rightPixelWhiteness[i-160]=c;
 				sum++;
 			}
 			noWhitePixels++;
 		}
 	}
-	printf("%f\n", sum);
 	return sum;
 }
 
@@ -91,24 +90,25 @@ void setMotorsBasic() {
 	int pidValue=20; //INSERT PID VALUE HERE, not actually pid but the range above which it should try and correct
 
 	if(sum>pidValue){ //more whiteness on the right
-
-
+		printf("%f\n",sum);
+		goLeft(60);
 	} else if(sum<-pidValue){ //more whiteness on left
-
+		printf("%f\n",sum);
+		goRight(60);
+	} else  { //If going in straight line
+		goLeft(40);
+		goRight(40);
 	}
 }
 
 int main() {
-        printf("testing");
  	init(0);
-	//std::signal(SIGINT, handle_signal);
+	std::signal(SIGINT, handle_signal);
 	int count = 0;
 
 	while (count < 2000) {
 		getLineValue();
 		setMotorsBasic();
-		goLeft(40);
-		goRight(40);
 		count++;
 	}
 	goLeft(0);
