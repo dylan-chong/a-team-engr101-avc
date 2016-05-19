@@ -285,3 +285,14 @@ Extra Info
 
 <h4>Daily Log</h4>
 
+<h5>Wednesday 18/05/16</h5>
+- Dylan
+	- Completed tests for some of the things I needed to test in PID file
+
+<h5>Thursday 19/05/16</h5>
+- Dylan
+	- Got camera code somewhat working
+	- Calibrated motor base slow speeds
+	- Fixed back wheel
+	- Worked with Jonah to add camera mount
+
