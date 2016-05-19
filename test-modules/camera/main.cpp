@@ -98,8 +98,11 @@ int getLineValue() {
 
 // uses lineValue, not pid
 void setMotorsBasic(int lineValue) {
-    set_motor(2,-0.001*lineValue +40); // left
-    set_motor(1,0.001*lineValue +41); // right
+    int left = -0.01*lineValue +40;
+    int right = 0.01*lineValue +41;
+    set_motor(2, left); // left
+    set_motor(1,right); // right
+    printf("LV: %d, L: %d, R: %d\n", sum, left, right);
 }
 
 int main() {
@@ -109,7 +112,6 @@ int main() {
 
     while (count < 2000) {
         sum = getLineValue();
-        printf("%d\n", sum);
 
         setMotorsBasic(sum);
 
