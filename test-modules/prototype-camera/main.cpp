@@ -34,9 +34,11 @@ void handle_signal(int signal) {
 }
 
 double sum =0;
+double noWhitePixels=0;
 
 void getLineValue() {
 	sum=0;
+	noWhitePixels=0;
 	char c;
 	//the first array getting the camera input
 	int pixelValues[320];
@@ -47,7 +49,7 @@ void getLineValue() {
 	int rightPixelWhiteness[160];
 
 	// a count of how many white spots have been counted( to check if we can still see the line)
-	int noWhitePixels = 0;
+	
 
 	int leftMotor = 0;
 	int rightMotor = 0;
@@ -72,14 +74,14 @@ void getLineValue() {
 void goLeft(int leftNess){ //Accepts a parameter telling it how much it should turn left
 	double constant = 1; // Set the constant to make up for motors differences
 	int tweakedValue = leftNess * constant; //Changing the input value by the constant
-	set_motor(2,tweakedValue );
+	set_motor(2,-tweakedValue );
 	printf("%d\n",tweakedValue);
 }
 
 void goRight(int rightNess){
 	double constant = 1;
 	int tweakedValue = rightNess*constant;
-	set_motor(1,tweakedValue );
+	set_motor(1,-tweakedValue );
 	printf("%d\n",tweakedValue);
 
 }
@@ -90,18 +92,23 @@ void setMotorsBasic() {
 	//int right = -0.02 * sum + 41;
 
 	int pidValue=10; //INSERT PID VALUE HERE, not actually pid but the range above which it should try and correct
-
+	if(noWhitePixels>0){
 	if(sum>pidValue){ //more whiteness on the right
 		printf("%f\n",sum);
 		goLeft(60);
 		goRight(40);
-	} else if(sum<-pidValue){ //more whiteness on left
+	} else if(sum<(-1*pidValue)){ //more whiteness on left
+		printf("its working\n");
 		printf("%f\n",sum);
-		goRight(60);
+		goRight(120);
 		goLeft(40);
 	} else  { //If going in straight line
 		goLeft(40);
 		goRight(40);
+	}
+	} else {
+		goRight(60);
+		goLeft(-60);
 	}
 }
 
@@ -110,7 +117,7 @@ int main() {
 	std::signal(SIGINT, handle_signal);
 	int count = 0;
 
-	while (count < 400) {
+	while (count < 2000) {
 		getLineValue();
 		setMotorsBasic();
 		count++;
