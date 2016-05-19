@@ -10,15 +10,13 @@
  extern "C" int Sleep(int sec, int usec);
  */
 
-long getLineValue2() {
-	long value = 0;
 
-	return value;
-}
 
 #include <stdio.h>
 #include <time.h>
 #include <limits.h>
+#include <csignal>
+#include <cstdlib>
 
 extern "C" int init(int d_lev);
 extern "C" int take_picture();
@@ -26,10 +24,19 @@ extern "C" char get_pixel(int row, int col, int colour);
 extern "C" int sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
+void handle_signal(int signal) {
+	if (signal == SIGINT) {
+		set_motor(1, 0);
+		set_motor(2, 0);
+		
+		std::exit(0);
+	}
+}
 
 double sum =0;
 
 double getLineValue() {
+	sum=0;
 	char c;
 	//the first array getting the camera input
 	int pixelValues[320];
@@ -60,17 +67,18 @@ double getLineValue() {
 			noWhitePixels++;
 		}
 	}
+	printf("%f\n", sum);
 	return sum;
 }
 
 void goLeft(int leftNess){ //Accepts a parameter telling it how much it should turn left
-	double constant = 0.01; // Set the constant to make up for motors differences
+	double constant = 1; // Set the constant to make up for motors differences
 	int tweakedValue = leftNess * constant; //Changing the input value by the constant
 	set_motor(2,tweakedValue );
 }
 
 void goRight(int rightNess){
-	double constant = -0.02;
+	double constant = 1;
 	int tweakedValue = rightNess * constant;
 	set_motor(1,tweakedValue );
 }
@@ -91,18 +99,20 @@ void setMotorsBasic() {
 }
 
 int main() {
-	init(0);
+        printf("testing");
+ 	init(0);
+	//std::signal(SIGINT, handle_signal);
 	int count = 0;
-	int sum = 1;
 
 	while (count < 2000) {
 		getLineValue();
-		printf("%d",sum);
 		setMotorsBasic();
 		goLeft(40);
 		goRight(40);
 		count++;
 	}
+	goLeft(0);
+	goRight(0);
 	return 0;
 }
 
