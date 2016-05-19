@@ -74,12 +74,15 @@ void goLeft(int leftNess){ //Accepts a parameter telling it how much it should t
 	double constant = 1; // Set the constant to make up for motors differences
 	int tweakedValue = leftNess * constant; //Changing the input value by the constant
 	set_motor(2,tweakedValue );
+	printf("%f\n",tweakedValue);
 }
 
 void goRight(int rightNess){
 	double constant = 1;
-	int tweakedValue = rightNess * constant;
+	int tweakedValue = rightNess*constant;
 	set_motor(1,tweakedValue );
+	printf("%f\n",tweakedValue);
+	
 }
 
 // uses lineValue, not pid
@@ -87,17 +90,19 @@ void setMotorsBasic() {
 	//int left = 0.01 * sum + 40;
 	//int right = -0.02 * sum + 41;
 
-	int pidValue=20; //INSERT PID VALUE HERE, not actually pid but the range above which it should try and correct
+	int pidValue=40; //INSERT PID VALUE HERE, not actually pid but the range above which it should try and correct
 
 	if(sum>pidValue){ //more whiteness on the right
 		printf("%f\n",sum);
 		goLeft(60);
+		goRight(0);
 	} else if(sum<-pidValue){ //more whiteness on left
 		printf("%f\n",sum);
 		goRight(60);
+		goLeft(0);
 	} else  { //If going in straight line
-		goLeft(40);
-		goRight(40);
+		goLeft(35);
+		goRight(35);
 	}
 }
 
@@ -106,7 +111,7 @@ int main() {
 	std::signal(SIGINT, handle_signal);
 	int count = 0;
 
-	while (count < 2000) {
+	while (count < 400) {
 		getLineValue();
 		setMotorsBasic();
 		count++;
