@@ -98,8 +98,8 @@ int getLineValue() {
 
 // uses lineValue, not pid
 void setMotorsBasic(int lineValue) {
-    int left = 0.0008*lineValue +40;
-    int right = -0.0008*lineValue +41;
+    int left = 0.003*lineValue +40;
+    int right = -0.003*lineValue +41;
     set_motor(2, left); // left
     set_motor(1,right); // right
     printf("LV: %d, L: %d, R: %d\n", lineValue, left, right);
