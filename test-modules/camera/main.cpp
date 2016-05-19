@@ -102,7 +102,7 @@ void setMotorsBasic(int lineValue) {
     int right = 0.01*lineValue +41;
     set_motor(2, left); // left
     set_motor(1,right); // right
-    printf("LV: %d, L: %d, R: %d\n", sum, left, right);
+    printf("LV: %d, L: %d, R: %d\n", lineValue, left, right);
 }
 
 int main() {
