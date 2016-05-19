@@ -50,7 +50,7 @@ double getLineValue() {
 
 		c = get_pixel(i, 120, 3);
 		if (c > white_thr) {
-			if(i<120>){
+			if(i<120){
 				leftPixelWhiteness[i]=c;
 				sum--;
 			} else{
