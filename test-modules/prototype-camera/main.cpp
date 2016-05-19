@@ -35,7 +35,7 @@ void handle_signal(int signal) {
 
 double sum =0;
 
-double getLineValue() {
+void getLineValue() {
 	sum=0;
 	char c;
 	//the first array getting the camera input
@@ -67,21 +67,20 @@ double getLineValue() {
 			noWhitePixels++;
 		}
 	}
-	return sum;
 }
 
 void goLeft(int leftNess){ //Accepts a parameter telling it how much it should turn left
 	double constant = 1; // Set the constant to make up for motors differences
 	int tweakedValue = leftNess * constant; //Changing the input value by the constant
 	set_motor(2,tweakedValue );
-	printf("%f\n",tweakedValue);
+	printf("%d\n",tweakedValue);
 }
 
 void goRight(int rightNess){
 	double constant = 1;
 	int tweakedValue = rightNess*constant;
 	set_motor(1,tweakedValue );
-	printf("%f\n",tweakedValue);
+	printf("%d\n",tweakedValue);
 
 }
 
