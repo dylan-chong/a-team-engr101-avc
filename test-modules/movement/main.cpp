@@ -83,7 +83,7 @@ void freezeIfSpeedOutOfRange(int speed) {
 // -5 and 11 inclusive
 void setLeft(int speed) {
     freezeIfSpeedOutOfRange(speed);
-    set_motor(2, speed / 10);
+    set_motor(2, speed);
 } 
 
 void setRight(int speed) {
