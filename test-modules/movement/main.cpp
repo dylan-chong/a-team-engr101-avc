@@ -81,6 +81,7 @@ void freezeIfSpeedOutOfRange(int speed) {
 
 // both setLeft and setRight take values between
 // -5 and 11 inclusive
+// setting both to -3 to 2 inclusive means the robot wont move
 void setLeft(int speed) {
     freezeIfSpeedOutOfRange(speed);
     set_motor(2, speed * 10);
