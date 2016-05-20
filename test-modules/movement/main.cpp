@@ -17,11 +17,6 @@ const int ROTATE_SPEED = 30; // should always be positive
 
 
 // just set the motors to full forward
-
-void moveStraightAtSpeed(int speed) {
-    setLeft()
-}
-
 void moveForward() {
     // OLD motor speeds - most updated ones in MotorController.h
     set_motor(2, 200);//FORWARD_SPEED); // left motor
@@ -94,8 +89,13 @@ void setLeft(int speed) {
 void setRight(int speed) {
     freezeIfSpeedOutOfRange(speed);
     set_motor(2, RIGHT_SPEEDS[speed + 5]);
-
 }
+
+void moveStraightAtSpeed(int speed) {
+    setLeft(speed);
+    setRight(speed);
+}
+
 
 
 int main() {
