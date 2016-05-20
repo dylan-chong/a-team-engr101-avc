@@ -101,18 +101,3 @@ int main() {
 
     return 0;
 }
-
-/*
-// Daniels old code for moving in a straight line
-int main() {
-    init_hardware();
-
-    set_motor(1, 127); //sets motors on pin one and 2 to 50% speed for 5 seconds
-    set_motor(2, 127);
-    sleep(5, 0);
-
-    set_motor(1, 0);
-    set_motor(2, 0);
-
-    return 0;
-}*/
