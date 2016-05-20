@@ -88,7 +88,7 @@ void setLeft(int speed) {
 
 void setRight(int speed) {
     freezeIfSpeedOutOfRange(speed);
-    set_motor(2, RIGHT_SPEEDS[speed + 5]);
+    set_motor(1, RIGHT_SPEEDS[speed + 5]);
 }
 
 void moveStraightAtSpeed(int speed) {
