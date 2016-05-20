@@ -91,8 +91,10 @@ void arc(double direction) {
 int main() {
     init(0);
 
-    // todo test rotateLeft and right movement
-    rotateLeft();
+    // todo test rotateRight
+    // todo test arc (-1, 0, 1)
+
+    rotateLeft(); // todo test rotateLeft
     sleep(3, 0);
 
     stopMovement();
