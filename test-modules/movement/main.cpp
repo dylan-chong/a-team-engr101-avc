@@ -17,6 +17,11 @@ const int ROTATE_SPEED = 30; // should always be positive
 
 
 // just set the motors to full forward
+
+void moveStraightAtSpeed(int speed) {
+    setLeft()
+}
+
 void moveForward() {
     // OLD motor speeds - most updated ones in MotorController.h
     set_motor(2, 200);//FORWARD_SPEED); // left motor
@@ -60,23 +65,51 @@ void arcRight(double percent) {
 }
 
 
+// **************** DYLAN'S STUFF ****************
+
+// Refer to even-speeds.txt for nicer formatting of data
+// Array starts with reverse speeds (since motor is backwards)
+const int[18] RIGHT_SPEEDS = {
+    65, 41, 30, 20, 10, 0, 
+    -10, -20, -30, -41, -60, -70, -88, -95, -180, -200, -255
+};
+
+void freezeIfSpeedOutOfRange(int speed) {
+    if (speed < -5 || speed > 11) {
+        set_motor(2, 0);
+        set_motor(1, 0);
+        while (true) {
+            printf("You speed (%d) is not between -5 and 11\n", speed);
+        }
+    }
+}
+
+// both setLeft and setRight take values between
+// -5 and 11 inclusive
+void setLeft(int speed) {
+    freezeIfSpeedOutOfRange(speed);
+    set_motor(2, speed / 10);
+} 
+
+void setRight(int speed) {
+    freezeIfSpeedOutOfRange(speed);
+    set_motor(2, RIGHT_SPEEDS[speed + 5]);
+
+}
+
+
 int main() {
     init(0);
 
     /* Test complete*/
-    sleep(1, 0);
 
-    moveForward();
+    moveStraightAtSpeed(11);
     sleep(3, 0);
+    moveStraightAtSpeed(11);
+    sleep(3, 0);
+
     stopMovement();
     sleep(1, 0);
-
-
-    moveBackward();
-    sleep(3, 0);
-    stopMovement();
-    sleep(1, 0);
-
 
     return 0;
 }
