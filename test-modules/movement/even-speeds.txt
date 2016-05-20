@@ -12,7 +12,7 @@ Even speed pairs:
 -20 : 20
 -10 : 10 
 0  : 0
-10 : 10
+10 : -10
 20 : -20 // not moving (too heavy at this speed)
 30 : -30 // MOVING FORWARDS
 40 : -41
