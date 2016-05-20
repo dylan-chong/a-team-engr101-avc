@@ -64,7 +64,7 @@ void arcRight(double percent) {
 
 // Refer to even-speeds.txt for nicer formatting of data
 // Array starts with reverse speeds (since motor is backwards)
-const int[18] RIGHT_SPEEDS = {
+const int RIGHT_SPEEDS[18] = {
     65, 41, 30, 20, 10, 0, 
     -10, -20, -30, -41, -60, -70, -88, -95, -180, -200, -255
 };
