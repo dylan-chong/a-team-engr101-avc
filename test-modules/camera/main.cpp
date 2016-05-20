@@ -127,6 +127,115 @@ int main() {
 void printIntArray(int[] ) {
 
 }
+/*
+
+#include <stdio.h>
+#include <time.h>
+#include <limits.h>
+
+
+extern "C" int init(int d_lev);
+extern "C" int take_picture();
+extern "C" char get_pixel(int row, int col, int colour);
+extern "C" int sleep(int sec, int usec);
+extern "C" int set_motor(int motor, int speed);
+
+int getLineValue() {
+    char c;
+    //the first array getting the camera input
+    int whiteness[320];
+    //whether the number is white enough
+    int white_thr = 127;
+    // the second array to compare to (- on left, + on the right)
+    int white_compare[320];
+    // what should be the multiplied version of the two above arrays
+    int white_final[320];
+    //the sum of all the white final numbers added 
+    int sum = 0;
+    // a count of how many white spots have been counted( to check if we can still see the line)
+    int n_whites = 0;
+    // left motor vroom vroom
+    int leftMotor = 0;
+    // right motor also vroom vroom
+    int rightMotor = 0;
+    float kp = 0.005;
+    double proportional_signal =0;
+    take_picture();
+    for (int i = 0; i < 320; i++) {
+        //Take picture with camera
+        
+        //get pixel "whiteness" from centre of image
+        c = get_pixel(i, 120, 3);
+        //printf("%d\n", c);
+        if (c > white_thr) {
+            // if its greater than the threshold, the number is a one, and therefore white, so count increases
+            whiteness[i] = 1;
+            n_whites++;
+        }
+        else {
+            whiteness[i] = 0;
+        }
+        white_compare[i] = i - 160;
+        white_final[i] = whiteness[i] * white_compare[i];
+    }
+
+    // what should be the sum of white final working
+    for (int i = 0; i < 320; i++) {
+        sum = sum + white_final[i];
+    }
+    proportional_signal = sum*kp
+    printf("%d\n", sum);
+    return proportional_signal;
+
+}
+
+int main() {
+    init(0);
+    int count = 0;
+    int proportional_signal = 1;
+    while (count < 2000) {
+        proportional_signal = getLineValue();
+    if (proportional_signal < 0) {
+
+		
+		rightMotor = (50 - (proportional_signal / (160)) * 175); 
+		leftSpeed = (50 + (proportional_signal / (160)) * 175);
+	}
+
+	else if (proportional_signal > 0) { 
+
+		
+		rightMotor = (50 - (proportional_signal / (160)) * 175);
+		leftMotor = (50 + (proportional_signal / (160)) * 175); 
+	}
+
+	else {
+
+	
+		leftMotor = 80;
+		rightMotor = 80;
+	}
+        		
+		printf("%d\n", leftMotor);
+		printf("%d\n", rightMotor);
+
+		set_motor(1, leftMotor);
+		set_motor(2, rightMotor);
+        count++;
+    }
+    return 0;
+}
+
+
+
+
+
+void printIntArray(int[] ) {
+
+}
+*/
+
+
 
 
 
