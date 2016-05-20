@@ -1,0 +1,25 @@
+Formatted as
+Left Motor Speed : Right Motor Speed
+
+Notes:
+- Remember the right motor needs negative values for the robot to go forwards
+- The left motor number is 2, the right is 1
+
+Even speed pairs:
+-50 : 65
+-40 : 41 // REVERSING
+-30 : 30 // not moving
+-20 : 20
+-10 : 10 
+0  : 0
+10 : 10
+20 : -20 // not moving (too heavy at this speed)
+30 : -30 // MOVING FORWARDS
+40 : -41
+50 : -60
+60 : -70
+70 : -88
+80 : -95
+90 : -180
+100 : -200
+110 : -255 // The right motor barely goes any faster when decreasing beyond -100
