@@ -11,8 +11,7 @@ extern "C" int set_motor(int motor, int speed);
 // this variable. The MotorController itself doesn't use it
 const float PERPENDICULAR_TURN_TIME = 1.2345; // DANIEL calibrate this
 
-// NOTE: dont put any sleeps in any of these methods
-
+// NOTE: don't put any sleeps in any of these methods
 
 // Refer to even-speeds.txt for nicer formatting of data
 const int RIGHT_SPEEDS[18] = {
@@ -101,18 +100,3 @@ int main() {
 
     return 0;
 }
-
-/*
-// Daniels old code for moving in a straight line
-int main() {
-    init_hardware();
-
-    set_motor(1, 127); //sets motors on pin one and 2 to 50% speed for 5 seconds
-    set_motor(2, 127);
-    sleep(5, 0);
-
-    set_motor(1, 0);
-    set_motor(2, 0);
-
-    return 0;
-}*/
