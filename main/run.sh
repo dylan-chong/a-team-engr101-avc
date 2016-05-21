@@ -1,16 +1,16 @@
 #!/bin/bash
 COPTIONS=""
 MAKEPREFIX="sudo"
-echo "Do you want to print all debug info? (y/n)"
-read debug
-if test "debug" = "y"; then
-	COPTIONS="$COPTIONS -Wall"
-fi
 echo "Is it on the simulator? (y/n)"
 read lib
 if test "$lib" = "y"; then
 	COPTIONS="$COPTIONS -L/usr/lib -lE101"
-	MAKEPREFIX=""
+	MAKEPREFIX=""	
+fi
+echo "Do you want to print all debug info? (y/n)"
+read debug
+if test "debug" = "y"; then
+	COPTIONS="$COPTIONS -Wall"
 fi
 make CFLAGS="$COPTIONS" CC="g++" PRE="$MAKEPREFIX"
 echo "Do you want to run tests? (y/n)"
@@ -37,3 +37,5 @@ if test "$run" = "y"; then
 else 
 	echo "Program not run."
 fi
+
+
