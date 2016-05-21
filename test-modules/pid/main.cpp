@@ -13,6 +13,7 @@ const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for co
 int previousLineValue;
 long previousTime = -1;
 
+clock_t start = new clock();
 
 // ******************** PRIVATE ********************
 
@@ -26,7 +27,7 @@ int getProportional(int lineValue) {
     return proportional_signal;
 }
 
-int getDerivative(int lineValue, long timeDiff, int prevLineValue) {
+int getDerivative(int lineValue, float timeDiff, int prevLineValue) {
     int derivative_signal = (lineValue - prevLineValue / (double) timeDiff) * KD;
     return derivative_signal;
 }
@@ -50,7 +51,7 @@ double getPIDValue(int lineValue) {
 
     if (previousTime != -1) {
         currentTime = getCurrentTime();
-        long timeDiff = currentTime - previousTime;
+        float timeDiff = float(clock()-start);
         derivative = getDerivative(lineValue, timeDiff, previousLineValue);
     } else {
         derivative = 0;
