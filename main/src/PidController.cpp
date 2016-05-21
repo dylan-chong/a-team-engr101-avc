@@ -24,9 +24,10 @@ PidController* PidController::makeInstance(){
 
 /** Private */
 
-long PidController::getCurrentTime() { // in seconds
-	//printf("Current Time: %f\n",time(NULL));//debuging print
-    return (long) time(NULL);
+float PidController::getTimeDiff() { // in clock ticks
+	float timeDiff = (float)(clock()-start);
+	start=clock();
+	return timeDiff;
 }
 
 int PidController::getProportional(int lineValue) {
@@ -53,21 +54,14 @@ double PidController::getPIDValue(int lineValue) {
 
     int proportional = getProportional(lineValue);
     int derivative;
-    long currentTime;
 
-    if (previousTime != -1) {
-        currentTime = getCurrentTime();
-        float timeDiff = float(clock()-start);
-        derivative = getDerivative(lineValue, timeDiff, previousLineValue);
-    } else {
-        derivative = 0;
-    }
+    float timeDiff = getTimeDiff();
+    derivative = getDerivative(lineValue, timeDiff, previousLineValue);
     printf("P: %d\n", proportional);
     printf("D: %d\n", derivative);
 
     int pid = proportional + derivative;
 
-    previousTime = currentTime;
     previousLineValue = lineValue;
 
     return (double)(pid)/(double)500;

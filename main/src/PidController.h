@@ -22,9 +22,8 @@ private:
 	clock_t start = clock();
 
 	int previousLineValue;
-	long previousTime = -1;
 
-	long getCurrentTime();
+	float getTimeDiff();
 	int getProportional(int lineValue);
 	int getDerivative(int lineValue, float timeDiff, int prevLineValue);
 public:

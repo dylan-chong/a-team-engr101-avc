@@ -11,14 +11,15 @@ const float KD = 0;//5.0;
 const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for constants?
 
 int previousLineValue;
-long previousTime = -1;
 
 clock_t start = new clock();
 
 // ******************** PRIVATE ********************
 
-long getCurrentTime() { // in seconds
-    return (long) time(NULL);
+float getTimeDiff() { // in seconds
+	float timeDiff = (float) clock()-start;
+	start=clock();
+    return timeDiff;
 }
 
 int getProportional(int lineValue) {
@@ -47,15 +48,10 @@ double getPIDValue(int lineValue) {
 
     int proportional = getProportional(lineValue);
     int derivative;
-    long currentTime;
 
-    if (previousTime != -1) {
-        currentTime = getCurrentTime();
-        float timeDiff = float(clock()-start);
-        derivative = getDerivative(lineValue, timeDiff, previousLineValue);
-    } else {
-        derivative = 0;
-    }
+    float timeDiff = getTimeDiff();
+    derivative = getDerivative(lineValue, timeDiff, previousLineValue);
+
 
     double pid = proportional + derivative;
 
@@ -64,7 +60,6 @@ double getPIDValue(int lineValue) {
     // maximums and minimums, try pick some values through 
     // experimentation)
 
-    previousTime = currentTime;
     previousLineValue = lineValue;
 
     return pid;
