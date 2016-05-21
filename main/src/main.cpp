@@ -5,6 +5,7 @@
 #include "NetworkController.h"
 #include "MotorController.h"
 #include "IRController.h"
+#include "PidController.h"
 
 extern "C" int init(int d_lev);
 extern "C" int Sleep(int sec, int  usec);
@@ -15,14 +16,17 @@ int main(){
 	MotorController *motor_controller = MotorController::makeInstance();
 	IRController *IR_controller = IRController::makeInstance();
 	CameraController *camera_controller = CameraController::makeInstance();
+	PidController *pid_controller = PidController::makeInstance();
 
 	for (int count = 0 ; count<300; count++){
-		printf("count: %d\n", count);
+		//printf("count: %d\n", count);
 		double sumC = camera_controller->update();
-		((sumC > 1) ? sumC = 1 : ((sumC < -1) ? sumC = -1 : sumC*=1));
+		double pid_val = pid_controller->getPIDValue(sumC);
 		printf("Sum: %f\n", sumC);
-		motor_controller->arc(camera_controller->getDir(), sumC);
-		printf("loop\n");
+		printf("MotoValue: %f\n", pid_val);
+
+		//motor_controller->arc(camera_controller->getDir(), sumC);
+		//printf("loop\n");
 	}
 	motor_controller->setStraightLine(0);
 	printf("it worked\n");
