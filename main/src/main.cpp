@@ -18,17 +18,18 @@ int main(){
 	CameraController *camera_controller = CameraController::makeInstance();
 	PidController *pid_controller = PidController::makeInstance();
 
-	for (int count = 0 ; count<300; count++){
+	motor_controller->setStraightLine(1);
+	for (int count = 0 ; count<600; count++){
 		//printf("count: %d\n", count);
-		double sumC = camera_controller->update();
+		int sumC = camera_controller->update(CameraController::CENTER_ROW);
 		double pid_val = pid_controller->getPIDValue(sumC);
-		printf("Sum: %f\n", sumC);
-		printf("MotoValue: %f\n", pid_val);
-
+		//printf("Sum: %d\n", sumC);//debuging print
+		//printf("MotoValue: %f\n", pid_val);//debuging print
+		motor_controller->arc(pid_val);
 		//motor_controller->arc(camera_controller->getDir(), sumC);
-		//printf("loop\n");
+		printf("**************************************\n");//debuging print
 	}
-	motor_controller->setStraightLine(0);
+	motor_controller->stop();
 	printf("it worked\n");
 
 	return  0;

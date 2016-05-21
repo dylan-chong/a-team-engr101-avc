@@ -18,17 +18,18 @@ private:
 
 
 	int white[];
-	int center;
 	int previousError;
 	char dir;
 
 public:
+	const static int CENTER_ROW = 120;
+
 	static CameraController* makeInstance();
 	virtual ~CameraController();
 	CameraController();
 
 	char getDir();
-	int getSum();
-	double update();
+	int getSum(int row);
+	int update(int row);
 };
 #endif /* CAMERACONTROLLER_H_ */

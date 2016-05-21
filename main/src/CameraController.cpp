@@ -16,7 +16,6 @@ extern "C" int Sleep(int sec, int usec);
 
 //This is the constructor
 CameraController::CameraController(){
-	center = 120;
 	previousError = 0;
 	dir = 'l';
 }
@@ -32,7 +31,7 @@ CameraController* CameraController::makeInstance(){
 }
 
 //gets the total sum of the white array * the position on the white pixels from the center
-int CameraController::getSum(){
+int CameraController::getSum(int row){
 	    //the first array getting the camera input
 	    int whiteness[320];
 	    //the sum of all the white final numbers added
@@ -41,7 +40,7 @@ int CameraController::getSum(){
 	    int n_whites = 0;
 	    take_picture();
 	    for (int i = 0; i < 320; i++) {
-	    	whiteness[i] = (get_pixel(i, center, 3) > WHITE_THRESHOLD);
+	    	whiteness[i] = (get_pixel(i, row, 3) > WHITE_THRESHOLD);
 	        n_whites += whiteness[i];
 	        sum += whiteness[i] * (i - 160);
 	    }
@@ -59,10 +58,10 @@ int CameraController::getSum(){
 	    }
 }
 
-double CameraController::update(){
+int CameraController::update(int row){
 	//getWhiteArray();
-	int sum = getSum();
-	return (double)sum;
+	int sum = getSum(row);
+	return sum;
 	//int diff = differential(sum);
 	//return motorMovement(sum, diff);
 }
