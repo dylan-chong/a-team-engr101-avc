@@ -39,7 +39,8 @@ int getDerivative(int lineValue, long timeDiff, int prevLineValue) {
 
 // Constructor needs no args or implementation
 
-int getPIDValue(int lineValue) {
+// Returns a value between -1 (full left) and 1 (full right)
+double getPIDValue(int lineValue) {
     // Algorithm for calculating PID was taken from the Kaiwhata wiki
     // https://github.com/kaiwhata/ENGR101-2016/wiki/PID-(Proportional-Integral-Derivative)-Control
 
@@ -55,7 +56,12 @@ int getPIDValue(int lineValue) {
         derivative = 0;
     }
 
-    int pid = proportional + derivative;
+    double pid = proportional + derivative;
+
+    // TODO find maximum and minimum pid values and scale
+    // pid to fit between -1 and 1 (maybe don't use the actual
+    // maximums and minimums, try pick some values through 
+    // experimentation)
 
     previousTime = currentTime;
     previousLineValue = lineValue;
