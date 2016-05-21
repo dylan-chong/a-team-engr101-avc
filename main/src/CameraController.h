@@ -15,9 +15,7 @@ class CameraController: public Controller{
 friend class CameraControllerTest;
 private:
 	const static int WHITE_THRESHOLD = 140;
-	const static double Kp=1;
-	const static double Kd=1;
-	const static double Ki=0;
+
 
 	int white[];
 	int center;
@@ -29,11 +27,8 @@ public:
 	virtual ~CameraController();
 	CameraController();
 
-	double motorMovement(int sum, int differential);
 	char getDir();
-	int getWhiteArray();
 	int getSum();
-	int differential(int sum);
 	double update();
 };
 #endif /* CAMERACONTROLLER_H_ */
