@@ -15,7 +15,7 @@ const float PERPENDICULAR_TURN_TIME = 1.2345; // DANIEL calibrate this
 
 // Refer to even-speeds.txt for nicer formatting of data
 const int NUMBER_OF_REVERSE_SPEEDS = 9;
-const int RIGHT_SPEEDS[18] = {
+const int RIGHT_SPEEDS[21] = {
         200, 150, 105, 80, 65, 41, 30, 20, 10, // reverse
         0, // definitely stop
         -10, -20, -30, -41, -60, -70, -88, -95, -180, -200, -255 // forward
