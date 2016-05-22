@@ -69,14 +69,14 @@ void stopMovement() {
 // turn left on the spot
 // right wheel doesn't seem to do anything
 void rotateLeft() {
-    setLeft(-9);
-    setRight(9);
+    setLeft(-8);
+    setRight(8);
 }
 
 // turn right on the spot
 void rotateRight() {
     setLeft(9);
-    setRight(-9);
+    setRight(-7);
 }
 
 // -1 is max left
