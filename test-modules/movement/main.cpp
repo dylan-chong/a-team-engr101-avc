@@ -82,9 +82,10 @@ void rotateRight() {
 // 0 is max forward
 // 1 is max right
 void arc(double direction) {
-    // TODO implement arc properly
-    // setLeft((int) 5 * direction);
-    // setRight((int) -5 * direction);
+    if (direction <= 0) setLeft((1 + direction) * -5);
+    else setLeft(5);
+    if (direction >= 0) setRight((1 - direction) * 5);
+    else setRight(5);
 }
 
 // ******************** TESTING ONLY ******************** //
