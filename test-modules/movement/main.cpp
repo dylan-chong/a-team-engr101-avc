@@ -83,9 +83,9 @@ void rotateRight() {
 // 0 is max forward
 // 1 is max right
 void arc(double direction) {
-    if (direction <= 0) setLeft((1 + direction) * -5);
+    if (direction <= 0) setLeft((1 + direction) * -8);
     else setLeft(5);
-    if (direction >= 0) setRight((1 - direction) * 5);
+    if (direction >= 0) setRight((1 - direction) * 7);
     else setRight(5);
 }
 
@@ -97,9 +97,7 @@ int main() {
     // todo test rotateRight
     // todo test arc (-1, 0, 1)
 
-    rotateLeft();
-    sleep(3, 0);
-    rotateRight();
+    arc()
     sleep(3, 0);
     stopMovement();
     sleep(1, 0);
