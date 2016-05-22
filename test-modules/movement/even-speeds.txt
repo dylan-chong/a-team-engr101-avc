@@ -6,6 +6,10 @@ Notes:
 - The left motor number is 2, the right is 1
 
 Even speed pairs:
+-90 : 200
+-80 : 150
+-70 : 105
+-60 : 80
 -50 : 65
 -40 : 41 // REVERSING
 -30 : 30 // not moving

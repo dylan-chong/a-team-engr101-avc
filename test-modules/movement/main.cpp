@@ -14,8 +14,9 @@ const float PERPENDICULAR_TURN_TIME = 1.2345; // DANIEL calibrate this
 // NOTE: don't put any sleeps in any of these methods
 
 // Refer to even-speeds.txt for nicer formatting of data
+const int NUMBER_OF_REVERSE_SPEEDS = 9;
 const int RIGHT_SPEEDS[18] = {
-        65, 41, 30, 20, 10, // reverse
+        200, 150, 105, 80, 65, 41, 30, 20, 10, // reverse
         0, // definitely stop
         -10, -20, -30, -41, -60, -70, -88, -95, -180, -200, -255 // forward
 };
@@ -40,7 +41,7 @@ void setLeft(int speed) {
 
 void setRight(int speed) {
     freezeIfSpeedOutOfRange(speed);
-    set_motor(1, RIGHT_SPEEDS[speed + 5]);
+    set_motor(1, RIGHT_SPEEDS[speed + NUMBER_OF_REVERSE_SPEEDS]);
 }
 
 void moveStraightAtSpeed(int speed) {
@@ -52,8 +53,7 @@ void moveStraightAtSpeed(int speed) {
 
 // just set the motors to full forward
 void moveForward() {
-    setLeft(5);
-    setRight(5);
+    moveStraightAtSpeed(5);
 }
 
 void moveBackward() {
@@ -67,15 +67,16 @@ void stopMovement() {
 }
 
 // turn left on the spot
+// right wheel doesn't seem to do anything
 void rotateLeft() {
-    setLeft(-5);
-    setRight(5);
+    setLeft(-9);
+    setRight(9);
 }
 
 // turn right on the spot
 void rotateRight() {
-    setLeft(5);
-    setRight(-5);
+    setLeft(9);
+    setRight(-9);
 }
 
 // -1 is max left
@@ -96,8 +97,12 @@ int main() {
     // todo test rotateRight
     // todo test arc (-1, 0, 1)
 
-    rotateLeft(); // todo test rotateLeft
+    rotateLeft();
     sleep(3, 0);
+    rotateRight();
+    sleep(3, 0);
+    stopMovement();
+    sleep(1, 0);
 
     stopMovement();
     sleep(1, 0);
