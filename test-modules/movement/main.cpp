@@ -97,10 +97,10 @@ int main() {
     // todo test rotateRight
     // todo test arc (-1, 0, 1)
 
-    arc()
+    arc(-1);
     sleep(3, 0);
-    stopMovement();
-    sleep(1, 0);
+    arc(1);
+    sleep(3, 0);
 
     stopMovement();
     sleep(1, 0);
