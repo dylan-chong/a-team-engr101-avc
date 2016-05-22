@@ -11,6 +11,8 @@
 
 PidController::PidController() {
 	previousLineValue = 0;
+	previousDerivativeValue = 0;
+	intergral = 0;
 }
 
 PidController::~PidController() {
@@ -30,20 +32,34 @@ float PidController::getTimeDiff() { // in clock ticks
 	return timeDiff;
 }
 
+//returns the line value
 int PidController::getProportional(int lineValue) {
-    int proportional_signal = lineValue * KP;
+    int proportional_signal = lineValue;// * KP;
     // int motorVal = proportional_signal / (IMG_WIDTH / 2) * 255; // do we even need this?
     return proportional_signal;
 }
 
-int PidController::getDerivative(int lineValue, float timeDiff, int prevLineValue) {
-	if ((double)timeDiff==0)timeDiff=1; //stops deviding by 0
-	//printf("lineVal: %d\n", lineValue); //debug print
-	//printf("timeDif: %f\n", (double)timeDiff); //debug print
-	//printf("preLineVal: %d\n", prevLineValue); //debug print
-
-    int derivative_signal = (int)(((double)lineValue - (double)prevLineValue / (double) timeDiff) * (double)KD);
+//gets the change in the line value with respect to time
+double PidController::getDerivative(int lineValue, float timeDiff, int prevLineValue) {
+	//if ((double)timeDiff==0)timeDiff=0.0001; //stops deviding by 0
+	printf("lineValue: %d\n", lineValue);
+	printf("previous Line Value: %d\n", prevLineValue);
+	printf("timeDiff: %f\n", timeDiff);
+    double derivative_signal = (double)((float)(lineValue - prevLineValue) /  timeDiff);
     return derivative_signal;
+}
+
+//gets the integral I was thinking of using this to automatically tune the Kp and Kd
+int PidController::getIntergral(int lineValue){
+	intergral+=lineValue;
+	return intergral;
+}
+
+//gets the derivative of the derivative (this is derviative filtering http://www2.ece.ohio-state.edu/~passino/lab3prelab.pdf if you want to know more)
+double PidController::getFOC(double derivative, float timeDiff, double previousDerivative){
+	if ((double)timeDiff==0)timeDiff=0.0001; //stops deviding by 0
+	double FOC_derivative_signal = (double)((float)(derivative - previousDerivative) / timeDiff);
+	return FOC_derivative_signal;
 }
 
 /** Public */
@@ -52,18 +68,23 @@ double PidController::getPIDValue(int lineValue) {
     // Algorithm for calculating PID was taken from the Kaiwhata wiki
     // https://github.com/kaiwhata/ENGR101-2016/wiki/PID-(Proportional-Integral-Derivative)-Control
 
+	float timeDiff = getTimeDiff()/(float)(1000);
     int proportional = getProportional(lineValue);
-    int derivative;
-
-    float timeDiff = getTimeDiff();
-    derivative = getDerivative(lineValue, timeDiff, previousLineValue);
+    double derivative = getDerivative(lineValue, timeDiff, previousLineValue);
+    double secondDerivative = getFOC(derivative, timeDiff, previousDerivativeValue);
+    int intergral = getIntergral(lineValue);
+    printf("Line Value: %d\n", lineValue);
     printf("P: %d\n", proportional);
-    printf("D: %d\n", derivative);
+    printf("D: %f\n", derivative);
+    printf("I: %d\n", intergral);
+    printf("N: %f\n", secondDerivative);
 
-    int pid = proportional + derivative;
+    double pid = (KP*proportional - (KD*derivative - KN*secondDerivative) + KI*intergral);
+    printf("PID Value: %f\n", pid);
 
     previousLineValue = lineValue;
+    previousDerivativeValue = derivative;
 
-    return (double)(pid)/(double)500;
+    return pid;
 }
 
