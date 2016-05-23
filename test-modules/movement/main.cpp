@@ -7,11 +7,6 @@ extern "C" int set_motor(int motor, int speed);
 
 // ******************** PRIVATE IMPLEMENTATION ******************** //
 
-// The controller using a MotorController will access
-// this variable. The MotorController itself doesn't use it
-const float PERPENDICULAR_LEFT_TURN_TIME = 1.2345; // DANIEL calibrate this
-const float PERPENDICULAR_RIGHT_TURN_TIME = 1.2345; // DANIEL calibrate this
-
 // NOTE: don't put any sleeps in any of these methods
 
 // Refer to even-speeds.txt for nicer formatting of data
@@ -66,6 +61,12 @@ void freezeIfDirectionOutOfRange(double direction) {
 }
 
 // ******************** PUBLIC METHODS ******************** //
+
+
+// The controller using a MotorController will access
+// this variable. The MotorController itself doesn't use it
+const float PERPENDICULAR_LEFT_TURN_TIME = 1.2345; // DANIEL calibrate this
+const float PERPENDICULAR_RIGHT_TURN_TIME = 1.2345; // DANIEL calibrate this
 
 // just set the motors to full forward
 void moveForward() {
