@@ -21,6 +21,11 @@ const int RIGHT_SPEEDS[21] = {
         -10, -20, -30, -41, -60, -70, -88, -95, -180, -200, -255 // forward
 };
 
+const int LEFT_MAX = 9;
+const int LEFT_MIN = -8;
+const int RIGHT_MAX = 8;
+const int RIGHT_MIN = -7;
+
 void freezeIfSpeedOutOfRange(int speed) {
     if (speed < -NUMBER_OF_REVERSE_SPEEDS || speed > 11) {
         set_motor(2, 0);
@@ -57,8 +62,7 @@ void moveForward() {
 }
 
 void moveBackward() {
-    setLeft(-5);
-    setRight(-5);
+    moveStraightAtSpeed(-5);
 }
 
 void stopMovement() {
@@ -69,33 +73,30 @@ void stopMovement() {
 // turn left on the spot
 // right wheel doesn't seem to do anything
 void rotateLeft() {
-    setLeft(-8);
-    setRight(8);
+    setLeft(LEFT_MIN);
+    setRight(RIGHT_MAX);
 }
 
 // turn right on the spot
 void rotateRight() {
-    setLeft(9);
-    setRight(-7);
+    setLeft(LEFT_MAX);
+    setRight(RIGHT_MIN);
 }
 
 // -1 is max left
 // 0 is max forward
 // 1 is max right
 void arc(double direction) {
-    if (direction <= 0) setLeft((1 + direction) * -8);
-    else setLeft(5);
-    if (direction >= 0) setRight((1 - direction) * 7);
-    else setRight(5);
+    if (direction <= 0) setLeft((1 + direction) * LEFT_MIN);
+    else setLeft(LEFT_MAX);
+    if (direction >= 0) setRight((1 - direction) * RIGHT_MIN);
+    else setRight(RIGHT_MAX);
 }
 
 // ******************** TESTING ONLY ******************** //
 
 int main() {
     init(0);
-
-    // todo test rotateRight
-    // todo test arc (-1, 0, 1)
 
     arc(-1);
     sleep(3, 0);
