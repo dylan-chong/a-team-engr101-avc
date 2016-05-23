@@ -41,6 +41,67 @@ extern "C" char get_pixel(int row, int col, int colour);
 extern "C" int sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
+const float KP = 0;//0.5; // TODO LATER adjust values (look at my photos)
+const float KD = 0;//5.0;
+
+const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for constants?
+
+int previousLineValue;
+
+clock_t start = new clock();
+
+// ******************** COPY PASTED PID CODE ********************
+// ******************** PRIVATE ********************
+
+float getTimeDiff() { // in seconds
+    float timeDiff = (float) clock()-start;
+    start=clock();
+    return timeDiff;
+}
+
+int getProportional(int lineValue) {
+    int proportional_signal = lineValue * KP;
+    // int motorVal = proportional_signal / (IMG_WIDTH / 2) * 255; // do we even need this?
+    return proportional_signal;
+}
+
+int getDerivative(int lineValue, float timeDiff, int prevLineValue) {
+    int derivative_signal = (lineValue - prevLineValue / (double) timeDiff) * KD;
+    return derivative_signal;
+}
+
+// Integral apparently not necessary for AVC according to wiki
+// int getIntegral() { return 0;}
+
+
+// ******************** PUBLIC ********************
+
+// Constructor needs no args or implementation
+
+// Returns a value between -1 (full left) and 1 (full right)
+double getPIDValue(int lineValue) {
+    // Algorithm for calculating PID was taken from the Kaiwhata wiki
+    // https://github.com/kaiwhata/ENGR101-2016/wiki/PID-(Proportional-Integral-Derivative)-Control
+
+    int proportional = getProportional(lineValue);
+    int derivative;
+
+    float timeDiff = getTimeDiff();
+    derivative = getDerivative(lineValue, timeDiff, previousLineValue);
+
+
+    double pid = proportional + derivative;
+
+    // TODO find maximum and minimum pid values and scale
+    // pid to fit between -1 and 1 (maybe don't use the actual
+    // maximums and minimums, try pick some values through 
+    // experimentation)
+
+    previousLineValue = lineValue;
+
+    return pid;
+}
+
 // ******************** COPY PASTED MOTOR CODE ******************** //
 // ******************** PRIVATE IMPLEMENTATION ******************** //
 
@@ -202,17 +263,26 @@ int getLineValue() {
     }
 }
 
+// NON PID
 const int LINE_VALUE_BOUNDS = 10000;
-
 // uses lineValue, not pid
 void useLineValue(int lineValue) {
-    double d = lineValue;
-    if (lineValue < -LINE_VALUE_BOUNDS) d = -LINE_VALUE_BOUNDS;
-    if (lineValue > LINE_VALUE_BOUNDS) d = LINE_VALUE_BOUNDS;
-    arc(d/LINE_VALUE_BOUNDS);
+    // double d = lineValue;
+    // if (lineValue < -LINE_VALUE_BOUNDS) d = -LINE_VALUE_BOUNDS;
+    // if (lineValue > LINE_VALUE_BOUNDS) d = LINE_VALUE_BOUNDS;
+    // arc(d/LINE_VALUE_BOUNDS);
     printf("LV: %f", d);
 }
 
+// PID
+const double PID_BOUNDS = 1.0;
+void usePID(double pid) {
+    double v = pid;
+    if (v < -PID_BOUNDS) v = -PID_BOUNDS;
+    if (v > PID_BOUNDS) v = PID_BOUNDS;
+    printf("PID: %f\n", v);
+    //arc(v/PID_BOUNDS);
+}
 
 void printIntArray(int[] ) {
 
@@ -223,12 +293,11 @@ void printIntArray(int[] ) {
 int main() {
     init(0);
     int count = 0;
-    int sum = 1;
 
     while (count < 2000) {
-        sum = getLineValue();
-
-        useLineValue(sum);
+        int lineValue = getLineValue();
+        double pid = getPIDValue
+        // useLineValue(sum);
 
         count++;
     }
