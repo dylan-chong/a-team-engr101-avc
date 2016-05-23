@@ -103,7 +103,7 @@ void arc(double direction) {
         setRight(RIGHT_MAX);
     } else if (direction > 0) {
         setLeft(LEFT_MAX);
-        setLeft((int)((RIGHT_MIN - RIGHT_MAX) * direction + RIGHT_MAX))
+        setRight((int)((RIGHT_MIN - RIGHT_MAX) * direction + RIGHT_MAX));
     } else if (direction == 0) {
         moveForward();
     }
