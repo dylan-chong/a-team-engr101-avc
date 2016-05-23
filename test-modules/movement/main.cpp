@@ -87,10 +87,21 @@ void rotateRight() {
 // 0 is max forward
 // 1 is max right
 void arc(double direction) {
-    if (direction <= 0) setLeft((1 + direction) * LEFT_MIN);
-    else setLeft(LEFT_MAX);
-    if (direction >= 0) setRight((1 - direction) * RIGHT_MIN);
-    else setRight(RIGHT_MAX);
+    setLeft((LEFT_MAX - LEFT_MIN) * direction);
+    setRight(-(RIGHT_MAX - RIGHT_MIN) * direction);
+
+    // if (direction < 0) {
+    //     setLeft((LEFT_MAX - LEFT_MIN) * direction);
+    // } else if (direction > 0) {
+
+    // } else if (direction == 0) {
+    //     moveForward();
+    // }
+
+    // if (direction <= 0) setLeft((1 + direction) * LEFT_MIN);
+    // else setLeft(LEFT_MAX);
+    // if (direction >= 0) setRight((1 - direction) * RIGHT_MIN);
+    // else setRight(RIGHT_MAX);
 }
 
 // ******************** TESTING ONLY ******************** //
@@ -98,6 +109,8 @@ void arc(double direction) {
 int main() {
     init(0);
 
+    arc(0);
+    sleep(3, 0);
     arc(-1);
     sleep(3, 0);
     arc(1);
