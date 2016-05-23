@@ -36,6 +36,7 @@ public:
 	MotorController();
 
 	void setStraightLine(double percent);
+	void rotate(double percent);
 	void arcLeft(double percent);
 	void arcRight(double percent);
 	void arc(double percent);
