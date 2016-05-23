@@ -253,12 +253,12 @@ int getLineValue() {
     }
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites == 0) {
-        printf("%d\n", sum);
+        //printf("%d\n", sum);
         return sum;
     }
         // the 0.004 is just a random small number i took, change it if you want
     else {
-        printf("%d\n", sum);
+        //printf("%d\n", sum);
         return sum;
     }
 }
@@ -297,7 +297,7 @@ int main() {
     while (count < 2000) {
         int lineValue = getLineValue();
         double pid = getPIDValue(lineValue);
-        // useLineValue(sum);
+        usePID(pid);
 
         count++;
     }
