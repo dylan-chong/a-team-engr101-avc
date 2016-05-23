@@ -82,7 +82,10 @@ double PidController::getPIDValue(int lineValue) {
     printf("N: %f\n", secondDerivative);
 
     double pid = (KP * proportional - (KD * derivative - KN * secondDerivative) + KI * intergral);
-    printf("PID Value: %f\n", pid);
+    printf("PID NO BOUNDS: %f\t", pid);
+    if (pid > PID_BOUNDS) pid = PID_BOUNDS;
+    if (pid < -PID_BOUNDS) pid = -PID_BOUNDS;
+    printf("PID BOUNDED: %f\n", pid);
 
     previousLineValue = lineValue;
     previousDerivativeValue = derivative;
