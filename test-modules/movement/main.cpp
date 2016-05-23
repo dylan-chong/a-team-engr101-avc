@@ -68,11 +68,11 @@ void freezeIfDirectionOutOfRange(double direction) {
 
 // just set the motors to full forward
 void moveForward() {
-    moveStraightAtSpeed(5);
+    moveStraightAtSpeed(8);
 }
 
 void moveBackward() {
-    moveStraightAtSpeed(-5);
+    moveStraightAtSpeed(-6);
 }
 
 void stopMovement() {
@@ -99,7 +99,7 @@ void rotateRight() {
 
 void arc(double direction) {
     if (direction < 0) {
-        setLeft((int)((LEFT_MAX - LEFT_MIN) * direction + LEFT_MAX))
+        setLeft((int)((LEFT_MAX - LEFT_MIN) * direction + LEFT_MAX));
         setRight(RIGHT_MAX);
     } else if (direction > 0) {
         setLeft(LEFT_MAX);
