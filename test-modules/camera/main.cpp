@@ -286,7 +286,7 @@ void usePID(double pid) {
     if (v < -PID_BOUNDS) v = -PID_BOUNDS;
     if (v > PID_BOUNDS) v = PID_BOUNDS;
     
-    arc(v/PID_BOUNDS);
+    //arc(v/PID_BOUNDS);
 }
 
 void printIntArray(int[] ) {
