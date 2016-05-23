@@ -11,13 +11,13 @@ extern "C" char get_pixel(int row, int col, int colour);
 extern "C" int Sleep(int sec, int usec);
 */
 
-long getLineValue2() {
-    long value = 0;
+// long getLineValue2() {
+//     long value = 0;
 
-    // Ben do your calculation stuff here
+//     // Ben do your calculation stuff here
 
-    return value;
-}
+//     return value;
+// }
 
 // This method is just for testing your getLineValue() method.
 // Not for use in main project
@@ -29,6 +29,17 @@ int main() {
 
     return 0;
 }*/
+
+#include <stdio.h>
+#include <time.h>
+#include <limits.h>
+
+
+extern "C" int init(int d_lev);
+extern "C" int take_picture();
+extern "C" char get_pixel(int row, int col, int colour);
+extern "C" int sleep(int sec, int usec);
+extern "C" int set_motor(int motor, int speed);
 
 // ******************** COPY PASTED MOTOR CODE ******************** //
 // ******************** PRIVATE IMPLEMENTATION ******************** //
@@ -137,17 +148,6 @@ void arc(double direction) {
 }
 
 //******** new stuff that ben wrote*********
-
-#include <stdio.h>
-#include <time.h>
-#include <limits.h>
-
-
-extern "C" int init(int d_lev);
-extern "C" int take_picture();
-extern "C" char get_pixel(int row, int col, int colour);
-extern "C" int sleep(int sec, int usec);
-extern "C" int set_motor(int motor, int speed);
 
 int getLineValue() {
     char c;
