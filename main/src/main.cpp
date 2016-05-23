@@ -18,7 +18,7 @@ int main(){
 	CameraController *camera_controller = CameraController::makeInstance();
 	PidController *pid_controller = PidController::makeInstance();
 
-	motor_controller->setStraightLine(1);
+	motor_controller->moveForward();
 	for (int count = 0 ; count<600; count++){
 		//printf("count: %d\n", count);
 		int sumC = camera_controller->update(CameraController::CENTER_ROW);
@@ -29,7 +29,7 @@ int main(){
 		//motor_controller->arc(camera_controller->getDir(), sumC);
 		printf("**************************************\n");//debuging print
 	}
-	motor_controller->stop();
+	motor_controller->stopMovement();
 	printf("it worked\n");
 
 	return  0;
