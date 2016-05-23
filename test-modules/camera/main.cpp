@@ -85,8 +85,8 @@ double getPIDValue(int lineValue) {
 
     float timeDiff = getTimeDiff();
 
-    int proportional = getProportional(lineValue);
-    int derivative = getDerivative(lineValue, timeDiff, previousLineValue);
+    double proportional = getProportional(lineValue);
+    double derivative = getDerivative(lineValue, timeDiff, previousLineValue);
 
 
     double pid = proportional + derivative;
