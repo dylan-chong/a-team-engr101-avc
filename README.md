@@ -301,3 +301,17 @@ Extra Info
 	- Collected data on motor speeds and used that to create a function that will give the left and right motors equivalent speeds.
 	- Altered motor test-module code to use my new speed functions
 
+
+[//]: **********************************************************************
+---
+[//]: **********************************************************************
+
+<h3>Week 13 (Mon 23 - Sun 29 May)</h3>
+
+<h4>Daily Log</h4>
+- Dylan
+    - Added some more calibrated motor speeds
+    - Calibrated left and right rotation in movement test module
+    - Merged the camera, movement and pid code in the camera test module
+    - Modified pid code to get it to work
+
