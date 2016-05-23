@@ -27,7 +27,7 @@ void freezeIfSpeedOutOfRange(int speed) {
         set_motor(2, 0);
         set_motor(1, 0);
         while (true) {
-            printf("You speed (%d) is not between -5 and 11\n", speed);
+            printf("You speed (%d) is not between %d and 11\n", speed, NUMBER_OF_REVERSE_SPEEDS);
         }
     }
 }
