@@ -88,7 +88,7 @@ double getPIDValue(int lineValue) {
     // Algorithm for calculating PID was taken from the Kaiwhata wiki
     // https://github.com/kaiwhata/ENGR101-2016/wiki/PID-(Proportional-Integral-Derivative)-Control
 
-    float timeDiff = getTimeDiff();
+    double timeDiff = getTimeDiff();
 
     double proportional = getProportional(lineValue);
     double derivative = getDerivative(lineValue, timeDiff, previousLineValue);
