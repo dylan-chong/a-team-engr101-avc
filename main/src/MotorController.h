@@ -17,12 +17,7 @@ class MotorController: public Controller{
 	friend class MotorControllerTest;
 private:
 	const static int NUMBER_OF_REVERSE_SPEEDS = 9;
-	const static int RIGHT_SPEEDS[21] = {
-	        200, 150, 105, 80, 65, 41, 30, 20, 10, // reverse
-	        0, // definitely stop
-	        -10, -20, -30, -41, -60, -70, -88, -95, -180, -200, -255 // forward
-	};
-
+    int RIGHT_SPEEDS[21];
 	const static int LEFT_MAX = 9;
 	const static int LEFT_MIN = -8;
 	const static int RIGHT_MAX = 8;
