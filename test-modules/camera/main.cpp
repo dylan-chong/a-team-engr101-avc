@@ -202,7 +202,7 @@ int getLineValue() {
     }
 }
 
-const int LINE_VALUE_BOUNDS = 5000;
+const int LINE_VALUE_BOUNDS = 10000;
 
 // uses lineValue, not pid
 void useLineValue(int lineValue) {
