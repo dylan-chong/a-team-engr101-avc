@@ -48,16 +48,19 @@ const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for co
 
 int previousLineValue;
 
-clock_t start = clock();
+clock_t lastClock = clock();
 
 // ******************** COPY PASTED PID CODE ********************
 // ******************** PRIVATE ********************
 
 float getTimeDiff() { // in seconds
+    clock_t newClock = clock();
     printf("CLOCK %f", clock());
-    float timeDiff = (float) clock()-start;
-    printf("TIME %f", timeDiff);
-    start=clock();
+
+    float timeDiff = (float) (newClock-lastClock);
+    
+    printf("TIMEDIFF %f", timeDiff);
+    lastClock = newClock;
     return timeDiff / CLOCKS_PER_SEC;
 }
 
