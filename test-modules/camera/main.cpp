@@ -59,14 +59,14 @@ float getTimeDiff() { // in seconds
     return timeDiff;
 }
 
-int getProportional(int lineValue) {
-    int proportional_signal = lineValue * KP;
+double getProportional(int lineValue) {
+    double proportional_signal = lineValue * KP;
     // int motorVal = proportional_signal / (IMG_WIDTH / 2) * 255; // do we even need this?
     return proportional_signal;
 }
 
-int getDerivative(int lineValue, float timeDiff, int prevLineValue) {
-    int derivative_signal = (lineValue - prevLineValue / (double) timeDiff) * KD;
+double getDerivative(int lineValue, float timeDiff, int prevLineValue) {
+    double derivative_signal = (lineValue - prevLineValue / (double) timeDiff) * KD;
     return derivative_signal;
 }
 
@@ -83,11 +83,10 @@ double getPIDValue(int lineValue) {
     // Algorithm for calculating PID was taken from the Kaiwhata wiki
     // https://github.com/kaiwhata/ENGR101-2016/wiki/PID-(Proportional-Integral-Derivative)-Control
 
-    int proportional = getProportional(lineValue);
-    int derivative;
-
     float timeDiff = getTimeDiff();
-    derivative = getDerivative(lineValue, timeDiff, previousLineValue);
+
+    int proportional = getProportional(lineValue);
+    int derivative = getDerivative(lineValue, timeDiff, previousLineValue);
 
 
     double pid = proportional + derivative;
