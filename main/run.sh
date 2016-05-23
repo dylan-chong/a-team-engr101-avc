@@ -1,10 +1,10 @@
 #!/bin/bash
-COPTIONS=""
+COPTIONS=" -L/usr/lib -lE100"
 MAKEPREFIX="sudo"
 echo "Is it on the simulator? (y/n)"
 read lib
 if test "$lib" = "y"; then
-	COPTIONS="$COPTIONS -L/usr/lib -lE101"
+	
 	MAKEPREFIX=""	
 fi
 echo "Do you want to print all debug info? (y/n)"
