@@ -41,8 +41,8 @@ extern "C" char get_pixel(int row, int col, int colour);
 extern "C" int sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
-const float KP = 0.0001;//0.5; // TODO LATER adjust values (look at my photos)
-const float KD = 0;//5.0;
+const double KP = 0.0001;//0.5; // TODO LATER adjust values (look at my photos)
+const double KD = 0;//5.0;
 
 const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for constants?
 
@@ -282,7 +282,7 @@ void usePID(double pid) {
     if (v < -PID_BOUNDS) v = -PID_BOUNDS;
     if (v > PID_BOUNDS) v = PID_BOUNDS;
     
-    //arc(v/PID_BOUNDS);
+    arc(v/PID_BOUNDS);
 }
 
 void printIntArray(int[] ) {
