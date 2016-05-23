@@ -41,7 +41,7 @@ extern "C" char get_pixel(int row, int col, int colour);
 extern "C" int sleep(int sec, int usec);
 extern "C" int set_motor(int motor, int speed);
 
-const float KP = 0;//0.5; // TODO LATER adjust values (look at my photos)
+const float KP = 0.0001;//0.5; // TODO LATER adjust values (look at my photos)
 const float KD = 0;//5.0;
 
 const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for constants?
@@ -278,9 +278,10 @@ void useLineValue(int lineValue) {
 const double PID_BOUNDS = 1.0;
 void usePID(double pid) {
     double v = pid;
+    printf("PID: %f\n", v);
     if (v < -PID_BOUNDS) v = -PID_BOUNDS;
     if (v > PID_BOUNDS) v = PID_BOUNDS;
-    printf("PID: %f\n", v);
+    
     //arc(v/PID_BOUNDS);
 }
 
