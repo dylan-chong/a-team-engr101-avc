@@ -10,13 +10,6 @@
 #include <stdio.h>
 
 PidController::PidController() {
-	KP = 0.002;
-	KD = 0.0001;
-	KI = 0;
-	KN = 0;
-
-	IMG_WIDTH = 320;
-
 	start = clock();
 
 	previousLineValue = 0;
