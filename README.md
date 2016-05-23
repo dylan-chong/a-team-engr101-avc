@@ -314,4 +314,4 @@ Extra Info
     - Calibrated left and right rotation in movement test module
     - Merged the camera, movement and pid code in the camera test module
     - Modified pid code to get it to work
-    - Removed some blue tack on the robot and helped Ahmed with new design
+    - Removed some blue tack on the robot and helped Ahmed with building the new design
