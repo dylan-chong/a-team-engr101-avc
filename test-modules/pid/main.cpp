@@ -14,6 +14,10 @@ int previousLineValue;
 
 clock_t start = new clock();
 
+
+// THIS STUFF IS OLD. SEE CAMERA FILE
+
+
 // ******************** PRIVATE ********************
 
 float getTimeDiff() { // in seconds

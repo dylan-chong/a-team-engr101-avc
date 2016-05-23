@@ -55,8 +55,9 @@ clock_t start = clock();
 
 float getTimeDiff() { // in seconds
     float timeDiff = (float) clock()-start;
+    printf("TIME %f", timeDiff);
     start=clock();
-    return timeDiff;
+    return timeDiff / CLOCKS_PER_SEC;
 }
 
 double getProportional(int lineValue) {
