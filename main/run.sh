@@ -25,10 +25,10 @@ if test "$tests" = "y"; then
 else
 	echo "Tests not run."	
 fi
-echo "Do you want to run the program? (y/n)"
+echo "Do you want to run the program? (y/n) Have you reset the simulator???"
 read run
 if test "$run" = "y"; then
-	if [["$MAKEPREFIX" = "sudo"]]; then
+	if test "$MAKEPREFIX" = "sudo"; then
 		sudo build/main
 	else
 		build/main

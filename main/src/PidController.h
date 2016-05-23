@@ -14,18 +14,24 @@
 class PidController: public Controller{
 friend class PidControllerTest;
 private:
-	const float KP = 0.08;//0.5; // TODO LATER adjust values (look at my photos)
-	const float KD = .5;//5.0;
+	const float KP = 0.002;//0.5; // TODO LATER adjust values (look at my photos)
+	const float KD = 0.0001;//5.0;
+	const float KI = 0.00000;//intergral sensitivity
+	const float KN = 0.000;//derivative filtering sensitivity
 
 	const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for constants?
 
 	clock_t start = clock();
 
 	int previousLineValue;
+	double previousDerivativeValue;
+	int intergral;
 
 	float getTimeDiff();
 	int getProportional(int lineValue);
-	int getDerivative(int lineValue, float timeDiff, int prevLineValue);
+	double getDerivative(int lineValue, float timeDiff, int prevLineValue);
+	int getIntergral(int lineValue);
+	double getFOC(double derivative, float timeDiff, double previousDerivative);
 public:
 	static PidController* makeInstance();
 	PidController();

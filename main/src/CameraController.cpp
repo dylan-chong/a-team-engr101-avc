@@ -39,11 +39,14 @@ int CameraController::getSum(int row){
 	    // a count of how many white spots have been counted( to check if we can still see the line)
 	    int n_whites = 0;
 	    take_picture();
-	    for (int i = 0; i < 320; i++) {
-	    	whiteness[i] = (get_pixel(i, row, 3) > WHITE_THRESHOLD);
-	        n_whites += whiteness[i];
-	        sum += whiteness[i] * (i - 160);
+	    for (int y = 0; y < row; y+=2){
+			for (int i = 0; i < 320; i++) {
+				whiteness[i] = (get_pixel(i, y, 3) > WHITE_THRESHOLD);
+				n_whites += whiteness[i];
+				sum += whiteness[i] * (i - 160);
+			}
 	    }
+	    sum/=(row/2);
 	    // trying to make it so if it loses the line it reverses to try make it find it again
 	    if (n_whites == 0) {
 	    	dir = 's';
