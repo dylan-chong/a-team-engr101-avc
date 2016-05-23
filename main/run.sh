@@ -4,7 +4,7 @@ MAKEPREFIX="sudo"
 echo "Is it on the simulator? (y/n)"
 read lib
 if test "$lib" = "y"; then
-	COPTIONS=" -L/usr/lib -lE100"
+	COPTIONS=" -L/usr/lib -lE101"
 	MAKEPREFIX=""	
 fi
 echo "Do you want to print all debug info? (y/n)"
