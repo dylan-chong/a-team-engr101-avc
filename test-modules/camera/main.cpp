@@ -48,7 +48,7 @@ const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for co
 
 int previousLineValue;
 
-clock_t start = new clock();
+clock_t start = clock();
 
 // ******************** COPY PASTED PID CODE ********************
 // ******************** PRIVATE ********************
@@ -271,7 +271,7 @@ void useLineValue(int lineValue) {
     // if (lineValue < -LINE_VALUE_BOUNDS) d = -LINE_VALUE_BOUNDS;
     // if (lineValue > LINE_VALUE_BOUNDS) d = LINE_VALUE_BOUNDS;
     // arc(d/LINE_VALUE_BOUNDS);
-    printf("LV: %f", d);
+    // printf("LV: %f", d);
 }
 
 // PID
@@ -296,7 +296,7 @@ int main() {
 
     while (count < 2000) {
         int lineValue = getLineValue();
-        double pid = getPIDValue
+        double pid = getPIDValue(lineValue);
         // useLineValue(sum);
 
         count++;
