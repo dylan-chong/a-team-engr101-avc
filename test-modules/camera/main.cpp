@@ -54,6 +54,7 @@ clock_t start = clock();
 // ******************** PRIVATE ********************
 
 float getTimeDiff() { // in seconds
+    printf("CLOCK %f", clock());
     float timeDiff = (float) clock()-start;
     printf("TIME %f", timeDiff);
     start=clock();
