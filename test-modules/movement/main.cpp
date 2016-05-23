@@ -54,6 +54,16 @@ void moveStraightAtSpeed(int speed) {
     setRight(speed);
 }
 
+void freezeIfDirectionOutOfRange(double direction) {
+    if (direction > 1 || direction < -1) {
+        set_motor(2, 0);
+        set_motor(1, 0);
+        while (true) {
+            printf("Your direction %f is not between -1 and 1", direction);
+        }
+    }
+}
+
 // ******************** PUBLIC METHODS ******************** //
 
 // just set the motors to full forward
@@ -86,22 +96,18 @@ void rotateRight() {
 // -1 is max left
 // 0 is max forward
 // 1 is max right
+
 void arc(double direction) {
-    setLeft((LEFT_MAX - LEFT_MIN) * direction);
-    setRight(-(RIGHT_MAX - RIGHT_MIN) * direction);
+    if (direction < 0) {
+        setLeft((int)((LEFT_MAX - LEFT_MIN) * direction + LEFT_MAX))
+        setRight(RIGHT_MAX);
+    } else if (direction > 0) {
+        setLeft(LEFT_MAX);
+        setLeft((int)((RIGHT_MIN - RIGHT_MAX) * direction + RIGHT_MAX))
+    } else if (direction == 0) {
+        moveForward();
+    }
 
-    // if (direction < 0) {
-    //     setLeft((LEFT_MAX - LEFT_MIN) * direction);
-    // } else if (direction > 0) {
-
-    // } else if (direction == 0) {
-    //     moveForward();
-    // }
-
-    // if (direction <= 0) setLeft((1 + direction) * LEFT_MIN);
-    // else setLeft(LEFT_MAX);
-    // if (direction >= 0) setRight((1 - direction) * RIGHT_MIN);
-    // else setRight(RIGHT_MAX);
 }
 
 // ******************** TESTING ONLY ******************** //
