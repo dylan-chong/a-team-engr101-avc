@@ -58,13 +58,26 @@ void MotorController::arcRight(double percent){
 	set_motor(LEFT_MOTOR, MAX_SPEED_LEFT);
 }
 
+//robot will do a spot turn, negative for left and positive for right
+void MotorController::rotate(double percent){
+	if(percent>0){ 
+		//right
+		set_motor(RIGHT_MOTOR, -MAX_SPEED_RIGHT*abs(percent));
+		set_motor(LEFT_MOTOR, MAX_SPEED_LEFT*abs(percent));
+	}
+	else if(percent<0){ 
+		//left
+		set_motor(RIGHT_MOTOR, MAX_SPEED_RIGHT*percent);
+		set_motor(LEFT_MOTOR, -MAX_SPEED_LEFT*percent);	
+	}
+}
+
 void MotorController::stop(){
 	set_motor(RIGHT_MOTOR, 0);
 	set_motor(LEFT_MOTOR, 0);
 }
 
-//rotate 90 degrees, negative for left and positive for right
-// so will only need one method
+
 
 void MotorController::arc(double percent){
 	if (abs(percent)>1){
