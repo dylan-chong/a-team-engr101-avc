@@ -14,14 +14,14 @@
 class PidController: public Controller{
 friend class PidControllerTest;
 private:
-	const float KP = 0.002;//0.5; // TODO LATER adjust values (look at my photos)
-	const float KD = 0.0001;//5.0;
-	const float KI = 0.00000;//intergral sensitivity
-	const float KN = 0.000;//derivative filtering sensitivity
+	const float KP;//0.5; // TODO LATER adjust values (look at my photos)
+	const float KD;//5.0;
+	const float KI;//intergral sensitivity
+	const float KN;//derivative filtering sensitivity
 
-	const int IMG_WIDTH = 320; // TODO ASK ANDREW reference the camera module for constants?
+	const int IMG_WIDTH; // TODO ASK ANDREW reference the camera module for constants?
 
-	clock_t start = clock();
+	clock_t start;
 
 	int previousLineValue;
 	double previousDerivativeValue;
