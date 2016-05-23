@@ -1,10 +1,10 @@
 #!/bin/bash
-COPTIONS=" -L/usr/lib -lE100"
+COPTIONS=" -Llib -lE101"
 MAKEPREFIX="sudo"
 echo "Is it on the simulator? (y/n)"
 read lib
 if test "$lib" = "y"; then
-	
+	COPTIONS=" -L/usr/lib -lE100"
 	MAKEPREFIX=""	
 fi
 echo "Do you want to print all debug info? (y/n)"
@@ -16,7 +16,7 @@ make CFLAGS="$COPTIONS" CC="g++" PRE="$MAKEPREFIX"
 echo "Do you want to run tests? (y/n)"
 read tests
 if test "$tests" = "y"; then
-	if [["$MAKEPREFIX" = "sudo"]]; then
+	if test "$MAKEPREFIX" = "sudo"; then
 		sudo build/mainTest
 	else
 		build/mainTest
