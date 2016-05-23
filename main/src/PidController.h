@@ -21,7 +21,7 @@ private:
 
 	const int IMG_WIDTH; // TODO ASK ANDREW reference the camera module for constants?
 
-	clock_t start;
+	clock_t previousClock;
 
 	int previousLineValue;
 	double previousDerivativeValue;
