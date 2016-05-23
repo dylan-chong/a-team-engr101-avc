@@ -93,19 +93,19 @@ void setMotorsBasic() {
 
 	int pidValue=10; //INSERT PID VALUE HERE, not actually pid but the range above which it should try and correct
 	if(noWhitePixels>0){
-	if(sum>pidValue){ //more whiteness on the right
-		printf("%f\n",sum);
-		goLeft(60);
-		goRight(40);
-	} else if(sum<(-1*pidValue)){ //more whiteness on left
-		printf("its working\n");
-		printf("%f\n",sum);
-		goRight(120);
-		goLeft(40);
-	} else  { //If going in straight line
-		goLeft(40);
-		goRight(40);
-	}
+		if(sum>pidValue){ //more whiteness on the right
+			printf("%f\n",sum);
+			goLeft(60);
+			goRight(40);
+		} else if(sum<(-1*pidValue)){ //more whiteness on left
+			printf("its working\n");
+			printf("%f\n",sum);
+			goRight(120);
+			goLeft(40);
+		} else  { //If going in straight line
+			goLeft(40);
+			goRight(40);
+		}
 	} else {
 		goRight(60);
 		goLeft(-60);

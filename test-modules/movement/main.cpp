@@ -108,7 +108,6 @@ void arc(double direction) {
     } else if (direction == 0) {
         moveForward();
     }
-
 }
 
 // ******************** TESTING ONLY ******************** //
