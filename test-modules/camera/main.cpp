@@ -96,19 +96,16 @@ int getLineValue() {
     }
 }
 
+const int LINE_VALUE_BOUNDS = 5000;
+
 // uses lineValue, not pid
-void setMotorsBasic(int lineValue) {
-    int left = 0.01*lineValue +40;
-    int right = -0.02*lineValue +41;
-    set_motor(2, left); // left
-    set_motor(1,right); // right
-    printf("LV: %d, L: %d, R: %d\n", lineValue, left, right);
+void useLineValue(int lineValue) {
+    int d = lineValue;
+    if (lineValue < -LINE_VALUE_BOUNDS) d = -LINE_VALUE_BOUNDS;
+    if (lineValue > LINE_VALUE_BOUNDS) d = LINE_VALUE_BOUNDS;
+    arc(d/LINE_VALUE_BOUNDS);
+    printf("LV: %d", lineValue);
 }
-
-
-
-
-
 
 
 void printIntArray(int[] ) {
@@ -231,7 +228,7 @@ int main() {
     while (count < 2000) {
         sum = getLineValue();
 
-        setMotorsBasic(sum);
+        useLineValue(sum);
 
         count++;
     }
