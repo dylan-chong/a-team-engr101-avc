@@ -19,7 +19,7 @@ clock_t start = new clock();
 float getTimeDiff() { // in seconds
 	float timeDiff = (float) clock()-start;
 	start=clock();
-    return timeDiff;
+    return timeDiff / CLOCKS_PER_SEC;
 }
 
 int getProportional(int lineValue) {
