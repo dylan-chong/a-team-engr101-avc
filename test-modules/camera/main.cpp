@@ -53,11 +53,11 @@ clock_t lastClock = clock();
 // ******************** COPY PASTED PID CODE ********************
 // ******************** PRIVATE ********************
 
-float getTimeDiff() { // in seconds
+double getTimeDiff() { // in seconds
     clock_t newClock = clock();
-    printf("CLOCK %f", clock());
+    printf("CLOCK %f", (double) newClock);
 
-    float timeDiff = (float) (newClock-lastClock);
+    double timeDiff = (double) (newClock-lastClock);
     
     printf("TIMEDIFF %f", timeDiff);
     lastClock = newClock;
@@ -70,8 +70,8 @@ double getProportional(int lineValue) {
     return proportional_signal;
 }
 
-double getDerivative(int lineValue, float timeDiff, int prevLineValue) {
-    double derivative_signal = (lineValue - prevLineValue / (double) timeDiff) * KD;
+double getDerivative(int lineValue, double timeDiff, int prevLineValue) {
+    double derivative_signal = (lineValue - prevLineValue / timeDiff) * KD;
     return derivative_signal;
 }
 
