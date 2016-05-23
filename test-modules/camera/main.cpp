@@ -303,6 +303,7 @@ int main() {
         int lineValue = getLineValue();
         double pid = getPIDValue(lineValue);
         usePID(pid);
+        Sleep(0, 1e6);
 
         count++;
     }
