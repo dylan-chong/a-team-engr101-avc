@@ -9,7 +9,8 @@ extern "C" int set_motor(int motor, int speed);
 
 // The controller using a MotorController will access
 // this variable. The MotorController itself doesn't use it
-const float PERPENDICULAR_TURN_TIME = 1.2345; // DANIEL calibrate this
+const float PERPENDICULAR_LEFT_TURN_TIME = 1.2345; // DANIEL calibrate this
+const float PERPENDICULAR_RIGHT_TURN_TIME = 1.2345; // DANIEL calibrate this
 
 // NOTE: don't put any sleeps in any of these methods
 
@@ -115,8 +116,6 @@ void arc(double direction) {
 int main() {
     init(0);
 
-    arc(0);
-    sleep(3, 0);
     arc(-1);
     sleep(3, 0);
     arc(1);
