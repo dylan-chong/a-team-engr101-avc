@@ -82,11 +82,11 @@ int main() {
 =======
 	while(true){
 		if(!thresholdSet){
-			setThreshold(getLeftDistance(),getRightDistance(),getMiddleDistance());	
+			setThreshold(getLeftDistance(),getRightDistance(),getMiddleDistance());
 			thresholdSet=true;
 		} else{ //If thresholds are set return 1 if the object is further away and -1 if it is closer
 			if(getLeftDistance()>leftThreshold){
-				lastLeftDistance=-1;	
+				lastLeftDistance=-1;
 			} else {
 				lastLeftDistance=1;
 			} if(getRightDistance()>rightThreshold){
@@ -97,10 +97,9 @@ int main() {
 				lastMiddleDistance=-1;
 			} else{
 				lastMiddleDistance=1;
-			}		
+			}
 		}
-		
-		
+
 		printf("%f", getLeftDistance());
 		printf("CM - Left\n");
 		printf("%f", getRightDistance());
