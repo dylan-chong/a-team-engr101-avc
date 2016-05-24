@@ -11,30 +11,39 @@
 
 #include "Controller.h"
 
-class IRController: public Controller{
-friend class IRControllerTest;
-private:
-	float leftThreshold;
-	float rightThreshold;
-	float middleThreshold;
-	bool thresholdSet;
+class IRController : public Controller {
+    friend class IRControllerTest;
 
-	double lastLeftDistance;
-	double lastRightDistance;
-	double lastMiddleDIstance;
+private:
+    float leftThreshold;
+    float rightThreshold;
+    float middleThreshold;
+    bool thresholdSet;
+
+    double lastLeftDistance;
+    double lastRightDistance;
+    double lastMiddleDIstance;
 
 public:
-	static IRController* makeInstance();
-	virtual ~IRController();
-	IRController();
+    static IRController *makeInstance();
 
-	float getDistanceFromSensor(int sensorPin);
-	float getLeftDistance();
-	float getMiddleDistance();
-	float getRightDistance();
-	void setThreshold(float left,float right,float middle);
-	double update();
-	bool inMaze();
+    virtual ~IRController();
+
+    IRController();
+
+    float getDistanceFromSensor(int sensorPin);
+
+    float getLeftDistance();
+
+    float getMiddleDistance();
+
+    float getRightDistance();
+
+    void setThreshold(float left, float right, float middle);
+
+    double update();
+
+    bool inMaze();
 };
 
 #endif /* IRCONTROLLER_H_ */
