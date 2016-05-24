@@ -10,12 +10,6 @@
 extern "C" int init(int d_lev);
 extern "C" int Sleep(int sec, int  usec);
 
-void sleepMillis(int millis) {
-	for (int a = 0; a < millis; a++) {
-		Sleep(0, 1000);
-	}
-}
-
 int main(){
 	init(1);
 	NetworkController *network_controller = NetworkController::makeInstance("192.168.1.2",22);
@@ -41,4 +35,10 @@ int main(){
 	printf("Program Ended\n");
 
 	return  0;
+}
+
+void sleepMillis(int millis) {
+	for (int a = 0; a < millis; a++) {
+		Sleep(0, 1000);
+	}
 }
