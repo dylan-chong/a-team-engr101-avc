@@ -19,6 +19,7 @@ int main(){
 	PidController *pid_controller = PidController::makeInstance();
 
 	motor_controller->moveForward();
+	while (true){} // TODO LATER REMOVE
 	while (true) {
 		//printf("count: %d\n", count);
 		int sumC = camera_controller->update(CameraController::CENTER_ROW);
@@ -28,7 +29,7 @@ int main(){
 		motor_controller->arc(pid_val);
 		//motor_controller->arc(camera_controller->getDir(), sumC);
 		printf("**************************************\n");//debuging print
-		Sleep(0, 3e7);
+		Sleep(0, 1e8);
 	}
 	motor_controller->stopMovement();
 	printf("Program Ended\n");
