@@ -136,6 +136,7 @@ void MotorController::freezeIfDirectionOutOfRange(double direction) {
 
 // just set the motors to full forward
 void MotorController::moveForward() {
+    printf("MOVING FORWARD\n");
     moveStraightAtSpeed(8);
 }
 
