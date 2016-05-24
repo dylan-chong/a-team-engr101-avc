@@ -21,11 +21,27 @@ MotorController* MotorController::makeInstance(){
 
 //This is the constructor
 MotorController::MotorController() {
-	int RIGHT_SPEEDS[] = {
-	        200, 150, 105, 80, 65, 41, 30, 20, 10, // reverse
-	        0, // definitely stop
-	        -10, -20, -30, -41, -60, -70, -88, -95, -180, -200, -255 // forward
-	};
+	RIGHT_SPEEDS[0]=200;
+	RIGHT_SPEEDS[1]=150;
+	RIGHT_SPEEDS[2]=105;
+	RIGHT_SPEEDS[3]=80;
+	RIGHT_SPEEDS[4]=65;
+	RIGHT_SPEEDS[5]=41;
+	RIGHT_SPEEDS[6]=30;
+	RIGHT_SPEEDS[7]=20;
+	RIGHT_SPEEDS[8]=10;
+	RIGHT_SPEEDS[9]=0;
+	RIGHT_SPEEDS[10]=-10;
+	RIGHT_SPEEDS[11]=-20;
+	RIGHT_SPEEDS[12]=-30;
+	RIGHT_SPEEDS[13]=-41;
+	RIGHT_SPEEDS[14]=-60;
+	RIGHT_SPEEDS[15]=-70;
+	RIGHT_SPEEDS[16]=-88;
+	RIGHT_SPEEDS[17]=-95;
+	RIGHT_SPEEDS[18]=-180;
+	RIGHT_SPEEDS[19]=-200;
+	RIGHT_SPEEDS[20]=-255;
 }
 
 //this is the destructor
@@ -170,6 +186,7 @@ void MotorController::rotateRight() {
 // 1 is max right
 
 void MotorController::arc(double direction) {
+	printf("RIGHT SPEED ARRAY %d",RIGHT_SPEEDS[3]);
     if (direction < 0) {
         setLeft((int)((LEFT_MAX - LEFT_MIN) * direction + LEFT_MAX));
         setRight(RIGHT_MAX);
