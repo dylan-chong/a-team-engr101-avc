@@ -49,7 +49,6 @@ int main() {
             }
         }
         printf("n_whites: %d\n", camera_controller->n_whites);
-
         //motor_controller->arc(camera_controller->getDir(), sumC);
         printf("**************************************\n");
         sleepMillis(30);

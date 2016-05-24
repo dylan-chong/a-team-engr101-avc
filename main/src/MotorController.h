@@ -19,22 +19,23 @@ class MotorController : public Controller {
 private:
     const static int NUMBER_OF_REVERSE_SPEEDS = 9;
     int RIGHT_SPEEDS[21];
-    /*const static int LEFT_MAX = 9;
+
+    // Values for the PI
+    const static int LEFT_MAX = 9;
     const static int LEFT_MIN = -8;
     const static int RIGHT_MAX = 8;
-    const static int RIGHT_MIN = -7;*/
-    const static int LEFT_MAX = 8;
+    const static int RIGHT_MIN = -7;
+
     //Made motors the same for the simulator
+    /*const static int LEFT_MAX = 8;
     const static int LEFT_MIN = -7;
     const static int RIGHT_MAX = 8;
-    const static int RIGHT_MIN = -7;
+    const static int RIGHT_MIN = -7;*/
 
     // The controller using a MotorController will access
     // this variable. The MotorController itself doesn't use it
     const static float PERPENDICULAR_LEFT_TURN_TIME = 1.2345; // DANIEL calibrate this
     const static float PERPENDICULAR_RIGHT_TURN_TIME = 1.2345; // DANIEL calibrate this
-
-
 
     //const static int LEFT_MOTOR=2;
     //const static int RIGHT_MOTOR=1;
