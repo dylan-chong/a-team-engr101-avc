@@ -50,16 +50,15 @@ int main() {
         }
         printf("n_whites: %d\n", camera_controller->n_whites);
         //motor_controller->arc(camera_controller->getDir(), sumC);
-        printf("**************************************\n");
-        sleepMillis(30);
-    }
-
-    //This is for when the robot is in the Maze phase
-    while (true) {
-        printf("Intense maze solving happening");
-    }
-    motor_controller->stopMovement();
-    printf("Program Ended\n");
+        printf("**************************************\n");//debuging print
+        sleepMillis(10000);
+	}
+	//This is for when the robot is in the Maze phase
+	while(true){
+		printf("Intense maze solving happening");
+	}
+	motor_controller->stopMovement();
+	printf("Program Ended\n");
 
     return 0;
 }

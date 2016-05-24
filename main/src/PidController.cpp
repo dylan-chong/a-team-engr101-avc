@@ -9,7 +9,7 @@
 #include <time.h>
 #include <stdio.h>
 
-PidController::PidController() : KP(0.0002), KD(0.012), KI(0.000), KN(0.001), IMG_WIDTH(0), PID_BOUNDS(300.0) {
+PidController::PidController() : KP(0.0002), KD(0.0/*0.012*/), KI(0.000), KN(0.001), IMG_WIDTH(0), PID_BOUNDS(300.0) {
     previousClock = clock();
 
     previousLineValue = 0;
@@ -29,6 +29,7 @@ PidController *PidController::makeInstance() {
 double PidController::getTimeDiff() { // in clock ticks
     double timeDiff = (double) (clock() - previousClock);
     previousClock = clock();
+    printf("Clock value: %f", timeDiff);
     return timeDiff;
 }
 
