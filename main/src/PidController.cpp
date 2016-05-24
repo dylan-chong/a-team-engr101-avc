@@ -9,7 +9,7 @@
 #include <time.h>
 #include <stdio.h>
 
-PidController::PidController() : KP(0.002), KD(0.0001), KI(0), KN(0), IMG_WIDTH(0), PID_BOUNDS(50.0) {
+PidController::PidController() : KP(1.0), KD(0.0001), KI(0), KN(0), IMG_WIDTH(0), PID_BOUNDS(50.0) {
     previousClock = clock();
 
     previousLineValue = 0;
@@ -36,8 +36,7 @@ double PidController::getTimeDiff() { // in clock ticks
 
 //returns the line value
 int PidController::getProportional(int lineValue) {
-    int proportional_signal = lineValue;// * KP;
-    // int motorVal = proportional_signal / (IMG_WIDTH / 2) * 255; // do we even need this?
+    int proportional_signal = lineValue * KP;
     return proportional_signal;
 }
 
@@ -87,7 +86,7 @@ double PidController::getPIDValue(int lineValue) {
 //    printf("N: %f\n", secondDerivative);
 
 //    double pid = (KP * proportional - (KD * derivative - KN * secondDerivative) + KI * intergral);
-    double pid = KP * proportional;
+    double pid = -KP * (double) proportional;
 
     // TODO test
     printf("PID NO BOUNDS: %f\t", pid);
