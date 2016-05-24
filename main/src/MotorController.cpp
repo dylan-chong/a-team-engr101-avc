@@ -118,14 +118,14 @@ void MotorController::freezeIfSpeedOutOfRange(int speed) {
 // setting both to -3 to 2 inclusive means the robot wont move
 void MotorController::setLeft(int speed) {
     //freezeIfSpeedOutOfRange(speed);
-    //set_motor(2, speed * 10);//ON pi
-    set_motor(1,-speed*10);//for test on simulator
+    set_motor(2, (speed * 10)/1.5);//ON pi
+    //set_motor(1,-speed*10);//for test on simulator
 }
 
 void MotorController::setRight(int speed) {
     //freezeIfSpeedOutOfRange(speed);
-    //set_motor(1, RIGHT_SPEEDS[speed + NUMBER_OF_REVERSE_SPEEDS]);
-    set_motor(2,-speed*10); //for testing on the simulator
+    set_motor(1, (RIGHT_SPEEDS[speed + NUMBER_OF_REVERSE_SPEEDS])/1.5);
+    //set_motor(2,-speed*10); //for testing on the simulator
 }
 
 void MotorController::moveStraightAtSpeed(int speed) {

@@ -51,7 +51,8 @@ int CameraController::getSum(int row){
 	    // trying to make it so if it loses the line it reverses to try make it find it again
 	    if (n_whites <= 15) { //if the line is completely lost
 	    	throw 1;
-	    }else if (n_whites <= 800){ //if the line ends
+	   // }else if (n_whites <= 800){ //if the line ends SIM ONLY
+	    }else if(n_whites <= 200){ //LIVE ONLY
 	    	throw 2;
 	    } else {
 	        return sum;
