@@ -22,6 +22,7 @@ private:
 	const static int LEFT_MIN = -8;
 	const static int RIGHT_MAX = 8;
 	const static int RIGHT_MIN = -7;
+	const static bool IS_SLOW_MODE = 1;
 
 	const static float PERPENDICULAR_LEFT_TURN_TIME = 1.2345; // DANIEL calibrate this
 	const static float PERPENDICULAR_RIGHT_TURN_TIME = 1.2345; // DANIEL calibrate this

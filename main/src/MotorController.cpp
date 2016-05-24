@@ -153,7 +153,9 @@ void MotorController::freezeIfDirectionOutOfRange(double direction) {
 // just set the motors to full forward
 void MotorController::moveForward() {
     printf("MOVING FORWARD\n");
-    moveStraightAtSpeed(8);
+    int s = 8;
+    if (IS_SLOW_MODE) s *= 0.8;
+    moveStraightAtSpeed(s);
 }
 
 void MotorController::moveBackward() {
