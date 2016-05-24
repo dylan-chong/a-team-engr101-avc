@@ -43,7 +43,6 @@ int PidController::getProportional(int lineValue) {
 
 //gets the change in the line value with respect to time
 double PidController::getDerivative(int lineValue, double timeDiff, int prevLineValue) {
-    if (timeDiff == 0) timeDiff = 0.0001; //stops deviding by 0
 //    printf("lineValue: %d\n", lineValue);
 //    printf("previous Line Value: %d\n", prevLineValue);
 //    printf("timeDiff: %f\n", timeDiff);
@@ -59,7 +58,6 @@ int PidController::getIntergral(int lineValue) {
 
 //gets the derivative of the derivative (this is derviative filtering http://www2.ece.ohio-state.edu/~passino/lab3prelab.pdf if you want to know more)
 double PidController::getFOC(double derivative, double timeDiff, double previousDerivative) {
-    if (timeDiff == 0) timeDiff = 0.0001; //stops dividing by 0
     double FOC_derivative_signal = ((double) (derivative - previousDerivative) / timeDiff);
     return FOC_derivative_signal;
 }
@@ -71,10 +69,17 @@ double PidController::getPIDValue(int lineValue) {
     // https://github.com/kaiwhata/ENGR101-2016/wiki/PID-(Proportional-Integral-Derivative)-Control
 
     double timeDiff = getTimeDiff();
+    if (timeDiff == 0) timeDiff = 0.0001; //stops dividing by 0
+
     int proportional = getProportional(lineValue);
     double derivative = getDerivative(lineValue, timeDiff, previousLineValue);
     double secondDerivative = getFOC(derivative, timeDiff, previousDerivativeValue);
     int intergral = getIntergral(lineValue);
+
+    // Removing some elements for testing
+    intergral = 0;
+    secondDerivative = 0;
+
     printf("Line Value: %d\n", lineValue);
     printf("P: %d\n", proportional);
     printf("D: %f\n", derivative);
