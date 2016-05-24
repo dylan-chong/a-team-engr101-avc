@@ -35,7 +35,7 @@ int main(){
 		motor_controller->arc(pid_val);
 		//motor_controller->arc(camera_controller->getDir(), sumC);
 		printf("**************************************\n");//debuging print
-		sleepMillis(50);
+		sleepMillis(100);
 	}
 	motor_controller->stopMovement();
 	printf("Program Ended\n");
