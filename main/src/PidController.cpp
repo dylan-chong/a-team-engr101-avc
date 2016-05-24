@@ -43,7 +43,7 @@ int PidController::getProportional(int lineValue) {
 
 //gets the change in the line value with respect to time
 double PidController::getDerivative(int lineValue, double timeDiff, int prevLineValue) {
-    //if ((double)timeDiff==0)timeDiff=0.0001; //stops deviding by 0
+    if (timeDiff == 0) timeDiff = 0.0001; //stops deviding by 0
 //    printf("lineValue: %d\n", lineValue);
 //    printf("previous Line Value: %d\n", prevLineValue);
 //    printf("timeDiff: %f\n", timeDiff);
