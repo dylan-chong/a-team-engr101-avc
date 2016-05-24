@@ -52,7 +52,7 @@ int main(){
 
 		//motor_controller->arc(camera_controller->getDir(), sumC);
 		printf("**************************************\n");//debuging print
-		Sleep(0, 10000);
+		sleepMillis(10000);
 	}
 	//This is for when the robot is in the Maze phase
 	while(true){
