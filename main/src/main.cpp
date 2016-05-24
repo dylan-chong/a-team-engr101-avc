@@ -32,6 +32,9 @@ int main(){
 			}
 		} catch (int e){
 			if (e==1){ //if the robot losses the line
+				if (IR_controller->inMaze()){
+					break;
+				}
 				motor_controller->moveBackward();
 				printf("the camera lost the line!!");
 			} else if (e==2){
@@ -44,6 +47,10 @@ int main(){
 		//motor_controller->arc(camera_controller->getDir(), sumC);
 		printf("**************************************\n");//debuging print
 		//Sleep(0, 1e8);
+	}
+	//This is for when the robot is in the Maze phase
+	while(true){
+		printf("Intense maze solving happening");
 	}
 	motor_controller->stopMovement();
 	printf("Program Ended\n");
