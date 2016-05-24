@@ -205,8 +205,8 @@ void MotorController::arc(double direction) {
     if (IS_SLOW_MODE) {
         leftMin *= 0.8;
         leftMax *= 0.8;
-        rightMin *= 0.8;
-        rightMax *= 0.8;
+        rightMin *= 0.9;
+        rightMax *= 0.9;
     }
 
     if (direction < 0) {
