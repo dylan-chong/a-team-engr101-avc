@@ -9,6 +9,7 @@
 
 #include "CameraController.h"
 #include <cmath>
+#include <stdio.h>
 
 extern "C" int take_picture();
 extern "C" char get_pixel(int row, int col, int colour);
@@ -37,7 +38,7 @@ int CameraController::getSum(int row){
 	    //the sum of all the white final numbers added
 	    int sum = 0;
 	    // a count of how many white spots have been counted( to check if we can still see the line)
-	    int n_whites = 0;
+	    n_whites = 0;
 	    take_picture();
 	    for (int y = 0; y < row; y+=2){
 			for (int i = 0; i < 320; i++) {
@@ -48,23 +49,24 @@ int CameraController::getSum(int row){
 	    }
 	    sum/=(row/2);
 	    // trying to make it so if it loses the line it reverses to try make it find it again
-	    if (n_whites == 0) {
-	    	dir = 's';
-	        return -1;
-	    }else {
-	    	if(sum>0){
-	    		dir = 'l';
-	    	} else {
-	    		dir = 'r';
-	    	}
+	    if (n_whites <= 15) { //if the line is completely lost
+	    	throw 1;
+	    }else if (n_whites <= 800){ //if the line ends
+	    	throw 2;
+	    } else {
 	        return sum;
 	    }
 }
 
 int CameraController::update(int row){
 	//getWhiteArray();
-	int sum = getSum(row);
-	return sum;
+	try {
+		int sum = getSum(row);
+		return sum;
+	} catch (int e){
+		throw e;
+	}
+
 	//int diff = differential(sum);
 	//return motorMovement(sum, diff);
 }

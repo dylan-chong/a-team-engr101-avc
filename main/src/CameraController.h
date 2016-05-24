@@ -22,7 +22,8 @@ private:
 	char dir;
 
 public:
-	const static int CENTER_ROW = 120;
+	const static int CENTER_ROW = 60;
+	int n_whites;
 
 	static CameraController* makeInstance();
 	virtual ~CameraController();

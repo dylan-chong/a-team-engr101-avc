@@ -110,9 +110,6 @@ void MotorController::freezeIfSpeedOutOfRange(int speed) {
     if (speed < -NUMBER_OF_REVERSE_SPEEDS || speed > 11) {
         set_motor(2, 0);
         set_motor(1, 0);
-        while (true) {
-            printf("You speed (%d) is not between %d and 11\n", speed, -NUMBER_OF_REVERSE_SPEEDS);
-        }
     }
 }
 
@@ -120,13 +117,15 @@ void MotorController::freezeIfSpeedOutOfRange(int speed) {
 // -5 and 11 inclusive
 // setting both to -3 to 2 inclusive means the robot wont move
 void MotorController::setLeft(int speed) {
-    freezeIfSpeedOutOfRange(speed);
-    set_motor(2, speed * 10);
+    //freezeIfSpeedOutOfRange(speed);
+    //set_motor(2, speed * 10);//ON pi
+    set_motor(1,-speed*10);//for test on simulator
 }
 
 void MotorController::setRight(int speed) {
-    freezeIfSpeedOutOfRange(speed);
-    set_motor(1, RIGHT_SPEEDS[speed + NUMBER_OF_REVERSE_SPEEDS]);
+    //freezeIfSpeedOutOfRange(speed);
+    //set_motor(1, RIGHT_SPEEDS[speed + NUMBER_OF_REVERSE_SPEEDS]);
+    set_motor(2,-speed*10); //for testing on the simulator
 }
 
 void MotorController::moveStraightAtSpeed(int speed) {
@@ -138,9 +137,6 @@ void MotorController::freezeIfDirectionOutOfRange(double direction) {
     if (direction > 1 || direction < -1) {
         set_motor(2, 0);
         set_motor(1, 0);
-        while (true) {
-            printf("Your direction %f is not between -1 and 1", direction);
-        }
     }
 }
 
@@ -152,11 +148,11 @@ void MotorController::freezeIfDirectionOutOfRange(double direction) {
 
 // just set the motors to full forward
 void MotorController::moveForward() {
-    printf("MOVING FORWARD\n");
+   // printf("MOVING FORWARD\n");
     moveStraightAtSpeed(8);
-    for (int a = 0; a < 21; a++) {
+    /*for (int a = 0; a < 21; a++) {
         printf("ITEM %d is %d\n\n", a, RIGHT_SPEEDS[a]);
-    }
+    }*/
 }
 
 void MotorController::moveBackward() {
@@ -185,16 +181,34 @@ void MotorController::rotateRight() {
 // 0 is max forward
 // 1 is max right
 
-void MotorController::arc(double direction) {
-	printf("RIGHT SPEED ARRAY %d",RIGHT_SPEEDS[3]);
-    if (direction < 0) {
-        setLeft((int)((LEFT_MAX - LEFT_MIN) * direction + LEFT_MAX));
-        setRight(RIGHT_MAX);
-    } else if (direction > 0) {
-        setLeft(LEFT_MAX);
-        setRight((int)((RIGHT_MIN - RIGHT_MAX) * direction + RIGHT_MAX));
-    } else if (direction == 0) {
-        moveForward();
-    }
+void MotorController::arc(double direction, int forword) {
+	printf("Direction: %f\n",direction);
+	if (forword == 1){
+		printf("Going forwords\n");
+		if (direction < 0) {
+			setLeft((int)((LEFT_MAX - LEFT_MIN) * (direction*100) + LEFT_MAX));
+			setRight(RIGHT_MAX);
+			printf("Turningn left: %d\n", (int)((LEFT_MAX - LEFT_MIN) * direction + LEFT_MAX));
+		} else if (direction > 0) {
+			setLeft(LEFT_MAX);
+			setRight((int)((RIGHT_MIN - RIGHT_MAX) * (direction*100) + RIGHT_MAX));
+			printf("Turningn RIGHT: %d\n", (int)((RIGHT_MIN - RIGHT_MAX) * direction + RIGHT_MAX));
+		} else if (direction == 0) {
+			moveForward();
+		}
+	} else if (forword == 0){
+		printf("going back");
+		if (direction < 0) {
+			setLeft((int)-((LEFT_MAX - LEFT_MIN) * (direction*100) + LEFT_MAX));
+			setRight(-RIGHT_MAX);
+			printf("Turningn left: %d\n", (int)((LEFT_MAX - LEFT_MIN) * (direction*100) + LEFT_MAX));
+		} else if (direction > 0) {
+			setLeft(-LEFT_MAX);
+			setRight((int)-((RIGHT_MIN - RIGHT_MAX) * (direction*100) + RIGHT_MAX));
+			printf("Turningn RIGHT: %d\n", (int)((RIGHT_MIN - RIGHT_MAX) * (direction*100) + RIGHT_MAX));
+		} else if (direction == 0) {
+			moveBackward();
+		}
+	}
 }
 
