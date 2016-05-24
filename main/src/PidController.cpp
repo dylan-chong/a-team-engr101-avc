@@ -77,8 +77,8 @@ double PidController::getPIDValue(int lineValue) {
     int intergral = getIntergral(lineValue);
 
     // Removing some elements for testing
-    intergral = 0;
-    secondDerivative = 0;
+//    intergral = 0;
+//    secondDerivative = 0;
 
     printf("Line Value: %d\n", lineValue);
     printf("P: %d\n", proportional);

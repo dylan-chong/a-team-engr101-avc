@@ -154,9 +154,6 @@ void MotorController::freezeIfDirectionOutOfRange(double direction) {
 void MotorController::moveForward() {
     printf("MOVING FORWARD\n");
     moveStraightAtSpeed(8);
-    for (int a = 0; a < 21; a++) {
-        printf("ITEM %d is %d\n\n", a, RIGHT_SPEEDS[a]);
-    }
 }
 
 void MotorController::moveBackward() {

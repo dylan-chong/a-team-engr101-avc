@@ -19,9 +19,6 @@ int main(){
 	PidController *pid_controller = PidController::makeInstance();
 
 	motor_controller->moveForward();
-	printf("BEFORE WHILE TRUE \n");
-	while (true){} // TODO LATER REMOVE
-	printf("THIS SHOULDN'T LOG \n");
 
 	while (true) {
 		//printf("count: %d\n", count);
