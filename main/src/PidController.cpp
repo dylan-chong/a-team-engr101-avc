@@ -59,7 +59,7 @@ int PidController::getIntergral(int lineValue) {
 
 //gets the derivative of the derivative (this is derviative filtering http://www2.ece.ohio-state.edu/~passino/lab3prelab.pdf if you want to know more)
 double PidController::getFOC(double derivative, double timeDiff, double previousDerivative) {
-    if ((double) timeDiff == 0)timeDiff = 0.0001; //stops deviding by 0
+    if (timeDiff == 0) timeDiff = 0.0001; //stops dividing by 0
     double FOC_derivative_signal = ((double) (derivative - previousDerivative) / timeDiff);
     return FOC_derivative_signal;
 }
