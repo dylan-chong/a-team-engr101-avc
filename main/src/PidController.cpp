@@ -81,6 +81,7 @@ double PidController::getPIDValue(int lineValue) {
     printf("I: %d\n", intergral);
     printf("N: %f\n", secondDerivative);
 
+    // TODO test
     double pid = (KP * proportional - (KD * derivative - KN * secondDerivative) + KI * intergral);
     printf("PID NO BOUNDS: %f\t", pid);
     if (pid > PID_BOUNDS) pid = PID_BOUNDS;
@@ -90,6 +91,6 @@ double PidController::getPIDValue(int lineValue) {
     previousLineValue = lineValue;
     previousDerivativeValue = derivative;
 
-    return pid;
+    return pid / PID_BOUNDS;
 }
 
