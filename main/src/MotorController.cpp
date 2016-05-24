@@ -159,9 +159,7 @@ void MotorController::moveForward() {
 }
 
 void MotorController::moveBackward() {
-    int s = -6;
-    if (IS_SLOW_MODE) s *= 0.8;
-    moveStraightAtSpeed(s);
+    moveStraightAtSpeed(-6);
 }
 
 void MotorController::stopMovement() {
@@ -172,24 +170,14 @@ void MotorController::stopMovement() {
 // turn left on the spot
 // right wheel doesn't seem to do anything
 void MotorController::rotateLeft() {
-    if (IS_SLOW_MODE) {
-        setLeft(-5);
-        setRight(5);
-    } else {
-        setLeft(LEFT_MIN);
-        setRight(RIGHT_MAX);
-    }
+    setLeft(LEFT_MIN);
+    setRight(RIGHT_MAX);
 }
 
 // turn right on the spot
 void MotorController::rotateRight() {
-    if (IS_SLOW_MODE) {
-        setLeft(5);
-        setRight(-5);
-    } else {
-        setLeft(LEFT_MAX);
-        setRight(RIGHT_MIN);
-    }
+    setLeft(LEFT_MAX);
+    setRight(RIGHT_MIN);
 }
 
 // -1 is max left
@@ -197,25 +185,15 @@ void MotorController::rotateRight() {
 // 1 is max right
 
 void MotorController::arc(double direction) {
-    int leftMin = LEFT_MIN;
-    int leftMax = LEFT_MAX;
-    int rightMin = RIGHT_MIN;
-    int rightMax = RIGHT_MAX;
-
-    if (IS_SLOW_MODE) {
-        leftMin *= 0.8;
-        leftMax *= 0.8;
-        rightMin *= 0.8;
-        rightMax *= 0.8;
-    }
-
+	printf("RIGHT SPEED ARRAY %d",RIGHT_SPEEDS[3]);
     if (direction < 0) {
-        setLeft((int)((leftMax - leftMin) * direction + leftMax));
-        setRight(rightMax);
+        setLeft((int)((LEFT_MAX - LEFT_MIN) * direction + LEFT_MAX));
+        setRight(RIGHT_MAX);
     } else if (direction > 0) {
-        setLeft(leftMax);
-        setRight((int)((rightMin - rightMax) * direction + rightMax));
+        setLeft(LEFT_MAX);
+        setRight((int)((RIGHT_MIN - RIGHT_MAX) * direction + RIGHT_MAX));
     } else if (direction == 0) {
         moveForward();
     }
 }
+
