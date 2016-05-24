@@ -47,13 +47,6 @@ int CameraController::getSum(int row) {
         }
     }
     sum /= (row / 2);
-
-    printf("LINE:\n");
-    for (int x = 0; x < 320; x++) {
-        printf("%d", whiteness(x));
-    }
-    printf("\nEND DLINE:\n");
-
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites == 0) {
         dir = 's';
