@@ -75,11 +75,11 @@ double PidController::getPIDValue(int lineValue) {
     double derivative = getDerivative(lineValue, timeDiff, previousLineValue);
     double secondDerivative = getFOC(derivative, timeDiff, previousDerivativeValue);
     int intergral = getIntergral(lineValue);
-//    printf("Line Value: %d\n", lineValue);
-//    printf("P: %d\n", proportional);
-//    printf("D: %f\n", derivative);
-//    printf("I: %d\n", intergral);
-//    printf("N: %f\n", secondDerivative);
+    printf("Line Value: %d\n", lineValue);
+    printf("P: %d\n", proportional);
+    printf("D: %f\n", derivative);
+    printf("I: %d\n", intergral);
+    printf("N: %f\n", secondDerivative);
 
     double pid = (KP * proportional - (KD * derivative - KN * secondDerivative) + KI * intergral);
 

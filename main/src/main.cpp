@@ -19,7 +19,7 @@ int main(){
 	PidController *pid_controller = PidController::makeInstance();
 
 	motor_controller->moveForward();
-	for (int count = 0 ; count<600; count++){
+	while (true) {
 		//printf("count: %d\n", count);
 		int sumC = camera_controller->update(CameraController::CENTER_ROW);
 		double pid_val = pid_controller->getPIDValue(sumC);
