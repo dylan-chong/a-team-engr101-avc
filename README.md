@@ -309,9 +309,26 @@ Extra Info
 <h3>Week 13 (Mon 23 - Sun 29 May)</h3>
 
 <h4>Daily Log</h4>
+
+<h5>Monday 23/05/16</h5>
 - Dylan
     - Added some more calibrated motor speeds
     - Calibrated left and right rotation in movement test module
     - Merged the camera, movement and pid code in the camera test module
     - Modified pid code to get it to work
     - Removed some blue tack on the robot and helped Ahmed with building the new design
+
+<h5>Tuesday 24/05/16</h5>
+- Dylan
+    - Calibrated some more motor speeds
+    - Found problem causing motor controller not working 
+    - Testing PID and trying to get it working in real life
+
+
+<h5>Wednesday 25/05/16</h5>
+
+
+
+
+
+
