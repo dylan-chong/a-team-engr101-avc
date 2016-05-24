@@ -82,12 +82,11 @@ double PidController::getPIDValue(int lineValue) {
 
     printf("Line Value: %d\n", lineValue);
     printf("P: %d\n", proportional);
-//    printf("D: %f\n", derivative);
-//    printf("I: %d\n", intergral);
-//    printf("N: %f\n", secondDerivative);
+    printf("D: %f\n", derivative);
+    printf("I: %d\n", intergral);
+    printf("N: %f\n", secondDerivative);
 
-//    double pid = (KP * proportional - (KD * derivative - KN * secondDerivative) + KI * intergral);
-    double pid = KP * proportional;
+    double pid = (KP * proportional - (KD * derivative - KN * secondDerivative) + KI * intergral);
 
     // TODO test
     printf("PID NO BOUNDS: %f\t", pid);
