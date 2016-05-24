@@ -29,16 +29,10 @@ int main(){
 		motor_controller->arc(pid_val);
 		//motor_controller->arc(camera_controller->getDir(), sumC);
 		printf("**************************************\n");//debuging print
-		sleepMillis(500);
+		Sleep(0, 1e8);
 	}
 	motor_controller->stopMovement();
 	printf("Program Ended\n");
 
 	return  0;
-}
-
-void sleepMillis(int millis) {
-	for (int a = 0; a < millis; a++) {
-		Sleep(0, 1000);
-	}
 }
