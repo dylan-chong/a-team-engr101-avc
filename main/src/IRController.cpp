@@ -14,7 +14,7 @@
 
 extern "C" int init(int d_lev);
 extern "C" int read_analog(int ch_adc);
-extern "C" int sleep(int sec, int usec);
+extern "C" int Sleep(int sec, int usec);
 
 //Makes a new IR Controller and returns a pointer to it
 IRController *IRController::makeInstance() {
