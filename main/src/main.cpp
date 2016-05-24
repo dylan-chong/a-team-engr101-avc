@@ -17,7 +17,7 @@ void sleepMillis(int millis) {
 }
 
 int main(){
-	init(0);
+	init(1);
 	NetworkController *network_controller = NetworkController::makeInstance("192.168.1.2",22);
 	MotorController *motor_controller = MotorController::makeInstance();
 	IRController *IR_controller = IRController::makeInstance();
