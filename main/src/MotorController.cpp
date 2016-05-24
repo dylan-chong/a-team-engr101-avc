@@ -181,9 +181,9 @@ void MotorController::rotateRight() {
 // 0 is max forward
 // 1 is max right
 
-void MotorController::arc(double direction, int forword) {
+void MotorController::arc(double direction, int forward) {
 	printf("Direction: %f\n",direction);
-	if (forword == 1){
+	if (forward == 1){
 		printf("Going forwords\n");
 		if (direction < 0) {
 			setLeft((int)((LEFT_MAX - LEFT_MIN) * (direction*100) + LEFT_MAX));
@@ -196,7 +196,7 @@ void MotorController::arc(double direction, int forword) {
 		} else if (direction == 0) {
 			moveForward();
 		}
-	} else if (forword == 0){
+	} else if (forward == 0){ // needs testing
 		printf("going back");
 		if (direction < 0) {
 			setLeft((int)-((LEFT_MAX - LEFT_MIN) * (direction*100) + LEFT_MAX));

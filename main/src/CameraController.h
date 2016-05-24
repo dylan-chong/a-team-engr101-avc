@@ -16,9 +16,8 @@ friend class CameraControllerTest;
 private:
 	const static int WHITE_THRESHOLD = 100;
 
-
-	int white[];
-	int previousError;
+//	int white[];
+//	int previousError;
 	char dir;
 
 public:
