@@ -17,16 +17,14 @@ PidController::PidController() : KP(0.0002), KD(0.012), KI(0.000), KN(0.001), IM
     intergral = 0;
 }
 
-PidController::~PidController() {
-    // TODO Auto-generated destructor stub
-}
+PidController::~PidController() { }
 
 PidController *PidController::makeInstance() {
     instance = new PidController();
     return (PidController *) instance;
 }
 
-/** Private */
+/******************** Private ********************/
 
 double PidController::getTimeDiff() { // in clock ticks
     double timeDiff = (double) (clock() - previousClock);
@@ -58,7 +56,7 @@ double PidController::getFOC(double derivative, double timeDiff, double previous
     return (derivative - previousDerivative) / timeDiff;
 }
 
-/** Public */
+//******************** Public ********************//
 
 double PidController::getPIDValue(int lineValue) {
     // Algorithm for calculating PID was taken from the Kaiwhata wiki but has been refactored
@@ -75,7 +73,7 @@ double PidController::getPIDValue(int lineValue) {
     double secondDerivative = getFOC(derivative, timeDiff, previousDerivativeValue);
     int integral = getIntergral(lineValue);
 
-    // Removing some elements for testing
+//    Removing some elements for testing
 //    integral = 0;
 //    secondDerivative = 0;
 
