@@ -11,25 +11,29 @@
 
 #include "Controller.h"
 
-class CameraController: public Controller{
-friend class CameraControllerTest;
-private:
-	const static int WHITE_THRESHOLD = 140;
+class CameraController : public Controller {
+    friend class CameraControllerTest;
 
-//	int white[];
-//	int previousError;
-	char dir;
+private:
+    const static int WHITE_THRESHOLD = 140;
+
+    char dir;
 
 public:
-	const static int CENTER_ROW = 60;
-	int n_whites;
+    const static int CENTER_ROW = 60;
+    int n_whites;
 
-	static CameraController* makeInstance();
-	virtual ~CameraController();
-	CameraController();
+    static CameraController *makeInstance();
 
-	char getDir();
-	int getSum(int row);
-	int update(int row);
+    virtual ~CameraController();
+
+    CameraController();
+
+    char getDir();
+
+    int getSum(int row);
+
+    int update(int row);
 };
+
 #endif /* CAMERACONTROLLER_H_ */
