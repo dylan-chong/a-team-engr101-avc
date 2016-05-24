@@ -62,7 +62,7 @@ public:
 	void stopMovement();
 	void rotateLeft();
 	void rotateRight();
-	void arc(double percent);
+	void arc(double percent, int forword);
 
 	/*void setStraightLine(double percent);
 	void arcLeft(double percent);
