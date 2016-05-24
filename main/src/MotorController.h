@@ -18,8 +18,12 @@ class MotorController: public Controller{
 private:
 	const static int NUMBER_OF_REVERSE_SPEEDS = 9;
     int RIGHT_SPEEDS[21];
-	const static int LEFT_MAX = 9;
+	/*const static int LEFT_MAX = 9;
 	const static int LEFT_MIN = -8;
+	const static int RIGHT_MAX = 8;
+	const static int RIGHT_MIN = -7;*/
+    const static int LEFT_MAX = 8;//Made motors the same for the simulator
+	const static int LEFT_MIN = -7;
 	const static int RIGHT_MAX = 8;
 	const static int RIGHT_MIN = -7;
 
