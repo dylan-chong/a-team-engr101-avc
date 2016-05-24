@@ -28,11 +28,11 @@ private:
 	double previousDerivativeValue;
 	int intergral;
 
-	float getTimeDiff();
+	double getTimeDiff();
 	int getProportional(int lineValue);
-	double getDerivative(int lineValue, float timeDiff, int prevLineValue);
+	double getDerivative(int lineValue, double timeDiff, int prevLineValue);
 	int getIntergral(int lineValue);
-	double getFOC(double derivative, float timeDiff, double previousDerivative);
+	double getFOC(double derivative, double timeDiff, double previousDerivative);
 public:
 	static PidController* makeInstance();
 	PidController();
