@@ -18,7 +18,7 @@ private:
 	const float KD;//5.0;
 	const float KI;//intergral sensitivity
 	const float KN;//derivative filtering sensitivity
-	const double PID_BOUNDS = 5.0; // TODO FIX
+	const double PID_BOUNDS;
 
 	const int IMG_WIDTH; // TODO ASK ANDREW reference the camera module for constants?
 
