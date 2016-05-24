@@ -36,7 +36,7 @@ double PidController::getTimeDiff() { // in clock ticks
 
 //returns the line value
 int PidController::getProportional(int lineValue) {
-    return lineValue * KP;
+    return lineValue;
 }
 
 //gets the change in the line value with respect to time
