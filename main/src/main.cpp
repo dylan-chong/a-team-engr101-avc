@@ -19,20 +19,15 @@ int main(){
 	PidController *pid_controller = PidController::makeInstance();
 
 	motor_controller->moveForward();
-	printf("BEFORE WHILE TRUE \n");
-	while (true){} // TODO LATER REMOVE
-	printf("THIS SHOULDN'T LOG \n");
 
 	while (true) {
 		//printf("count: %d\n", count);
 		int sumC = camera_controller->update(CameraController::CENTER_ROW);
 		double pid_val = pid_controller->getPIDValue(sumC);
-		//printf("Sum: %d\n", sumC);//debuging print
-		//printf("MotoValue: %f\n", pid_val);//debuging print
 		motor_controller->arc(pid_val);
 		//motor_controller->arc(camera_controller->getDir(), sumC);
 		printf("**************************************\n");//debuging print
-		Sleep(0, 1e8);
+		//Sleep(0, 1e8);
 	}
 	motor_controller->stopMovement();
 	printf("Program Ended\n");
