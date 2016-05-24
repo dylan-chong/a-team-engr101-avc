@@ -44,9 +44,9 @@ int PidController::getProportional(int lineValue) {
 //gets the change in the line value with respect to time
 double PidController::getDerivative(int lineValue, double timeDiff, int prevLineValue) {
     //if ((double)timeDiff==0)timeDiff=0.0001; //stops deviding by 0
-    printf("lineValue: %d\n", lineValue);
-    printf("previous Line Value: %d\n", prevLineValue);
-    printf("timeDiff: %f\n", timeDiff);
+//    printf("lineValue: %d\n", lineValue);
+//    printf("previous Line Value: %d\n", prevLineValue);
+//    printf("timeDiff: %f\n", timeDiff);
     double derivative_signal = ((double) (lineValue - prevLineValue) / timeDiff);
     return derivative_signal;
 }
@@ -75,14 +75,15 @@ double PidController::getPIDValue(int lineValue) {
     double derivative = getDerivative(lineValue, timeDiff, previousLineValue);
     double secondDerivative = getFOC(derivative, timeDiff, previousDerivativeValue);
     int intergral = getIntergral(lineValue);
-    printf("Line Value: %d\n", lineValue);
-    printf("P: %d\n", proportional);
-    printf("D: %f\n", derivative);
-    printf("I: %d\n", intergral);
-    printf("N: %f\n", secondDerivative);
+//    printf("Line Value: %d\n", lineValue);
+//    printf("P: %d\n", proportional);
+//    printf("D: %f\n", derivative);
+//    printf("I: %d\n", intergral);
+//    printf("N: %f\n", secondDerivative);
+
+    double pid = (KP * proportional - (KD * derivative - KN * secondDerivative) + KI * intergral);
 
     // TODO test
-    double pid = (KP * proportional - (KD * derivative - KN * secondDerivative) + KI * intergral);
     printf("PID NO BOUNDS: %f\t", pid);
     if (pid > PID_BOUNDS) pid = PID_BOUNDS;
     if (pid < -PID_BOUNDS) pid = -PID_BOUNDS;

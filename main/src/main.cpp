@@ -30,7 +30,7 @@ int main(){
 		printf("**************************************\n");//debuging print
 	}
 	motor_controller->stopMovement();
-	printf("it worked\n");
+	printf("Program Ended\n");
 
 	return  0;
 }
