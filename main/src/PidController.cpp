@@ -96,6 +96,6 @@ double PidController::getPIDValue(int lineValue) {
     previousLineValue = lineValue;
     previousDerivativeValue = derivative;
 
-    return (pid*1000) / PID_BOUNDS;
+    return (pid*100) / PID_BOUNDS;
 }
 

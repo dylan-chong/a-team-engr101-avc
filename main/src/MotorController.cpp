@@ -125,12 +125,12 @@ void MotorController::arc(double direction, int shouldMoveForward) {
     if (shouldMoveForward == 1) {
         printf("Going forwards\n");
 
-        if (direction < 0) {
+        if (direction < 0) { //left
             int left = (int) ((LEFT_MAX - LEFT_MIN) * (direction) + LEFT_MAX);
             setLeft(left);
             setRight(RIGHT_MAX);
             printf("Turning left: %d\n", left);
-        } else if (direction > 0) {
+        } else if (direction > 0) { //right
             int right = (int) ((RIGHT_MIN - RIGHT_MAX) * (direction) + RIGHT_MAX);
             setLeft(LEFT_MAX);
             setRight(right);
