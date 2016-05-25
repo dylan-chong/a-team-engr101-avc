@@ -53,7 +53,6 @@ int main() {
             motor_controller->stopMovement();
             printf("\nCATCH %d", e);
         }
-
     }
 
 /*

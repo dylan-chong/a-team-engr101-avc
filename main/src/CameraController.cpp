@@ -55,7 +55,6 @@ int CameraController::getSum(int row) {
     }
     printf("\nENDLINE\n");
 
-    if ()
 
     sum /= (row * 2);
     // trying to make it so if it loses the line it reverses to try make it find it again
