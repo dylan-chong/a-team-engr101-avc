@@ -28,16 +28,17 @@ int main() {
     CameraController *camera_controller = CameraController::makeInstance();
     PidController *pid_controller = PidController::makeInstance();
 
-    int LIM_FORWARD = 20; // will move forward if
-    int LIM_ARC = 50; // will move forward if
+    int LIM_FORWARD = 50; // will move forward if
+    int LIM_ARC = 80; // will move forward if
 
     while (true) {
 
         try {
             int mid = camera_controller->getMidColOfLine();
             printf("Mid =           %d\n", mid);
-
-            if (abs(mid) > LIM_FORWARD) {
+            if (mid == 10001) {
+                motor_controller->rotateLeft();
+            } else if (abs(mid) > LIM_FORWARD) {
                 if (mid < -LIM_FORWARD) {
                     motor_controller->rotateLeft();
                 } else if (mid > LIM_FORWARD) {
@@ -54,7 +55,6 @@ int main() {
             }
 
             sleepMillis(10);
-            motor_controller->stopMovement();
 
         } catch (int e) {
             motor_controller->stopMovement();

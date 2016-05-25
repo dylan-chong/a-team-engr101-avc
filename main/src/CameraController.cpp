@@ -96,8 +96,9 @@ int CameraController::getMidColOfLine() {
 
     // TODO LATER throw exception for not seeing any whites
 
-    if (numberOfWhites == 0) return 0;
+    if (numberOfWhites == 0) return 10001;
 
     int midCol = totalWhiteCols / numberOfWhites;
+
     return midCol;
 }
