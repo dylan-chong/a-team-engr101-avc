@@ -69,11 +69,11 @@ void MotorController::moveStraightAtSpeed(int speed) {
 // ******************** PUBLIC METHODS ******************** //
 
 void MotorController::moveForward() {
-    moveStraightAtSpeed(8);
+    moveStraightAtSpeed(8); //movefowards fast
 }
 
 void MotorController::moveBackward() {
-    moveStraightAtSpeed(-3);
+    moveStraightAtSpeed(-3); //movebackwards
 }
 
 void MotorController::stopMovement() {
@@ -98,15 +98,15 @@ void MotorController::rotateRight() {
 // 0 is max forward
 // 1 is max right
 void MotorController::arc(double direction, int speedScale) {
-    if (abs(direction)>1)direction /= abs(direction); //makes direction bewteen 1 & -1
+    if (abs(direction)>1)direction /= abs(direction); //makes direction between 1 & -1
     printf("Direction: %f\n", direction);
 
 	if (direction < 0) { //left
-		setLeft(LEFT_MAX*(1-abs(direction))*speedScale);
-		setRight(RIGHT_MAX*speedScale);
+		setLeft(LEFT_MAX*(1-abs(direction))*speedScale);	//sets the left motor to something less than the max speed
+		setRight(RIGHT_MAX*speedScale);						//sets the right motor to max speed
 	} else if (direction > 0) { //right
-		setLeft(LEFT_MAX*speedScale);
-		setRight(RIGHT_MAX * (1-direction)*speedScale);
+		setLeft(LEFT_MAX*speedScale);						//sets the left motor the max speed
+		setRight(RIGHT_MAX * (1-direction)*speedScale);     //sets the right motor to something less than the max speed
 	} else if (direction == 0) {
 		moveForward();
 	}

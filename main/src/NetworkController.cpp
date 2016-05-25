@@ -19,7 +19,7 @@ NetworkController* NetworkController::makeInstance(char ip[15], int port){
 
 //This is the constructor it sets the IP_address and port variables then calls the connect function
 NetworkController::NetworkController(char IP_address[15], int port){
-	connect(IP_address, port);
+	connect(IP_address, port); //conects to the gate when the controller is made
 }
 
 //this is the destructor
@@ -30,7 +30,7 @@ NetworkController::~NetworkController() {
 //connects to the gate
 int NetworkController::connect(char IP_address[15], int port){
 	try{
-		connect_to_server(IP_address,port);
+		connect_to_server(IP_address,port); //connects to the server
 		return 0;
 	} catch (int e){
 		return e;
@@ -41,9 +41,9 @@ int NetworkController::connect(char IP_address[15], int port){
 //opens the gate returns 0 if worked correctly
 int NetworkController::openGate(){
 	char* pass;
-	send_to_server("Please");
-	receive_from_server(pass);
-	send_to_server(pass);
+	send_to_server("Please"); //sends Please to the gate
+	receive_from_server(pass); //gets the password
+	send_to_server(pass); //sends the password to the gate
 	return 0;
 }
 

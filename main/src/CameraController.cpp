@@ -59,11 +59,11 @@ int CameraController::getSum(int startRow,int finishRow) {
     }
 }
 
-int CameraController::update(int finishRow) {
+int CameraController::update(int finishRow) { //returns thes the line value
     try {
-        int sum = getSum(0,finishRow);
+        int sum = getSum(0,finishRow); // gets the linevalue from the top of the image to a specific row
         return sum;
     } catch (int e) {
-        throw e;
+        throw e; //throws the exception that was thrown by the sum function
     }
 }

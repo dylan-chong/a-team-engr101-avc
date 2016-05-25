@@ -26,7 +26,7 @@ PidController *PidController::makeInstance() {
 
 //******************** Private ********************//
 
-double PidController::getTimeDiff() { // in clock ticks
+double PidController::getTimeDiff() { // gets the difference in the clock from the previous time in clock ticks
     double timeDiff = (double) (clock() - previousClock);
     if (timeDiff == 0) timeDiff = 0.0001; //stops dividing by 0
     previousClock = clock();
@@ -34,12 +34,12 @@ double PidController::getTimeDiff() { // in clock ticks
 }
 
 //returns the line value
-int PidController::getProportional(int lineValue) {
+int PidController::getProportional(int lineValue) { //returns the line value
     return lineValue;
 }
 
 //gets the change in the line value with respect to time
-double PidController::getDerivative(int lineValue, double timeDiff, int prevLineValue) {
+double PidController::getDerivative(int lineValue, double timeDiff, int prevLineValue) { //returns the change in the line Value with respect to time
     double derivative_signal = ((double) (lineValue - prevLineValue) / timeDiff);
     return derivative_signal;
 }
@@ -51,7 +51,7 @@ int PidController::getIntergral(int lineValue) {
 }
 
 //gets the derivative of the derivative (this is derviative filtering http://www2.ece.ohio-state.edu/~passino/lab3prelab.pdf if you want to know more)
-double PidController::getFOC(double derivative, double timeDiff, double previousDerivative) {
+double PidController::getFOC(double derivative, double timeDiff, double previousDerivative) {//gets the change in the derivative  with respect to time
     return (derivative - previousDerivative) / timeDiff;
 }
 
@@ -77,8 +77,8 @@ double PidController::getPIDValue(int lineValue) {
 
     double pid = (KP * proportional + (KD * derivative - KN * secondDerivative) + KI * integral);
 
-    previousLineValue = lineValue;
-    previousDerivativeValue = derivative;
+    previousLineValue = lineValue; //stores the line Value so the change can be calculated
+    previousDerivativeValue = derivative; //stores the derivative value to calculate the change later
 
     return pid;
 }
