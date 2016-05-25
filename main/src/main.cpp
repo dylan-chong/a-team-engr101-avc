@@ -38,17 +38,15 @@ int main() {
 
 			if (sumC < -LIM_FORWARD) {
 				motor_controller->rotateLeft();
-				sleepMillis(100);
 			} else if (sumC > LIM_FORWARD) {
 				motor_controller->rotateRight();
-				sleepMillis(100);
-			}
-			motor_controller->moveForward();
-
+			} else {
+                motor_controller->moveForward();
+            }
 
     	} catch (int e) {}
 
-    	sleepMillis(100);
+    	sleepMillis(50);
 
     	/*
         try {
