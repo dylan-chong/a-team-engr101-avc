@@ -49,9 +49,9 @@ int CameraController::getSum(int row) {
 
 
     // print what it's seeing
-    printf("\nLINE\n");'
+    printf("\nLINE\n");
     for (int x = 0; x < 320; x++) {
-    	printf("%d", x);
+    	printf("%d", whiteness[x]);
     }
     printf("\nENDLINE\n");
 
