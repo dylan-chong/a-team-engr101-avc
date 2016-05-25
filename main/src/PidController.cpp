@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-PidController::PidController() : KP(0.0032/*0.0002*/), KD(0.000075/*0.012*/), KI(0.00), KN(0.000), IMG_WIDTH(0), PID_BOUNDS(50.0) {
+PidController::PidController() : KP(0.0032/*0.0002*/), KD(0.000075/*0.012*/), KI(0.00), KN(0.000), IMG_WIDTH(0){
     previousClock = clock();
 
     previousLineValue = 0;
@@ -29,8 +29,8 @@ PidController *PidController::makeInstance() {
 
 double PidController::getTimeDiff() { // in clock ticks
     double timeDiff = (double) (clock() - previousClock);
+    if (timeDiff == 0) timeDiff = 0.0001; //stops dividing by 0
     previousClock = clock();
-    printf("Clock value: %f", timeDiff);
     return timeDiff;
 }
 
@@ -64,9 +64,6 @@ double PidController::getPIDValue(int lineValue) {
     // https://github.com/kaiwhata/ENGR101-2016/wiki/PID-(Proportional-Integral-Derivative)-Control
 
     double timeDiff = getTimeDiff();
-    printf("time diff pre adjustment: %f\n", timeDiff); // TODO TEST
-    if (timeDiff == 0) timeDiff = 0.0001; //stops dividing by 0
-    printf("time diff post adjustment: %f\n", timeDiff);
 
     int proportional = getProportional(lineValue);
     double derivative = getDerivative(lineValue, timeDiff, previousLineValue);
@@ -75,15 +72,15 @@ double PidController::getPIDValue(int lineValue) {
 
     //printf("Line Value: %d\n", lineValue);
     //printf("P: %d\n", proportional);
-//    printf("D: %f\n", derivative);
-//    printf("I: %d\n", integral);
-//    printf("N: %f\n", secondDerivative);
+    //printf("D: %f\n", derivative);
+    //printf("I: %d\n", integral);
+    //printf("N: %f\n", secondDerivative);
 
-    double pid = (KP * proportional + (KD * derivative - KN * secondDerivative) + KI * integral);
+    double pid = (KP * proportional + (KD * derivative - KN * secondDerivative) + KI * integral)*2;
 
     previousLineValue = lineValue;
     previousDerivativeValue = derivative;
 
-    return (pid*100) / PID_BOUNDS;
+    return pid;
 }
 

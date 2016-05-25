@@ -15,15 +15,10 @@ class PidController : public Controller {
     friend class PidControllerTest;
 
 private:
-    const float KP;
-    //0.5; // TODO LATER adjust values (look at my photos)
+    const float KP; // TODO LATER adjust values (look at my photos)
     const float KD;
-    //5.0;
-    const float KI;
-    //integral sensitivity
-    const float KN;
-    //derivative filtering sensitivity
-    const double PID_BOUNDS;
+    const float KI; //integral sensitivity
+    const float KN; //derivative filtering sensitivity
 
     const int IMG_WIDTH; // TODO ASK ANDREW reference the camera module for constants?
 

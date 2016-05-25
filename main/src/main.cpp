@@ -47,10 +47,7 @@ int main() {
                 forward = -1;
             }
         }
-        //printf("n_whites: %d\n", camera_controller->n_whites);
         //printf("**************************************\n");//debuging print
-
-
     }
 
 
