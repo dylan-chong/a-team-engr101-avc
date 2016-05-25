@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-PidController::PidController() : KP(0.0064/*0.0002*/), KD(0.0/*0.012*/), KI(0.000), KN(0.000), IMG_WIDTH(0), PID_BOUNDS(50.0) {
+PidController::PidController() : KP(0.0032/*0.0002*/), KD(0.000075/*0.012*/), KI(0.00), KN(0.000), IMG_WIDTH(0), PID_BOUNDS(50.0) {
     previousClock = clock();
 
     previousLineValue = 0;
@@ -75,24 +75,23 @@ double PidController::getPIDValue(int lineValue) {
     double secondDerivative = getFOC(derivative, timeDiff, previousDerivativeValue);
     int integral = getIntergral(lineValue);
 
-    printf("Line Value: %d\n", lineValue);
-    printf("P: %d\n", proportional);
+    //printf("Line Value: %d\n", lineValue);
+    //printf("P: %d\n", proportional);
 //    printf("D: %f\n", derivative);
 //    printf("I: %d\n", integral);
 //    printf("N: %f\n", secondDerivative);
 
-//    double pid = (KP * proportional + (KD * derivative - KN * secondDerivative) + KI * integral);
-    double pid = KP * proportional;
+    double pid = (KP * proportional + (KD * derivative - KN * secondDerivative) + KI * integral);
 
     // TODO test
-    printf("PID NO BOUNDS: %f\t", pid);
+    //printf("PID NO BOUNDS: %f\t", pid);
     //if (abs(pid) > PID_BOUNDS) pid /= abs(pid);
     //if (pid < -PID_BOUNDS) pid = -PID_BOUNDS;
-    printf("PID BOUNDED: %f\n", pid);
+    //printf("PID BOUNDED: %f\n", pid);
 
     previousLineValue = lineValue;
     previousDerivativeValue = derivative;
 
-    return (pid*100) / PID_BOUNDS;
+    return (pid*10) / PID_BOUNDS;
 }
 

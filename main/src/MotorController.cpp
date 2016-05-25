@@ -53,42 +53,25 @@ MotorController::~MotorController() {
 
 // Refer to even-speeds.txt for nicer formatting of data
 
-void MotorController::freezeIfSpeedOutOfRange(int speed) {
-    if (speed < -NUMBER_OF_REVERSE_SPEEDS || speed > 11) {
-        set_motor(2, 0);
-        set_motor(1, 0);
-        	/*printf("Your speed %d is out of range\n", speed);
-        Sleep(100000,0);*/
-    }
-}
-
 // Both setLeft and setRight take values between
 // -5 and 11 inclusive
 // setting both to -3 to 2 inclusive means the robot wont move
 void MotorController::setLeft(int speed) {
-   // freezeIfSpeedOutOfRange(speed);
-    set_motor(1, -(speed * 10 / 1.5));//ON pi
-    //set_motor(1,-speed*10);//for test on simulator
+	//set_motor(1, -(speed * 10 / 1.5));//ON pi FOR Dylans code
+	//set_motor(1, -(speed * 10 / 2));//for pid
+    set_motor(1,-speed*7.5);//for test on simulator
 }
 
 void MotorController::setRight(int speed) {
-   // freezeIfSpeedOutOfRange(speed);
-    set_motor(2, (int)-(RIGHT_SPEEDS[(int) (speed/1.5) + NUMBER_OF_REVERSE_SPEEDS]));
-    //set_motor(2,-speed*10); //for testing on the simulator
+    //set_motor(2, (int)-(RIGHT_SPEEDS[(int) (speed/1.5) + NUMBER_OF_REVERSE_SPEEDS])); //FOR Dylans code
+    set_motor(2, (-(int)(RIGHT_SPEEDS[(int) (speed) + NUMBER_OF_REVERSE_SPEEDS]))/1.5);//for pid
+   // set_motor(2,-speed*8); //for testing on the simulator
 }
 
 void MotorController::moveStraightAtSpeed(int speed) {
     setLeft(speed);
     setRight(speed);
 }
-
-void MotorController::freezeIfDirectionOutOfRange(double direction) {
-    if (direction > 1 || direction < -1) {
-        set_motor(2, 0);
-        set_motor(1, 0);
-    }
-}
-
 // ******************** PUBLIC METHODS ******************** //
 
 void MotorController::moveForward() {
@@ -96,7 +79,7 @@ void MotorController::moveForward() {
 }
 
 void MotorController::moveBackward() {
-    moveStraightAtSpeed(-6);
+    moveStraightAtSpeed(-3);
 }
 
 void MotorController::stopMovement() {
@@ -122,21 +105,27 @@ void MotorController::rotateRight() {
 // 1 is max right
 
 void MotorController::arc(double direction, int shouldMoveForward) {
+	direction *= 10;
+    if (abs(direction)>1)direction /= abs(direction);
     printf("Direction: %f\n", direction);
 
     if (shouldMoveForward == 1) {
-        printf("Going forwards\n");
+        //printf("Going forwards\n");
 
         if (direction < 0) { //left
-            int left = (int) ((LEFT_MAX - LEFT_MIN) * (direction) + LEFT_MAX);
+           //int left = (int) ((LEFT_MAX - LEFT_MIN) * (direction) + LEFT_MAX);
+        	int left = LEFT_MAX*(1-abs(direction));
+            printf("LEFT MOTOR: %d/n", left);
+            printf("RIGHT MOTOR: %d/n", RIGHT_MAX);
             setLeft(left);
             setRight(RIGHT_MAX);
-            printf("Turning left: %d\n", left);
         } else if (direction > 0) { //right
-            int right = (int) ((RIGHT_MIN - RIGHT_MAX) * (direction) + RIGHT_MAX);
+            //int right = (int) ((RIGHT_MIN - RIGHT_MAX) * (direction) + RIGHT_MAX);
+            int right = RIGHT_MAX * (1-direction);
+            printf("LEFT MOTOR: %d/n", LEFT_MAX);
+			printf("RIGHT MOTOR: %d/n", right);
             setLeft(LEFT_MAX);
             setRight(right);
-            printf("Turning RIGHT: %d\n", right);
         } else if (direction == 0) {
             moveForward();
         }
@@ -146,13 +135,13 @@ void MotorController::arc(double direction, int shouldMoveForward) {
 
         if (direction < 0) {
             int left = (int) ((LEFT_MAX - LEFT_MIN) * (direction) + LEFT_MAX);
-            setLeft(-left);
-            setRight(-RIGHT_MAX);
+            setLeft(-left/30);
+            setRight(-RIGHT_MAX/30);
             printf("Turning left: %d\n", left);
         } else if (direction > 0) {
             int right = (int) ((RIGHT_MIN - RIGHT_MAX) * (direction) + RIGHT_MAX);
-            setLeft(-LEFT_MAX);
-            setRight(-right);
+            setLeft(-LEFT_MAX/30);
+            setRight(-right/30);
             printf("Turning RIGHT: %d\n", right);
         } else if (direction == 0) {
             moveBackward();
