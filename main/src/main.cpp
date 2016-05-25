@@ -36,7 +36,7 @@ int main() {
             int mid = camera_controller->getMidColOfLine();
             printf("Mid =           %d\n", mid);
 
-            if (abs(mid) < LIM_FORWARD) {
+            if (abs(mid) > LIM_FORWARD) {
                 if (mid < -LIM_FORWARD) {
                     motor_controller->rotateLeft();
                 } else if (mid > LIM_FORWARD) {
