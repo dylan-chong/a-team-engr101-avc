@@ -27,11 +27,9 @@ public:
 
     CameraController();
 
-    int getSum(int row);
+    int getSum(int startRow, int finishRow);
 
     int update(int row);
-
-    int getMidColOfLine();
 };
 
 #endif /* CAMERACONTROLLER_H_ */

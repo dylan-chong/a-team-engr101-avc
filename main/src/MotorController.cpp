@@ -8,7 +8,6 @@
  */
 
 #include "MotorController.h"
-#include <stdlib.h>
 #include <stdio.h>
 
 extern "C" int set_motor(int motor, int speed);
@@ -53,9 +52,6 @@ MotorController::~MotorController() {
 
 // Refer to even-speeds.txt for nicer formatting of data
 
-// Both setLeft and setRight take values between
-// -5 and 11 inclusive
-// setting both to -3 to 2 inclusive means the robot wont move
 void MotorController::setLeft(int speed) {
 	//set_motor(1, -(speed * 10 / 1.5));//ON pi FOR Dylans code
 	//set_motor(1, -(speed * 10 / 2));//for pid
@@ -103,7 +99,6 @@ void MotorController::rotateRight() {
 // -1 is max left
 // 0 is max forward
 // 1 is max right
-
 void MotorController::arc(double direction, int speedScale) {
     if (abs(direction)>1)direction /= abs(direction); //makes direction bewteen 1 & -1
     printf("Direction: %f\n", direction);

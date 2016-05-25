@@ -28,6 +28,7 @@ int main() {
     CameraController *camera_controller = CameraController::makeInstance();
     PidController *pid_controller = PidController::makeInstance();
 
+    network_controller->openGate();
 
     while (true) {
         try {
@@ -47,7 +48,7 @@ int main() {
                 forward = -1;
             }
         }
-        //printf("**************************************\n");//debuging print
+        printf("**************************************\n");//debuging print
     }
 
 

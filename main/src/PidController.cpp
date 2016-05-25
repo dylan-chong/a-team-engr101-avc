@@ -8,7 +8,6 @@
 #include "PidController.h"
 #include <time.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 PidController::PidController() : KP(0.0032/*0.0002*/), KD(0.000075/*0.012*/), KI(0.00), KN(0.000), IMG_WIDTH(0){
     previousClock = clock();
@@ -25,7 +24,7 @@ PidController *PidController::makeInstance() {
     return (PidController *) instance;
 }
 
-/******************** Private ********************/
+//******************** Private ********************//
 
 double PidController::getTimeDiff() { // in clock ticks
     double timeDiff = (double) (clock() - previousClock);
@@ -76,7 +75,7 @@ double PidController::getPIDValue(int lineValue) {
     //printf("I: %d\n", integral);
     //printf("N: %f\n", secondDerivative);
 
-    double pid = (KP * proportional + (KD * derivative - KN * secondDerivative) + KI * integral)*2;
+    double pid = (KP * proportional + (KD * derivative - KN * secondDerivative) + KI * integral);
 
     previousLineValue = lineValue;
     previousDerivativeValue = derivative;

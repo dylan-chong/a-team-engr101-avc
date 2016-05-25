@@ -18,8 +18,6 @@ class NetworkController: public Controller{
 private:
 
 	int connect(char IP_address[15], int port);
-	int sendMessage(char message[]);
-	char recieveMessage(char message[]);
 public:
 	static NetworkController* makeInstance(char IP_address[15], int port);
 	virtual ~NetworkController();

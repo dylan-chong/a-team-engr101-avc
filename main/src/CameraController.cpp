@@ -31,7 +31,7 @@ CameraController *CameraController::makeInstance() {
 }
 
 //gets the total sum of the white array * the position on the white pixels from the center
-int CameraController::getSum(int row) {
+int CameraController::getSum(int startRow,int finishRow) {
     //the first array getting the camera input
     int whiteness[320];
     //the sum of all the white final numbers added
@@ -39,7 +39,7 @@ int CameraController::getSum(int row) {
     // a count of how many white spots have been counted( to check if we can still see the line)
     n_whites = 0;
     take_picture();
-    for (int y = 0; y < row; y += 2) {
+    for (int y = startRow; y < finishRow; y += 2) {
         for (int i = 0; i < 320; i++) {
             whiteness[i] = (get_pixel(i, y, 3) > WHITE_THRESHOLD);
             n_whites += whiteness[i];
@@ -47,7 +47,8 @@ int CameraController::getSum(int row) {
         }
     }
 
-    sum /= (row * 2);
+    sum /= ((finishRow-startRow) / 2);
+    n_whites /= ((finishRow-startRow) / 2);
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites <= 15) { //if the line is completely lost
         throw 1;
@@ -58,33 +59,11 @@ int CameraController::getSum(int row) {
     }
 }
 
-int CameraController::update(int row) {
+int CameraController::update(int finishRow) {
     try {
-        int sum = getSum(row);
+        int sum = getSum(0,finishRow);
         return sum;
     } catch (int e) {
         throw e;
     }
-}
-
-int CameraController::getMidColOfLine() {
-    int numberOfWhites = 0;
-    int totalWhiteCols = 0;
-
-    take_picture();
-
-    for (int x = 0; x < 320; x++) {
-        if (get_pixel(x, 160, 3) > WHITE_THRESHOLD) {
-            totalWhiteCols += x - 160;
-            numberOfWhites++;
-        }
-    }
-
-    // TODO LATER throw exception for not seeing any whites
-
-    if (numberOfWhites == 0) return 10001;
-
-    int midCol = totalWhiteCols / numberOfWhites;
-
-    return midCol;
 }

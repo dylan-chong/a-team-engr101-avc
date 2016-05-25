@@ -26,32 +26,6 @@ private:
     const static int RIGHT_MAX = 8;
     const static int RIGHT_MIN = -7;
 
-    //Made motors the same for the simulator
-    /*const static int LEFT_MAX = 8;
-    const static int LEFT_MIN = -7;
-    const static int RIGHT_MAX = 8;
-    const static int RIGHT_MIN = -7;*/
-
-    // The controller using a MotorController will access
-    // this variable. The MotorController itself doesn't use it
-    const static float PERPENDICULAR_LEFT_TURN_TIME = 1.2345; // DANIEL calibrate this
-    const static float PERPENDICULAR_RIGHT_TURN_TIME = 1.2345; // DANIEL calibrate this
-
-    //const static int LEFT_MOTOR=2;
-    //const static int RIGHT_MOTOR=1;
-
-    //const static int LEFT_BASE_SLOW = 40;
-    //const static int RIGHT_BASE_SLOW = 41;
-    /*const static int MAX_SPEED_LEFT=200; //commented out couse it goes way faster on the simulator
-    const static int MAX_SPEED_RIGHT=230;*/
-
-
-    /**Simulator Values*/
-    /*const static int MAX_SPEED_LEFT=-20; //these are negative because the simulator seems to be backwards
-    const static int MAX_SPEED_RIGHT=-20;
-    const static int LEFT_MOTOR=1; //swapped cause simulator
-    const static int RIGHT_MOTOR=2;*/
-
     void freezeIfSpeedOutOfRange(int speed);
 
     void setLeft(int speed);
@@ -63,6 +37,9 @@ private:
     void freezeIfDirectionOutOfRange(double direction);
 
 public:
+    const static float PERPENDICULAR_LEFT_TURN_TIME = 1.2345; // NOT NEEDED
+    const static float PERPENDICULAR_RIGHT_TURN_TIME = 1.2345; // NOT NEEDED
+
     static MotorController *makeInstance();
 
     virtual ~MotorController();
@@ -80,13 +57,6 @@ public:
     void rotateRight();
 
     void arc(double percent, int shouldMoveForward);
-
-    /*void setStraightLine(double percent);
-    void arcLeft(double percent);
-    void arcRight(double percent);
-    void arc(double percent);
-    void reverse(double percent);
-    void stop();*/
 };
 
 #endif /* MOTORCONTROLLER_H_ */
