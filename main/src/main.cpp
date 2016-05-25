@@ -31,7 +31,7 @@ int main() {
     int LIM_FORWARD = 50; // will move forward if
     int LIM_ARC = 80; // will move forward if
 
-    while (true) {
+    /*while (true) {
 
         try {
             int mid = camera_controller->getMidColOfLine();
@@ -60,9 +60,9 @@ int main() {
             motor_controller->stopMovement();
             printf("\nCATCH %d", e);
         }
-    }
+    }*/
 
-/*
+
 while (true) {
     try {
         int sumC = camera_controller->update(CameraController::CENTER_ROW);
@@ -76,20 +76,21 @@ while (true) {
             if (IR_controller->inMaze()) {
                 break;
             }
-            motor_controller->moveBackward();
-            printf("the camera lost the line!!");
+            printf("************EXCEPTOIN****************%d\n",0);
+            //forward = 0;
+            //motor_controller->moveBackward();
         } else if (e == 2) {
-            forward = 0;
-            motor_controller->moveBackward();
+        	printf("************EXCEPTOIN****************%d\n",0);
+           // forward = 0;
+           // motor_controller->moveBackward();
         }
     }
-    printf("n_whites: %d\n", camera_controller->n_whites);
-    //motor_controller->arc(camera_controller->getDir(), sumC);
-    printf("**************************************\n");//debuging print
+    //printf("n_whites: %d\n", camera_controller->n_whites);
+    //printf("**************************************\n");//debuging print
 
 
 }
-*/
+
 
     //This is for when the robot is in the Maze phase
     while (true) {
