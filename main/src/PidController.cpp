@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-PidController::PidController() : KP(0.0016/*0.0002*/), KD(0.012/*0.012*/), KI(0.000), KN(0.000), IMG_WIDTH(0), PID_BOUNDS(50.0) {
+PidController::PidController() : KP(0.0032/*0.0002*/), KD(0.000075/*0.012*/), KI(0.00), KN(0.000), IMG_WIDTH(0), PID_BOUNDS(50.0) {
     previousClock = clock();
 
     previousLineValue = 0;
