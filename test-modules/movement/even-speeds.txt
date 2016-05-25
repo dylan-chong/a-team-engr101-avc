@@ -3,7 +3,7 @@ Left Motor Speed : Right Motor Speed
 
 Notes:
 - Remember the right motor needs negative values for the robot to go forwards
-- The left motor number is 2, the right is 1
+- The left motor number is 1, the right is 2
 
 Even speed pairs:
 -90 : 200

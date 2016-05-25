@@ -37,12 +37,12 @@ void freezeIfSpeedOutOfRange(int speed) {
 // setting both to -3 to 2 inclusive means the robot wont move
 void setLeft(int speed) {
     freezeIfSpeedOutOfRange(speed);
-    set_motor(2, speed * 10);
+    set_motor(1, speed * 10);
 }
 
 void setRight(int speed) {
     freezeIfSpeedOutOfRange(speed);
-    set_motor(1, RIGHT_SPEEDS[speed + NUMBER_OF_REVERSE_SPEEDS]);
+    set_motor(2, RIGHT_SPEEDS[speed + NUMBER_OF_REVERSE_SPEEDS]);
 }
 
 void moveStraightAtSpeed(int speed) {
