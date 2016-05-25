@@ -29,7 +29,7 @@ int main() {
 
     return 0;
 }*/
-
+/*
 #include <stdio.h>
 #include <time.h>
 #include <limits.h>
@@ -310,7 +310,7 @@ int main() {
     return 0;
 }
 
-/*
+*/
 
 #include <stdio.h>
 #include <time.h>
@@ -395,8 +395,8 @@ int main() {
 	else {
 
 	
-		leftMotor = 80;
-		rightMotor = 80;
+		leftMotor = -80;
+		rightMotor = -80;
 	}
         		
 		printf("%d\n", leftMotor);
