@@ -65,13 +65,13 @@ void MotorController::freezeIfSpeedOutOfRange(int speed) {
 // setting both to -3 to 2 inclusive means the robot wont move
 void MotorController::setLeft(int speed) {
     //freezeIfSpeedOutOfRange(speed);
-    set_motor(2, (speed * 10)/1.5);//ON pi
+    set_motor(1, -(speed * 10)/1);//ON pi
     //set_motor(1,-speed*10);//for test on simulator
 }
 
 void MotorController::setRight(int speed) {
     //freezeIfSpeedOutOfRange(speed);
-    set_motor(1, (int) (RIGHT_SPEEDS[speed + NUMBER_OF_REVERSE_SPEEDS] / 1.5));
+    set_motor(2, (int)-(RIGHT_SPEEDS[speed + NUMBER_OF_REVERSE_SPEEDS] / 1));
     //set_motor(2,-speed*10); //for testing on the simulator
 }
 
@@ -126,12 +126,12 @@ void MotorController::arc(double direction, int shouldMoveForward) {
         printf("Going forwards\n");
 
         if (direction < 0) {
-            int left = (int) ((LEFT_MAX - LEFT_MIN) * (direction * 100) + LEFT_MAX);
+            int left = (int) ((LEFT_MAX - LEFT_MIN) * (direction) + LEFT_MAX);
             setLeft(left);
             setRight(RIGHT_MAX);
             printf("Turning left: %d\n", left);
         } else if (direction > 0) {
-            int right = (int) ((RIGHT_MIN - RIGHT_MAX) * (direction * 100) + RIGHT_MAX);
+            int right = (int) ((RIGHT_MIN - RIGHT_MAX) * (direction) + RIGHT_MAX);
             setLeft(LEFT_MAX);
             setRight(right);
             printf("Turning RIGHT: %d\n", right);
@@ -143,12 +143,12 @@ void MotorController::arc(double direction, int shouldMoveForward) {
         printf("Going back\n");
 
         if (direction < 0) {
-            int left = (int) ((LEFT_MAX - LEFT_MIN) * (direction * 100) + LEFT_MAX);
+            int left = (int) ((LEFT_MAX - LEFT_MIN) * (direction) + LEFT_MAX);
             setLeft(-left);
             setRight(-RIGHT_MAX);
             printf("Turning left: %d\n", left);
         } else if (direction > 0) {
-            int right = (int) ((RIGHT_MIN - RIGHT_MAX) * (direction * 100) + RIGHT_MAX);
+            int right = (int) ((RIGHT_MIN - RIGHT_MAX) * (direction) + RIGHT_MAX);
             setLeft(-LEFT_MAX);
             setRight(-right);
             printf("Turning RIGHT: %d\n", right);

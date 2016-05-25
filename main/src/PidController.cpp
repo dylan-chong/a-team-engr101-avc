@@ -8,6 +8,7 @@
 #include "PidController.h"
 #include <time.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 PidController::PidController() : KP(0.0002), KD(0.0/*0.012*/), KI(0.000), KN(0.001), IMG_WIDTH(0), PID_BOUNDS(300.0) {
     previousClock = clock();
@@ -88,13 +89,13 @@ double PidController::getPIDValue(int lineValue) {
 
     // TODO test
     printf("PID NO BOUNDS: %f\t", pid);
-    if (pid > PID_BOUNDS) pid = PID_BOUNDS;
-    if (pid < -PID_BOUNDS) pid = -PID_BOUNDS;
+    if (abs(pid) > PID_BOUNDS) pid /= abs(pid);
+    //if (pid < -PID_BOUNDS) pid = -PID_BOUNDS;
     printf("PID BOUNDED: %f\n", pid);
 
     previousLineValue = lineValue;
     previousDerivativeValue = derivative;
 
-    return pid / PID_BOUNDS;
+    return (pid*1000) / PID_BOUNDS;
 }
 
