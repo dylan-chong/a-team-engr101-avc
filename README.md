@@ -332,5 +332,7 @@ Extra Info
     - Got a very basic line following algorithm to work 
 
 
+<h5>Thursday 26/05/16</h5>
 
+<h5>Friday 27/05/16</h5>
 
