@@ -85,6 +85,8 @@ int CameraController::getMidColOfLine() {
     int numberOfWhites = 0;
     int totalWhiteCols = 0;
 
+    take_picture();
+
     for (int x = 0; x < 320; x++) {
         if (get_pixel(x, 160, 3) > WHITE_THRESHOLD) {
             totalWhiteCols += x - 160;
@@ -93,6 +95,8 @@ int CameraController::getMidColOfLine() {
     }
 
     // TODO LATER throw exception for not seeing any whites
+
+    if (numberOfWhites == 0) return 0;
 
     int midCol = totalWhiteCols / numberOfWhites;
     return midCol;
