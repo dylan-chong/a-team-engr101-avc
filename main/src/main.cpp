@@ -29,6 +29,7 @@ int main() {
     PidController *pid_controller = PidController::makeInstance();
 
     int LIM_FORWARD = 20; // will move forward if
+    int LIM_ARC = 50; // will move forward if
 
     while (true) {
 
@@ -41,6 +42,12 @@ int main() {
                     motor_controller->rotateLeft();
                 } else if (mid > LIM_FORWARD) {
                     motor_controller->rotateRight();
+                }
+            } else if (abs(mid) > LIM_ARC) {
+                if (mid < -LIM_ARC) {
+                    motor_controller->arc(0.75, 1);
+                } else if (mid > LIM_ARC) {
+                    motor_controller->arc(-0.75, 1);
                 }
             } else {
                 motor_controller->moveForward();
