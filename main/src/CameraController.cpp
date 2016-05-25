@@ -82,5 +82,19 @@ char CameraController::getDir() {
     return dir;
 }
 
+int CameraController::getMidColOfLine() {
+    int numberOfWhites = 0;
+    int totalWhiteCols = 0;
 
+    for (int x = 0; x < 320; x++) {
+        if (get_pixel(x, 160, 3) > WHITE_THRESHOLD) {
+            totalWhiteCols += x - 160;
+            numberOfWhites++;
+        }
+    }
 
+    // TODO LATER throw exception for not seeing any whites
+
+    int midCol = totalWhiteCols / numberOfWhites;
+    return midCol;
+}

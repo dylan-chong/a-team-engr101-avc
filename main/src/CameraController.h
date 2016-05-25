@@ -34,6 +34,8 @@ public:
     int getSum(int row);
 
     int update(int row);
+
+    int getMidColOfLine();
 };
 
 #endif /* CAMERACONTROLLER_H_ */
