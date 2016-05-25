@@ -28,16 +28,7 @@ int main() {
     CameraController *camera_controller = CameraController::makeInstance();
     PidController *pid_controller = PidController::makeInstance();
 
-    int LIM_FORWARD = 1000;
-while (true) {
-	try{
-	int sumC = camera_controller->update(CameraController::CENTER_ROW);
-
-	printf("%d\n", sumC);
-	sleepMillis(1000);
-
-	} catch(int e) {}
-}
+    int LIM_FORWARD = 400;
 
     while (true) {
 
@@ -45,21 +36,19 @@ while (true) {
 			int sumC = camera_controller->update(CameraController::CENTER_ROW);
 			printf("Tick LV=           %d", sumC);
 
-			while (sumC > LIM_FORWARD * 2) {
+			if (sumC < -LIM_FORWARD) {
 				motor_controller->rotateLeft();
-				sumC = camera_controller->update(CameraController::CENTER_ROW);
-				sleepMillis(20);
-			}
-			while (sumC < -LIM_FORWARD * 2) {
+				sleepMillis(100);
+			} else if (sumC > LIM_FORWARD) {
 				motor_controller->rotateRight();
-				sumC = camera_controller->update(CameraController::CENTER_ROW);
-				sleepMillis(20);
+				sleepMillis(100);
 			}
+			motor_controller->moveForward();
+
 
     	} catch (int e) {}
 
-    	motor_controller->moveForward();
-    	sleepMillis(300);
+    	sleepMillis(100);
 
     	/*
         try {
