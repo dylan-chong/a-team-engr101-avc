@@ -104,49 +104,19 @@ void MotorController::rotateRight() {
 // 0 is max forward
 // 1 is max right
 
-void MotorController::arc(double direction, int shouldMoveForward) {
-	direction *= 10;
+void MotorController::arc(double direction, int speedScale) {
     if (abs(direction)>1)direction /= abs(direction);
     printf("Direction: %f\n", direction);
 
-    if (shouldMoveForward == 1) {
-        //printf("Going forwards\n");
+	if (direction < 0) { //left
+		setLeft(LEFT_MAX*(1-abs(direction))*speedScale);
+		setRight(RIGHT_MAX*speedScale);
+	} else if (direction > 0) { //right
+		setLeft(LEFT_MAX*speedScale);
+		setRight(RIGHT_MAX * (1-direction)*speedScale);
+	} else if (direction == 0) {
+		moveForward();
+	}
 
-        if (direction < 0) { //left
-           //int left = (int) ((LEFT_MAX - LEFT_MIN) * (direction) + LEFT_MAX);
-        	int left = LEFT_MAX*(1-abs(direction));
-            printf("LEFT MOTOR: %d/n", left);
-            printf("RIGHT MOTOR: %d/n", RIGHT_MAX);
-            setLeft(left);
-            setRight(RIGHT_MAX);
-        } else if (direction > 0) { //right
-            //int right = (int) ((RIGHT_MIN - RIGHT_MAX) * (direction) + RIGHT_MAX);
-            int right = RIGHT_MAX * (1-direction);
-            printf("LEFT MOTOR: %d/n", LEFT_MAX);
-			printf("RIGHT MOTOR: %d/n", right);
-            setLeft(LEFT_MAX);
-            setRight(right);
-        } else if (direction == 0) {
-            moveForward();
-        }
-
-    } else if (shouldMoveForward == 0) { // needs testing
-        printf("Going back\n");
-
-        if (direction < 0) {
-            int left = (int) ((LEFT_MAX - LEFT_MIN) * (direction) + LEFT_MAX);
-            setLeft(-left/30);
-            setRight(-RIGHT_MAX/30);
-            printf("Turning left: %d\n", left);
-        } else if (direction > 0) {
-            int right = (int) ((RIGHT_MIN - RIGHT_MAX) * (direction) + RIGHT_MAX);
-            setLeft(-LEFT_MAX/30);
-            setRight(-right/30);
-            printf("Turning RIGHT: %d\n", right);
-        } else if (direction == 0) {
-            moveBackward();
-        }
-
-    }
 }
 

@@ -17,8 +17,6 @@ class CameraController : public Controller {
 private:
     const static int WHITE_THRESHOLD = 120;
 
-    char dir;
-
 public:
     const static int CENTER_ROW = 60;
     int n_whites;
@@ -28,8 +26,6 @@ public:
     virtual ~CameraController();
 
     CameraController();
-
-    char getDir();
 
     int getSum(int row);
 

@@ -17,7 +17,7 @@ extern "C" int Sleep(int sec, int usec);
 
 //This is the constructor
 CameraController::CameraController() {
-    dir = 'l';
+    n_whites = 0;
 }
 
 //this is the destructor
@@ -47,21 +47,11 @@ int CameraController::getSum(int row) {
         }
     }
 
-
-    // print what it's seeing
-    printf("\nLINE\n");
-    for (int x = 0; x < 320; x+=2) {
-    	printf("%d", whiteness[x]);
-    }
-    printf("\nENDLINE\n");
-
-
     sum /= (row * 2);
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites <= 15) { //if the line is completely lost
         throw 1;
-        // }else if (n_whites <= 800){ //if the line ends SIM ONLY
-    } else if (n_whites <= 200) { //LIVE ONLY
+    } else if (n_whites <= 200) { //if the line is almost lost
         throw 2;
     } else {
         return sum;
@@ -75,10 +65,6 @@ int CameraController::update(int row) {
     } catch (int e) {
         throw e;
     }
-}
-
-char CameraController::getDir() {
-    return dir;
 }
 
 int CameraController::getMidColOfLine() {

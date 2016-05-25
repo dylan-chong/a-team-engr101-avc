@@ -41,8 +41,6 @@ int PidController::getProportional(int lineValue) {
 
 //gets the change in the line value with respect to time
 double PidController::getDerivative(int lineValue, double timeDiff, int prevLineValue) {
-//    printf("lineValue: %d\n", lineValue);
-//    printf("previous Line Value: %d\n", prevLineValue);
     double derivative_signal = ((double) (lineValue - prevLineValue) / timeDiff);
     return derivative_signal;
 }
@@ -83,15 +81,9 @@ double PidController::getPIDValue(int lineValue) {
 
     double pid = (KP * proportional + (KD * derivative - KN * secondDerivative) + KI * integral);
 
-    // TODO test
-    //printf("PID NO BOUNDS: %f\t", pid);
-    //if (abs(pid) > PID_BOUNDS) pid /= abs(pid);
-    //if (pid < -PID_BOUNDS) pid = -PID_BOUNDS;
-    //printf("PID BOUNDED: %f\n", pid);
-
     previousLineValue = lineValue;
     previousDerivativeValue = derivative;
 
-    return (pid*10) / PID_BOUNDS;
+    return (pid*100) / PID_BOUNDS;
 }
 

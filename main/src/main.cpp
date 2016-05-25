@@ -42,13 +42,9 @@ int main() {
                 if (IR_controller->inMaze()) {
                     break;
                 }
-                printf("************EXCEPTOIN****************%d\n", 0);
-                //forward = 0;
-                //motor_controller->moveBackward();
+                forward = -1;
             } else if (e == 2) {
-                printf("************EXCEPTOIN****************%d\n", 0);
-                // forward = 0;
-                // motor_controller->moveBackward();
+                forward = -1;
             }
         }
         //printf("n_whites: %d\n", camera_controller->n_whites);
