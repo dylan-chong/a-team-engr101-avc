@@ -49,7 +49,10 @@ int main() {
             sleepMillis(10);
             motor_controller->stopMovement();
 
-        } catch (int e) { }
+        } catch (int e) {
+            motor_controller->stopMovement();
+            printf("\nCATCH %d", e);
+        }
 
     }
 
