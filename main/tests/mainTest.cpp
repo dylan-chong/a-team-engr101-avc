@@ -19,8 +19,8 @@ int main(){
 	IRTest->runTests();
 	MotorControllerTest* motorTest = new MotorControllerTest();
 	motorTest->runTests();
-	NetworkControllerTest* networkTest = new NetworkControllerTest();
-	networkTest->runTests();
+	/*NetworkControllerTest* networkTest = new NetworkControllerTest();
+	networkTest->runTests();*/
 }
 
 

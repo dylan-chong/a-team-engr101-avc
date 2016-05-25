@@ -26,7 +26,6 @@ int main() {
     CameraController *camera_controller = CameraController::makeInstance();
     PidController *pid_controller = PidController::makeInstance();
 
-    motor_controller->moveForward();
 
     while (true) {
         try {
@@ -51,7 +50,7 @@ int main() {
         printf("n_whites: %d\n", camera_controller->n_whites);
         //motor_controller->arc(camera_controller->getDir(), sumC);
         printf("**************************************\n");//debuging print
-        sleepMillis(10000);
+        sleepMillis(500);
 	}
 	//This is for when the robot is in the Maze phase
 	while(true){
