@@ -54,14 +54,12 @@ MotorController::~MotorController() {
 
 void MotorController::setLeft(int speed) {
 	//set_motor(1, -(speed * 10 / 1.5));//ON pi FOR Dylans code
-	//set_motor(1, -(speed * 10 / 2));//for pid
-    set_motor(1,-speed*7.5);//for test on simulator
+    set_motor(1,-speed*7.5);
 }
 
 void MotorController::setRight(int speed) {
     //set_motor(2, (int)-(RIGHT_SPEEDS[(int) (speed/1.5) + NUMBER_OF_REVERSE_SPEEDS])); //FOR Dylans code
     set_motor(2, (-(int)(RIGHT_SPEEDS[(int) (speed) + NUMBER_OF_REVERSE_SPEEDS]))/1.5);//for pid
-   // set_motor(2,-speed*8); //for testing on the simulator
 }
 
 void MotorController::moveStraightAtSpeed(int speed) {

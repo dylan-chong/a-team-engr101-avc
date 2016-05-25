@@ -44,7 +44,7 @@ int main() {
                     break;
                 }
                 forward = -1;
-            } else if (e == 2) {
+            } else if (e == 2) {//if robot almost loses line
                 forward = -1;
             }
         }
