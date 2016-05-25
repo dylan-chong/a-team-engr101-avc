@@ -32,6 +32,7 @@ int main() {
     int LIM_ARC = 80; // will move forward if
 
     while (true) {
+        // IT WORKS
 
         try {
             int mid = camera_controller->getMidColOfLine();
