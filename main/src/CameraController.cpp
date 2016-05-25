@@ -46,6 +46,15 @@ int CameraController::getSum(int row) {
             sum += whiteness[i] * (i - 160);
         }
     }
+
+
+    // print what it's seeing
+    printf("\nLINE\n");'
+    for (int x = 0; x < 320; x++) {
+    	printf("%d", x);
+    }
+    printf("\nENDLINE\n");
+
     sum /= (row * 2);
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites <= 15) { //if the line is completely lost
