@@ -7,6 +7,8 @@
 #include "IRController.h"
 #include "PidController.h"
 
+#include <stdlib.h>
+
 extern "C" int init(int d_lev);
 extern "C" int Sleep(int sec, int usec);
 
@@ -26,8 +28,40 @@ int main() {
     CameraController *camera_controller = CameraController::makeInstance();
     PidController *pid_controller = PidController::makeInstance();
 
+    int LIM_FORWARD = 1000;
+while (true) {
+	try{
+	int sumC = camera_controller->update(CameraController::CENTER_ROW);
+
+	printf("%d\n", sumC);
+	sleepMillis(1000);
+
+	} catch(int e) {}
+}
 
     while (true) {
+
+    	try {
+			int sumC = camera_controller->update(CameraController::CENTER_ROW);
+			printf("Tick LV=           %d", sumC);
+
+			while (sumC > LIM_FORWARD * 2) {
+				motor_controller->rotateLeft();
+				sumC = camera_controller->update(CameraController::CENTER_ROW);
+				sleepMillis(20);
+			}
+			while (sumC < -LIM_FORWARD * 2) {
+				motor_controller->rotateRight();
+				sumC = camera_controller->update(CameraController::CENTER_ROW);
+				sleepMillis(20);
+			}
+
+    	} catch (int e) {}
+
+    	motor_controller->moveForward();
+    	sleepMillis(300);
+
+    	/*
         try {
             int sumC = camera_controller->update(CameraController::CENTER_ROW);
             double pid_val = pid_controller->getPIDValue(sumC);
@@ -50,7 +84,8 @@ int main() {
         printf("n_whites: %d\n", camera_controller->n_whites);
         //motor_controller->arc(camera_controller->getDir(), sumC);
         printf("**************************************\n");//debuging print
-        sleepMillis(500);
+        */
+
 	}
 	//This is for when the robot is in the Maze phase
 	while(true){

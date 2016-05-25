@@ -57,6 +57,8 @@ void MotorController::freezeIfSpeedOutOfRange(int speed) {
     if (speed < -NUMBER_OF_REVERSE_SPEEDS || speed > 11) {
         set_motor(2, 0);
         set_motor(1, 0);
+        	/*printf("Your speed %d is out of range\n", speed);
+        Sleep(100000,0);*/
     }
 }
 
@@ -64,14 +66,14 @@ void MotorController::freezeIfSpeedOutOfRange(int speed) {
 // -5 and 11 inclusive
 // setting both to -3 to 2 inclusive means the robot wont move
 void MotorController::setLeft(int speed) {
-    //freezeIfSpeedOutOfRange(speed);
-    set_motor(1, -(speed * 10)/1);//ON pi
+   // freezeIfSpeedOutOfRange(speed);
+    set_motor(1, -(speed * 10 / 1.5));//ON pi
     //set_motor(1,-speed*10);//for test on simulator
 }
 
 void MotorController::setRight(int speed) {
-    //freezeIfSpeedOutOfRange(speed);
-    set_motor(2, (int)-(RIGHT_SPEEDS[speed + NUMBER_OF_REVERSE_SPEEDS] / 1));
+   // freezeIfSpeedOutOfRange(speed);
+    set_motor(2, (int)-(RIGHT_SPEEDS[(int) (speed/1.5) + NUMBER_OF_REVERSE_SPEEDS]));
     //set_motor(2,-speed*10); //for testing on the simulator
 }
 
