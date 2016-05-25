@@ -326,8 +326,10 @@ Extra Info
 
 
 <h5>Wednesday 25/05/16</h5>
-
-
+- Dylan
+    - Tidied up code in the main project
+    - Working with Andrew trying to get the PID working
+    - Got a very basic line following algorithm to work 
 
 
 
