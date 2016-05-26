@@ -9,6 +9,7 @@
 #define PIDCONTROLLER_H_
 
 #include "Controller.h"
+#include <time.h>
 
 class PidController : public Controller {
     friend class PidControllerTest;
