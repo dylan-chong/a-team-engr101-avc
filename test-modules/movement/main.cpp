@@ -23,7 +23,7 @@ const int RIGHT_MAX = 8;
 const int RIGHT_MIN = -7;
 
 void freezeIfSpeedOutOfRange(int speed) {
-    if (speed < -NUMBER_OF_REVERSE_SPEEDS || speed > 11) {
+    if (speed < -NUMBER_OF_REVERSE_SPEEDS || speed > 9) {
         set_motor(2, 0);
         set_motor(1, 0);
         while (true) {

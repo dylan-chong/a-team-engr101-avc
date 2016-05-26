@@ -59,7 +59,7 @@ void MotorController::setLeft(int speed) {
 
 void MotorController::setRight(int speed) {
     //set_motor(2, (int)-(RIGHT_SPEEDS[(int) (speed/1.5) + NUMBER_OF_REVERSE_SPEEDS])); //FOR Dylans code
-    set_motor(2, (-(int)(RIGHT_SPEEDS[(int) (speed) + NUMBER_OF_REVERSE_SPEEDS]))/1.5);//for pid
+    set_motor(2, -(int)(((RIGHT_SPEEDS[(int) (speed) + NUMBER_OF_REVERSE_SPEEDS]))/1.5));//for pid
 }
 
 void MotorController::moveStraightAtSpeed(int speed) {

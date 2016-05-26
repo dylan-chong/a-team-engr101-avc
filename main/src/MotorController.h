@@ -22,9 +22,9 @@ private:
 
     // Values for the PI
     const static int LEFT_MAX = 9;
-    const static int LEFT_MIN = -8;
-    const static int RIGHT_MAX = 8;
-    const static int RIGHT_MIN = -7;
+    const static int LEFT_MIN = -9;
+    const static int RIGHT_MAX = 9;
+    const static int RIGHT_MIN = -9;
 
     void freezeIfSpeedOutOfRange(int speed);
 
