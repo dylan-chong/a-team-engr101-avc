@@ -13,6 +13,7 @@ public:
 	MotorControllerTest();
 	virtual ~MotorControllerTest();
 	void runTests();
+	void testMotor();
 };
 
 #endif /* MAIN_PROJECT_TESTS_MOTORCONTROLLERTEST_H_ */

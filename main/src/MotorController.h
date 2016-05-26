@@ -13,24 +13,50 @@
 
 #include "Controller.h"
 
-class MotorController: public Controller{
-	friend class MotorControllerTest;
+class MotorController : public Controller {
+    friend class MotorControllerTest;
+
 private:
-	const static int LEFT_MOTOR=1;
-	const static int RIGHT_MOTOR=2;
-	const static int MAX_SPEED=255;
+    const static int NUMBER_OF_REVERSE_SPEEDS = 9;
+    int RIGHT_SPEEDS[21];
+
+    // Values for the PI
+    const static int LEFT_MAX = 9;
+    const static int LEFT_MIN = -9;
+    const static int RIGHT_MAX = 9;
+    const static int RIGHT_MIN = -9;
+
+    void freezeIfSpeedOutOfRange(int speed);
+
+    void setLeft(int speed);
+
+    void setRight(int speed);
+
+    void moveStraightAtSpeed(int speed);
+
+    void freezeIfDirectionOutOfRange(double direction);
 
 public:
-	static MotorController* makeInstance();
-	virtual ~MotorController();
-	MotorController();
+    const static float PERPENDICULAR_LEFT_TURN_TIME = 1.2345; // NOT NEEDED
+    const static float PERPENDICULAR_RIGHT_TURN_TIME = 1.2345; // NOT NEEDED
 
-	void setStraightLine(double percent);
-	void arcLeft(double percent);
-	void arcRight(double percent);
-	void arc(char dir, double percent);
-	void reverse(double percent);
+    static MotorController *makeInstance();
 
+    virtual ~MotorController();
+
+    MotorController();
+
+    void moveForward();
+
+    void moveBackward();
+
+    void stopMovement();
+
+    void rotateLeft();
+
+    void rotateRight();
+
+    void arc(double percent, double speedScale);
 };
 
 #endif /* MOTORCONTROLLER_H_ */

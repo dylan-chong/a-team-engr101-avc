@@ -118,18 +118,10 @@ class MotorController {
 
 	}
 
-	// when percent is 1.0 don't actually turn
-	// when percent is -1.0 turn left on the spot
-	// DANIEL maybe instead make 0 move straight
-	// and 1.0 turn on the spot - take your pick
-	// then edit this description
-	public void arcLeft(double percent) {
-		right = full speed;
-		left = full speed * percent;
-	}
+	// direction between -1 (full left)
+	// and 1 (full right)
+	public void arc(double direction) {
 
-	public void arcRight(double percent) {
-		// similar thing as arcLeft
 	}
  
  };
@@ -202,7 +194,8 @@ class IRController {
 
 class PIDController {
 
-	public int getPIDValue() {
+	// return between -1 and 1
+	public double getPIDValue() {
 		// use other get methods
 	}
 
