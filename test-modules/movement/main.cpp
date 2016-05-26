@@ -116,9 +116,8 @@ void arc(double direction) {
 int main() {
     init(0);
 
-    arc(-1);
-    sleep(3, 0);
-    arc(1);
+    set_motor(1, 110);
+    set_motor(2, -255);
     sleep(3, 0);
 
     stopMovement();
