@@ -9,6 +9,7 @@
 
 #include "MotorController.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 extern "C" int set_motor(int motor, int speed);
 
