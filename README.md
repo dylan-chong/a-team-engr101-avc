@@ -333,6 +333,9 @@ Extra Info
 
 
 <h5>Thursday 26/05/16</h5>
+- Dylan
+    - Recalibrated even motor speeds with Daniel (with the small wheels)
+    - Recalibrated P and D values in PidController.cpp with Andrew
 
 <h5>Friday 27/05/16</h5>
 
