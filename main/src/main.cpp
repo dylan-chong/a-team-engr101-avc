@@ -21,20 +21,20 @@ void sleepMillis(int millis) {
 }
 
 int main() {
-    init(1);
-    NetworkController *network_controller = NetworkController::makeInstance("192.168.1.2", 22);
+    init(0);
+    //NetworkController *network_controller = NetworkController::makeInstance("192.168.1.2", 22);
     MotorController *motor_controller = MotorController::makeInstance();
     IRController *IR_controller = IRController::makeInstance();
     CameraController *camera_controller = CameraController::makeInstance();
     PidController *pid_controller = PidController::makeInstance();
 
-    network_controller->openGate();
+    //network_controller->openGate();
 
     while (true) {
         try {
             int sumC = camera_controller->update(CameraController::CENTER_ROW); //gets the linevalue
             double pid_val = pid_controller->getPIDValue(sumC); //turns the line value in a PID value
-            motor_controller->arc(pid_val, forward); //sets what the motor should do from the pid value
+            motor_controller->arc(pid_val, forward*0.7); //sets what the motor should do from the pid value
             if (camera_controller->n_whites > 50) { //if the robot gets back to a t intersection
                 forward = 1;
             }

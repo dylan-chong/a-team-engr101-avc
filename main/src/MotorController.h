@@ -56,7 +56,7 @@ public:
 
     void rotateRight();
 
-    void arc(double percent, int shouldMoveForward);
+    void arc(double percent, double speedScale);
 };
 
 #endif /* MOTORCONTROLLER_H_ */
