@@ -34,7 +34,7 @@ int main() {
         try {
             int sumC = camera_controller->update(CameraController::CENTER_ROW); //gets the linevalue
             double pid_val = pid_controller->getPIDValue(sumC); //turns the line value in a PID value
-            motor_controller->arc(pid_val, forward*0.7); //sets what the motor should do from the pid value
+            motor_controller->arc(pid_val, forward*0.70); //sets what the motor should do from the pid value
             if (camera_controller->n_whites > 50) { //if the robot gets back to a t intersection
                 forward = 1;
             }

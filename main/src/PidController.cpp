@@ -80,6 +80,7 @@ double PidController::getPIDValue(int lineValue) {
     previousLineValue = lineValue; //stores the line Value so the change can be calculated
     previousDerivativeValue = derivative; //stores the derivative value to calculate the change later
 
+    if (pid < 0) pid *= 0.8;
     return pid;
 }
 
