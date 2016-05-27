@@ -91,8 +91,9 @@ void MotorController::rotateLeft() {
 
 // turn right on the spot
 void MotorController::rotateRight() {
-    setLeft(LEFT_MAX*.2);
-    setRight(RIGHT_MIN*.2);
+	printf("Right rotate: *******************");
+    setLeft(LEFT_MAX*.5);
+    setRight(RIGHT_MIN*.5);
 }
 
 // -1 is max left

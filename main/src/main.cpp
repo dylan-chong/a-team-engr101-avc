@@ -36,7 +36,7 @@ int main() {
     while (true) {
         try {
             int sumC = camera_controller->update(CameraController::CENTER_ROW); //gets the linevalue
-            printf("SUM: %d\n", sumC);
+            //printf("SUM: %d\n", sumC);
             double pid_val = pid_controller->getPIDValue(sumC); //turns the line value in a PID value
 
             motor_controller->arc(pid_val, forward*0.70); //sets what the motor should do from the pid value
@@ -52,16 +52,17 @@ int main() {
                 }
                 motor_controller->rotateRight();
                 //forward = -1;
-            } else if (e == 2) {//if robot almost loses line
-                //forward = -1;
-                printf("*** E: almost lost line ***");
             } else if (e == 3) { // perpendicular turn on left
                 printf("*** E: line on left ***");
                 motor_controller->arc(-1.0, 1);
-                sleepMillis(1000 * PERPENDICULAR_LEFT_TURN_TIME * 0.9);
-                motor_controller->stopMovement();
+                Sleep(0,1000); //only needs it on the left side as it turns right when the line is lost
+                /*sleepMillis(1000 * PERPENDICULAR_LEFT_TURN_TIME * 0.9);
+                motor_controller->stopMovement();*/
+            } else if (e == 4){
+            	motor_controller->arc(0, 1);
             } else if (e == 5) {
             	printf("*** E: line on right ***");
+            	motor_controller->arc(1, 1);
             }
 
             // tODO handle 3,4 errors
