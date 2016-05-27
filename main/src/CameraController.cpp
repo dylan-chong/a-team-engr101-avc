@@ -32,7 +32,7 @@ CameraController *CameraController::makeInstance() {
 
 //gets the total sum of the white array * the position on the white pixels from the center
 int CameraController::getSum(int startRow, int finishRow) {
-    int SIDE_COUNT_WIDTH = 140; // must be less than 160
+    int SIDE_COUNT_WIDTH = 100; // must be less than 160
     // NOTE: the line takes up 166 pixels across
 
     //the first array getting the camera input
@@ -53,7 +53,7 @@ int CameraController::getSum(int startRow, int finishRow) {
 
                 if (i < SIDE_COUNT_WIDTH) leftWhites++;
                 if (i > 320 - SIDE_COUNT_WIDTH) rightWhites++;
-                if (i > centreWhites && i < 320 - centreWhites) centreWhites++;
+                if (i > SIDE_COUNT_WIDTH && i < 320 - SIDE_COUNT_WIDTH) centreWhites++;
             }
         }
     }
@@ -68,17 +68,26 @@ int CameraController::getSum(int startRow, int finishRow) {
     sum /= ((finishRow - startRow) / 2);
     n_whites /= ((finishRow - startRow) / 2);
 
-    int rows = finishRow - startRow;
+    /*leftWhites *= (finishRow - startRow) / 2;
+    rightWhites  *= (finishRow - startRow) / 2;*/
+    printf("Total Whites: %d\n", n_whites);
+    printf("left pixels: %d ,", leftWhites);
+    printf("right pixels: %d ,", rightWhites);
+    printf("center: %d\n", centreWhites);
+
 
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites <= 1) { //if the line is completely lost
         throw 1;
     } else if (n_whites <= 3) { //if the line is almost lost
         throw 2;
-    } else if (leftWhites > 80 * rows && centreWhites > 40 * rows) {
-        throw 3;
-    } else if (rightWhites > 80 * rows && centreWhites > 40 * rows) {
-        throw 4;
+    } else if (leftWhites > 2800 && centreWhites > 2500) { //checks center pixels as well as line takes up half the camera
+       throw 3;
+    } else if (centreWhites > 2500 && rightWhites > 00){
+    	//if there is a line in the center and a line to the right
+    	throw 4;
+    } else if (rightWhites > 2800 && centreWhites > 2500) {
+        throw 5;
     } else {
         return sum;
     }

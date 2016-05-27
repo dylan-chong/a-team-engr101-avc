@@ -85,14 +85,14 @@ void MotorController::stopMovement() {
 // turn left on the spot
 // right wheel doesn't seem to do anything
 void MotorController::rotateLeft() {
-    setLeft(LEFT_MIN);
-    setRight(RIGHT_MAX);
+    setLeft(LEFT_MIN*.2);
+    setRight(RIGHT_MAX*.2);
 }
 
 // turn right on the spot
 void MotorController::rotateRight() {
-    setLeft(LEFT_MAX);
-    setRight(RIGHT_MIN);
+    setLeft(LEFT_MAX*.2);
+    setRight(RIGHT_MIN*.2);
 }
 
 // -1 is max left
@@ -100,7 +100,7 @@ void MotorController::rotateRight() {
 // 1 is max right
 void MotorController::arc(double direction, double speedScale) {
     if (abs(direction)>1)direction /= abs(direction); //makes direction between 1 & -1
-    printf("Direction: %f\n", direction);
+    //printf("Direction: %f\n", direction);
 
 	if (direction < 0) { //left
 		setLeft(LEFT_MAX*(1-abs(direction))*speedScale);	//sets the left motor to something less than the max speed
@@ -114,4 +114,3 @@ void MotorController::arc(double direction, double speedScale) {
 
 }
 
- 

@@ -9,7 +9,7 @@
 #include <time.h>
 #include <stdio.h>
 
-PidController::PidController() : KP(0.0064/*0.0002*/), KD(0.000002/*0.012*/), KI(0.00), KN(0.000), IMG_WIDTH(0){
+PidController::PidController() : KP(0.0064/*0.0002*/), KD(0.000005/*0.012*/), KI(0.00), KN(0.000), IMG_WIDTH(0){
     previousClock = clock();
 
     previousLineValue = 0;
