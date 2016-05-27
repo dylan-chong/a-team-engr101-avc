@@ -38,12 +38,18 @@ int CameraController::getSum(int startRow,int finishRow) {
     int sum = 0;
     // a count of how many white spots have been counted( to check if we can still see the line)
     n_whites = 0;
+    int leftWhites = 0, rightWhites = 0;
+    
     take_picture();
     for (int y = startRow; y < finishRow; y += 2) {
         for (int i = 0; i < 320; i++) {
             whiteness[i] = (get_pixel(i, y, 3) > WHITE_THRESHOLD);
-            n_whites += whiteness[i];
-            sum += whiteness[i] * (i - 160);
+            if (whiteness[i] == 1) {
+                n_whites++;
+                sum += (i - 160);
+                if (i < 160) leftWhites++;
+                else rightWhites++;
+            }
         }
     }
 
