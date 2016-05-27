@@ -24,14 +24,14 @@ void sleepMillis(int millis) {
 }
 
 int main() {
-    init(0);
-    //NetworkController *network_controller = NetworkController::makeInstance("192.168.1.2", 22);
+    init(1);
+    NetworkController *network_controller = NetworkController::makeInstance("130.195.6.196", 1024);
     MotorController *motor_controller = MotorController::makeInstance();
     IRController *IR_controller = IRController::makeInstance();
     CameraController *camera_controller = CameraController::makeInstance();
     PidController *pid_controller = PidController::makeInstance();
 
-    //network_controller->openGate();
+    network_controller->openGate();
 
     while (true) {
         try {
