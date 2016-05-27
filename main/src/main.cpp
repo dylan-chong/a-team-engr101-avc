@@ -52,7 +52,7 @@ int main() {
             } else if (e == 2) {//if robot almost loses line
                 forward = -1;
                 printf("*** E: almost lost line ***");
-            } else if (e == 3) { // path on left
+            } else if (e == 3) { // perpendicular turn on left
                 printf("*** E: line on left ***");
                 motor_controller->arc(-1.0, 1);
                 sleepMillis(1000 * PERPENDICULAR_LEFT_TURN_TIME * 0.9);

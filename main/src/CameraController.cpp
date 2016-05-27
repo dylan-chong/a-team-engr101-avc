@@ -68,14 +68,16 @@ int CameraController::getSum(int startRow, int finishRow) {
     sum /= ((finishRow - startRow) / 2);
     n_whites /= ((finishRow - startRow) / 2);
 
+    int rows = finishRow - startRow;
+
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites <= 1) { //if the line is completely lost
         throw 1;
     } else if (n_whites <= 3) { //if the line is almost lost
         throw 2;
-    } else if (leftWhites > 50 * (finishRow - startRow)) {
+    } else if (leftWhites > 50 * rows && centreWhites > 40 * rows) {
         throw 3;
-    } else if (rightWhites > 50 * (finishRow - startRow)) {
+    } else if (rightWhites > 50 * rows && centreWhites > 40 * rows) {
         throw 4;
     } else {
         return sum;
