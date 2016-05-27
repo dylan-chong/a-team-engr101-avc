@@ -35,7 +35,8 @@ int main() {
             int sumC = camera_controller->update(CameraController::CENTER_ROW); //gets the linevalue
             double pid_val = pid_controller->getPIDValue(sumC); //turns the line value in a PID value
             motor_controller->arc(pid_val, forward*0.70); //sets what the motor should do from the pid value
-            if (camera_controller->n_whites > 50) { //if the robot gets back to a t intersection
+
+            if (camera_controller->n_whites > 50) { //if the robot gets back to a T intersection
                 forward = 1;
             }
         } catch (int e) {
@@ -48,7 +49,11 @@ int main() {
             } else if (e == 2) {//if robot almost loses line
                 forward = -1;
                 printf("*** E: almost lost line ***");
+            } else if (e == 3) { // path on left
+                printf("*** E: line on left ***");
             }
+
+            // tODO handle 3,4 errors
         }
         printf("**************************************\n");//debuging print
     }
