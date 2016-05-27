@@ -73,6 +73,13 @@ void IRController::setThreshold(float left, float right, float middle) {
 }
 
 int IRController::getSum(){
+	
+float ab=getRightDistance();
+float dif=ab-4;
+
+
+	
+
 
 	//gets the difference in the distance from the right sensor and 4cm
 	//return a number for turing to the left and right with the turning fast to the left -10000 and fast to the right 10000
