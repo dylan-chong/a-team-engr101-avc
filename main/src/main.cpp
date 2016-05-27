@@ -40,17 +40,20 @@ int main() {
             }
         } catch (int e) {
             if (e == 1) { //if the robot losses the line
+                printf("*** E: lost line ***");
                 if (IR_controller->inMaze()) {
                     break;
                 }
                 forward = -1;
             } else if (e == 2) {//if robot almost loses line
                 forward = -1;
+                printf("*** E: almost lost line ***");
             }
         }
         printf("**************************************\n");//debuging print
     }
 
+    printf("\n\n\n************ NOW IN THE MAZE ************\n\n\n");
 
     //This is for when the robot is in the Maze phase
     while (true) {
