@@ -36,7 +36,7 @@ int main() {
     while (true) {
         try {
             int sumC = camera_controller->update(CameraController::CENTER_ROW); //gets the linevalue
-            //printf("SUM: %d\n", sumC);
+            printf("SUM: %d\n", sumC);
             double pid_val = pid_controller->getPIDValue(sumC); //turns the line value in a PID value
 
             motor_controller->arc(pid_val, forward*0.70); //sets what the motor should do from the pid value

@@ -100,7 +100,7 @@ void MotorController::rotateRight() {
 // 1 is max right
 void MotorController::arc(double direction, double speedScale) {
     if (abs(direction)>1)direction /= abs(direction); //makes direction between 1 & -1
-    //printf("Direction: %f\n", direction);
+    printf("Direction: %f\n", direction);
 
 	if (direction < 0) { //left
 		setLeft(LEFT_MAX*(1-abs(direction))*speedScale);	//sets the left motor to something less than the max speed

@@ -58,11 +58,11 @@ int CameraController::getSum(int startRow, int finishRow) {
         }
     }
 
-//    printf("\nLINE\n");
-//    for (int a = 0; a < 320; a+=2) {
-//        printf("%d", whiteness[a]);
-//    }
-//    printf("\nEND LINE\n");
+    printf("\nLINE\n");
+    for (int a = 0; a < 320; a+=2) {
+        printf("%d", whiteness[a]);
+    }
+    printf("\nEND LINE\n");
 
 
     sum /= ((finishRow - startRow) / 2);
@@ -81,13 +81,13 @@ int CameraController::getSum(int startRow, int finishRow) {
         throw 1;
     } else if (n_whites <= 3) { //if the line is almost lost
         throw 2;
-    } else if (leftWhites > 2800 && centreWhites > 2500) { //checks center pixels as well as line takes up half the camera
+    /*} else if (leftWhites > 2800 && centreWhites > 2500) { //checks center pixels as well as line takes up half the camera
        throw 3;
     } else if (centreWhites > 2500 && rightWhites > 00){
     	//if there is a line in the center and a line to the right
     	throw 4;
     } else if (rightWhites > 2800 && centreWhites > 2500) {
-        throw 5;
+        throw 5;*/
     } else {
         return sum;
     }
