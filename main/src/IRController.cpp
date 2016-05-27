@@ -55,15 +55,15 @@ float IRController::getDistanceFromSensor(int sensorPin) {
 }
 
 float IRController::getLeftDistance() {
-    return getDistanceFromSensor(0);
-}
-
-float IRController::getMiddleDistance() {
     return getDistanceFromSensor(1);
 }
 
+float IRController::getMiddleDistance() {
+    return getDistanceFromSensor(0);
+}
+
 float IRController::getRightDistance() {
-    return getDistanceFromSensor(2);
+    return getDistanceFromSensor(0);
 }
 
 void IRController::setThreshold(float left, float right, float middle) {
@@ -74,20 +74,10 @@ void IRController::setThreshold(float left, float right, float middle) {
 
 int IRController::getSum(){
 printf("left value %f, ", getLeftDistance());
-printf("middel value %f, ", getMiddleDistance());
 printf("Right value %f", getRightDistance());
-float ab=getRightDistance();
-float dif=ab-4;
-if(dif>0){
-	dif=dif*10000;
-} 
-else if (dif<0){
-	dif=dif*2500;
-}
-return dif;
-	
-
-
+float rightDif=(getRightDistance()-4);
+float leftDif = -(getRightDistance()-4);
+return ((leftDif+rightDif)/2)*1000;
 	//gets the difference in the distance from the right sensor and 4cm
 	//return a number for turing to the left and right with the turning fast to the left -10000 and fast to the right 10000
 }

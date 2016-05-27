@@ -33,7 +33,7 @@ int main() {
 
     //network_controller->openGate();
 
-    while (true) {
+    /*while (true) {
         try {
             int sumC = camera_controller->update(CameraController::CENTER_ROW); //gets the linevalue
             //printf("SUM: %d\n", sumC);
@@ -47,34 +47,36 @@ int main() {
         } catch (int e) {
             if (e == 1) { //if the robot losses the line
                 printf("*** E: lost line ***");
-                if (IR_controller->inMaze()) {
-                    break;
-                }
                 motor_controller->rotateRight();
                 //forward = -1;
             } else if (e == 3) { // perpendicular turn on left
                 printf("*** E: line on left ***");
                 motor_controller->arc(-1.0, 1);
                 Sleep(0,1000); //only needs it on the left side as it turns right when the line is lost
-                /*sleepMillis(1000 * PERPENDICULAR_LEFT_TURN_TIME * 0.9);
-                motor_controller->stopMovement();*/
+                //sleepMillis(1000 * PERPENDICULAR_LEFT_TURN_TIME * 0.9);
+                //motor_controller->stopMovement();
             } else if (e == 4){
             	motor_controller->arc(0, 1);
             } else if (e == 5) {
             	printf("*** E: line on right ***");
             	motor_controller->arc(1, 1);
+            } else if (e == 6){//is in maze
+            	break;
             }
 
             // tODO handle 3,4 errors
         }
         printf("**************************************\n");//debuging print
-    }
+    }*/
 
     printf("\n\n\n************ NOW IN THE MAZE ************\n\n\n");
 
     //This is for when the robot is in the Maze phase
     while (true) {
-        printf("Intense maze solving happening");
+    	int sum = IR_controller->getSum();
+    	double pid_val = pid_controller->getPIDValue(sum);
+    	motor_controller->arc(pid_val, forward*0.70);
+    	//printf("Intense maze solving happening");
     }
     motor_controller->stopMovement();
     printf("Program Ended\n");

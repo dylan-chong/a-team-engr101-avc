@@ -75,7 +75,9 @@ int CameraController::getSum(int startRow, int finishRow) {
     printf("right pixels: %d ,", rightWhites);
     printf("center: %d\n", centreWhites);
 
-
+  /*  if (inMaze > 20){
+        	throw 6;
+        } else*/
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites <= 1) { //if the line is completely lost
         throw 1;
@@ -86,9 +88,19 @@ int CameraController::getSum(int startRow, int finishRow) {
     	throw 4;
     } else if (rightWhites > 2800 && centreWhites > 3000) {
         throw 5;
-    } else {
+    }else {
         return sum;
     }
+}
+
+bool CameraController::inMaze(){
+	int sum = 0;
+    /*for (int y = startRow; y < finishRow; y += 2) {
+        for (int i = 0; i < 320; i++) {
+        	if (get_pixel(i,y,0)>150&&get_pixel(i,y,1)<50&&get_pixel(i,y,2)<50)sum++;
+        }
+    }*/
+	return sum;
 }
 
 int CameraController::update(int finishRow) { //returns thes the line value
