@@ -32,13 +32,15 @@ CameraController *CameraController::makeInstance() {
 
 //gets the total sum of the white array * the position on the white pixels from the center
 int CameraController::getSum(int startRow, int finishRow) {
+    int SIDE_COUNT_WIDTH = 100; // must be less than 160
+
     //the first array getting the camera input
     int whiteness[320];
     //the sum of all the white final numbers added
     int sum = 0;
     // a count of how many white spots have been counted( to check if we can still see the line)
     n_whites = 0;
-    int leftWhites = 0, rightWhites = 0;
+    int leftWhites = 0, rightWhites = 0, centreWhites = 0;
 
     take_picture();
     for (int y = startRow; y < finishRow; y += 2) {
@@ -47,11 +49,14 @@ int CameraController::getSum(int startRow, int finishRow) {
             if (whiteness[i] == 1) {
                 n_whites++;
                 sum += (i - 160);
-                if (i < 160) leftWhites++;
-                else rightWhites++;
+
+                if (i < SIDE_COUNT_WIDTH) leftWhites++;
+                if (i > 320 - SIDE_COUNT_WIDTH) rightWhites++;
+                if (i > centreWhites && i < 320 - centreWhites) centreWhites++;
             }
         }
     }
+
 
     sum /= ((finishRow - startRow) / 2);
     n_whites /= ((finishRow - startRow) / 2);
@@ -60,6 +65,10 @@ int CameraController::getSum(int startRow, int finishRow) {
         throw 1;
     } else if (n_whites <= 3) { //if the line is almost lost
         throw 2;
+    } else if (leftWhites > 120 * (finishRow - startRow)) {
+        throw 3;
+    } else if (rightWhites > 120 * (finishRow - startRow)) {
+        throw 4;
     } else {
         return sum;
     }
