@@ -73,11 +73,18 @@ void IRController::setThreshold(float left, float right, float middle) {
 }
 
 int IRController::getSum(){
-	
+printf("left value %f, ", getLeftDistance());
+printf("middel value %f, ", getMiddleDistance());
+printf("Right value %f", getRightDistance());
 float ab=getRightDistance();
 float dif=ab-4;
-
-
+if(dif>0){
+	dif=dif*10000;
+} 
+else if (dif<0){
+	dif=dif*2500;
+}
+return dif;
 	
 
 
