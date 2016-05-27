@@ -32,7 +32,8 @@ CameraController *CameraController::makeInstance() {
 
 //gets the total sum of the white array * the position on the white pixels from the center
 int CameraController::getSum(int startRow, int finishRow) {
-    int SIDE_COUNT_WIDTH = 100; // must be less than 160
+    int SIDE_COUNT_WIDTH = 140; // must be less than 160
+    // NOTE: the line takes up 166 pixels across
 
     //the first array getting the camera input
     int whiteness[320];
@@ -57,11 +58,11 @@ int CameraController::getSum(int startRow, int finishRow) {
         }
     }
 
-    printf("\nLINE\n");
-    for (int a = 0; a < 320; a+=2) {
-        printf("%d", whiteness[a]);
-    }
-    printf("\nEND LINE\n");
+//    printf("\nLINE\n");
+//    for (int a = 0; a < 320; a+=2) {
+//        printf("%d", whiteness[a]);
+//    }
+//    printf("\nEND LINE\n");
 
 
     sum /= ((finishRow - startRow) / 2);
