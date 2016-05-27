@@ -57,6 +57,12 @@ int CameraController::getSum(int startRow, int finishRow) {
         }
     }
 
+    printf("\nLINE\n");
+    for (int a = 0; a < 320; a+=2) {
+        printf("%d", whiteness[a]);
+    }
+    printf("\nEND LINE\n");
+
 
     sum /= ((finishRow - startRow) / 2);
     n_whites /= ((finishRow - startRow) / 2);
