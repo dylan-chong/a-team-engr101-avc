@@ -75,9 +75,9 @@ int CameraController::getSum(int startRow, int finishRow) {
         throw 1;
     } else if (n_whites <= 3) { //if the line is almost lost
         throw 2;
-    } else if (leftWhites > 50 * rows && centreWhites > 40 * rows) {
+    } else if (leftWhites > 80 * rows && centreWhites > 40 * rows) {
         throw 3;
-    } else if (rightWhites > 50 * rows && centreWhites > 40 * rows) {
+    } else if (rightWhites > 80 * rows && centreWhites > 40 * rows) {
         throw 4;
     } else {
         return sum;
