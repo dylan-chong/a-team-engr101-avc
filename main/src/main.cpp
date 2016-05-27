@@ -67,7 +67,7 @@ int main() {
             // tODO handle 3,4 errors
         }
         printf("**************************************\n");//debuging print
-    }*/
+    } */
 
     printf("\n\n\n************ NOW IN THE MAZE ************\n\n\n");
 
