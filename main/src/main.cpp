@@ -12,6 +12,9 @@
 extern "C" int init(int d_lev);
 extern "C" int Sleep(int sec, int usec);
 
+const float PERPENDICULAR_LEFT_TURN_TIME = 0.5;
+const float PERPENDICULAR_RIGHT_TURN_TIME = 1.2345; // NOT NEEDED
+
 int forward = 1;
 
 void sleepMillis(int millis) {
@@ -51,6 +54,9 @@ int main() {
                 printf("*** E: almost lost line ***");
             } else if (e == 3) { // path on left
                 printf("*** E: line on left ***");
+                motor_controller->arc(-1.0, 1);
+                sleepMillis(1000 * PERPENDICULAR_LEFT_TURN_TIME * 0.9);
+                motor_controller->stopMovement();
             }
 
             // tODO handle 3,4 errors
