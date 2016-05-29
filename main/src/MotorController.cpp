@@ -104,16 +104,15 @@ void MotorController::arc(double direction, double speedScale) {
     printf("Direction: %f\n", direction);
 
     if (direction < 0) { //left
-        setLeft(LEFT_MAX * (1 - abs(direction)) *
-                speedScale);    //sets the left motor to something less than the max speed
+        setLeft((int) (LEFT_MAX * (1 - abs((int) direction)) *
+                       speedScale));    //sets the left motor to something less than the max speed
         setRight((int) (RIGHT_MAX * (speedScale - 0.05)));                        //sets the right motor to max speed
     } else if (direction > 0) { //right
-        setLeft(LEFT_MAX * speedScale);                        //sets the left motor the max speed
-        setRight(RIGHT_MAX * (1 - direction) *
-                 speedScale);     //sets the right motor to something less than the max speed
+        setLeft((int) (LEFT_MAX * speedScale));                        //sets the left motor the max speed
+        setRight((int) (RIGHT_MAX * (1 - direction) *
+                 speedScale));     //sets the right motor to something less than the max speed
     } else if (direction == 0) {
         moveForward();
     }
 
 }
-
