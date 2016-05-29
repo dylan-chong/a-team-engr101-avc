@@ -35,7 +35,7 @@ int main() {
 
     /*while (true) {
         try {
-            int sumC = camera_controller->update(CameraController::CENTER_ROW); //gets the linevalue
+            int sumC = camera_controller->update(CameraController::LAST_ROW_TO_CHECK); //gets the linevalue
             //printf("SUM: %d\n", sumC);
             double pid_val = pid_controller->getPIDValue(sumC); //turns the line value in a PID value
 
