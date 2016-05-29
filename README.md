@@ -338,4 +338,6 @@ Extra Info
     - Recalibrated P and D values in PidController.cpp with Andrew
 
 <h5>Friday 27/05/16</h5>
-
+- Dylan
+    - Wrote some code to detect the number of whites in the left, centre, and right sections of the camera (using Andrew's idea) and throw errors if there is enough in appropriate sections to show that there is an intersetion 
+    - Worked with Andrew to get the robot to follow the left turn at intersections
