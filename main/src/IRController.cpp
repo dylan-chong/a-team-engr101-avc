@@ -79,7 +79,7 @@ int IRController::getSum() {
     printf("Right value %f", getRightDistance());
     float rightDif = (getRightDistance() - 4);
     float leftDif = -(getRightDistance() - 4);
-    return ((leftDif + rightDif) / 2) * 1000;
+    return (int) ((leftDif + rightDif) / 2) * 1000;
 }
 
 double IRController::update() {
