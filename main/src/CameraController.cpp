@@ -42,19 +42,25 @@ int CameraController::getSum(int startRow, int finishRow) {
     // a count of how many white spots have been counted( to check if we can still see the line)
     n_whites = 0;
     int leftWhites = 0, rightWhites = 0, centreWhites = 0;
+    int redCount = 0;
 
     take_picture();
-    for (int y = startRow; y < finishRow; y += 2) {
-        for (int i = 0; i < 320; i++) {
-            whiteness[i] = (get_pixel(i, y, 3) > WHITE_THRESHOLD);
-            if (whiteness[i] == 1) {
-                n_whites++;
-                sum += (i - 160);
 
-                if (i < SIDE_COUNT_WIDTH) leftWhites++;
-                if (i > 320 - SIDE_COUNT_WIDTH) rightWhites++;
-                if (i > SIDE_COUNT_WIDTH && i < 320 - SIDE_COUNT_WIDTH) centreWhites++;
-            }
+    for (int y = startRow; y < finishRow; y += 2) {
+	for (int i = 0; i < 320; i++) {
+	    whiteness[i] = (get_pixel(i, y, 3) > WHITE_THRESHOLD);
+	    if (whiteness[i] == 1) {
+		n_whites++;
+		sum += (i - 160);
+
+		if (i < SIDE_COUNT_WIDTH) leftWhites++;
+		if (i > 320 - SIDE_COUNT_WIDTH) rightWhites++;
+		if (i > SIDE_COUNT_WIDTH && i < 320 - SIDE_COUNT_WIDTH) centreWhites++;
+	    }
+	      
+	    // TODO ANYONE WHO NEEDS TO WRITE MORE CODE:
+	    // use the redCount variable to count up how many
+	    // red pixels there are
         }
     }
 
@@ -88,7 +94,9 @@ int CameraController::getSum(int startRow, int finishRow) {
     	throw 4;
     } else if (rightWhites > 2800 && centreWhites > 3000) {
         throw 5;
-    }else {
+    } else if (redCount > 500) {
+        throw 6;
+    } else {
         return sum;
     }
 }

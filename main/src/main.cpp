@@ -60,7 +60,7 @@ int main() {
             } else if (e == 5) {
             	printf("*** E: line on right ***");
             	motor_controller->arc(1, 1);
-            } else if (e == 6){//is in maze
+            } else if (e == 6) { // is in maze
             	break;
             }
 
