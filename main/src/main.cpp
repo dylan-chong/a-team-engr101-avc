@@ -73,10 +73,10 @@ int main() {
 
     //This is for when the robot is in the Maze phase
     while (true) {
-    	int sum = IR_controller->getSum();
-    	double pid_val = pid_controller->getPIDValue(sum);
-    	motor_controller->arc(pid_val, forward*0.70);
-    	//printf("Intense maze solving happening");
+        int sum = IR_controller->getSum();
+        double pid_val = pid_controller->getPIDValue(sum);
+        motor_controller->arc(pid_val, forward * 0.70);
+        //printf("Intense maze solving happening");
     }
     motor_controller->stopMovement();
     printf("Program Ended\n");

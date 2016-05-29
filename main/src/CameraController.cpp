@@ -47,25 +47,25 @@ int CameraController::getSum(int startRow, int finishRow) {
     take_picture();
 
     for (int y = startRow; y < finishRow; y += 2) {
-	for (int i = 0; i < 320; i++) {
-	    whiteness[i] = (get_pixel(i, y, 3) > WHITE_THRESHOLD);
-	    if (whiteness[i] == 1) {
-		n_whites++;
-		sum += (i - 160);
+        for (int i = 0; i < 320; i++) {
+            whiteness[i] = (get_pixel(i, y, 3) > WHITE_THRESHOLD);
+            if (whiteness[i] == 1) {
+                n_whites++;
+                sum += (i - 160);
 
-		if (i < SIDE_COUNT_WIDTH) leftWhites++;
-		if (i > 320 - SIDE_COUNT_WIDTH) rightWhites++;
-		if (i > SIDE_COUNT_WIDTH && i < 320 - SIDE_COUNT_WIDTH) centreWhites++;
-	    }
-	      
-	    // TODO ANYONE WHO NEEDS TO WRITE MORE CODE:
-	    // use the redCount variable to count up how many
-	    // red pixels there are
+                if (i < SIDE_COUNT_WIDTH) leftWhites++;
+                if (i > 320 - SIDE_COUNT_WIDTH) rightWhites++;
+                if (i > SIDE_COUNT_WIDTH && i < 320 - SIDE_COUNT_WIDTH) centreWhites++;
+            }
+
+            // TODO ANYONE WHO NEEDS TO WRITE MORE CODE:
+            // use the redCount variable to count up how many
+            // red pixels there are
         }
     }
 
     printf("\nLINE\n");
-    for (int a = 0; a < 320; a+=2) {
+    for (int a = 0; a < 320; a += 2) {
         printf("%d", whiteness[a]);
     }
     printf("\nEND LINE\n");
@@ -81,17 +81,18 @@ int CameraController::getSum(int startRow, int finishRow) {
     printf("right pixels: %d ,", rightWhites);
     printf("center: %d\n", centreWhites);
 
-  /*  if (inMaze > 20){
-        	throw 6;
-        } else*/
+    /*  if (inMaze > 20){
+              throw 6;
+          } else*/
     // trying to make it so if it loses the line it reverses to try make it find it again
     if (n_whites <= 1) { //if the line is completely lost
         throw 1;
-    } else if (leftWhites > 2800 && centreWhites > 3000) { //checks center pixels as well as line takes up half the camera
-       throw 3;
-    } else if (centreWhites > 3000 && rightWhites > 2800){
-    	//if there is a line in the center and a line to the right
-    	throw 4;
+    } else if (leftWhites > 2800 &&
+               centreWhites > 3000) { //checks center pixels as well as line takes up half the camera
+        throw 3;
+    } else if (centreWhites > 3000 && rightWhites > 2800) {
+        //if there is a line in the center and a line to the right
+        throw 4;
     } else if (rightWhites > 2800 && centreWhites > 3000) {
         throw 5;
     } else if (redCount > 500) {
@@ -101,14 +102,14 @@ int CameraController::getSum(int startRow, int finishRow) {
     }
 }
 
-bool CameraController::inMaze(){
-	int sum = 0;
+bool CameraController::inMaze() {
+    int sum = 0;
     /*for (int y = startRow; y < finishRow; y += 2) {
         for (int i = 0; i < 320; i++) {
         	if (get_pixel(i,y,0)>150&&get_pixel(i,y,1)<50&&get_pixel(i,y,2)<50)sum++;
         }
     }*/
-	return sum;
+    return sum;
 }
 
 int CameraController::update(int finishRow) { //returns thes the line value

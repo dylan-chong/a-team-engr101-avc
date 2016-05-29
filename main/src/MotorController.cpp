@@ -54,13 +54,13 @@ MotorController::~MotorController() {
 // Refer to even-speeds.txt for nicer formatting of data
 
 void MotorController::setLeft(int speed) {
-	//set_motor(1, -(speed * 10 / 1.5));//ON pi FOR Dylans code
-    set_motor(1,-speed*7.5);
+    //set_motor(1, -(speed * 10 / 1.5));//ON pi FOR Dylans code
+    set_motor(1, -speed * 7.5);
 }
 
 void MotorController::setRight(int speed) {
     //set_motor(2, (int)-(RIGHT_SPEEDS[(int) (speed/1.5) + NUMBER_OF_REVERSE_SPEEDS])); //FOR Dylans code
-    set_motor(2, -(int)(((RIGHT_SPEEDS[(int) (speed) + NUMBER_OF_REVERSE_SPEEDS]))/1.5));//for pid
+    set_motor(2, -(int) (((RIGHT_SPEEDS[(int) (speed) + NUMBER_OF_REVERSE_SPEEDS])) / 1.5));//for pid
 }
 
 void MotorController::moveStraightAtSpeed(int speed) {
@@ -85,33 +85,35 @@ void MotorController::stopMovement() {
 // turn left on the spot
 // right wheel doesn't seem to do anything
 void MotorController::rotateLeft() {
-    setLeft(LEFT_MIN*.2);
-    setRight(RIGHT_MAX*.2);
+    setLeft(LEFT_MIN * .2);
+    setRight(RIGHT_MAX * .2);
 }
 
 // turn right on the spot
 void MotorController::rotateRight() {
-	printf("Right rotate: *******************");
-    setLeft(LEFT_MAX*.5);
-    setRight(RIGHT_MIN*.5);
+    printf("Right rotate: *******************");
+    setLeft(LEFT_MAX * .5);
+    setRight(RIGHT_MIN * .5);
 }
 
 // -1 is max left
 // 0 is max forward
 // 1 is max right
 void MotorController::arc(double direction, double speedScale) {
-    if (abs(direction)>1)direction /= abs(direction); //makes direction between 1 & -1
+    if (abs(direction) > 1)direction /= abs(direction); //makes direction between 1 & -1
     printf("Direction: %f\n", direction);
 
-	if (direction < 0) { //left
-		setLeft(LEFT_MAX*(1-abs(direction))*speedScale);	//sets the left motor to something less than the max speed
-		setRight((int)(RIGHT_MAX*(speedScale-0.05)));						//sets the right motor to max speed
-	} else if (direction > 0) { //right
-		setLeft(LEFT_MAX*speedScale);						//sets the left motor the max speed
-		setRight(RIGHT_MAX * (1-direction)*speedScale);     //sets the right motor to something less than the max speed
-	} else if (direction == 0) {
-		moveForward();
-	}
+    if (direction < 0) { //left
+        setLeft(LEFT_MAX * (1 - abs(direction)) *
+                speedScale);    //sets the left motor to something less than the max speed
+        setRight((int) (RIGHT_MAX * (speedScale - 0.05)));                        //sets the right motor to max speed
+    } else if (direction > 0) { //right
+        setLeft(LEFT_MAX * speedScale);                        //sets the left motor the max speed
+        setRight(RIGHT_MAX * (1 - direction) *
+                 speedScale);     //sets the right motor to something less than the max speed
+    } else if (direction == 0) {
+        moveForward();
+    }
 
 }
 
