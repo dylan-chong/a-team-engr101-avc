@@ -18,8 +18,10 @@ private:
     const static int WHITE_THRESHOLD = 120;
 
 public:
-    const static int CENTER_ROW = 60;
+    const static int LAST_ROW_TO_CHECK = 60;
     int n_whites;
+
+    int inMaze();
 
     static CameraController *makeInstance();
 

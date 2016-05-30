@@ -9,7 +9,7 @@
 #include <time.h>
 #include <stdio.h>
 
-PidController::PidController() : KP(0.0064/*0.0002*/), KD(0.000002/*0.012*/), KI(0.00), KN(0.000), IMG_WIDTH(0){
+PidController::PidController() : KP(0.03/*0.0064*/), KD(0.00003), KI(0.00), KN(0.000), IMG_WIDTH(0) {
     previousClock = clock();
 
     previousLineValue = 0;
@@ -39,7 +39,8 @@ int PidController::getProportional(int lineValue) { //returns the line value
 }
 
 //gets the change in the line value with respect to time
-double PidController::getDerivative(int lineValue, double timeDiff, int prevLineValue) { //returns the change in the line Value with respect to time
+double PidController::getDerivative(int lineValue, double timeDiff,
+                                    int prevLineValue) { //returns the change in the line Value with respect to time
     double derivative_signal = ((double) (lineValue - prevLineValue) / timeDiff);
     return derivative_signal;
 }
@@ -51,7 +52,8 @@ int PidController::getIntergral(int lineValue) {
 }
 
 //gets the derivative of the derivative (this is derviative filtering http://www2.ece.ohio-state.edu/~passino/lab3prelab.pdf if you want to know more)
-double PidController::getFOC(double derivative, double timeDiff, double previousDerivative) {//gets the change in the derivative  with respect to time
+double PidController::getFOC(double derivative, double timeDiff,
+                             double previousDerivative) {//gets the change in the derivative  with respect to time
     return (derivative - previousDerivative) / timeDiff;
 }
 

@@ -7,10 +7,10 @@
 
 #include "Controller.h"
 
-Controller * Controller::instance;
+Controller *Controller::instance;
 
-Controller * Controller::getInstance(){
-	return instance;
+Controller *Controller::getInstance() {
+    return instance;
 }
 
 Controller::Controller() {

@@ -13,17 +13,21 @@
 
 #include "Controller.h"
 
-class NetworkController: public Controller{
-	friend class NetworkControllerTest;
+class NetworkController : public Controller {
+    friend class NetworkControllerTest;
+
 private:
 
-	int connect(char IP_address[15], int port);
-public:
-	static NetworkController* makeInstance(char IP_address[15], int port);
-	virtual ~NetworkController();
-	NetworkController(char IP_address[15], int port);
+    int connect(char IP_address[15], int port);
 
-	int openGate();
+public:
+    static NetworkController *makeInstance(char IP_address[15], int port);
+
+    virtual ~NetworkController();
+
+    NetworkController(char IP_address[15], int port);
+
+    int openGate();
 };
 
 #endif /* NETWORKCONTROLLER_H_ */

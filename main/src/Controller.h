@@ -14,10 +14,13 @@ class Controller {
 private:
 
 public:
-	static Controller* instance;
-	static Controller* getInstance();
-	Controller();
-	virtual ~Controller();
+    static Controller *instance;
+
+    static Controller *getInstance();
+
+    Controller();
+
+    virtual ~Controller();
 };
 
 #endif /* CONTROLLER_H_ */

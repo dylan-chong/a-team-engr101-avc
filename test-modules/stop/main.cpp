@@ -16,11 +16,16 @@ int main() {
 
     set_motor(1, 255);
     set_motor(2, 255);
-    sleepMillis(400);
+    sleepMillis(2000);
 
-    set_motor(1, 0);
-    set_motor(2, 0);
-    sleepMillis(400);
+    set_motor(1, 5);;
+    set_motor(2, 5);
+    sleepMillis(5000);
+
+    while (true) {
+        set_motor(1, 0);
+        set_motor(2, 0);
+    }
 
     return 0;
 }

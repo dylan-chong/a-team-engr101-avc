@@ -41,6 +41,8 @@ public:
 
     void setThreshold(float left, float right, float middle);
 
+    int getSum();
+
     double update();
 
     bool inMaze();

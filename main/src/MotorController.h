@@ -37,8 +37,6 @@ private:
     void freezeIfDirectionOutOfRange(double direction);
 
 public:
-    const static float PERPENDICULAR_LEFT_TURN_TIME = 1.2345; // NOT NEEDED
-    const static float PERPENDICULAR_RIGHT_TURN_TIME = 1.2345; // NOT NEEDED
 
     static MotorController *makeInstance();
 
