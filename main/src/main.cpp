@@ -25,15 +25,15 @@ void sleepMillis(int millis) {
 
 int main() {
     init(0);
-    //NetworkController *network_controller = NetworkController::makeInstance("130.195.6.196", 1024);
+    NetworkController *network_controller = NetworkController::makeInstance("130.195.6.196", 1024);
     MotorController *motor_controller = MotorController::makeInstance();
     IRController *IR_controller = IRController::makeInstance();
     CameraController *camera_controller = CameraController::makeInstance();
     PidController *pid_controller = PidController::makeInstance();
 
-    //network_controller->openGate();
+    network_controller->openGate();
 
-    /*while (true) {
+    while (true) {
         try {
             int sumC = camera_controller->update(CameraController::LAST_ROW_TO_CHECK); //gets the linevalue
             //printf("SUM: %d\n", sumC);
@@ -67,7 +67,7 @@ int main() {
             // tODO handle 3,4 errors
         }
         printf("**************************************\n");//debuging print
-    } */
+    }
 
     printf("\n\n\n************ NOW IN THE MAZE ************\n\n\n");
 
