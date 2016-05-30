@@ -25,13 +25,17 @@ void sleepMillis(int millis) {
 
 int main() {
     init(0);
+
     NetworkController *network_controller = NetworkController::makeInstance("130.195.6.196", 1024);
     MotorController *motor_controller = MotorController::makeInstance();
     IRController *IR_controller = IRController::makeInstance();
     CameraController *camera_controller = CameraController::makeInstance();
     PidController *pid_controller = PidController::makeInstance();
 
+    motor_controller->stopMovement();    
+
     network_controller->openGate();
+    motor_controller->moveForward();
 
     while (true) {
         try {
