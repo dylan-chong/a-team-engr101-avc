@@ -32,9 +32,9 @@ int main() {
     CameraController *camera_controller = CameraController::makeInstance();
     PidController *pid_controller = PidController::makeInstance();
 
-    motor_controller->stopMovement();    
+    motor_controller->stopMovement();
 
-    network_controller->openGate();
+    //network_controller->openGate();
     motor_controller->moveForward();
 
     while (true) {
@@ -55,20 +55,16 @@ int main() {
                 //forward = -1;
             } else if (e == 3) { // perpendicular turn on left
                 printf("*** E: line on left ***");
-                motor_controller->arc(-1.0, 1);
+                motor_controller->arc(-1.0, 1*.9);
                 Sleep(0,1000); //only needs it on the left side as it turns right when the line is lost
-                //sleepMillis(1000 * PERPENDICULAR_LEFT_TURN_TIME * 0.9);
-                //motor_controller->stopMovement();
-            } else if (e == 4){
-            	motor_controller->arc(0, 1);
-            } else if (e == 5) {
+            } else if (e == 4){//center
+            	motor_controller->arc(0, 1*.9);
+            } else if (e == 5) {//right
             	printf("*** E: line on right ***");
-            	motor_controller->arc(1, 1);
+            	motor_controller->arc(1, 1*.9);
             } else if (e == 6) { // is in maze
             	break;
             }
-
-            // tODO handle 3,4 errors
         }
         printf("**************************************\n");//debuging print
     }

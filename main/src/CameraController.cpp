@@ -42,7 +42,6 @@ int CameraController::getSum(int startRow, int finishRow) {
     // a count of how many white spots have been counted( to check if we can still see the line)
     n_whites = 0;
     int leftWhites = 0, rightWhites = 0, centreWhites = 0;
-    int redCount = 0;
 
     take_picture();
 
@@ -57,10 +56,6 @@ int CameraController::getSum(int startRow, int finishRow) {
                 if (i > 320 - SIDE_COUNT_WIDTH) rightWhites++;
                 if (i > SIDE_COUNT_WIDTH && i < 320 - SIDE_COUNT_WIDTH) centreWhites++;
             }
-
-            // TODO ANYONE WHO NEEDS TO WRITE MORE CODE:
-            // use the redCount variable to count up how many
-            // red pixels there are
         }
     }
 
@@ -95,20 +90,20 @@ int CameraController::getSum(int startRow, int finishRow) {
         throw 4;
     } else if (rightWhites > 2800 && centreWhites > 3000) {
         throw 5;
-    } else if (redCount > 500) {
+    } else if (inMaze() > 3) {
         throw 6;
     } else {
         return sum;
     }
 }
 
-bool CameraController::inMaze() {
+int CameraController::inMaze() {
     int sum = 0;
-    /*for (int y = startRow; y < finishRow; y += 2) {
+    for (int y = 0; y < 60; y += 2) {
         for (int i = 0; i < 320; i++) {
-        	if (get_pixel(i,y,0)>150&&get_pixel(i,y,1)<50&&get_pixel(i,y,2)<50)sum++;
+        	if (get_pixel(i,y,0)>100&&get_pixel(i,y,1)<50&&get_pixel(i,y,2)<50)sum++;
         }
-    }*/
+    }
     return sum;
 }
 

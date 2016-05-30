@@ -21,7 +21,7 @@ public:
     const static int LAST_ROW_TO_CHECK = 60;
     int n_whites;
 
-    bool inMaze();
+    int inMaze();
 
     static CameraController *makeInstance();
 
