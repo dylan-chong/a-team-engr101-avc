@@ -25,6 +25,7 @@ private:
     double lastMiddleDIstance;
 
 public:
+    int preRight;
     static IRController *makeInstance();
 
     virtual ~IRController();
@@ -42,6 +43,8 @@ public:
     void setThreshold(float left, float right, float middle);
 
     int getSum();
+
+
 
     double update();
 

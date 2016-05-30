@@ -32,6 +32,8 @@ IRController::IRController() {
     lastLeftDistance = 0;
     lastRightDistance = 0;
     lastMiddleDIstance = 0;
+
+    preRight = 0;
 }
 
 //this is the destructor
@@ -78,6 +80,13 @@ int IRController::getSum() {
     printf("left value %f, ", getLeftDistance());
     printf("Right value %f", getRightDistance());
     float rightDif = (getRightDistance() - 4);
+    if (rightDif-preRight < -1 && preRight != 0){
+    	throw 1;
+    }
+    if (getLeftDistance()<5){
+    	throw 2;
+    }
+    preRight = rightDif;
     return (int) (rightDif) * 1000;
 }
 

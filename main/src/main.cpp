@@ -73,9 +73,19 @@ int main() {
 
     //This is for when the robot is in the Maze phase
     while (true) {
-        int sum = IR_controller->getSum();
-        double pid_val = pid_controller->getPIDValue(sum);
-        motor_controller->arc(pid_val, forward * 0.70);
+    	try{
+    		int sum = IR_controller->getSum();
+    		double pid_val = pid_controller->getPIDValue(sum);
+    		motor_controller->arc(pid_val, forward * 0.70);
+    	} catch (int e){
+    		if (e == 1){
+    			motor_controller->arc(0.3, forward * 0.70);
+                sleepMillis(100);
+printf("CORNER\n");
+    		} else if (e == 2){
+    			motor_controller->rotateLeft();
+    		}
+    	}
         //printf("Intense maze solving happening");
     }
     motor_controller->stopMovement();
