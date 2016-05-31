@@ -32,9 +32,9 @@ int main() {
     CameraController *camera_controller = CameraController::makeInstance();
     PidController *pid_controller = PidController::makeInstance();
 
-    motor_controller->stopMovement();
-
-    //network_controller->openGate();
+    motor_controller->moveForward();
+    sleepMillis(350);
+    network_controller->openGate();
     motor_controller->moveForward();
 
     while (true) {
@@ -85,10 +85,13 @@ int main() {
     		if (e == 1){
     			motor_controller->arc(0.2, forward * 0.70);
                 //motor_controller->rotateLeft();
-    			sleepMillis(500);
+    			sleepMillis(600);
                 printf("RIGHT CORNER\n");
     		} else if (e == 2){
-    			motor_controller->rotateLeft();
+    			motor_controller->moveBackward();
+    			sleepMillis(250);
+    			motor_controller->rotateLeftIR();
+    			sleepMillis(500);
     			printf("LEFT CORNER\n");
     		}
     	}

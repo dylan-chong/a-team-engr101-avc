@@ -26,6 +26,7 @@ private:
 
 public:
     int preRight;
+
     static IRController *makeInstance();
 
     virtual ~IRController();

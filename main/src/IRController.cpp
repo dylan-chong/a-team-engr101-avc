@@ -79,15 +79,20 @@ void IRController::setThreshold(float left, float right, float middle) {
 int IRController::getSum() {
     printf("left value %f, ", getLeftDistance());
     printf("Right value %f", getRightDistance());
-    float rightDif = (getRightDistance() - 4);
-    if (rightDif-preRight < -1 && preRight != 0){
-    	throw 1;
-    }
-    if (getLeftDistance()<9){
+    float rightDif = (getRightDistance() - 7);
+    if (getRightDistance() > 16){
     	throw 2;
     }
+    if (rightDif-preRight < -1 && preRight != 0){
+    	preRight = rightDif;
+    	throw 1;
+    }
     preRight = rightDif;
-    return (int) (rightDif) * 1000;
+    if (getLeftDistance() < 6 || getRightDistance() < 5){
+    	throw 2;
+    }
+
+    return (int) (rightDif) * 5000;
 }
 
 double IRController::update() {

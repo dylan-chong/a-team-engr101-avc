@@ -51,6 +51,7 @@ public:
     void stopMovement();
 
     void rotateLeft();
+    void rotateLeftIR();
 
     void rotateRight();
 

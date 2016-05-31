@@ -74,7 +74,7 @@ void MotorController::moveForward() {
 }
 
 void MotorController::moveBackward() {
-    moveStraightAtSpeed(-3); //movebackwards
+    moveStraightAtSpeed(-6); //movebackwards
 }
 
 void MotorController::stopMovement() {
@@ -89,6 +89,10 @@ void MotorController::rotateLeft() {
     setRight((int) (RIGHT_MAX * .5));
 }
 
+void MotorController::rotateLeftIR() {
+    setLeft((int) (LEFT_MIN * .6));
+    setRight((int) (RIGHT_MAX * .5));
+}
 // turn right on the spot
 void MotorController::rotateRight() {
     printf("Right rotate: *******************");
