@@ -32,15 +32,14 @@ int main() {
     CameraController *camera_controller = CameraController::makeInstance();
     PidController *pid_controller = PidController::makeInstance();
 
-    motor_controller->stopMovement();
-
+    motor_controller->moveForward();
+    sleepMillis(350);
     network_controller->openGate();
     motor_controller->moveForward();
 
     while (true) {
         try {
             int sumC = camera_controller->update(CameraController::LAST_ROW_TO_CHECK); //gets the linevalue
-            //printf("SUM: %d\n", sumC);
             double pid_val = pid_controller->getPIDValue(sumC); //turns the line value in a PID value
 
             motor_controller->arc(pid_val, forward*0.70); //sets what the motor should do from the pid value
@@ -49,16 +48,21 @@ int main() {
                 forward = 1;
             }
         } catch (int e) {
+        	if (IR_controller->inMaze() == 1){
+        		e=6;
+			}
+
             if (e == 1) { //if the robot losses the line
                 printf("*** E: lost line ***");
                 motor_controller->rotateRight();
                 //forward = -1;
             } else if (e == 3) { // perpendicular turn on left
                 printf("*** E: line on left ***");
-                motor_controller->arc(-1.0, 1*.9);
-                Sleep(0,1000); //only needs it on the left side as it turns right when the line is lost
+                //motor_controller->arc(-1.0, 1*.9);
+                motor_controller->rotateLeft();
+                sleepMillis(400); //only needs it on the left side as it turns right when the line is lost
             } else if (e == 4){//center
-            	motor_controller->arc(0, 1*.9);
+            	motor_controller->arc(0, 1*0.7);
             } else if (e == 5) {//right
             	printf("*** E: line on right ***");
             	motor_controller->arc(1, 1*.9);
@@ -73,9 +77,24 @@ int main() {
 
     //This is for when the robot is in the Maze phase
     while (true) {
-        int sum = IR_controller->getSum();
-        double pid_val = pid_controller->getPIDValue(sum);
-        motor_controller->arc(pid_val, forward * 0.70);
+    	try{
+    		int sum = IR_controller->getSum();
+    		double pid_val = pid_controller->getPIDValue(sum);
+    		motor_controller->arc(pid_val, forward * 0.70);
+    	} catch (int e){
+    		if (e == 1){
+    			motor_controller->arc(0.2, forward * 0.70);
+                //motor_controller->rotateLeft();
+    			sleepMillis(600);
+                printf("RIGHT CORNER\n");
+    		} else if (e == 2){
+    			motor_controller->moveBackward();
+    			sleepMillis(250);
+    			motor_controller->rotateLeftIR();
+    			sleepMillis(500);
+    			printf("LEFT CORNER\n");
+    		}
+    	}
         //printf("Intense maze solving happening");
     }
     motor_controller->stopMovement();

@@ -32,6 +32,8 @@ IRController::IRController() {
     lastLeftDistance = 0;
     lastRightDistance = 0;
     lastMiddleDIstance = 0;
+
+    preRight = 0;
 }
 
 //this is the destructor
@@ -59,7 +61,7 @@ float IRController::getLeftDistance() {
 }
 
 float IRController::getMiddleDistance() {
-    return getDistanceFromSensor(0);
+    return getDistanceFromSensor(1);
 }
 
 float IRController::getRightDistance() {
@@ -77,8 +79,20 @@ void IRController::setThreshold(float left, float right, float middle) {
 int IRController::getSum() {
     printf("left value %f, ", getLeftDistance());
     printf("Right value %f", getRightDistance());
-    float rightDif = (getRightDistance() - 4);
-    return (int) (rightDif) * 1000;
+    float rightDif = (getRightDistance() - 7);
+    if (getRightDistance() > 16){
+    	throw 2;
+    }
+    if (rightDif-preRight < -1 && preRight != 0){
+    	preRight = rightDif;
+    	throw 1;
+    }
+    preRight = rightDif;
+    if (getLeftDistance() < 6 || getRightDistance() < 5){
+    	throw 2;
+    }
+
+    return (int) (rightDif) * 5000;
 }
 
 double IRController::update() {
@@ -92,7 +106,7 @@ double IRController::update() {
 }
 
 bool IRController::inMaze() {
-    if (getLeftDistance() < 5 && getRightDistance() < 5) {
+    if (getRightDistance() < 10) {
         return 1;
     }
     return 0;

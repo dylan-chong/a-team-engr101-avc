@@ -14,18 +14,11 @@ void sleepMillis(int millis) {
 int main() {
     init(0);
 
-    set_motor(1, 255);
-    set_motor(2, 255);
-    sleepMillis(2000);
-
-    set_motor(1, 5);;
-    set_motor(2, 5);
-    sleepMillis(5000);
-
-    while (true) {
-        set_motor(1, 0);
-        set_motor(2, 0);
-    }
+    for (int a = 255; a > 0; a--) {
+        set_motor(1, a);
+        set_motor(2, a);
+        sleepMillis(20);
+    } 
 
     return 0;
 }

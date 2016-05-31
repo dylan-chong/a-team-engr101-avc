@@ -89,7 +89,7 @@ int CameraController::getSum(int startRow, int finishRow) {
         //if there is a line in the center and a line to the right
         throw 4;
     } else if (rightWhites > 2800 && centreWhites > 3000) {
-        throw 5;
+        //throw 5;
     } else if (inMaze() > 3) {
         throw 6;
     } else {
