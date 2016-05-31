@@ -40,7 +40,6 @@ int main() {
     while (true) {
         try {
             int sumC = camera_controller->update(CameraController::LAST_ROW_TO_CHECK); //gets the linevalue
-            //printf("SUM: %d\n", sumC);
             double pid_val = pid_controller->getPIDValue(sumC); //turns the line value in a PID value
 
             motor_controller->arc(pid_val, forward*0.70); //sets what the motor should do from the pid value
@@ -55,10 +54,11 @@ int main() {
                 //forward = -1;
             } else if (e == 3) { // perpendicular turn on left
                 printf("*** E: line on left ***");
-                motor_controller->arc(-1.0, 1*.9);
-                Sleep(0,1000); //only needs it on the left side as it turns right when the line is lost
+                //motor_controller->arc(-1.0, 1*.9);
+                motor_controller->rotateLeft();
+                Sleep(0, 2000); //only needs it on the left side as it turns right when the line is lost
             } else if (e == 4){//center
-            	motor_controller->arc(0, 1*.9);
+            	motor_controller->arc(0, 1*0.7);
             } else if (e == 5) {//right
             	printf("*** E: line on right ***");
             	motor_controller->arc(1, 1*.9);
@@ -80,10 +80,12 @@ int main() {
     	} catch (int e){
     		if (e == 1){
     			motor_controller->arc(0.3, forward * 0.70);
-                sleepMillis(100);
-printf("CORNER\n");
+                //motor_controller->rotateLeft();
+    			sleepMillis(300);
+                printf("RIGHT CORNER\n");
     		} else if (e == 2){
     			motor_controller->rotateLeft();
+    			printf("LEFT CORNER\n");
     		}
     	}
         //printf("Intense maze solving happening");

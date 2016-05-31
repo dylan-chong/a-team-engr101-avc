@@ -15,7 +15,7 @@ class CameraController : public Controller {
     friend class CameraControllerTest;
 
 private:
-    const static int WHITE_THRESHOLD = 120;
+    const static int WHITE_THRESHOLD = 135;
 
 public:
     const static int LAST_ROW_TO_CHECK = 60;
