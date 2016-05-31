@@ -85,7 +85,7 @@ void MotorController::stopMovement() {
 // turn left on the spot
 // right wheel doesn't seem to do anything
 void MotorController::rotateLeft() {
-    setLeft((int) (LEFT_MIN * .5));
+    setLeft((int) (LEFT_MIN * .8));
     setRight((int) (RIGHT_MAX * .5));
 }
 

@@ -48,6 +48,10 @@ int main() {
                 forward = 1;
             }
         } catch (int e) {
+        	if (IR_controller->inMaze() == 1){
+        		e=6;
+			}
+
             if (e == 1) { //if the robot losses the line
                 printf("*** E: lost line ***");
                 motor_controller->rotateRight();
@@ -56,7 +60,7 @@ int main() {
                 printf("*** E: line on left ***");
                 //motor_controller->arc(-1.0, 1*.9);
                 motor_controller->rotateLeft();
-                Sleep(0, 2000); //only needs it on the left side as it turns right when the line is lost
+                sleepMillis(400); //only needs it on the left side as it turns right when the line is lost
             } else if (e == 4){//center
             	motor_controller->arc(0, 1*0.7);
             } else if (e == 5) {//right
@@ -79,9 +83,9 @@ int main() {
     		motor_controller->arc(pid_val, forward * 0.70);
     	} catch (int e){
     		if (e == 1){
-    			motor_controller->arc(0.3, forward * 0.70);
+    			motor_controller->arc(0.2, forward * 0.70);
                 //motor_controller->rotateLeft();
-    			sleepMillis(300);
+    			sleepMillis(500);
                 printf("RIGHT CORNER\n");
     		} else if (e == 2){
     			motor_controller->rotateLeft();

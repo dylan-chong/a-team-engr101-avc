@@ -61,7 +61,7 @@ float IRController::getLeftDistance() {
 }
 
 float IRController::getMiddleDistance() {
-    return getDistanceFromSensor(0);
+    return getDistanceFromSensor(1);
 }
 
 float IRController::getRightDistance() {
@@ -83,7 +83,7 @@ int IRController::getSum() {
     if (rightDif-preRight < -1 && preRight != 0){
     	throw 1;
     }
-    if (getLeftDistance()<6){
+    if (getLeftDistance()<9){
     	throw 2;
     }
     preRight = rightDif;
@@ -101,7 +101,7 @@ double IRController::update() {
 }
 
 bool IRController::inMaze() {
-    if (getLeftDistance() < 5 && getRightDistance() < 5) {
+    if (getRightDistance() < 10) {
         return 1;
     }
     return 0;
