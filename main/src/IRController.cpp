@@ -83,7 +83,7 @@ int IRController::getSum() {
     if (rightDif-preRight < -1 && preRight != 0){
     	throw 1;
     }
-    if (getLeftDistance()<5){
+    if (getLeftDistance()<6){
     	throw 2;
     }
     preRight = rightDif;
