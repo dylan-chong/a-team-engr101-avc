@@ -14,10 +14,6 @@ void sleepMillis(int millis) {
 int main() {
     init(0);
 
-    set_motor(1, 255);
-    set_motor(2, 255);
-    sleepMillis(2000);
-
     while (true) {
         set_motor(1, 5);
         set_motor(2, 5);
