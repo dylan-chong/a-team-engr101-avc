@@ -90,7 +90,7 @@ void MotorController::rotateLeft() {
 }
 
 void MotorController::rotateLeftIR() {
-    setLeft((int) (LEFT_MIN * .6));
+    setLeft((int) (LEFT_MIN * .5));
     setRight((int) (RIGHT_MAX * .5));
 }
 // turn right on the spot

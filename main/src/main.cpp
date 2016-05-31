@@ -89,9 +89,12 @@ int main() {
                 printf("RIGHT CORNER\n");
     		} else if (e == 2){
     			motor_controller->moveBackward();
-    			sleepMillis(250);
-    			motor_controller->rotateLeftIR();
-    			sleepMillis(500);
+    			sleepMillis(450);
+    			motor_controller->arc(-1, .8);
+    			//motor_controller->rotateLeftIR();
+    			sleepMillis(650);
+    			motor_controller->moveForward();
+    			sleepMillis(80);
     			printf("LEFT CORNER\n");
     		}
     	}
