@@ -341,3 +341,62 @@ Extra Info
 - Dylan
     - Wrote some code to detect the number of whites in the left, centre, and right sections of the camera (using Andrew's idea) and throw errors if there is enough in appropriate sections to show that there is an intersetion 
     - Worked with Andrew to get the robot to follow the left turn at intersections
+
+
+[//]: **********************************************************************
+---
+[//]: **********************************************************************
+
+<h3>Week 13 (Mon 23 - Sun 29 May)</h3>
+
+<h4>Daily Log</h4>
+
+<h5>Monday 23/05/16</h5>
+- Dylan
+    - Added some more calibrated motor speeds
+    - Calibrated left and right rotation in movement test module
+    - Merged the camera, movement and pid code in the camera test module
+    - Modified pid code to get it to work
+    - Removed some blue tack on the robot and helped Ahmed with building the new design
+
+<h5>Tuesday 24/05/16</h5>
+- Dylan
+    - Calibrated some more motor speeds
+    - Found problem causing motor controller not working 
+    - Testing PID and trying to get it working in real life
+
+
+<h5>Wednesday 25/05/16</h5>
+- Dylan
+    - Tidied up code in the main project
+    - Working with Andrew trying to get the PID working
+    - Got a very basic line following algorithm to work 
+
+
+<h5>Thursday 26/05/16</h5>
+- Dylan
+    - Recalibrated even motor speeds with Daniel (with the small wheels)
+    - Recalibrated P and D values in PidController.cpp with Andrew
+
+<h5>Friday 27/05/16</h5>
+- Dylan
+    - Wrote some code to detect the number of whites in the left, centre, and right sections of the camera (using Andrew's idea) and throw errors if there is enough in appropriate sections to show that there is an intersetion 
+    - Worked with Andrew to get the robot to follow the left turn at intersections
+
+
+[//]: **********************************************************************
+---
+[//]: **********************************************************************
+
+<h3>Week 14 (Mon 30 May  - Wed 02 June)</h3>
+
+<h4>Daily Log</h4>
+
+<h5>Monday 30/05/16</h5>
+- Working on navigating intersections on the line
+
+<h5>Tuesday 01/06/16</h5>
+- Worked with Andrew (and Ben and Jonah) adjusting line PID, line navigation, and turning in the maze 
+
+<h5>Wednesday 02/06/16</h5>
+- Competition day
